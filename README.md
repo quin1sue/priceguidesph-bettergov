@@ -1,6 +1,6 @@
 # Ekonotrack
 
-**Ekonotrack** is an economic and financial data platform designed to promote transparency and awareness. It collects, parses, and shares financial and economic information such as gas prices, market prices, currency exchange rates, and more. The platform makes this data accessible through an API for developers and users alike.
+**Ekonotrack** is an economic and financial data platform designed to promote transparency and awareness. It collects, parses, and shares financial and economic information such as gas prices, market prices, currency exchange rates, and more. 
 
 ---
 
