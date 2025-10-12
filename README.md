@@ -1,6 +1,6 @@
 # Ekonotrack
 
-**Ekonotrack** is an economic and financial data platform designed to promote transparency and awareness. It collects, parses, and shares financial and economic information such as gas prices, market prices, currency exchange rates, and more. 
+**Ekonotrack** is an economic and financial data platform designed to promote transparency and awareness. It collects, parses, and shares financial and economic information such as gas prices, market prices, currency exchange rates, and more.
 
 ---
 
@@ -16,7 +16,7 @@
 ## Tech Stack
 
 - [Next.js](https://nextjs.org/) – Frontend and API routes
-- [Puppeteer](https://pptr.dev/) – Web scraping PDFs and data
+- [Playwright](https://playwright.dev/) – Web scraping PDFs and data
 - [TypeScript](https://www.typescriptlang.org/) – Type-safe code
 - [Vercel](https://vercel.com/) – Hosting and deployment
 - [`pdf-parse`](https://www.npmjs.com/package/pdf-parse) – PDF parsing library
@@ -25,7 +25,7 @@
 | ----------- | ----------- | ---------------------------------- |
 | Frontend    | Next.js     | Render UI, call API                |
 | API Routes  | Next.js API | Serve JSON, trigger scraping       |
-| Web Scraper | Puppeteer   | Fetch PDF URLs, metadata, etc.     |
+| Web Scraper | Playwright  | Fetch PDF URLs, metadata, etc.     |
 | PDF Parsing | `pdf-parse` | Extract tables from PDFs into JSON |
 
 ---

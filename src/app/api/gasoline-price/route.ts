@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { chromium } from "playwright";
 
-let cachedResult: any = null;
+let cachedResult: unknown = null;
 let lastFetched: number | null = null;
 const CACHE_DURATION = 1000 * 60 * 15; // 15 minutes
 
-export async function GET(_req: NextRequest) {
+export async function GET() {
   const now = Date.now();
 
   if (cachedResult && lastFetched && now - lastFetched < CACHE_DURATION) {

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { chromium } from "playwright";
 import { parseDaPdf } from "@/functions/parseDaPdf";
 import { MainJson } from "@/functions/types";
@@ -7,7 +7,7 @@ let cache: MainJson | null = null;
 let lastFetched: number | null = null;
 const CACHE_DURATION = 1000 * 60 * 60 * 6;
 
-export async function GET(_req: NextRequest) {
+export async function GET() {
   const now = Date.now();
 
   if (cache && lastFetched && now - lastFetched < CACHE_DURATION) {

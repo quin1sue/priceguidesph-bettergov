@@ -4,14 +4,15 @@ import { FxRates } from "@/components/custom/searchparams/exchangeRate";
 import { GasolineDataTable } from "@/components/custom/searchparams/gasolinedashboard";
 import { DaPdfDataTable } from "@/components/custom/searchparams/market";
 
-type SearchParams = {
-  searchParams?: {
-    [key: string]: string | string[] | undefined;
-  };
-};
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
-export default async function Page({ searchParams }: SearchParams) {
-  const url = (await searchParams)?.where;
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const params = await searchParams;
+  const url = (params["where"] as string) || "";
 
   return (
     <>

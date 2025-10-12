@@ -44,12 +44,6 @@ importers:
       pdf-parse:
         specifier: ^2.2.6
         version: 2.2.6
-      pdf2json:
-        specifier: ^3.2.2
-        version: 3.2.2
-      pdfjs-dist:
-        specifier: ^5.4.296
-        version: 5.4.296
       playwright:
         specifier: ^1.56.0
         version: 1.56.0
@@ -2005,12 +1999,6 @@ packages:
   pdf-parse@2.2.6:
     resolution: {integrity: sha512-TSfwr4cSMTGazmKWw+thTeCfnIYMahcBCGCBNwxfTOKThHeSeajdQd2mkclmwdZJV7letkhie4KIYe9ys6LWWQ==}
     engines: {node: '>=20.16.0 <21 || >=22.3.0'}
-
-  pdf2json@3.2.2:
-    resolution: {integrity: sha512-DgtH8GId1/+oj8n9yYEmhTq1QkxOZZzqHJhHEa1bmtV3t3/u2YsE3LSvRUNpVRWVXRcCdn+3Tu6+mD2YXKL7lA==}
-    engines: {node: '>=20.18.0'}
-    hasBin: true
-    bundledDependencies: []
 
   pdfjs-dist@5.4.296:
     resolution: {integrity: sha512-DlOzet0HO7OEnmUmB6wWGJrrdvbyJKftI1bhMitK7O2N8W2gc757yyYBbINy9IDafXAV9wmKr9t7xsTaNKRG5Q==}
@@ -4364,8 +4352,6 @@ snapshots:
       pdfjs-dist: 5.4.296
     optionalDependencies:
       '@napi-rs/canvas': 0.1.80
-
-  pdf2json@3.2.2: {}
 
   pdfjs-dist@5.4.296:
     optionalDependencies:

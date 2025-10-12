@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ElectricityPriceData } from "@/functions/types";
+import { TableSkeleton } from "../global/skeleton";
 
 export function ElectricityDataTable() {
   const [data, setData] = useState<ElectricityPriceData | null>(null);
@@ -17,26 +18,38 @@ export function ElectricityDataTable() {
     fetchElectricityData();
   }, []);
 
-  if (loading) return <p className="text-gray-500">Loading...</p>;
+  if (loading) return <TableSkeleton />;
   if (data?.error) return <p className="text-red-500">{data.error}</p>;
 
   return (
-    <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)]">
-      <header className="p-4 bg-gray-100 rounded-xl">
+    <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)] p-4">
+      <header className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
         <p className="text-sm text-gray-700">
           {data?.metadata.description}{" "}
           <a
-            className="underline font-bold"
+            className="underline font-semibold text-blue-700"
             href="https://www.globalpetrolprices.com/data_electricity_download.php"
             target="_blank"
           >
             Here
           </a>
         </p>
+        <p className="mt-2">
+          Source&#58;{" "}
+          <a
+            className="underline font-semibold text-blue-700"
+            href="https://www.globalpetrolprices.com/Philippines/electricity_prices/"
+            target="_blank"
+          >
+            globalpetrolprices.com
+          </a>
+        </p>
       </header>
 
       <section>
-        <h2 className="text-xl font-bold">Electricity Prices</h2>
+        <h2 className="text-lg font-semibold mb-2 text-gray-900">
+          Electricity Prices
+        </h2>
         <table className="w-full border border-gray-300 rounded-lg">
           <tbody>
             {data?.prices.map((item, idx) => (
@@ -50,17 +63,18 @@ export function ElectricityDataTable() {
       </section>
 
       <section>
-        <h2 className="text-xl font-bold">Production Sources</h2>
-        <p>
-          Based on the United States Energy Information Adminstration data,
-          electricity in the Philippines is produced from the following sources:
+        <h2 className="text-lg font-semibold mb-2 text-gray-900">
+          Production Sources
+        </h2>
+        <p className="text-sm text-gray-700 mb-2">
+          Based on the United States Energy Information Administration data:
         </p>
         <table className="w-full border border-gray-300 rounded-lg">
           <tbody>
             {data?.production.map((item, idx) => (
               <tr key={idx} className="border-b border-gray-200">
                 <td className="p-2 font-medium">{item.what}</td>
-                <td className="p-2">{item.value}&#37;</td>
+                <td className="p-2">{item.value}%</td>
               </tr>
             ))}
           </tbody>

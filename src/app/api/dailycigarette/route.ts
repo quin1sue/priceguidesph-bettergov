@@ -1,12 +1,12 @@
 import { parseDaPdfCig } from "@/functions/parseCigPdf";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { chromium } from "playwright";
 
-let cachedResult: any = null;
+let cachedResult: unknown = null;
 let lastFetched: number | null = null;
 const CACHE_DURATION = 1000 * 60 * 60 * 6;
 
-export async function GET(_req: NextRequest) {
+export async function GET() {
   const now = Date.now();
 
   if (cachedResult && lastFetched && now - lastFetched < CACHE_DURATION) {

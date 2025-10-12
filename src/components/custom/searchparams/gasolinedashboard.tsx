@@ -2,6 +2,13 @@
 
 import { GasolinePrice } from "@/functions/types";
 import { useEffect, useState } from "react";
+import { TableSkeleton } from "../global/skeleton";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 type GasolinePriceOrError = GasolinePrice & { error?: string };
 
@@ -19,56 +26,89 @@ export function GasolineDataTable() {
     fetchGasolineData();
   }, []);
 
-  if (loading) return <p className="text-gray-500">Loading...</p>;
+  if (loading) return <TableSkeleton />;
   if (data?.error) return <p className="text-red-500">{data.error}</p>;
 
   return (
-    <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)]">
-      <header className="p-4 bg-gray-100 rounded-xl">
+    <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)] p-4">
+      <header className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
         <p className="text-sm text-gray-700">{data?.metadata.description}</p>
+        <p className="mt-2">
+          Source&#58;{" "}
+          <a
+            className="underline font-semibold text-blue-700"
+            href="https://www.globalpetrolprices.com/Philippines/gasoline_prices/"
+            target="_blank"
+          >
+            globalpetrolprices.com
+          </a>
+        </p>
       </header>
 
-      <section>
-        <h2 className="text-xl font-bold">Gasoline Prices &#40;PHP&#41;</h2>
-        <table className="w-full border border-gray-300 rounded-lg">
-          <tbody>
-            {data?.gasolinePricesPHP.map((item: any, idx: number) => (
-              <tr key={idx} className="border-b border-gray-200">
-                <td className="p-2 font-medium">{item.what}</td>
-                <td className="p-2">{item.value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      <Accordion type="single" collapsible className="space-y-3">
+        <AccordionItem
+          value="prices"
+          className="border rounded-lg bg-white shadow-sm"
+        >
+          <AccordionTrigger className="px-4 py-3 font-semibold text-gray-900 hover:text-blue-700">
+            Gasoline Prices (PHP)
+          </AccordionTrigger>
+          <AccordionContent className="px-4 pb-4">
+            <table className="w-full border border-gray-300 rounded-lg">
+              <tbody>
+                {data?.gasolinePricesPHP.map((item, idx) => (
+                  <tr key={idx} className="border-b border-gray-200">
+                    <td className="p-2 font-medium">{item.what}</td>
+                    <td className="p-2">{item.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </AccordionContent>
+        </AccordionItem>
 
-      <section>
-        <h2 className="text-xl font-bold">Analytics</h2>
-        <table className="w-full border border-gray-300 rounded-lg">
-          <tbody>
-            {data?.analytics.map((item: any, idx: number) => (
-              <tr key={idx} className="border-b border-gray-200">
-                <td className="p-2 font-medium">{item.what}</td>
-                <td className="p-2">{item.value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+        <AccordionItem
+          value="analytics"
+          className="border rounded-lg bg-white shadow-sm"
+        >
+          <AccordionTrigger className="px-4 py-3 font-semibold text-gray-900 hover:text-blue-700">
+            Analytics
+          </AccordionTrigger>
+          <AccordionContent className="px-4 pb-4">
+            <table className="w-full border border-gray-300 rounded-lg">
+              <tbody>
+                {data?.analytics.map((item, idx) => (
+                  <tr key={idx} className="border-b border-gray-200">
+                    <td className="p-2 font-medium">{item.what}</td>
+                    <td className="p-2">{item.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </AccordionContent>
+        </AccordionItem>
 
-      <section>
-        <h2 className="text-xl font-bold">General Info</h2>
-        <table className="w-full border border-gray-300 rounded-lg">
-          <tbody>
-            {data?.generalInfo.map((item: any, idx: number) => (
-              <tr key={idx} className="border-b border-gray-200">
-                <td className="p-2 font-medium">{item.what}</td>
-                <td className="p-2">{item.value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+        <AccordionItem
+          value="general-info"
+          className="border rounded-lg bg-white shadow-sm"
+        >
+          <AccordionTrigger className="px-4 py-3 font-semibold text-gray-900 hover:text-blue-700">
+            General Info
+          </AccordionTrigger>
+          <AccordionContent className="px-4 pb-4">
+            <table className="w-full border border-gray-300 rounded-lg">
+              <tbody>
+                {data?.generalInfo.map((item, idx) => (
+                  <tr key={idx} className="border-b border-gray-200">
+                    <td className="p-2 font-medium">{item.what}</td>
+                    <td className="p-2">{item.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </main>
   );
 }

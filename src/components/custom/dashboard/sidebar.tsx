@@ -4,6 +4,8 @@ import {
   PlugZap,
   Fuel,
   PhilippinePeso,
+  ChartNoAxesGantt,
+  BusFront,
 } from "lucide-react";
 
 import {
@@ -16,6 +18,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import Link from "next/link";
 
 // Menu items.
 const items = [
@@ -42,18 +45,41 @@ const items = [
   { title: "Exchange Currency Rates", url: "/dashboard", icon: PhilippinePeso },
 ];
 
+const secondItems = [
+  {
+    title: "Daily Minimum Wage Rates",
+    url: "https://nwpc.dole.gov.ph/#dmwr",
+    icon: ChartNoAxesGantt,
+  },
+  {
+    title: "Fare Rates",
+    url: "https://ltfrb.gov.ph/fare-rates/",
+    icon: BusFront,
+  },
+];
 export function AppSidebar() {
   return (
-    <Sidebar className="mt-[5em] overflow-hidden">
+    <Sidebar className="mt-[5em] overflow-hidden z-20">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Index</SidebarGroupLabel>
+          <SidebarGroupLabel>Economic Indicators</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
+                      <item.icon color="blue" />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+              <SidebarGroupLabel>External Sources</SidebarGroupLabel>
+              {secondItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url} target="_blank">
                       <item.icon color="blue" />
                       <span>{item.title}</span>
                     </a>

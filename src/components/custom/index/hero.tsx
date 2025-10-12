@@ -7,7 +7,6 @@ import {
   Euro,
   CreditCard,
   Activity,
-  Zap,
   Clock,
 } from "lucide-react";
 import Link from "next/link";
@@ -54,13 +53,13 @@ export const HeroIndex = () => {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [displayCurrencies.length]);
 
   const currentCurrency = displayCurrencies[currentIndex];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 mt-[20px] h-[80vh] px-6 md:px-16 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20">
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.15),transparent_60%)]"></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 mt-[20px] h-[80vh] md:px-16 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20">
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.15),transparent_60%)]" />
 
       {/* LEFT CONTENT */}
       <article className="relative max-md:flex-col max-md:items-center max-md:justify-center z-10 md:w-1/2 text-center md:text-left space-y-5">
@@ -109,7 +108,7 @@ export const HeroIndex = () => {
             <p className="text-gray-500 text-sm mt-2">Loading rates...</p>
           )}
         </section>
-        <section className="bg-white/80 backdrop-blur-md shadow-lg border border-blue-100 rounded-2xl p-5 flex flex-col gap-4">
+        <section className="bg-white/80 backdrop-blur-md shadow-lg border border-blue-100 rounded-2xl py-5 px-10 flex flex-col gap-4">
           <header className="text-center">
             <h3 className="text-gray-700 font-semibold">Currency Info</h3>
           </header>
