@@ -13,8 +13,6 @@
 
 ---
 
-## Tech Stack
-
 ## Frontend:
 
 - [Next.js](https://nextjs.org/) – Frontend and API routes
