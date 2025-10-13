@@ -42,7 +42,9 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "puppeteer"
+      "@tailwindcss/oxide",
+      "sharp",
+      "unrs-resolver"
     ]
   }
 }

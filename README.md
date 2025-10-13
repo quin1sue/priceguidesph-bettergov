@@ -15,18 +15,27 @@
 
 ## Tech Stack
 
+## Frontend:
+
 - [Next.js](https://nextjs.org/) – Frontend and API routes
-- [Playwright](https://playwright.dev/) – Web scraping PDFs and data
+- [Cheerio](https://cheerio.js.org/) – Web scraping PDFs and data
 - [TypeScript](https://www.typescriptlang.org/) – Type-safe code
 - [Vercel](https://vercel.com/) – Hosting and deployment
-- [`pdf-parse`](https://www.npmjs.com/package/pdf-parse) – PDF parsing library
+- [pdfjs-serverless](https://www.npmjs.com/package/pdfjs-serverless/v/0.5.0) – PDF parsing library
 
-| Layer       | Technology  | Purpose                            |
-| ----------- | ----------- | ---------------------------------- |
-| Frontend    | Next.js     | Render UI, call API                |
-| API Routes  | Next.js API | Serve JSON, trigger scraping       |
-| Web Scraper | Playwright  | Fetch PDF URLs, metadata, etc.     |
-| PDF Parsing | `pdf-parse` | Extract tables from PDFs into JSON |
+## Backend
+
+- [Hono.js](https://hono.dev/)
+- [SQLite](https://sqlite.org/) - Database
+- [Cloudflare-D1](https://developers.cloudflare.com/d1/) - Database Storage
+- [Cloudflare Workers](https://workers.cloudflare.com/) - Backend Hosting
+
+  | Layer       | Technology       | Purpose                            |
+  | ----------- | ---------------- | ---------------------------------- |
+  | Frontend    | Next.js          | Render UI, call API                |
+  | API Routes  | Next.js API      | Serve JSON, trigger scraping       |
+  | Web Scraper | Cheerio          | Fetch PDF URLs, metadata, etc.     |
+  | PDF Parsing | pdfjs-serverless | Extract tables from PDFs into JSON |
 
 ---
 

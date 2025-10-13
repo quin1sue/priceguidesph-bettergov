@@ -25,7 +25,7 @@ export default async function Page({
       ) : url === "cigarette" ? (
         <CigarettePriceList />
       ) : (
-        <FxRates />
+        <FxRates /> // default
       )}
     </>
   );
