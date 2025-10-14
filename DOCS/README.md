@@ -46,28 +46,10 @@ git clone https://github.com/quin1sue/ekonotrack-ph.bettergov.git
 cd <your_directory>
 ```
 
-2. **Install dependencies**
-   **Note**: You must have [pnpm](https://pnpm.io/installation) installed in your system.
+### DOCS
 
-```bash
-    pnpm install
-```
-
-3. **Set environment variables**
-
-Create a .env file at the root folder /app
-
-```bash
-FXRATES_API_KEY="<GET_YOUR_API_KEY>"
-```
-
-4. **Run the development server**
-
-```bash
-pnpm run dev
-```
-
-The app should now be running at http://localhost:3000
+Backend [DOCS](https://github.com/quin1sue/ekonotrack-ph.bettergov/blob/main/ekono-backend/README.md)
+Frontend [DOCS](https://github.com/quin1sue/ekonotrack-ph.bettergov/blob/main/frontend/README.md)
 
 ### Contributing
 

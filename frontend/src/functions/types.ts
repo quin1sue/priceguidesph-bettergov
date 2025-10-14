@@ -21,7 +21,22 @@ export type GasolinePrice = {
   generalInfo: { what: string; value: string | number }[];
   gasolinePricesPHP: { what: string; value: string | number }[];
 };
+export type KerosenePrice = {
+  metadata: {
+    description: string;
+  };
+  generalInfo: { what: string; value: string | number }[];
+  kerosenePricesPHP: { what: string; value: string | number }[];
+};
 
+export type DieselPrice = {
+  metadata: {
+    description: string;
+  };
+  analytics: { what: string; value: string | number }[];
+  generalInfo: { what: string; value: string | number }[];
+  dieselPricesPHP: { what: string; value: string | number }[];
+};
 export type ElectricityPriceData = {
   metadata: { description: string };
   prices: { what: string; value: string }[];

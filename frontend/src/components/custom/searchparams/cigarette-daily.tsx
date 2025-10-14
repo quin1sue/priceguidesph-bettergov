@@ -23,11 +23,18 @@ export const CigarettePriceList: React.FC = () => {
   const [data, setData] = useState<Commodity[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  let numberIndex: string[] = [];
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/api/dailycigarette");
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/cigarettes-index`,
+          {
+            method: "GET",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
         if (!res.ok) throw new Error("Failed to fetch data");
         const json = await res.json();
         setData(json);
@@ -40,7 +47,7 @@ export const CigarettePriceList: React.FC = () => {
 
     fetchData();
   }, []);
-
+  numberIndex = Array.from({ length: data?.length ?? 0 }, (_, i) => String(i));
   const cigaretteData = data?.filter((da) => da.items.length !== 0);
 
   if (loading) return <TableSkeleton />;
@@ -50,9 +57,14 @@ export const CigarettePriceList: React.FC = () => {
 
   return (
     <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-5em)] w-full">
-      <header className="p-4 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <header className="p-4 bg-white border border-gray-200 space-y-1 rounded-xl shadow-sm">
         <p className="text-sm text-gray-700">
-          <strong>Note&#58; </strong> n/a - not available in the market
+          <strong>Note&#58; </strong> n&#47;a - not available in the market
+        </p>
+        <p className="text-sm">
+          Prevailing Retail Prices of Cigarettes in Selected Retail
+          Establishments in the National Capital Region (NCR), by Brand
+          Name/Variant (PHP/pack)
         </p>
         <p className="mt-2 text-sm text-gray-700">
           Source&#58;
@@ -66,11 +78,15 @@ export const CigarettePriceList: React.FC = () => {
         </p>
       </header>
 
-      <Accordion type="single" collapsible className="space-y-3">
+      <Accordion
+        type="multiple"
+        defaultValue={numberIndex}
+        className="space-y-3"
+      >
         {cigaretteData?.map((section, idx) => (
           <AccordionItem
             key={idx}
-            value={`item-${idx}`}
+            value={`${idx}`}
             className="border border-gray-200 rounded-xl bg-white shadow-sm"
           >
             <AccordionTrigger className="px-4 py-3 text-left font-semibold text-gray-900 hover:text-blue-700 transition">
@@ -85,10 +101,10 @@ export const CigarettePriceList: React.FC = () => {
                       key={i}
                       className="py-2 flex justify-between hover:bg-gray-50 rounded-md px-1 transition"
                     >
-                      <span>{item.brandName}</span>
-                      <span className="font-medium">
+                      <p className="max-sm:text-sm">{item.brandName}</p>
+                      <p className="font-medium">
                         {item.price === "n/a" ? "N/A" : `₱${item.price}`}
-                      </span>
+                      </p>
                     </li>
                   ))}
                 </ul>

@@ -11,12 +11,19 @@ export const metadata: Metadata = {
   title: "EkonoTrack",
   description:
     "Ekonotrack is an economic and financial data platform aimed at promoting transparency and awareness.",
-  authors: [{ name: "Alquin Suedad", url: "https://github.com/quin1sue" }],
+  authors: [
+    { name: "Alquin Suedad", url: "https://github.com/quin1sue" },
+    {
+      name: "Sam Daniel Mugar",
+      url: "https://www.linkedin.com/in/sam-daniel-mugar/",
+    },
+  ],
   openGraph: {
     type: "website",
     title: "EkonoTrack",
     description:
       "Ekonotrack is an economic and financial data platform aimed at promoting transparency and awareness.",
+    url: "http:localhost:3000",
     images: [
       {
         url: "/ekonotrack-banner.png",
@@ -30,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "EkonoTrack",
     description:
-      "DisCode. A web application wherein you can run & compile your code script.",
+      "Ekonotrack is an economic and financial data platform aimed at promoting transparency and awareness.",
     images: ["/ekonotrack-banner.png"],
   },
 };

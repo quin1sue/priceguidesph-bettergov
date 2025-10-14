@@ -74,17 +74,21 @@ export async function parseDaPdfCig(url: string): Promise<Commodity[]> {
     const match = line.match(/^(.+?)\s+([0-9]+(?:\.[0-9]{2})?|n\/a)$/i);
     if (match && currentCommodity) {
       const brandName = match[1].trim();
+      const priceStr = match[2].toLowerCase();
 
+      // Skip entries where price is "n/a"
+      if (priceStr === "n/a") continue;
+
+      // Skip unwanted lines
       if (/Page\s+\d+\s+of/i.test(brandName)) continue;
       if (/^\d+\s+pack \(\d+ sticks/i.test(brandName)) continue;
       if (/^pack \(\d+ sticks/i.test(brandName)) continue;
 
-      const price =
-        match[2].toLowerCase() === "n/a" ? "n/a" : parseFloat(match[2]);
+      const price = parseFloat(priceStr);
 
       currentCommodity.items.push({ brandName, price });
     }
   }
-
-  return json;
+  const finalJson = json.filter((c) => c.items.length > 0);
+  return finalJson;
 }

@@ -6,6 +6,8 @@ import {
   PhilippinePeso,
   ChartNoAxesGantt,
   BusFront,
+  Bubbles,
+  Waves,
 } from "lucide-react";
 
 import {
@@ -22,15 +24,11 @@ import Link from "next/link";
 
 // Menu items.
 const items = [
+  { title: "Exchange Currency Rates", url: "/dashboard", icon: PhilippinePeso },
   {
     title: "Market Price Index",
     url: "/dashboard?where=daily-price-index",
     icon: ShoppingBasket,
-  },
-  {
-    title: "Electricity kWh",
-    url: "/dashboard?where=electricity-kwh",
-    icon: PlugZap,
   },
   {
     title: "Cigarette Price Index",
@@ -42,7 +40,12 @@ const items = [
     url: "/dashboard?where=gasoline-prices",
     icon: Fuel,
   },
-  { title: "Exchange Currency Rates", url: "/dashboard", icon: PhilippinePeso },
+  {
+    title: "Diesel Prices",
+    url: "/dashboard?where=diesel",
+    icon: Bubbles,
+  },
+  { title: "Kerosene Prices", url: "/dashboard?where=kerosene", icon: Waves },
 ];
 
 const secondItems = [
@@ -59,7 +62,7 @@ const secondItems = [
 ];
 export function AppSidebar() {
   return (
-    <Sidebar className="mt-[5em] overflow-hidden z-20">
+    <Sidebar className="mt-[4em] overflow-hidden z-20">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Economic Indicators</SidebarGroupLabel>

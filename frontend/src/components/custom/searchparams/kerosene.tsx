@@ -1,6 +1,6 @@
 "use client";
 
-import { GasolinePrice } from "@/functions/types";
+import { KerosenePrice } from "@/functions/types";
 import { useEffect, useState } from "react";
 import { TableSkeleton } from "../global/skeleton";
 import {
@@ -10,16 +10,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-type GasolinePriceOrError = GasolinePrice & { error?: string };
+type KerosenePriceOrError = KerosenePrice & { error?: string };
 
-export function GasolineDataTable() {
-  const [data, setData] = useState<GasolinePriceOrError | null>(null);
+export function KeroseneDataTable() {
+  const [data, setData] = useState<KerosenePriceOrError | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchGasolineData() {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/gasoline-prices`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/kerosene-prices`
       );
       const json = await res.json();
       setData(json);
@@ -62,28 +62,7 @@ export function GasolineDataTable() {
           <AccordionContent className="px-4 pb-4">
             <table className="w-full border border-gray-300 rounded-lg">
               <tbody>
-                {data?.gasolinePricesPHP.map((item, idx) => (
-                  <tr key={idx} className="border-b border-gray-200">
-                    <td className="p-2 font-medium">{item.what}</td>
-                    <td className="p-2">{item.value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem
-          value="analytics"
-          className="border rounded-lg bg-white shadow-sm"
-        >
-          <AccordionTrigger className="px-4 py-3 font-semibold text-gray-900 hover:text-blue-700">
-            Analytics
-          </AccordionTrigger>
-          <AccordionContent className="px-4 pb-4">
-            <table className="w-full border border-gray-300 rounded-lg">
-              <tbody>
-                {data?.analytics.map((item, idx) => (
+                {data?.kerosenePricesPHP.map((item, idx) => (
                   <tr key={idx} className="border-b border-gray-200">
                     <td className="p-2 font-medium">{item.what}</td>
                     <td className="p-2">{item.value}</td>

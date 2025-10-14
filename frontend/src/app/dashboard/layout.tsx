@@ -1,12 +1,13 @@
+import { NavDashboard } from "@/components/custom/dashboard/nav.dashboard";
 import { AppSidebar } from "@/components/custom/dashboard/sidebar";
-import { Nav } from "@/components/custom/global/nav";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Nav pos="static" />
-
+      {/* navigation */}
+      <NavDashboard />
+      {/* main contents in the dashboard */}
       <main className="flex items-center overflow-hidden">
         <SidebarProvider>
           <AppSidebar />

@@ -1,6 +1,7 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
+import { Env } from "hono";
 import * as cheerio from "cheerio";
-/*             :P              */
 import { parseDaPdfCig } from "./services/functions/market index/parsePdfCig";
 import { parseMarketPdf } from "./services/functions/market index/parsePdfMarket";
 import { scrapeGasolinePrices } from "./services/functions/fuel prices/gasoline-datafetch";
@@ -9,6 +10,16 @@ import { scrapeKerosenePrices } from "./services/functions/fuel prices/kerosene-
 
 const app = new Hono();
 
+//apply CORS
+app.use(
+  "/*",
+  cors({
+    origin: "https://ekonotrack-ph-bettergov.vercel.app", //frontend domain
+    allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 app.get("/cigarettes-index", async (c) => {
   const url: string = "https://www.da.gov.ph/price-monitoring/";
   try {

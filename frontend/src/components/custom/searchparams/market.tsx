@@ -20,18 +20,21 @@ type DaPdfCommodity = {
 };
 
 type DaPdfData = {
+  //extracted data from the BE
   date: string;
-  parsedPDF: DaPdfCommodity[];
+  marketPrice: DaPdfCommodity[];
   error?: string;
 };
 
 export function DaPdfDataTable() {
   const [data, setData] = useState<DaPdfData | null>(null);
   const [loading, setLoading] = useState(true);
-
+  let numberedArray: string[] = [];
   useEffect(() => {
     async function fetchDaPdfData() {
-      const res = await fetch("/api/latestmarketindex");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/market-price-index`
+      );
       const json = await res.json();
       setData(json);
       setLoading(false);
@@ -44,7 +47,10 @@ export function DaPdfDataTable() {
     return (
       <p className="text-red-500 text-center mt-10 text-sm">{data.error}</p>
     );
-
+  numberedArray = Array.from(
+    { length: data?.marketPrice.length ?? 0 },
+    (_, i) => String(i)
+  );
   return (
     <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)] w-full p-4">
       {/* Header */}
@@ -66,46 +72,55 @@ export function DaPdfDataTable() {
       </header>
 
       {/* Accordion */}
-      <Accordion type="single" collapsible className="space-y-3">
-        {data?.parsedPDF.map((commodityGroup, idx) => (
-          <AccordionItem
-            key={idx}
-            value={`item-${idx}`}
-            className="border border-gray-200 rounded-xl bg-white shadow-sm"
-          >
-            <AccordionTrigger className="px-4 py-3 text-left font-semibold text-gray-900 hover:text-blue-700 transition">
-              {commodityGroup.commodity}
-            </AccordionTrigger>
+      <Accordion
+        type="multiple"
+        defaultValue={numberedArray}
+        className="space-y-3"
+      >
+        {data?.marketPrice.map((commodityGroup, idx) => {
+          console.log(idx);
+          return (
+            <AccordionItem
+              key={idx}
+              value={`${idx}`}
+              className="border border-gray-200 rounded-xl bg-white shadow-sm"
+            >
+              <AccordionTrigger className="px-4 py-3 text-left font-semibold text-gray-900 hover:text-blue-700 transition">
+                {commodityGroup.commodity}
+              </AccordionTrigger>
 
-            <AccordionContent className="px-4 pb-4">
-              <div className="overflow-x-auto">
-                <table className="w-full border border-gray-200 rounded-lg text-sm">
-                  <thead className="bg-gray-100 text-gray-700">
-                    <tr>
-                      <th className="p-2 text-left font-medium">
-                        Specification
-                      </th>
-                      <th className="p-2 text-left font-medium">Price (₱)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {commodityGroup.items.map((item, itemIdx) => (
-                      <tr
-                        key={itemIdx}
-                        className="border-t border-gray-100 hover:bg-gray-50 transition"
-                      >
-                        <td className="p-2">{item.specification}</td>
-                        <td className="p-2">
-                          {item.price !== null ? item.price : "N/A"}
-                        </td>
+              <AccordionContent className="px-4 pb-4">
+                <div className="overflow-x-auto">
+                  <table className="w-full border border-gray-200 rounded-lg text-sm">
+                    <thead className="bg-gray-100 text-gray-700">
+                      <tr>
+                        <th className="p-2 text-left font-medium">
+                          Specification
+                        </th>
+                        <th className="p-2 text-left font-medium">
+                          Price &#40;&#8369;&#41;
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
+                    </thead>
+                    <tbody>
+                      {commodityGroup.items.map((item, itemIdx) => (
+                        <tr
+                          key={itemIdx}
+                          className="border-t border-gray-100 hover:bg-gray-50 transition"
+                        >
+                          <td className="p-2">{item.specification}</td>
+                          <td className="p-2">
+                            {item.price !== null ? item.price : "N/A"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          );
+        })}
       </Accordion>
     </main>
   );

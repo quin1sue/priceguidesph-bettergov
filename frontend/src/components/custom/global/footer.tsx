@@ -32,7 +32,12 @@ export const Footer = () => {
       <section className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <article>
           <header>
-            <h3 className="text-white font-semibold text-lg mb-4">About</h3>
+            <Link
+              href={"/about"}
+              className="underline text-white font-semibold text-lg mb-4"
+            >
+              About
+            </Link>
           </header>
           <p className="text-sm leading-relaxed text-gray-400">
             <strong>EkonoTrack</strong> provides economic and financial
