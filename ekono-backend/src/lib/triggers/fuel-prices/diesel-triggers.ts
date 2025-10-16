@@ -10,6 +10,18 @@ async function insertFuelData(
   scraped: ScrapedFuelData,
   sections: { name: string; items: any[] }[]
 ) {
+  const duplicate = await db
+    .prepare(`SELECT id FROM FuelType WHERE date = ? AND name = ?`)
+    .bind(scraped.date, fuelName)
+    .first();
+
+  if (duplicate) {
+    return {
+      success: false,
+      message: "Data already exists for this date",
+      date: scraped.date,
+    };
+  }
   const fuelId = crypto.randomUUID();
   await db
     .prepare(

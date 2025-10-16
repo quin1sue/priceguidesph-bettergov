@@ -14,6 +14,19 @@ export async function insertMarketData(db: D1Database) {
   const pdfDate = latestElement.text().trim();
   const latestHref = latestElement.attr("href") as string;
 
+  //checks duplicates
+  const existing = await db
+    .prepare(`SELECT id FROM PriceGroup WHERE date = ? AND category = ?`)
+    .bind(pdfDate, "market")
+    .first();
+
+  if (existing) {
+    return {
+      success: false,
+      message: "Data already exists for this date",
+      date: pdfDate,
+    };
+  }
   const commodities: MarketCommodity[] = await parseMarketPdf(latestHref);
 
   const groupId = crypto.randomUUID();

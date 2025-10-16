@@ -13,9 +13,20 @@ export async function insertCigaretteData(db: D1Database) {
   const pdfDate = latestElement.text().trim();
   const latestHref = latestElement.attr("href") as string;
 
+  const existing = await db
+    .prepare(`SELECT id FROM PriceGroup WHERE date = ? AND category = ?`)
+    .bind(pdfDate, "market")
+    .first();
+
+  if (existing) {
+    return {
+      success: false,
+      message: "Data already exists for this date",
+      date: pdfDate,
+    };
+  }
   const commodities: MarketCommodity[] = await parseDaPdfCig(latestHref);
 
-  // Insert a PriceGroup for cigarettes
   const groupId = crypto.randomUUID();
   await db
     .prepare(`INSERT INTO PriceGroup (id, date, category) VALUES (?, ?, ?)`)

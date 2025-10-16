@@ -114,9 +114,6 @@ export default {
   ) {
     switch (controller.cron) {
       case "0 0 * * 2":
-        ctx.waitUntil(insertAllFuels(env.MY_DB));
-        break;
-      case "0 15 * * *":
         ctx.waitUntil(
           (async () => {
             try {
