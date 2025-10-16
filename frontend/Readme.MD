@@ -3,7 +3,7 @@
 1. Clone the Repository
 
 ```bash
-git clone https://github.com/quin1sue/ekonotrack-ph.bettergov.git
+git clone https://github.com/quin1sue/priceguidesph-bettergov.git
 cd <your_directory>
 cd frontend
 ```
@@ -30,3 +30,14 @@ NEXT_PUBLIC_BACKEND_URL="<BACKEND_URL>"
 ```bash
 pnpm run dev
 ```
+
+### Folders
+
+- [Routes](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/app)
+  - [About](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/app/about)
+  - [Index](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/app)
+  - [Dashboard](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/app/dashboard)
+
+* [Images](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/public)
+* [Components](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/components)
+* [Functions/Types](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/functions)

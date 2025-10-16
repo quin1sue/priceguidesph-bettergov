@@ -1,14 +1,13 @@
 import * as cheerio from "cheerio";
 
 type RowData = {
-  what: string;
+  specification: string;
   value: string;
 };
 
 type ScrapedData = {
-  metadata: {
-    description: string;
-  };
+  description: string;
+  date: string;
   generalInfo: RowData[];
   kerosenePricesPHP: RowData[];
 };
@@ -42,22 +41,20 @@ export async function scrapeKerosenePrices(): Promise<ScrapedData> {
 
     const html = await response.text();
     const $ = cheerio.load(html);
-
+    const date: string = $("#graphPageLeft h1").text();
     // Extract table rows
     const rowsData: RowData[] = [];
     $("tbody tr").each((_, row) => {
       const cells = $(row).find("td");
-      const what = $(cells[0]).text().trim();
+      const specification = $(cells[0]).text().trim();
       const value = $(cells[1]).text().trim();
 
-      if (what && value) {
-        rowsData.push({ what, value });
+      if (specification && value) {
+        rowsData.push({ specification, value });
       }
     });
 
-    const metadata = {
-      description: $("meta[name=Description]").attr("content") || "",
-    };
+    const metadata = $("meta[name=Description]").attr("content") || "";
 
     //keyword to MATCH the columns and rows
     const generalKeywords = [
@@ -79,7 +76,7 @@ export async function scrapeKerosenePrices(): Promise<ScrapedData> {
     const kerosenePricesPHP: RowData[] = [];
 
     for (const row of rowsData) {
-      const lower = row.what.toLowerCase();
+      const lower = row.specification.toLowerCase();
       if (generalKeywords.some((k) => lower.includes(k))) {
         generalInfo.push(row);
       } else if (recentKeywords.some((k) => lower.includes(k))) {
@@ -88,7 +85,8 @@ export async function scrapeKerosenePrices(): Promise<ScrapedData> {
     }
 
     const result: ScrapedData = {
-      metadata,
+      description: metadata,
+      date,
       generalInfo,
       kerosenePricesPHP,
     };

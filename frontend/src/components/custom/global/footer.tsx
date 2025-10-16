@@ -22,7 +22,7 @@ export const Footer = () => {
       ["Discord", "https://discord.gg/RpYZyCupuj", FaDiscord],
       [
         "Contributions are welcome!",
-        "https://github.com/quin1sue/ekonotrack-ph.bettergov",
+        "https://github.com/quin1sue/priceguidesph-bettergov",
         FaGithub,
       ],
     ];
@@ -40,7 +40,7 @@ export const Footer = () => {
             </Link>
           </header>
           <p className="text-sm leading-relaxed text-gray-400">
-            <strong>EkonoTrack</strong> provides economic and financial
+            <strong>PhPriceGuides</strong> provides economic and financial
             transparency for the Philippines. Tracking fuel, energy, and market
             data to help citizens stay informed.
           </p>
@@ -113,8 +113,8 @@ export const Footer = () => {
 
       <section className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-500">
         &copy; {new Date().getFullYear()}{" "}
-        <span className="font-semibold text-white">EkonoTrack</span>. All rights
-        reserved.
+        <span className="font-semibold text-white">PhPriceGuides</span>. All
+        rights reserved.
       </section>
     </footer>
   );

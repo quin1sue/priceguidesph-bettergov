@@ -10,20 +10,27 @@ import {
 } from "@/components/ui/accordion";
 
 type Item = {
-  brandName: string;
+  specification: string;
   price: number | string;
 };
 
-type Commodity = {
+type CommoditySection = {
   commodity: string;
   items: Item[];
 };
 
+type PriceListData = {
+  date: string;
+  category: string;
+  commodities: CommoditySection[];
+};
+
 export const CigarettePriceList: React.FC = () => {
-  const [data, setData] = useState<Commodity[] | null>(null);
+  // Use the updated type for state
+  const [data, setData] = useState<PriceListData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  let numberIndex: string[] = [];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,7 +43,7 @@ export const CigarettePriceList: React.FC = () => {
           }
         );
         if (!res.ok) throw new Error("Failed to fetch data");
-        const json = await res.json();
+        const json: PriceListData = await res.json();
         setData(json);
       } catch (err) {
         setError(err instanceof Error ? err.message : String(err));
@@ -47,12 +54,12 @@ export const CigarettePriceList: React.FC = () => {
 
     fetchData();
   }, []);
-  numberIndex = Array.from({ length: data?.length ?? 0 }, (_, i) => String(i));
-  const cigaretteData = data?.filter((da) => da.items.length !== 0);
+
+  const initialDefaultValue = data?.commodities.map((_, i) => String(i)) || [];
 
   if (loading) return <TableSkeleton />;
   if (error) return <p className="p-4 text-red-500">Error: {error}</p>;
-  if (!data || data.length === 0)
+  if (!data || data.commodities.length === 0)
     return <p className="p-4 text-gray-500">No data available.</p>;
 
   return (
@@ -63,8 +70,8 @@ export const CigarettePriceList: React.FC = () => {
         </p>
         <p className="text-sm">
           Prevailing Retail Prices of Cigarettes in Selected Retail
-          Establishments in the National Capital Region (NCR), by Brand
-          Name/Variant (PHP/pack)
+          Establishments in the National Capital Region &#40;NCR&#41;, by Brand
+          Name/Variant &#40;PHP&#47;pack&#41;
         </p>
         <p className="mt-2 text-sm text-gray-700">
           Source&#58;
@@ -72,6 +79,7 @@ export const CigarettePriceList: React.FC = () => {
             className="underline font-semibold text-blue-700 ml-1"
             href="https://www.da.gov.ph/price-monitoring/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Department of Agriculture
           </a>
@@ -80,10 +88,10 @@ export const CigarettePriceList: React.FC = () => {
 
       <Accordion
         type="multiple"
-        defaultValue={numberIndex}
+        defaultValue={initialDefaultValue}
         className="space-y-3"
       >
-        {cigaretteData?.map((section, idx) => (
+        {data.commodities.map((section, idx) => (
           <AccordionItem
             key={idx}
             value={`${idx}`}
@@ -101,10 +109,8 @@ export const CigarettePriceList: React.FC = () => {
                       key={i}
                       className="py-2 flex justify-between hover:bg-gray-50 rounded-md px-1 transition"
                     >
-                      <p className="max-sm:text-sm">{item.brandName}</p>
-                      <p className="font-medium">
-                        {item.price === "n/a" ? "N/A" : `₱${item.price}`}
-                      </p>
+                      <p className="max-sm:text-sm">{item.specification}</p>
+                      <p className="font-medium">{`₱${item.price}`}</p>
                     </li>
                   ))}
                 </ul>

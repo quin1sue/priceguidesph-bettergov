@@ -1,8 +1,9 @@
 import { getDocument } from "pdfjs-serverless";
+import { MarketCommodity } from "../../../lib/types/market-types";
 
 type Item = {
   specification: string;
-  price: number | string;
+  price: number;
 };
 
 type Commodity = {
@@ -10,7 +11,7 @@ type Commodity = {
   items: Item[];
 };
 
-export async function parseMarketPdf(url: string): Promise<Commodity[]> {
+export async function parseMarketPdf(url: string): Promise<MarketCommodity[]> {
   // fetch PDF from URL
   const response = await fetch(url);
   if (!response.ok) throw new Error("Failed to fetch PDF");
@@ -51,7 +52,7 @@ export async function parseMarketPdf(url: string): Promise<Commodity[]> {
     }
   }
 
-  const json: Commodity[] = [];
+  const json: MarketCommodity[] = [];
   let currentCommodity: Commodity | null = null;
 
   for (const line of allLines) {
@@ -82,6 +83,7 @@ export async function parseMarketPdf(url: string): Promise<Commodity[]> {
 
       const price =
         match[2].toLowerCase() === "n/a" ? "n/a" : parseFloat(match[2]);
+      if (price === "n/a") continue;
       currentCommodity.items.push({ specification, price });
     }
   }

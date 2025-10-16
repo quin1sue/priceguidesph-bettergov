@@ -11,21 +11,21 @@ export default function Page() {
       <main className="mt-[10px] min-h-screen w-full flex flex-col items-center bg-gray-50 pt-[6rem] px-4 sm:px-8">
         <article className="flex text-sm flex-col items-center max-w-4xl space-y-8 text-gray-700">
           <Image
-            src="/ekonotrack-banner-blue.png"
-            alt="EkonoTrack Banner"
+            src="/banner-blue.png"
+            alt="Ph Price Guides Banner"
             width={900}
             height={900}
             className="w-full max-w-3xl rounded-lg shadow-md"
           />
           <section className="flex flex-col items-start space-y-2 w-full">
             <h2 className="text-xl font-bold flex items-center gap-2">
-              <Globe className="w-5 h-5 text-blue-500" /> What is EkonoTrack?
+              <Globe className="w-5 h-5 text-blue-500" /> What is PhPriceGuides?
             </h2>
             <p className="text-gray-600">
-              &#8226; EkonoTrack is a public data platform that tracks essential
-              economic information such as market prices, fuel prices, currency
-              exchange rates, and other key indicators — promoting transparency
-              and awareness.
+              &#8226; PhPricesGuides is a public data platform that tracks
+              essential economic information such as market prices, fuel prices,
+              currency exchange rates, and other key indicators — promoting
+              transparency and awareness.
             </p>
           </section>
           <section className="flex flex-col items-start space-y-2 w-full">
@@ -52,11 +52,11 @@ export default function Page() {
           </section>
           <section className="flex flex-col items-start space-y-2 w-full">
             <h2 className="text-xl font-bold flex items-center gap-2">
-              <Github className="w-5 h-5 text-gray-800" /> Is EkonoTrack open
+              <Github className="w-5 h-5 text-gray-800" /> Is PhPriceGuides open
               source?
             </h2>
             <p className="text-gray-600">
-              &#8226; Yes! EkonoTrack is open source. You can explore,
+              &#8226; Yes! PhPriceGuides is open source. You can explore,
               contribute, or deploy your own instance via our GitHub repository.
             </p>
           </section>

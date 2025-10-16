@@ -22,7 +22,7 @@ type DaPdfCommodity = {
 type DaPdfData = {
   //extracted data from the BE
   date: string;
-  marketPrice: DaPdfCommodity[];
+  commodities: DaPdfCommodity[];
   error?: string;
 };
 
@@ -48,7 +48,7 @@ export function DaPdfDataTable() {
       <p className="text-red-500 text-center mt-10 text-sm">{data.error}</p>
     );
   numberedArray = Array.from(
-    { length: data?.marketPrice.length ?? 0 },
+    { length: data?.commodities.length ?? 0 },
     (_, i) => String(i)
   );
   return (
@@ -77,8 +77,7 @@ export function DaPdfDataTable() {
         defaultValue={numberedArray}
         className="space-y-3"
       >
-        {data?.marketPrice.map((commodityGroup, idx) => {
-          console.log(idx);
+        {data?.commodities.map((commodityGroup, idx) => {
           return (
             <AccordionItem
               key={idx}

@@ -12,7 +12,7 @@ export function Logo() {
           width={900}
           className="w-[60px]"
         />
-        <span className="font-bold text-xl">EkonoTrack</span>
+        <span className="font-bold text-xl">PhPriceGuides</span>
       </Link>
       <small>promoting transparency and awareness.</small>
     </main>

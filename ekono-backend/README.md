@@ -1,7 +1,7 @@
 ### Getting Started
 
 ```bash
-git clone https://github.com/quin1sue/ekonotrack-ph.bettergov.git
+git clone https://github.com/quin1sue/priceguidesph-bettergov.git
 cd <your_directory>
 cd ekono-backend
 ```
@@ -20,11 +20,6 @@ pnpm install
 pnpm run dev
 ```
 
-### Folders
-
-- [Services and Functions](https://github.com/quin1sue/ekonotrack-ph.bettergov/tree/main/ekono-backend/src/services/functions)
-- [Connections](https://github.com/quin1sue/ekonotrack-ph.bettergov/blob/main/ekono-backend/wrangler.jsonc)
-
 ### Others
 
 [For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types)
@@ -35,3 +30,9 @@ Pass the `CloudflareBindings` as generics when instantiation `Hono`:
 // src/index.ts
 const app = new Hono<{ Bindings: CloudflareBindings }>();
 ```
+
+### Folders
+
+- [Services](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/ekono-backend/src/services/functions)
+- [Index](https://github.com/quin1sue/priceguidesph-bettergov/blob/main/ekono-backend/src/index.ts)
+- [Bindings](https://github.com/quin1sue/priceguidesph-bettergov/blob/main/ekono-backend/wrangler.jsonc)

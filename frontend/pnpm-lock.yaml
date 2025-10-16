@@ -69,9 +69,6 @@ importers:
       '@types/node':
         specifier: ^20
         version: 20.19.19
-      '@types/pdf-parse':
-        specifier: ^1.1.5
-        version: 1.1.5
       '@types/react':
         specifier: ^19
         version: 19.2.2
@@ -916,9 +913,6 @@ packages:
 
   '@types/node@20.19.19':
     resolution: {integrity: sha512-pb1Uqj5WJP7wrcbLU7Ru4QtA0+3kAXrkutGiD26wUKzSMgNNaPARTUDQmElUXp64kh3cWdou3Q0C7qwwxqSFmg==}
-
-  '@types/pdf-parse@1.1.5':
-    resolution: {integrity: sha512-kBfrSXsloMnUJOKi25s3+hRmkycHfLK6A09eRGqF/N8BkQoPUmaCr+q8Cli5FnfohEz/rsv82zAiPz/LXtOGhA==}
 
   '@types/react-dom@19.2.1':
     resolution: {integrity: sha512-/EEvYBdT3BflCWvTMO7YkYBHVE9Ci6XdqZciZANQgKpaiDRGOLIlRo91jbTNRQjgPFWVaRxcYc0luVNFitz57A==}
@@ -3112,10 +3106,6 @@ snapshots:
   '@types/node@20.19.19':
     dependencies:
       undici-types: 6.21.0
-
-  '@types/pdf-parse@1.1.5':
-    dependencies:
-      '@types/node': 20.19.19
 
   '@types/react-dom@19.2.1(@types/react@19.2.2)':
     dependencies:

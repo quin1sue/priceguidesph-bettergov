@@ -1,6 +1,6 @@
-# Ekonotrack
+# Philippines Price Guides
 
-**Ekonotrack** is an economic and financial data platform designed to promote transparency and awareness. It collects, parses, and shares financial and economic information such as gas prices, market prices, currency exchange rates, and more.
+**PhPriceGuides** is an economic and financial data platform designed to promote transparency and awareness. It collects, parses, and shares financial and economic information such as gas prices, market prices, currency exchange rates, and more.
 
 ---
 
@@ -25,15 +25,8 @@
 
 - [Hono.js](https://hono.dev/)
 - [SQLite](https://sqlite.org/) - Database
-- [Cloudflare-D1](https://developers.cloudflare.com/d1/) - Database Storage
-- [Cloudflare Workers](https://workers.cloudflare.com/) - Backend Hosting
-
-  | Layer       | Technology       | Purpose                            |
-  | ----------- | ---------------- | ---------------------------------- |
-  | Frontend    | Next.js          | Render UI, call API                |
-  | API Routes  | Next.js API      | Serve JSON, trigger scraping       |
-  | Web Scraper | Cheerio          | Fetch PDF URLs, metadata, etc.     |
-  | PDF Parsing | pdfjs-serverless | Extract tables from PDFs into JSON |
+- [D1](https://developers.cloudflare.com/d1/) - DB Hosting
+- [Workers](https://workers.cloudflare.com/) - Hosting
 
 ---
 
@@ -42,14 +35,14 @@
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/quin1sue/ekonotrack-ph.bettergov.git
+git clone https://github.com/quin1sue/priceguidesph-bettergov.git
 cd <your_directory>
 ```
 
 ### DOCS
 
-Backend [DOCS](https://github.com/quin1sue/ekonotrack-ph.bettergov/blob/main/ekono-backend/README.md)
-Frontend [DOCS](https://github.com/quin1sue/ekonotrack-ph.bettergov/blob/main/frontend/README.md)
+- Backend [DOCS](https://github.com/quin1sue/priceguidesph-bettergov/blob/main/ekono-backend/README.md)
+- Frontend [DOCS](https://github.com/quin1sue/priceguidesph-bettergov/blob/main/frontend/Readme.MD)
 
 ### Contributing
 

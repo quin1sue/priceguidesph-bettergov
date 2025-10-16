@@ -1,8 +1,8 @@
 import { getDocument } from "pdfjs-serverless";
-
+import { MarketCommodity } from "../../../lib/types/market-types";
 type Item = {
-  brandName: string;
-  price: number | string;
+  specification: string;
+  price: number;
 };
 
 type Commodity = {
@@ -10,7 +10,7 @@ type Commodity = {
   items: Item[];
 };
 
-export async function parseDaPdfCig(url: string): Promise<Commodity[]> {
+export async function parseDaPdfCig(url: string): Promise<MarketCommodity[]> {
   const response = await fetch(url);
   if (!response.ok) throw new Error("Failed to fetch PDF");
   const buffer = await response.arrayBuffer();
@@ -52,7 +52,7 @@ export async function parseDaPdfCig(url: string): Promise<Commodity[]> {
     }
   }
 
-  const json: Commodity[] = [];
+  const json: MarketCommodity[] = [];
   let currentCommodity: Commodity | null = null;
 
   for (const line of allItems) {
@@ -86,7 +86,7 @@ export async function parseDaPdfCig(url: string): Promise<Commodity[]> {
 
       const price = parseFloat(priceStr);
 
-      currentCommodity.items.push({ brandName, price });
+      currentCommodity.items.push({ specification: brandName, price });
     }
   }
   const finalJson = json.filter((c) => c.items.length > 0);

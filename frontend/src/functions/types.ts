@@ -14,32 +14,30 @@ export type MainJson = {
 };
 
 export type GasolinePrice = {
-  metadata: {
-    description: string;
-  };
-  analytics: { what: string; value: string | number }[];
-  generalInfo: { what: string; value: string | number }[];
-  gasolinePricesPHP: { what: string; value: string | number }[];
+  description: string;
+  date: string;
+  analytics: { specification: string; value: string | number }[];
+  generalInfo: { specification: string; value: string | number }[];
+  gasolinePricesPHP: { specification: string; value: string | number }[];
 };
 export type KerosenePrice = {
-  metadata: {
-    description: string;
-  };
-  generalInfo: { what: string; value: string | number }[];
-  kerosenePricesPHP: { what: string; value: string | number }[];
+  description: string;
+  date: string;
+  generalInfo: { specification: string; value: string | number }[];
+  kerosenePricesPHP: { specification: string; value: string | number }[];
 };
 
 export type DieselPrice = {
-  metadata: {
-    description: string;
-  };
-  analytics: { what: string; value: string | number }[];
-  generalInfo: { what: string; value: string | number }[];
-  dieselPricesPHP: { what: string; value: string | number }[];
+  description: string;
+  date: string;
+  analytics: { specification: string; value: string | number }[];
+  generalInfo: { specification: string; value: string | number }[];
+  dieselPricesPHP: { specification: string; value: string | number }[];
 };
 export type ElectricityPriceData = {
-  metadata: { description: string };
-  prices: { what: string; value: string }[];
-  production: { what: string; value: string }[];
+  description: string;
+  date: string;
+  prices: { specification: string; value: string }[];
+  production: { specification: string; value: string }[];
   error?: string;
 };

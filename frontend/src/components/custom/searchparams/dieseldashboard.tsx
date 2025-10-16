@@ -34,7 +34,7 @@ export function DieselDataTable() {
   return (
     <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)] p-4">
       <header className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
-        <p className="text-sm text-gray-700">{data?.metadata.description}</p>
+        <p className="text-sm text-gray-700">{data?.description}</p>
         <p className="mt-2">
           Source&#58;{" "}
           <a
@@ -64,7 +64,7 @@ export function DieselDataTable() {
               <tbody>
                 {data?.dieselPricesPHP.map((item, idx) => (
                   <tr key={idx} className="border-b border-gray-200">
-                    <td className="p-2 font-medium">{item.what}</td>
+                    <td className="p-2 font-medium">{item.specification}</td>
                     <td className="p-2">{item.value}</td>
                   </tr>
                 ))}
@@ -85,7 +85,7 @@ export function DieselDataTable() {
               <tbody>
                 {data?.analytics.map((item, idx) => (
                   <tr key={idx} className="border-b border-gray-200">
-                    <td className="p-2 font-medium">{item.what}</td>
+                    <td className="p-2 font-medium">{item.specification}</td>
                     <td className="p-2">{item.value}</td>
                   </tr>
                 ))}
@@ -106,7 +106,7 @@ export function DieselDataTable() {
               <tbody>
                 {data?.generalInfo.map((item, idx) => (
                   <tr key={idx} className="border-b border-gray-200">
-                    <td className="p-2 font-medium">{item.what}</td>
+                    <td className="p-2 font-medium">{item.specification}</td>
                     <td className="p-2">{item.value}</td>
                   </tr>
                 ))}

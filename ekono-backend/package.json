@@ -7,12 +7,13 @@
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
+    "@cloudflare/workers-types": "^4.20251011.0",
     "cheerio": "^1.1.2",
     "hono": "^4.9.11",
     "pdfjs-serverless": "^1.1.0"
   },
   "devDependencies": {
-    "wrangler": "^4.4.0"
+    "wrangler": "^4.43.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

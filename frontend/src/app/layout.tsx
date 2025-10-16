@@ -8,9 +8,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "EkonoTrack",
+  title: "Philippine Price Guides",
+  icons: "/icon.png",
   description:
-    "Ekonotrack is an economic and financial data platform aimed at promoting transparency and awareness.",
+    "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
   authors: [
     { name: "Alquin Suedad", url: "https://github.com/quin1sue" },
     {
@@ -18,27 +19,29 @@ export const metadata: Metadata = {
       url: "https://www.linkedin.com/in/sam-daniel-mugar/",
     },
   ],
+  metadataBase: new URL("http://localhost:3000"),
   openGraph: {
     type: "website",
-    title: "EkonoTrack",
+    title: "Philippine Price Guides",
     description:
-      "Ekonotrack is an economic and financial data platform aimed at promoting transparency and awareness.",
-    url: "http:localhost:3000",
+      "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
+    url: "http://localhost:3000",
     images: [
       {
-        url: "/ekonotrack-banner.png",
+        url: "/banner-white.png",
+
         width: 1200,
         height: 630,
-        alt: "EkonoTrack",
+        alt: "phpriceguides",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EkonoTrack",
+    title: "Philippine Price Guides",
     description:
-      "Ekonotrack is an economic and financial data platform aimed at promoting transparency and awareness.",
-    images: ["/ekonotrack-banner.png"],
+      "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
+    images: ["/banner-white.png"],
   },
 };
 

@@ -10,18 +10,18 @@ export function NavDashboard() {
         <Link href="/" className="flex items-center space-x-2">
           <Image
             src="/logo.svg"
-            alt="EkonoTrack Logo"
+            alt="Philippine Price Guides Logo"
             width={60}
             height={60}
             className="w-[40px] h-[40px]"
           />
-          <span className="font-bold text-lg">EkonoTrack</span>
+          <span className="font-bold text-lg">PhPriceGuides</span>
         </Link>
 
         <section className="hidden md:flex  items-center space-x-4">
           <DropDownNav />
           <Link
-            href="https://github.com/quin1sue/ekonotrack-ph.bettergov"
+            href="https://github.com/quin1sue/priceguidesph-bettergov"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-700 hover:text-gray-900 transition"
