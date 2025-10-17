@@ -73,7 +73,7 @@ export async function parseDaPdfCig(url: string): Promise<MarketCommodity[]> {
 
     const match = line.match(/^(.+?)\s+([0-9]+(?:\.[0-9]{2})?|n\/a)$/i);
     if (match && currentCommodity) {
-      const brandName = match[1].trim();
+      const brandName: string = match[1].trim();
       const priceStr = match[2].toLowerCase();
 
       // Skip entries where price is "n/a"
@@ -86,7 +86,10 @@ export async function parseDaPdfCig(url: string): Promise<MarketCommodity[]> {
 
       const price = parseFloat(priceStr);
 
-      currentCommodity.items.push({ specification: brandName, price });
+      currentCommodity.items.push({
+        specification: brandName.substring(4).trim(),
+        price,
+      });
     }
   }
   const finalJson = json.filter((c) => c.items.length > 0);

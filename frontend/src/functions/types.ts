@@ -9,35 +9,16 @@ export type Commodity = {
 };
 
 export type MainJson = {
+  id: string;
   date: string;
-  parsedPDF: Commodity[];
+  category: string;
+  commodities: Commodity[];
 };
 
-export type GasolinePrice = {
-  description: string;
-  date: string;
-  analytics: { specification: string; value: string | number }[];
-  generalInfo: { specification: string; value: string | number }[];
-  gasolinePricesPHP: { specification: string; value: string | number }[];
-};
-export type KerosenePrice = {
-  description: string;
-  date: string;
-  generalInfo: { specification: string; value: string | number }[];
-  kerosenePricesPHP: { specification: string; value: string | number }[];
-};
-
-export type DieselPrice = {
-  description: string;
-  date: string;
-  analytics: { specification: string; value: string | number }[];
-  generalInfo: { specification: string; value: string | number }[];
-  dieselPricesPHP: { specification: string; value: string | number }[];
-};
-export type ElectricityPriceData = {
-  description: string;
-  date: string;
-  prices: { specification: string; value: string }[];
-  production: { specification: string; value: string }[];
-  error?: string;
-};
+// export type ElectricityPriceData = {
+//   description: string;
+//   date: string;
+//   prices: { specification: string; value: string }[];
+//   production: { specification: string; value: string }[];
+//   error?: string;
+// };

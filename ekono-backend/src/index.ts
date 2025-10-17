@@ -1,11 +1,5 @@
 import { ExecutionContext, Hono } from "hono";
 import { cors } from "hono/cors";
-import * as cheerio from "cheerio";
-import { parseDaPdfCig } from "./services/functions/market index/parsePdfCig";
-import { parseMarketPdf } from "./services/functions/market index/parsePdfMarket";
-import { scrapeGasolinePrices } from "./services/functions/fuel prices/gasoline-datafetch";
-import { scrapeDieselPrices } from "./services/functions/fuel prices/diesel-datafetch";
-import { scrapeKerosenePrices } from "./services/functions/fuel prices/kerosene-datafetch";
 import { D1Database, ScheduledController } from "@cloudflare/workers-types";
 import { insertAllFuels } from "./lib/triggers/fuel-prices/diesel-triggers";
 import { insertMarketData } from "./lib/triggers/market-index/market-triggers";
@@ -21,10 +15,7 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use(
   "/*",
   cors({
-    origin: [
-      "production url",
-      "http://localhost:3000", // locally
-    ], //frontend domain
+    origin: "https://philippine-price-guides.vercel.app",
     allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -32,75 +23,120 @@ app.use(
 );
 
 // GET REQUESTS
-app.get("/cigarettes-index", async (c) => {
-  const url: string = "https://www.da.gov.ph/price-monitoring/";
+app.get("/market", async (c) => {
   try {
-    const response = await fetch(url);
-    const html = await response.text();
-    const $ = cheerio.load(html);
-    const element = $("#tablepress-113 .row-striping tr td a");
+    const category = c.req.url.includes("category=")
+      ? new URL(c.req.url).searchParams.get("category")
+      : "market"; // default params
+    const db = c.env.MY_DB;
 
-    const latestElement = element.first();
-    const pdfDate = latestElement.text().trim();
-    const latestHref = latestElement.attr("href") as string;
-    const res = await parseDaPdfCig(latestHref);
-    return c.json({ date: pdfDate, category: "cigarette", commodities: res });
+    const priceGroup = await db
+      .prepare(
+        `SELECT id, date, category 
+         FROM PriceGroup 
+         WHERE category = ? 
+         ORDER BY date DESC 
+         LIMIT 1`
+      )
+      .bind(category)
+      .first();
+
+    if (!priceGroup) {
+      return c.json({ message: "No market data found" }, 404);
+    }
+
+    const commodities = await db
+      .prepare(
+        `SELECT id, commodity 
+         FROM PriceCommodity 
+         WHERE group_id = ?`
+      )
+      .bind(priceGroup.id)
+      .all();
+
+    // for each commodity, get its items
+    const commoditiesWithItems = await Promise.all(
+      commodities.results.map(async (commodity: any) => {
+        const items = await db
+          .prepare(
+            `SELECT specification, price 
+             FROM PriceItem 
+             WHERE commodity_id = ?`
+          )
+          .bind(commodity.id)
+          .all();
+
+        return {
+          ...commodity,
+          items: items.results,
+        };
+      })
+    );
+
+    return c.json(
+      {
+        ...priceGroup,
+        commodities: commoditiesWithItems,
+      },
+      200,
+      {
+        "Cache-Control": "s-maxage=900, stale-while-revalidate=300",
+      }
+    );
   } catch (err) {
-    console.error("an error has occured: ", err);
+    console.error(err);
+    return c.json({ error: "Failed to fetch market data" }, 500);
   }
-
-  return c.json(["Internal Server Error 500"]);
 });
 
-app.get("/market-price-index", async (c) => {
-  const url: string = "https://www.da.gov.ph/price-monitoring/";
+// KEROSENE, DIESEL, GASOLINE PETROL RELATED DATA
+app.get("/fuel-prices", async (c) => {
   try {
-    const response = await fetch(url);
-    const html = await response.text();
-    const $ = cheerio.load(html);
-    const element = $("#tablepress-112 .row-striping tr td a");
+    const db = c.env.MY_DB;
+    const url = new URL(c.req.url);
+    const namePetrol = url.searchParams.get("category") || "Kerosene"; // default
 
-    const latestElement = element.first();
-    const pdfDate = latestElement.text().trim();
-    const latestHref = latestElement.attr("href") as string;
-    const res = await parseMarketPdf(latestHref);
-    return c.json({ date: pdfDate, category: "market", commodities: res });
-  } catch (err) {
-    console.log("An error has occured: ", err);
-  }
-  return c.json(["Failed"]);
-});
+    const fuelType: any = await db
+      .prepare(`SELECT * FROM FuelType WHERE name = ? LIMIT 1`)
+      .bind(namePetrol)
+      .first();
 
-app.get("/gasoline-prices", async (c) => {
-  try {
-    const data = await scrapeGasolinePrices();
-    return c.json(data, 200, {
-      "Cache-Control": "s-maxage=900, stale-while-revalidate=300",
-    });
+    if (!fuelType) return c.json([], 200);
+
+    const sectionsResult: any = await db
+      .prepare(`SELECT id, name FROM FuelSection WHERE fuel_id = ?`)
+      .bind(fuelType.id)
+      .all();
+
+    const sections = await Promise.all(
+      sectionsResult.results.map(async (section: any) => {
+        const itemsResult: any = await db
+          .prepare(
+            `SELECT specification, value FROM FuelItem WHERE section_id = ?`
+          )
+          .bind(section.id)
+          .all();
+
+        return {
+          ...section,
+          items: itemsResult.results,
+        };
+      })
+    );
+
+    return c.json(
+      {
+        ...fuelType,
+        sections,
+      },
+      200,
+      {
+        "Cache-Control": "s-maxage=900, stale-while-revalidate=300",
+      }
+    );
   } catch (error) {
-    return c.json({ error: "Failed to fetch gasoline prices" }, 500);
-  }
-});
-
-app.get("/diesel-prices", async (c) => {
-  try {
-    const data = await scrapeDieselPrices();
-    return c.json(data, 200, {
-      "Cache-Control": "s-maxage=900, stale-while-revalidate=300",
-    });
-  } catch (error) {
-    return c.json({ error: "Failed to fetch electricity prices" }, 500);
-  }
-});
-
-app.get("/kerosene-prices", async (c) => {
-  try {
-    const data = await scrapeKerosenePrices();
-    return c.json(data, 200, {
-      "Cache-Control": "s-maxage=900, stale-while-revalidate=300",
-    });
-  } catch (error) {
-    return c.json({ error: "Failed to fetch electricity prices" }, 500);
+    console.error("An error has occurred: ", error);
+    return c.json({ error: "Failed to fetch fuel data" }, 500);
   }
 });
 
@@ -118,9 +154,9 @@ export default {
           (async () => {
             try {
               await insertAllFuels(env.MY_DB);
-              console.log("Fuel data inserted successfully");
+              console.log("data inserted successfully");
             } catch (err) {
-              console.error("Fuel cron failed:", err);
+              console.error("cron failed:", err);
             }
           })()
         );
@@ -130,9 +166,9 @@ export default {
           (async () => {
             try {
               await insertMarketData(env.MY_DB);
-              console.log("Market data inserted successfully");
+              console.log("data inserted successfully");
             } catch (err) {
-              console.error("Market cron failed:", err);
+              console.error("cron failed:", err);
             }
           })()
         );
@@ -142,9 +178,9 @@ export default {
           (async () => {
             try {
               await insertCigaretteData(env.MY_DB);
-              console.log("Cigarette data inserted successfully");
+              console.log("data inserted successfully");
             } catch (err) {
-              console.error("Cigarette cron failed:", err);
+              console.error("cron failed:", err);
             }
           })()
         );

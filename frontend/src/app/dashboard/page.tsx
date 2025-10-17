@@ -1,8 +1,6 @@
 import { CigarettePriceList } from "@/components/custom/searchparams/cigarette-daily";
-import { DieselDataTable } from "@/components/custom/searchparams/dieseldashboard";
 import { FxRates } from "@/components/custom/searchparams/exchangeRate";
-import { GasolineDataTable } from "@/components/custom/searchparams/gasolinedashboard";
-import { KeroseneDataTable } from "@/components/custom/searchparams/kerosene";
+import { FuelDataTable } from "@/components/custom/searchparams/dieseldashboard";
 import { DaPdfDataTable } from "@/components/custom/searchparams/market";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
@@ -18,15 +16,15 @@ export default async function Page({
   return (
     <>
       {url === "gasoline-prices" ? (
-        <GasolineDataTable />
+        <FuelDataTable fuelCategory="Gasoline" />
       ) : url === "daily-price-index" ? (
         <DaPdfDataTable />
       ) : url === "cigarette" ? (
         <CigarettePriceList />
       ) : url === "diesel" ? (
-        <DieselDataTable />
+        <FuelDataTable fuelCategory="Diesel" />
       ) : url === "kerosene" ? (
-        <KeroseneDataTable />
+        <FuelDataTable fuelCategory="Kerosene" />
       ) : (
         <FxRates /> // default
       )}

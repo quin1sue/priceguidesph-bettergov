@@ -8,14 +8,14 @@ export async function insertCigaretteData(db: D1Database) {
   if (!response.ok) throw new Error("Failed to fetch DA page");
   const html = await response.text();
   const $ = cheerio.load(html);
-  const element = $("#tablepress-112 .row-striping tr td a");
+  const element = $("#tablepress-113 .row-striping tr td a");
   const latestElement = element.first();
   const pdfDate = latestElement.text().trim();
   const latestHref = latestElement.attr("href") as string;
 
   const existing = await db
     .prepare(`SELECT id FROM PriceGroup WHERE date = ? AND category = ?`)
-    .bind(pdfDate, "market")
+    .bind(pdfDate, "cigarette")
     .first();
 
   if (existing) {
@@ -43,6 +43,8 @@ export async function insertCigaretteData(db: D1Database) {
       .run();
 
     for (const item of commodity.items) {
+      const price = Number(item.price);
+      if (isNaN(price)) continue;
       await db
         .prepare(
           `INSERT INTO PriceItem (id, commodity_id, specification, price) VALUES (?, ?, ?, ?)`

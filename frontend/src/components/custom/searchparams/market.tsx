@@ -8,32 +8,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-type DaPdfItem = {
-  specification: string;
-  price: number | null;
-};
-
-type DaPdfCommodity = {
-  commodity: string;
-  items: DaPdfItem[];
-};
-
-type DaPdfData = {
-  //extracted data from the BE
-  date: string;
-  commodities: DaPdfCommodity[];
-  error?: string;
-};
+import { MainJson } from "@/functions/types";
 
 export function DaPdfDataTable() {
-  const [data, setData] = useState<DaPdfData | null>(null);
+  const [data, setData] = useState<(MainJson & { error: string }) | null>(null);
   const [loading, setLoading] = useState(true);
   let numberedArray: string[] = [];
   useEffect(() => {
     async function fetchDaPdfData() {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/market-price-index`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=market`
       );
       const json = await res.json();
       setData(json);
@@ -53,11 +37,17 @@ export function DaPdfDataTable() {
   );
   return (
     <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)] w-full p-4">
-      {/* Header */}
       <header className="bg-white shadow-sm border border-gray-200 p-4 rounded-xl">
         <p className="text-sm text-gray-700">
           Latest DA Price Monitoring Report:
           <span className="font-semibold text-gray-900"> {data?.date}</span>
+        </p>
+        <p className="mt-2 text-sm">
+          Prevailing price is defined as the average price at which any basic
+          necessity has been sold in a given area. This is computed as the
+          average price using arithmetic mean formula. Moreover, The data that
+          are being shown are the only data that were available in the
+          market&#47;establishment.
         </p>
         <p className="mt-2 text-sm text-gray-700">
           Source&#58;
@@ -71,7 +61,6 @@ export function DaPdfDataTable() {
         </p>
       </header>
 
-      {/* Accordion */}
       <Accordion
         type="multiple"
         defaultValue={numberedArray}

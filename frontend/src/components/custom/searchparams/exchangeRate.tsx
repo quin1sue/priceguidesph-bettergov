@@ -17,9 +17,7 @@ export const FxRates: React.FC = () => {
   useEffect(() => {
     const fetchExchangeRates = async () => {
       try {
-        const response = await fetch(
-          `https://api.fxratesapi.com/latest?api_key=${process.env.NEXT_PUBLIC_FXRATES_API_KEY}&base=USD&format=json&places=6&amount=1`
-        );
+        const response = await fetch("/api/fxrates/", { method: "GET" });
         if (!response.ok) throw new Error("Failed to fetch exchange rates");
 
         const result = await response.json();

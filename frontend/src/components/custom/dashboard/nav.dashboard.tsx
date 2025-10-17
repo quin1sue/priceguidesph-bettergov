@@ -15,7 +15,7 @@ export function NavDashboard() {
             height={60}
             className="w-[40px] h-[40px]"
           />
-          <span className="font-bold text-lg">PhPriceGuides</span>
+          <p className="font-bold text-lg">PhPriceGuides</p>
         </Link>
 
         <section className="hidden md:flex  items-center space-x-4">

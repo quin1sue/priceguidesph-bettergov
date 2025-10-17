@@ -1,7 +1,6 @@
 import {
   Cigarette,
   ShoppingBasket,
-  PlugZap,
   Fuel,
   PhilippinePeso,
   ChartNoAxesGantt,

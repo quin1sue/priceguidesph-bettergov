@@ -61,7 +61,8 @@ export function Nav({ pos = "fixed" }: NavProps) {
           {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </button>
       </main>
-      <header className="hidden md:block w-full h-[2.5em] backdrop-blur-md pl-10 font-bold text-[13px]">
+      {/* dashboardlinks */}
+      <header className="hidden md:block border-t-[1px] border-gray-200 w-full h-[2.5em] backdrop-blur-md pl-10 font-bold text-[13px]">
         <ul className="flex items-center space-x-7">
           {dashboardLinks.map(([name, href], index) => {
             return (

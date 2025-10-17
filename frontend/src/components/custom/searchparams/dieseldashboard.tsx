@@ -1,6 +1,6 @@
 "use client";
 
-import { DieselPrice } from "@/functions/types";
+import { FuelTypePrice } from "@/functions/diesel";
 import { useEffect, useState } from "react";
 import { TableSkeleton } from "../global/skeleton";
 import {
@@ -10,31 +10,41 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-type DieselPriceOrError = DieselPrice & { error?: string };
+type FuelDataOrError = FuelTypePrice & { error?: string };
 
-export function DieselDataTable() {
-  const [data, setData] = useState<DieselPriceOrError | null>(null);
+interface FuelDataTableProps {
+  fuelCategory: "Kerosene" | "Diesel" | "Gasoline";
+}
+
+export function FuelDataTable({ fuelCategory }: FuelDataTableProps) {
+  const [data, setData] = useState<FuelDataOrError | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchGasolineData() {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/diesel-prices`
-      );
-      const json = await res.json();
-      setData(json);
-      setLoading(false);
+    async function fetchFuelData() {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=${fuelCategory}`
+        );
+        const json = await res.json();
+        setData(json);
+      } catch (err) {
+        setData({ error: "Failed to fetch fuel data" } as FuelDataOrError);
+      } finally {
+        setLoading(false);
+      }
     }
-    fetchGasolineData();
-  }, []);
+    fetchFuelData();
+  }, [fuelCategory]);
 
   if (loading) return <TableSkeleton />;
   if (data?.error) return <p className="text-red-500">{data.error}</p>;
-
+  if (!data) return null;
+  console.log(data);
   return (
     <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)] p-4">
       <header className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
-        <p className="text-sm text-gray-700">{data?.description}</p>
+        <p className="text-sm text-gray-700">{data.description}</p>
         <p className="mt-2">
           Source&#58;{" "}
           <a
@@ -49,71 +59,32 @@ export function DieselDataTable() {
 
       <Accordion
         type="multiple"
-        defaultValue={["prices", "analytics", "general-info"]}
+        defaultValue={data.sections.map((s) => s.name) || []}
         className="space-y-3"
       >
-        <AccordionItem
-          value="prices"
-          className="border rounded-lg bg-white shadow-sm"
-        >
-          <AccordionTrigger className="px-4 py-3 font-semibold text-gray-900 hover:text-blue-700">
-            Gasoline Prices &#40;PHP&#41;
-          </AccordionTrigger>
-          <AccordionContent className="px-4 pb-4">
-            <table className="w-full border border-gray-300 rounded-lg">
-              <tbody>
-                {data?.dieselPricesPHP.map((item, idx) => (
-                  <tr key={idx} className="border-b border-gray-200">
-                    <td className="p-2 font-medium">{item.specification}</td>
-                    <td className="p-2">{item.value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem
-          value="analytics"
-          className="border rounded-lg bg-white shadow-sm"
-        >
-          <AccordionTrigger className="px-4 py-3 font-semibold text-gray-900 hover:text-blue-700">
-            Analytics
-          </AccordionTrigger>
-          <AccordionContent className="px-4 pb-4">
-            <table className="w-full border border-gray-300 rounded-lg">
-              <tbody>
-                {data?.analytics.map((item, idx) => (
-                  <tr key={idx} className="border-b border-gray-200">
-                    <td className="p-2 font-medium">{item.specification}</td>
-                    <td className="p-2">{item.value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem
-          value="general-info"
-          className="border rounded-lg bg-white shadow-sm"
-        >
-          <AccordionTrigger className="px-4 py-3 font-semibold text-gray-900 hover:text-blue-700">
-            General Info
-          </AccordionTrigger>
-          <AccordionContent className="px-4 pb-4">
-            <table className="w-full border border-gray-300 rounded-lg">
-              <tbody>
-                {data?.generalInfo.map((item, idx) => (
-                  <tr key={idx} className="border-b border-gray-200">
-                    <td className="p-2 font-medium">{item.specification}</td>
-                    <td className="p-2">{item.value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </AccordionContent>
-        </AccordionItem>
+        {data.sections.map((section) => (
+          <AccordionItem
+            key={section.id}
+            value={section.name}
+            className="border rounded-lg bg-white shadow-sm"
+          >
+            <AccordionTrigger className="px-4 py-3 font-semibold text-gray-900 hover:text-blue-700">
+              {section.name}
+            </AccordionTrigger>
+            <AccordionContent className="px-4 pb-4">
+              <table className="w-full border border-gray-300 rounded-lg">
+                <tbody>
+                  {section.items.map((item, index) => (
+                    <tr key={index} className="border-b border-gray-200">
+                      <td className="p-2 font-medium">{item.specification}</td>
+                      <td className="p-2">{item.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
       </Accordion>
     </main>
   );

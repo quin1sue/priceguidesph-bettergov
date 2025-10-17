@@ -5,7 +5,8 @@ import { FaDiscord, FaGithub } from "react-icons/fa";
 export const Footer = () => {
   const services = [
     ["Gasoline Prices", "/dashboard?where=gasoline-prices"],
-    ["Electricity Rates", "/dashboard?where=electricity-kwh"],
+    ["Kerosene Prices", "/dashboard?where=kerosene"],
+    ["Diesel Prices", "/dashboard?where=electricity-kwh"],
     ["Market Prices", "/dashboard?where=daily-price-index"],
     ["Cigarette Prices", "/dashboard?where=cigarette"],
   ];

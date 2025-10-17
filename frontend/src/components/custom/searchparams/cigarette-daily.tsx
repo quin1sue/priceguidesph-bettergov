@@ -8,26 +8,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-type Item = {
-  specification: string;
-  price: number | string;
-};
-
-type CommoditySection = {
-  commodity: string;
-  items: Item[];
-};
-
-type PriceListData = {
-  date: string;
-  category: string;
-  commodities: CommoditySection[];
-};
-
+import { MainJson } from "@/functions/types";
 export const CigarettePriceList: React.FC = () => {
   // Use the updated type for state
-  const [data, setData] = useState<PriceListData | null>(null);
+  const [data, setData] = useState<MainJson | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,7 +19,7 @@ export const CigarettePriceList: React.FC = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/cigarettes-index`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=cigarette`,
           {
             method: "GET",
             credentials: "include",
@@ -43,7 +27,7 @@ export const CigarettePriceList: React.FC = () => {
           }
         );
         if (!res.ok) throw new Error("Failed to fetch data");
-        const json: PriceListData = await res.json();
+        const json: MainJson = await res.json();
         setData(json);
       } catch (err) {
         setError(err instanceof Error ? err.message : String(err));
