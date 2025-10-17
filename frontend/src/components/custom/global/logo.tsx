@@ -14,7 +14,6 @@ export function Logo() {
         />
         <p className="font-bold text-xl">PhPriceGuides</p>
       </Link>
-      <small>promoting transparency and awareness.</small>
     </main>
   );
 }

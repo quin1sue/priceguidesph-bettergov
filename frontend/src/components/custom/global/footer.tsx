@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { FaDiscord, FaGithub } from "react-icons/fa";
-
+import Image from "next/image";
 export const Footer = () => {
   const services = [
     ["Gasoline Prices", "/dashboard?where=gasoline-prices"],
@@ -45,6 +45,24 @@ export const Footer = () => {
             transparency for the Philippines. Tracking fuel, energy, and market
             data to help citizens stay informed.
           </p>
+          {/* logo section */}
+          <section className="mt-2 pt-2 flex items-center space-x-2 text-sm font-bold border-gray-600 border-t-[1px]">
+            <Image
+              src={"/bettergov-icon-white.png"}
+              alt="BetterGov Icon"
+              height={1000}
+              width={1000}
+              className="h-[47px] w-[47px]"
+            />
+            <a
+              href="https://bettergov.ph/"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="hover:underline"
+            >
+              BetterGovPh
+            </a>
+          </section>
         </article>
 
         {/* Services */}

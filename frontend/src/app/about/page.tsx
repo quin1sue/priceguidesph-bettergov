@@ -1,9 +1,12 @@
-"use client";
 import { Nav } from "@/components/custom/global/nav";
 import Image from "next/image";
 import { Database, Clock, Github, Globe } from "lucide-react";
 import { Footer } from "@/components/custom/global/footer";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "About",
+};
 export default function Page() {
   return (
     <>

@@ -7,16 +7,28 @@ export function NavDashboard() {
   return (
     <header className={`w-full top-0 left-0 z-50`}>
       <main className="h-[4rem] w-full backdrop-blur-md flex justify-center md:justify-between items-center px-4 sm:px-8 shadow-sm">
-        <Link href="/" className="flex items-center space-x-2">
-          <Image
-            src="/logo.svg"
-            alt="Philippine Price Guides Logo"
-            width={60}
-            height={60}
-            className="w-[40px] h-[40px]"
-          />
-          <p className="font-bold text-lg">PhPriceGuides</p>
-        </Link>
+        <section>
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              title="PhPriceGuides"
+              src="/logo.svg"
+              alt="Philippine Price Guides Logo"
+              width={60}
+              height={60}
+              className="w-[40px] h-[40px]"
+            />
+            <p className="font-bold text-lg">PhPriceGuides</p>
+
+            <Image
+              src={"/bettergov-icon.svg"}
+              title="BetterGovPh"
+              alt="BetterGov Icon"
+              width={60}
+              height={60}
+              className="w-[40px] h-[40px]"
+            />
+          </Link>
+        </section>
 
         <section className="hidden md:flex  items-center space-x-4">
           <DropDownNav />

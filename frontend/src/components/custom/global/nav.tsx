@@ -22,16 +22,27 @@ export function Nav({ pos = "fixed" }: NavProps) {
   return (
     <header className={`${pos} w-full top-0 left-0 z-50`}>
       <main className="h-[4rem] w-full backdrop-blur-md flex justify-between items-center px-4 sm:px-8 shadow-sm">
-        <Link href="/" className="flex items-center space-x-2">
-          <Image
-            src="/logo.svg"
-            alt="PhPriceGuides Logo"
-            width={60}
-            height={60}
-            className="w-[40px] h-[40px]"
-          />
-          <span className="font-bold text-lg">PhPriceGuides</span>
-        </Link>
+        <section>
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              title="PhPriceGuides"
+              src="/logo.svg"
+              alt="PhPriceGuides Logo"
+              width={60}
+              height={60}
+              className="w-[40px] h-[40px]"
+            />
+            <p className="font-bold text-lg">PhPriceGuides</p>
+            <Image
+              title="BetterGovPh"
+              src={"/bettergov-icon.svg"}
+              alt="BetterGov Icon"
+              width={60}
+              height={60}
+              className="w-[40px] h-[40px]"
+            />
+          </Link>
+        </section>
 
         <section className="hidden md:flex items-center space-x-4">
           <DropDownNav />
