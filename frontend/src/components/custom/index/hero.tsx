@@ -69,7 +69,7 @@ export const HeroIndex = () => {
   const currentCurrency = displayCurrencies[currentIndex];
 
   return (
-    <section className="mt-10 relative w-full h-[85vh] flex justify-center items-center bg-gradient-to-br from-blue-50 via-white to-white overflow-hidden">
+    <section className="mt-10 max-md:mt-20 relative w-full h-[85vh] flex justify-center items-center bg-gradient-to-br from-blue-50 via-white to-white overflow-hidden">
       <main className="max-w-5xl  px-4 sm:px-8 py-12 flex flex-col md:flex-row items-center gap-10 md:gap-16">
         {/* LEFT */}
         <article className="z-20 w-full md:w-full flex flex-col items-center md:items-start text-center md:text-left gap-4">
