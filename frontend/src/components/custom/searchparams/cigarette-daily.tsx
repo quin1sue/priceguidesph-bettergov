@@ -58,7 +58,11 @@ export const CigarettePriceList: React.FC = () => {
 
   return (
     <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-5em)] w-full">
-      <header className="p-4 bg-white border border-gray-200 space-y-1 rounded-xl shadow-sm">
+      <header className="p-4 bg-white border space-y-2 border-gray-200 space-y-1 rounded-xl shadow-sm">
+         <p className="text-sm text-gray-700">
+          Latest DA Price Monitoring Report:
+          <span className="font-semibold text-gray-900"> {data?.date}</span>
+        </p>
         <p className="text-sm text-gray-700">
           <strong>Note&#58; </strong> n&#47;a - not available in the market
         </p>

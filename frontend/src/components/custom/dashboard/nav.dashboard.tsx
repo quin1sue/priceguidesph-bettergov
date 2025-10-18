@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaDiscord } from "react-icons/fa";
-import { DropDownNav } from "../global/dropdown";
+import { NavDropdown, NavDropdownComm } from "../index/NavigationDropdown";
 
 export function NavDashboard() {
   return (
@@ -12,7 +12,7 @@ export function NavDashboard() {
           <Link href="/" className="flex items-center space-x-2">
             <Image
               title="PhPriceGuides"
-              src="/logo.svg"
+              src="/bettergov-icon.svg"
               alt="PhPriceGuides Logo"
               width={60}
               height={60}
@@ -24,7 +24,8 @@ export function NavDashboard() {
         </section>
 
         <section className="hidden md:flex  items-center space-x-4">
-          <DropDownNav />
+          <NavDropdownComm /> <NavDropdown />
+         
           <Link
             href="https://github.com/quin1sue/priceguidesph-bettergov"
             target="_blank"

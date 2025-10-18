@@ -24,7 +24,7 @@ export default function DataSource() {
 
   return (
     <section
-      aria-labelledby="data-sources-title"
+    
       className="z-50 w-full py-12 px-4 sm:px-8 bg-white border-t border-gray-200"
     >
       <div className="z-50 max-w-5xl mx-auto text-center">
