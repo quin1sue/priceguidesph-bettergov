@@ -1,4 +1,5 @@
 "use client";
+
 import { JSX, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -25,7 +26,6 @@ export const HeroIndex = () => {
     JPY: <Activity className="w-5 h-5 text-blue-500" />,
     SAR: <CreditCard className="w-5 h-5 text-blue-500" />,
   };
-
   const flags: Record<string, string> = {
     USD: "🇺🇸",
     EUR: "🇪🇺",
@@ -37,15 +37,17 @@ export const HeroIndex = () => {
     const fetchExchangeRates = async () => {
       try {
         setError(null);
-        const response = await fetch(
-          `https://api.fxratesapi.com/latest?api_key=${process.env.NEXT_PUBLIC_FXRATES_API_KEY}&base=PHP&format=json&places=2&amount=1`
-        );
+        const response = await fetch("/api/fxrates");
         if (!response.ok) throw new Error("Failed to fetch exchange rates");
+
         const result = await response.json();
+        if (!result.rates) throw new Error("Invalid response data");
+
         const invertedRates: Record<string, number> = {};
         for (const [currency, rate] of Object.entries(result.rates)) {
           invertedRates[currency] = 1 / (rate as number);
         }
+
         setRates(invertedRates);
         setLastUpdated(new Date());
       } catch (err) {
@@ -53,6 +55,7 @@ export const HeroIndex = () => {
         setError("Unable to load exchange rates right now.");
       }
     };
+
     fetchExchangeRates();
   }, []);
 
@@ -66,11 +69,10 @@ export const HeroIndex = () => {
   const currentCurrency = displayCurrencies[currentIndex];
 
   return (
-    <>
-      <div className="absolute inset-0 z-0 h-[40vh] bg-gradient-to-br from-blue-300 via-white to-white" />
-      <section className="relative mt-[5em] w-full px-4 sm:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
-        {/* LEFT CONTENT */}
-        <article className="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-4">
+    <section className="mt-10 relative w-full h-[85vh] flex justify-center items-center bg-gradient-to-br from-blue-50 via-white to-white overflow-hidden">
+      <main className="max-w-5xl  px-4 sm:px-8 py-12 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        {/* LEFT */}
+        <article className="z-20 w-full md:w-full flex flex-col items-center md:items-start text-center md:text-left gap-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
             Track Essential Data <br />
             <span className="text-blue-600">with Transparency</span>
@@ -88,12 +90,12 @@ export const HeroIndex = () => {
           </Link>
         </article>
 
-        {/* RIGHT CONTENT */}
-        <aside className="relative z-10 w-full md:w-1/2 flex flex-col justify-center items-center gap-5">
+        {/* RIGHT */}
+        <aside className="z-20 w-full md:w-1/2 flex flex-col justify-center items-center gap-5">
           <motion.section
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-            className="bg-white/90 backdrop-blur-lg shadow-xl border border-blue-100 rounded-2xl p-6 flex flex-col items-center w-full sm:w-80"
+            className="backdrop-blur-lg shadow-xl border border-blue-100 rounded-2xl p-6 flex flex-col items-center w-full sm:w-80 bg-white/90"
           >
             <AnimatePresence mode="wait">
               {error ? (
@@ -143,25 +145,22 @@ export const HeroIndex = () => {
           </motion.section>
 
           {/* Currency Info */}
-          <section className="bg-white/80 backdrop-blur-sm shadow-md border border-blue-100 rounded-xl p-4 flex flex-col gap-3 w-full sm:w-80 text-sm sm:text-base">
+          <section className="backdrop-blur-sm shadow-md border border-blue-100 rounded-xl p-4 flex flex-col gap-3 w-full sm:w-80 text-sm sm:text-base bg-white/80">
             <header className="text-center mb-1">
               <h3 className="text-gray-700 font-semibold">Currency Overview</h3>
             </header>
             <ul className="flex flex-col gap-2">
               <li className="flex justify-between">
                 <p className="flex items-center gap-1 text-gray-700">
-                  <DollarSign className="w-4 h-4 text-blue-500" /> Major
-                  Currencies
+                  <DollarSign className="w-4 h-4 text-blue-500" /> Major Currencies
                 </p>
-                <p className="font-semibold">
-                  {displayCurrencies.map((cur) => `${cur}`).join(", ")}
-                </p>
+                <p className="font-semibold">{displayCurrencies.join(", ")}</p>
               </li>
               <li className="flex justify-between">
                 <p className="flex items-center gap-1 text-gray-700">
                   <Clock className="w-4 h-4 text-blue-500" /> Updates
                 </p>
-                <p className="font-semibold">Every Minute</p>
+                <p className="font-semibold">Every 15 Minutes</p>
               </li>
               <li className="flex justify-between">
                 <p className="flex items-center gap-1 text-gray-700">
@@ -172,7 +171,7 @@ export const HeroIndex = () => {
             </ul>
           </section>
         </aside>
-      </section>
-    </>
+      </main>
+    </section>
   );
 };

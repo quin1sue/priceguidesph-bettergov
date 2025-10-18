@@ -16,7 +16,7 @@ export function DropDownNav() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button className="hover:bg-blue-600 hover:text-white bg-white text-black">
-          BetterGov Projects <SquareChevronDown />
+          <b>BetterGov Projects</b> <SquareChevronDown />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">

@@ -7,27 +7,30 @@ export function NavDashboard() {
   return (
     <header className={`w-full top-0 left-0 z-50`}>
       <main className="h-[4rem] w-full backdrop-blur-md flex justify-center md:justify-between items-center px-4 sm:px-8 shadow-sm">
-        <section>
+         <section className="flex space-x-2.5 items-center justify-center">
           <Link href="/" className="flex items-center space-x-2">
             <Image
               title="PhPriceGuides"
               src="/logo.svg"
-              alt="Philippine Price Guides Logo"
+              alt="PhPriceGuides Logo"
               width={60}
               height={60}
-              className="w-[40px] h-[40px]"
+              className="w-[20px] h-[20px] sm:w-[40px] sm:h-[40px]"
             />
-            <p className="font-bold text-lg">PhPriceGuides</p>
-
-            <Image
-              src={"/bettergov-icon.svg"}
+            <p className="font-bold text-sm sm:text-lg">PhPriceGuides</p>
+          
+          </Link>
+          <b className="max-sm:text-[7px] text-blue-900">&#124;</b>
+          <a href="https://bettergov.ph/" target="_blank" rel="noreferrer noopener" className="flex items-center space-x-2">  
+          <Image
               title="BetterGovPh"
+              src={"/bettergov-icon.svg"}
               alt="BetterGov Icon"
               width={60}
               height={60}
-              className="w-[40px] h-[40px]"
-            />
-          </Link>
+              className="w-[20px] h-[20px] sm:w-[40px] sm:h-[40px]"
+            /><p className="font-bold text-sm sm:text-lg">BetterGovPh</p>
+          </a>
         </section>
 
         <section className="hidden md:flex  items-center space-x-4">

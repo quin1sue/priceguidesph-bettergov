@@ -22,7 +22,7 @@ export function Nav({ pos = "fixed" }: NavProps) {
   return (
     <header className={`${pos} w-full top-0 left-0 z-50`}>
       <main className="h-[4rem] w-full backdrop-blur-md flex justify-between items-center px-4 sm:px-8 shadow-sm">
-        <section>
+        <section className="flex space-x-2.5 items-center justify-center">
           <Link href="/" className="flex items-center space-x-2">
             <Image
               title="PhPriceGuides"
@@ -33,15 +33,19 @@ export function Nav({ pos = "fixed" }: NavProps) {
               className="w-[40px] h-[40px]"
             />
             <p className="font-bold text-lg">PhPriceGuides</p>
-            <Image
+          
+          </Link>
+          <b className="text-blue-900">&#124;</b>
+          <a href="https://bettergov.ph/" target="_blank" rel="noreferrer noopener" className="flex items-center space-x-2">  
+          <Image
               title="BetterGovPh"
               src={"/bettergov-icon.svg"}
               alt="BetterGov Icon"
               width={60}
               height={60}
               className="w-[40px] h-[40px]"
-            />
-          </Link>
+            /><p className="font-bold text-lg">BetterGovPh</p>
+          </a>
         </section>
 
         <section className="hidden md:flex items-center space-x-4">

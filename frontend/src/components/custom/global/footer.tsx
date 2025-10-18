@@ -29,13 +29,13 @@ export const Footer = () => {
     ];
 
   return (
-    <footer className="bg-black text-gray-300 py-12 px-6 mt-6 border-t border-gray-800">
+    <footer className="bg-black text-gray-300 py-12 px-6 border-t border-gray-800">
       <section className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <article>
           <header>
             <Link
               href={"/about"}
-              className="underline text-white font-semibold text-lg mb-4"
+              className="text-white font-semibold text-lg mb-4"
             >
               About
             </Link>

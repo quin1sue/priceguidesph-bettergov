@@ -15,7 +15,8 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use(
   "/*",
   cors({
-    origin: "https://philippine-price-guides.vercel.app",
+    origin: ["http://localhost:3000", // locally
+      "https://philippine-price-guides.vercel.app"],
     allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,

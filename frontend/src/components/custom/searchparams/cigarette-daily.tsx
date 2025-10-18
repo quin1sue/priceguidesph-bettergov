@@ -9,11 +9,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { MainJson } from "@/functions/types";
+
 export const CigarettePriceList: React.FC = () => {
-  // Use the updated type for state
   const [data, setData] = useState<MainJson | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedCommodity, setSelectedCommodity] = useState<string>("All");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,16 +36,25 @@ export const CigarettePriceList: React.FC = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
-  const initialDefaultValue = data?.commodities.map((_, i) => String(i)) || [];
+  const initialDefaultValue =
+    data?.commodities.map((_, i) => String(i)) || [];
 
   if (loading) return <TableSkeleton />;
   if (error) return <p className="p-4 text-red-500">Error: {error}</p>;
   if (!data || data.commodities.length === 0)
     return <p className="p-4 text-gray-500">No data available.</p>;
+
+  // Dropdown options
+  const commodityOptions = ["All", ...data.commodities.map(c => c.commodity)];
+
+  // Filtered commodities
+  const filteredCommodities =
+    selectedCommodity === "All"
+      ? data.commodities
+      : data.commodities.filter(c => c.commodity === selectedCommodity);
 
   return (
     <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-5em)] w-full">
@@ -68,6 +78,24 @@ export const CigarettePriceList: React.FC = () => {
             Department of Agriculture
           </a>
         </p>
+
+        <header className="mt-3 rounded-md">
+          <label htmlFor="commodityFilter" className="text-gray-700 mr-2">
+            Show Commodity:
+          </label>
+          <select
+            id="commodityFilter"
+            className="border border-gray-300 rounded px-2 py-1"
+            value={selectedCommodity}
+            onChange={(e) => setSelectedCommodity(e.target.value)}
+          >
+            {commodityOptions.map((c, idx) => (
+              <option key={idx} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </header>
       </header>
 
       <Accordion
@@ -75,7 +103,7 @@ export const CigarettePriceList: React.FC = () => {
         defaultValue={initialDefaultValue}
         className="space-y-3"
       >
-        {data.commodities.map((section, idx) => (
+        {filteredCommodities.map((section, idx) => (
           <AccordionItem
             key={idx}
             value={`${idx}`}
