@@ -69,15 +69,15 @@ export const HeroIndex = () => {
   const currentCurrency = displayCurrencies[currentIndex];
 
   return (
-    <section className="mt-10 max-md:mt-20 relative w-full h-[85vh] flex justify-center items-center bg-gradient-to-br from-blue-50 via-white to-white overflow-hidden">
-      <main className="max-w-5xl  px-4 sm:px-8 py-12 flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        {/* LEFT */}
-        <article className="z-20 w-full md:w-full flex flex-col items-center md:items-start text-center md:text-left gap-4">
+    <section className="mt-20 relative w-full bg-gradient-to-br from-blue-50 via-white to-white overflow-hidden">
+      <main className="max-w-5xl mx-auto px-4 sm:px-8 py-12 flex flex-col md:flex-row gap-10 md:gap-16 items-center md:items-start min-h-[70vh]">
+        {/* LEFT CONTENT */}
+        <article className="z-20 md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-4 max-w-md">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
             Track Essential Data <br />
             <span className="text-blue-600">with Transparency</span>
           </h1>
-          <p className="text-gray-600 text-base md:text-lg max-w-md">
+          <p className="text-gray-600 text-base md:text-lg">
             Real-time insights on exchange rates, fuel prices, and market trends
             — empowering you with reliable and transparent economic data.
           </p>
@@ -90,12 +90,13 @@ export const HeroIndex = () => {
           </Link>
         </article>
 
-        {/* RIGHT */}
-        <aside className="z-20 w-full md:w-1/2 flex flex-col justify-center items-center gap-5">
+        {/* RIGHT CONTENT */}
+        <aside className="z-20 md:w-1/2 w-full flex flex-col justify-center items-center gap-5">
+          {/* FX Rates Card */}
           <motion.section
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-            className="backdrop-blur-lg shadow-xl border border-blue-100 rounded-2xl p-6 flex flex-col items-center w-full sm:w-80 bg-white/90"
+            className="backdrop-blur-lg shadow-xl border border-blue-100 rounded-2xl p-4 flex flex-col items-center w-full sm:w-80 bg-white/90"
           >
             <AnimatePresence mode="wait">
               {error ? (

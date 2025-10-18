@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex items-center overflow-hidden">
         <SidebarProvider>
           <AppSidebar />
-          <SidebarTrigger />
+          <SidebarTrigger className="absolute top-4 left-10 md:hidden" />
           {children}
         </SidebarProvider>
       </main>

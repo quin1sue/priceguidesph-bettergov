@@ -64,7 +64,7 @@ export function AppSidebar() {
     <Sidebar className="mt-[4em] overflow-hidden z-20">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Economic Indicators</SidebarGroupLabel>
+          <SidebarGroupLabel>Economic Indicators </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

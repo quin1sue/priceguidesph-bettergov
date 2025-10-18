@@ -13,8 +13,10 @@ export default async function Page({
   const params = await searchParams;
   const url = (params["where"] as string) || "";
 
+
   return (
     <>
+
       {url === "gasoline-prices" ? (
         <FuelDataTable fuelCategory="Gasoline" />
       ) : url === "daily-price-index" ? (
