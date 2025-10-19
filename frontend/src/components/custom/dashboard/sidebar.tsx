@@ -61,7 +61,7 @@ const secondItems = [
 ];
 export function AppSidebar() {
   return (
-    <Sidebar className="mt-[4em] overflow-hidden z-20">
+    <Sidebar className="mt-[6.1em] overflow-hidden z-20">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Economic Indicators </SidebarGroupLabel>

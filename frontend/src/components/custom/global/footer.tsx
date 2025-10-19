@@ -132,8 +132,7 @@ export const Footer = () => {
 
       <section className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-500">
         &copy; {new Date().getFullYear()}{" "}
-        <span className="font-semibold text-white">PhPriceGuides</span>. All
-        rights reserved.
+        <span className="font-semibold text-white">PhPriceGuides</span> by <span className="font-semibold text-white">BetterGov.ph</span>  — See sources for their respective licenses
       </section>
     </footer>
   );

@@ -7,6 +7,25 @@ import { NavDropdown, NavDropdownComm } from "../index/NavigationDropdown";
 export function NavDashboard() {
   return (
     <header className={`w-full top-0 left-0 z-50`}>
+            <header className="md:flex items-center justify-center w-full h-[2.5em] backdrop-blur-md px-11 max-sm:text-[9.5px] md:text-[13px]">
+        <ul className="flex items-center justify-center max-sm:space-x-4 sm:space-x-7">
+          <li className="mt-2 hover:underline text-blue-500">
+            <a href="https://bettergov.ph/join-us"  target="_blank" rel="noopener noreferrer">&#128640; Join Us</a>
+          </li>
+          <li className="mt-2 hover:underline">
+            <Link href={"/about"}>About</Link>
+          </li>
+          
+          {[["BetterGov.ph", "https://bettergov.ph/"],
+        ["Hotlines", "https://bettergov.ph/philippines/hotlines"]].map(([name, href], index) => {
+          return (
+            <li key={index} className="mt-2 hover:underline">
+              <a href={href} target="_blank" rel="noreferrer noopener">{name}</a>
+            </li>
+          )
+        })}
+        </ul>
+      </header>
       <main className="h-[4rem] w-full backdrop-blur-md flex justify-center md:justify-between items-center px-4 sm:px-8 shadow-sm">
          <section className="relative flex-col space-x-2.5 items-center justify-center">
           <Link href="/" className="flex items-center space-x-2">
@@ -18,7 +37,7 @@ export function NavDashboard() {
               height={60}
               className="w-[20px] h-[20px] sm:w-[40px] sm:h-[40px]"
             />
-            <p className="font-bold text-sm sm:text-lg">PhPriceGuides</p>
+            <p className="font-bold text-sm sm:text-lg">PhPriceGuides by BetterGovPh</p>
           
           </Link>
         </section>

@@ -33,24 +33,21 @@ export const FxRates: React.FC = () => {
     fetchExchangeRates();
   }, []);
 
-  // TOOK ME AN HOUR TO DO THIS [im bad with numbers]
-  const handleConvert = () => {
-    const rateToPHP = rates["PHP"]; // 1 USD = ? PHP
-    if (!rateToPHP) return setResult(null);
+ const handleConvert = () => {
+  // currency convert
+  const usdRate = rates["USD"];
+  if (!usdRate) return setResult(null);
 
-    // If converting from another currency to PHP
-    if (fromCurrency !== "USD") {
-      const fromRate = rates[fromCurrency];
-      if (!fromRate) return setResult(null);
+  const toPhp = (currency: string) => 1 / rates[currency];
 
-      // Convert from X -> USD -> PHP
-      const usdEquivalent = amount / fromRate;
-      setResult(usdEquivalent * rateToPHP);
-    } else {
-      // Directly USD → PHP
-      setResult(amount * rateToPHP);
-    }
-  };
+  if (fromCurrency === "USD") {
+    setResult(amount * toPhp("USD"));
+  } else {
+    const fromRate = rates[fromCurrency];
+    if (!fromRate) return setResult(null);
+    setResult(amount * toPhp(fromCurrency));
+  }
+};
 
   const filtered = Object.entries(rates).filter(([currency]) =>
     currency.toLowerCase().includes(search.toLowerCase())

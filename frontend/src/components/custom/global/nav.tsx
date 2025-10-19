@@ -44,13 +44,13 @@ export function Nav({ pos = "fixed" }: NavProps) {
 
   return (
     <header className={`${pos} w-full top-0 left-0 z-30`}>
-      <header className="hidden md:flex items-center justify-center w-full h-[2.5em] backdrop-blur-md px-11 text-[13px]">
-        <ul className="flex items-center justify-center space-x-7">
+      <header className="md:flex items-center justify-center w-full h-[2.5em] backdrop-blur-md px-11 max-sm:text-[9.5px] md:text-[13px]">
+        <ul className="flex items-center justify-center max-sm:space-x-4 sm:space-x-7">
           <li className="mt-2 hover:underline text-blue-500">
             <a href="https://bettergov.ph/join-us"  target="_blank" rel="noopener noreferrer">&#128640; Join Us</a>
           </li>
           <li className="mt-2 hover:underline">
-            <Link href={"/about"}>About PhPriceGuides</Link>
+            <Link href={"/about"}>About</Link>
           </li>
           
           {[["BetterGov.ph", "https://bettergov.ph/"],
@@ -73,7 +73,7 @@ export function Nav({ pos = "fixed" }: NavProps) {
             alt="BetterGov Icon"
             width={60}
             height={60}
-            className="w-[20px] h-[20px] sm:w-[50px] sm:h-[50px]"
+            className="w-[25px] h-[25px] sm:w-[50px] sm:h-[50px]"
           />
           <Link href="/" className="flex items-center space-x-2">
             <p className="font-bold text-sm md:text-[15px]">PhPriceGuides by BetterGovPh</p>
