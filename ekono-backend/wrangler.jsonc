@@ -18,18 +18,16 @@
   "triggers": {
     "crons": [
       "0 0 * * 2",
-      "15 14 * * *",
-      "0 14 * * *",
-    ],
+      "0 15 * * *",
+      "0 17 * * *"
+    ]
   },
 "observability": {
     "logs": {
-      "enabled": false,
-      "head_sampling_rate": 1,
-      "invocation_logs": true,
-      "persist": true
+      "enabled": true,
+      "head_sampling_rate": 1
     }
-}
+  }
 }
 // "vars": {
 //   "MY_VAR": "my-variable"

@@ -16,7 +16,7 @@ app.use(
   "/*",
   cors({
     origin: ["http://localhost:3000", // locally
-      "https://philippine-price-guides.vercel.app"],
+    "https://price-guides.bettergov.ph"],
     allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -124,7 +124,6 @@ app.get("/fuel-prices", async (c) => {
         };
       })
     );
-
     return c.json(
       {
         ...fuelType,
@@ -150,38 +149,38 @@ export default {
     ctx: ExecutionContext
   ) {
     switch (controller.cron) {
-      case "0 0 * * 2":
+      case "0 0 * * 2": // tuesday
         ctx.waitUntil(
           (async () => {
             try {
               await insertAllFuels(env.MY_DB);
-              console.log("data inserted successfully");
+              console.log("fuel data inserted successfully");
             } catch (err) {
-              console.error("cron failed:", err);
+              console.error("fuel cron failed:", err);
             }
           })()
         );
         break;
-      case "15 14 * * *":
+      case "0 15 * * *": // 3pm 
         ctx.waitUntil(
           (async () => {
             try {
               await insertMarketData(env.MY_DB);
-              console.log("data inserted successfully");
+              console.log("market data inserted successfully");
             } catch (err) {
-              console.error("cron failed:", err);
+              console.error("market cron failed:", err);
             }
           })()
         );
         break;
-      case "0 14 * * *":
+      case "0 17 * * *": // 5pm
         ctx.waitUntil(
           (async () => {
             try {
               await insertCigaretteData(env.MY_DB);
-              console.log("data inserted successfully");
+              console.log("cigarettes data inserted successfully");
             } catch (err) {
-              console.error("cron failed:", err);
+              console.error("cigarettes cron failed:", err);
             }
           })()
         );
