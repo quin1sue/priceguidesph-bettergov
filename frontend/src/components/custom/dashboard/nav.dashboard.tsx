@@ -37,7 +37,7 @@ export function NavDashboard() {
               height={60}
               className="w-[20px] h-[20px] sm:w-[40px] sm:h-[40px]"
             />
-            <p className="font-bold text-sm sm:text-lg">PhPriceGuides by BetterGovPh</p>
+            <p className="font-bold text-sm sm:text-lg">PhPriceGuides</p>
           
           </Link>
         </section>

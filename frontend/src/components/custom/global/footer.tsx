@@ -46,8 +46,9 @@ export const Footer = () => {
             data to help citizens stay informed.
           </p>
           {/* logo section */}
-          <section className="mt-2 pt-2 flex items-center space-x-2 text-sm font-bold border-gray-600 border-t-[1px]">
-            <Image
+          <section className="mt-2 pt-2 flex-row items-center space-x-2 text-sm font-bold border-gray-600 border-t-[1px]">
+            <article className="flex items-center space-x-2"> 
+              <Image
               src={"/bettergov-icon-white.png"}
               alt="BetterGov Icon"
               height={1000}
@@ -61,7 +62,22 @@ export const Footer = () => {
               className="hover:underline"
             >
               BetterGovPh
-            </a>
+            </a></article>
+              <article className="flex items-center space-x-2"> <Image
+              src={"/icon.png"}
+              alt="BetterGov Icon"
+              height={1000}
+              width={1000}
+              className="h-[47px] w-[47px]"
+            />
+            <Link
+              href="/"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="hover:underline"
+            >
+              PhPriceGuides
+            </Link></article>
           </section>
         </article>
 
