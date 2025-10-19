@@ -57,7 +57,7 @@ export const FxRates: React.FC = () => {
   if (error) return <p className="text-red-500 p-4">{error}</p>;
 
   return (
-    <main className="p-4 space-y-6 w-full h-[calc(100vh-5em)] overflow-y-auto">
+    <main className="p-4 space-y-6 w-full h-[calc(100vh-7.5em)] overflow-y-auto">
       <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <h2 className="text-2xl font-semibold text-blue-700">
           PHP Exchange Rates

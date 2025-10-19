@@ -57,8 +57,8 @@ export const CigarettePriceList: React.FC = () => {
       : data.commodities.filter(c => c.commodity === selectedCommodity);
 
   return (
-    <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-5em)] w-full">
-      <header className="p-4 bg-white border space-y-2 border-gray-200 space-y-1 rounded-xl shadow-sm">
+    <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] w-full">
+      <header className="p-4 bg-white border space-y-2 border-gray-200 rounded-xl shadow-sm">
          <p className="text-sm text-gray-700">
           Latest DA Price Monitoring Report:
           <span className="font-semibold text-gray-900"> {data?.date}</span>

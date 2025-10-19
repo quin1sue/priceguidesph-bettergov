@@ -42,7 +42,7 @@ export function FuelDataTable({ fuelCategory }: FuelDataTableProps) {
   if (!data) return null;
   console.log(data);
   return (
-    <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)] p-4">
+    <main className="space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] p-4">
       <header className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
         <p className="text-sm text-gray-700">{data.description}</p>
         <p className="mt-2">

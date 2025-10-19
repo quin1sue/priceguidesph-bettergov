@@ -49,7 +49,7 @@ export function DaPdfDataTable() {
       : data!.commodities.filter(c => c.commodity === selectedCommodity);
 
   return (
-    <main className="space-y-6 overflow-y-auto h-[calc(100vh-5em)] w-full p-4">
+    <main className="space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] w-full p-4">
       <header className="bg-white shadow-sm border border-gray-200 p-4 rounded-xl">
         <p className="text-sm text-gray-700">
           Latest DA Price Monitoring Report:
