@@ -1,46 +1,26 @@
 "use client";
 
 import { FuelTypePrice } from "@/functions/diesel";
-import { useEffect, useState } from "react";
-import { TableSkeleton } from "../global/skeleton";
+import { useState } from "react";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { DashboardError } from "../dashboard/error-occured";
 
 type FuelDataOrError = FuelTypePrice & { error?: string };
 
-interface FuelDataTableProps {
-  fuelCategory: "Kerosene" | "Diesel" | "Gasoline";
+type FuelListType = {
+  initialData: FuelTypePrice
 }
+export default function FuelDataTable({initialData} : FuelListType) {
+  const [data] = useState<FuelDataOrError | null>(initialData);
 
-export function FuelDataTable({ fuelCategory }: FuelDataTableProps) {
-  const [data, setData] = useState<FuelDataOrError | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchFuelData() {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=${fuelCategory}`
-        );
-        const json = await res.json();
-        setData(json);
-      } catch (err) {
-        setData({ error: "Failed to fetch fuel data" } as FuelDataOrError);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchFuelData();
-  }, [fuelCategory]);
-
-  if (loading) return <TableSkeleton />;
-  if (data?.error) return <p className="text-red-500">{data.error}</p>;
+  if (!data?.success) return <DashboardError message={data?.error} />
   if (!data) return null;
-  console.log(data);
   return (
     <main className="space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] p-4">
       <header className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">

@@ -2,7 +2,7 @@ import React from "react";
 
 export const TableSkeleton = () => {
   return (
-    <div className="w-full h-[calc(100vh-5em)] bg-gray-100 p-6 animate-pulse">
+    <div className="w-full h-[calc(100vh-7.5em)] bg-gray-100 p-6 animate-pulse">
       <div className="flex items-center justify-between mb-4">
         <div className="h-6 w-40 bg-gray-300 rounded"></div>
         <div className="flex gap-2">

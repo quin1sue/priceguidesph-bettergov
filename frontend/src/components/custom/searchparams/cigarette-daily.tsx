@@ -1,49 +1,28 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { TableSkeleton } from "../global/skeleton";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {DashboardError} from "../dashboard/error-occured";
 import { MainJson } from "@/functions/types";
+type FuelDataOrError = MainJson & { error?: string };
 
-export const CigarettePriceList: React.FC = () => {
-  const [data, setData] = useState<MainJson | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+type CigaretteListType = {
+  initialData: MainJson
+}
+
+ const CigarettePriceList = ({initialData}: CigaretteListType) => {
+  const [data] /*will set this later for refresh fetching*/ = useState<FuelDataOrError | null>(initialData);
   const [selectedCommodity, setSelectedCommodity] = useState<string>("All");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=cigarette`,
-          {
-            method: "GET",
-            credentials: "include",
-            headers: { "Content-Type": "application/json" },
-          }
-        );
-        if (!res.ok) throw new Error("Failed to fetch data");
-        const json: MainJson = await res.json();
-        setData(json);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : String(err));
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
 
   const initialDefaultValue =
     data?.commodities.map((_, i) => String(i)) || [];
 
-  if (loading) return <TableSkeleton />;
-  if (error) return <p className="p-4 text-red-500">Error: {error}</p>;
+  if (data?.error) return <p className="text-red-500">{data.error}</p>;
   if (!data || data.commodities.length === 0)
     return <p className="p-4 text-gray-500">No data available.</p>;
 
@@ -55,7 +34,7 @@ export const CigarettePriceList: React.FC = () => {
     selectedCommodity === "All"
       ? data.commodities
       : data.commodities.filter(c => c.commodity === selectedCommodity);
-
+if (!data.success) return <DashboardError message={data.error} />
   return (
     <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] w-full">
       <header className="p-4 bg-white border space-y-2 border-gray-200 rounded-xl shadow-sm">
@@ -64,7 +43,7 @@ export const CigarettePriceList: React.FC = () => {
           <span className="font-semibold text-gray-900"> {data?.date}</span>
         </p>
         <p className="text-sm text-gray-700">
-          <strong>Note&#58; </strong> n&#47;a - not available in the market
+        <strong>Note&#58; </strong>The data that are being shown are the only data that were available in the market/establishment.
         </p>
         <p className="text-sm">
           Prevailing Retail Prices of Cigarettes in Selected Retail
@@ -140,3 +119,6 @@ export const CigarettePriceList: React.FC = () => {
     </main>
   );
 };
+
+
+export default CigarettePriceList

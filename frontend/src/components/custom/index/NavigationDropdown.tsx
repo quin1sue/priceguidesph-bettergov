@@ -16,12 +16,13 @@ import {
 import { IconType } from "react-icons/lib"
 
 const servicesLink = [
-  ["Currency Rates", "/dashboard"],
-  ["Market Price Index", "/dashboard?where=daily-price-index"],
-  ["Cigarette", "/dashboard?where=cigarette"],
-  ["Gasoline", "/dashboard?where=gasoline-prices"],
-  ["Diesel", "/dashboard?where=diesel"],
-  ["Kerosene", "/dashboard?where=kerosene"]
+  ["Currency Rates", "/currency-exchange"],
+  ["Market Price Index", "/daily-price-index"],
+  ["Cigarette", "/cigarette-index"],
+  ["Gasoline", "/gasoline"],
+  ["Diesel", "/diesel"],
+  ["Kerosene", "/kerosene"],
+  ["LPG", "/lpg"]
 ]
 
 const bettergovLink = [

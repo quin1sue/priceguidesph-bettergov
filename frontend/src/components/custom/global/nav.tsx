@@ -15,10 +15,11 @@ export function Nav({ pos = "fixed" }: NavProps) {
   const menuRef = useRef<HTMLElement>(null);
 
   const dashboardLinks = [
-    ["Market Prices", "/dashboard?where=daily-price-index"],
-    ["Cigarettes", "/dashboard?where=cigarettes-index"],
-    ["Gasoline", "/dashboard?where=gasoline-prices"],
-    ["Currency Exchange", "/dashboard?where=currency-exchange"],
+    ["Market Prices", "/daily-price-index"],
+    ["Cigarettes", "/cigarette-index"],
+    ["Gasoline", "/gasoline-price"],
+    ["Currency Exchange", "/currency-exchange"],
+    ["LPG", "lpg"]
   ];
   const bettergovLink = [
     ["Budget Tracker", "https://budget.bettergov.ph/2025/index.html"],
@@ -76,7 +77,7 @@ export function Nav({ pos = "fixed" }: NavProps) {
             className="w-[25px] h-[25px] sm:w-[50px] sm:h-[50px]"
           />
           <Link href="/" className="flex items-center space-x-2">
-            <p className="font-bold text-sm md:text-[15px]">PhPriceGuides by BetterGovPh</p>
+            <p className="font-bold text-sm md:text-[15px]">PriceGuides by BetterGovPh</p>
           </Link>
         </section>
 

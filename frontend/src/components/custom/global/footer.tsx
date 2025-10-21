@@ -4,11 +4,11 @@ import { FaDiscord, FaGithub } from "react-icons/fa";
 import Image from "next/image";
 export const Footer = () => {
   const services = [
-    ["Gasoline Prices", "/dashboard?where=gasoline-prices"],
-    ["Kerosene Prices", "/dashboard?where=kerosene"],
-    ["Diesel Prices", "/dashboard?where=electricity-kwh"],
-    ["Market Prices", "/dashboard?where=daily-price-index"],
-    ["Cigarette Prices", "/dashboard?where=cigarette"],
+    ["Gasoline Prices", "/gasoline"],
+    ["Kerosene Prices", "/kerosene"],
+    ["Diesel Prices", "/diesel"],
+    ["Market Prices", "/daily-price-index"],
+    ["Cigarette Prices", "/cigarette-index"],
   ];
 
   const govLinks = [
@@ -41,7 +41,7 @@ export const Footer = () => {
             </Link>
           </header>
           <p className="text-sm leading-relaxed text-gray-400">
-            <strong>PhPriceGuides</strong> provides economic and financial
+            <strong>PriceGuides</strong> provides economic and financial
             transparency for the Philippines. Tracking fuel, energy, and market
             data to help citizens stay informed.
           </p>
@@ -76,7 +76,7 @@ export const Footer = () => {
               target="_blank"
               className="hover:underline"
             >
-              PhPriceGuides
+              PriceGuides
             </Link></article>
           </section>
         </article>
@@ -147,8 +147,8 @@ export const Footer = () => {
       </section>
 
       <section className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()}{" "}
-        <span className="font-semibold text-white">PhPriceGuides</span> by <span className="font-semibold text-white">BetterGov.ph</span>  — See sources for their respective licenses
+        &copy; {new Date().getFullYear()}
+        <span className="font-semibold text-white">PriceGuides</span> by <span className="font-semibold text-white">BetterGov.ph</span>  — See sources for their respective licenses
       </section>
     </footer>
   );
