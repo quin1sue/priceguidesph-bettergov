@@ -39,9 +39,9 @@ app.get("/market", async (c) => {
          ORDER BY date DESC 
          LIMIT 1`
       )
-      .bind(category)
+      .bind(category?.toLowerCase())
       .first();
-
+  
     if (!priceGroup) {
       return c.json({ message: "No market data found" }, 404);
     }
@@ -73,10 +73,13 @@ app.get("/market", async (c) => {
         };
       })
     );
-
+    
     return c.json(
       {
-        ...priceGroup,
+        ...priceGroup, 
+        name: priceGroup["category"] as string === "market" ? "Market Price" : "Cigarette Price",
+        success: true,
+        description: `DA Price Monitoring report: latest ${category} prices as of ${priceGroup.date}`,
         commodities: commoditiesWithItems,
       },
       200,
@@ -97,21 +100,21 @@ app.get("/fuel-prices", async (c) => {
     const url = new URL(c.req.url);
     const namePetrol = url.searchParams.get("category") || "Kerosene"; // default
 
-    const fuelType: any = await db
+    const fuelType = await db
       .prepare(`SELECT * FROM FuelType WHERE name = ? LIMIT 1`)
       .bind(namePetrol)
       .first();
 
     if (!fuelType) return c.json([], 200);
 
-    const sectionsResult: any = await db
+    const sectionsResult = await db
       .prepare(`SELECT id, name FROM FuelSection WHERE fuel_id = ?`)
       .bind(fuelType.id)
       .all();
 
     const sections = await Promise.all(
       sectionsResult.results.map(async (section: any) => {
-        const itemsResult: any = await db
+        const itemsResult = await db
           .prepare(
             `SELECT specification, value FROM FuelItem WHERE section_id = ?`
           )
@@ -127,6 +130,7 @@ app.get("/fuel-prices", async (c) => {
     return c.json(
       {
         ...fuelType,
+        success: true,
         sections,
       },
       200,
@@ -149,7 +153,7 @@ export default {
     ctx: ExecutionContext
   ) {
     switch (controller.cron) {
-      case "0 0 * * 2": // tuesday
+      case "0 0 * * 3": // tue in ph,wed in utc
         ctx.waitUntil(
           (async () => {
             try {
@@ -161,7 +165,7 @@ export default {
           })()
         );
         break;
-      case "0 15 * * *": // 3pm 
+      case "0 7 * * *": // 3pm in ph, 7am in utc 
         ctx.waitUntil(
           (async () => {
             try {
@@ -173,7 +177,7 @@ export default {
           })()
         );
         break;
-      case "0 17 * * *": // 5pm
+      case "0 9 * * *": // 5pm in ph, 9am in utc
         ctx.waitUntil(
           (async () => {
             try {

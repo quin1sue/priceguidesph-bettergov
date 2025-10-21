@@ -3,6 +3,7 @@ import { scrapeDieselPrices } from "../../../services/functions/fuel prices/dies
 import { scrapeGasolinePrices } from "../../../services/functions/fuel prices/gasoline-datafetch";
 import { scrapeKerosenePrices } from "../../../services/functions/fuel prices/kerosene-datafetch";
 import { ScrapedFuelData } from "../../types/petrol-types";
+import { scrapeLPGPrices } from "../../../services/functions/fuel prices/lpg-datafetch";
 
 async function insertFuelData(
   db: D1Database,
@@ -48,6 +49,12 @@ async function insertFuelData(
   }
 }
 export async function insertAllFuels(db: D1Database) {
+
+  const lpg = await scrapeLPGPrices();
+  await insertFuelData(db, "LPG", lpg, [
+    { name: "generalInfo", items: lpg.generalInfo },
+    { name: "LPGPricesPHP", items: lpg.LPGPricesPHP }
+  ])
   const diesel = await scrapeDieselPrices();
   await insertFuelData(db, "Diesel", diesel, [
     { name: "analytics", items: diesel.analytics },

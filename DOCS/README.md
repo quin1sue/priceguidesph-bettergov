@@ -1,6 +1,6 @@
-# Philippines Price Guides
+# Price Guides by BetterGovPh
 
-**PhPriceGuides** is an economic and financial data platform designed to promote transparency and awareness. It collects, parses, and shares financial and economic information such as gas prices, market prices, currency exchange rates, and more.
+**PriceGuides** is an economic and financial data platform designed to promote transparency and awareness. It collects, parses, and shares financial and economic information such as gas prices, market prices, currency exchange rates, and more.
 
 ---
 
@@ -23,7 +23,7 @@
 
 ## Backend
 
-- [Hono.js](https://hono.dev/)
+- [Hono](https://hono.dev/)
 - [SQLite](https://sqlite.org/) - Database
 - [D1](https://developers.cloudflare.com/d1/) - DB Hosting
 - [Workers](https://workers.cloudflare.com/) - Hosting

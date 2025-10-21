@@ -36,70 +36,47 @@ export async function scrapeGasolinePrices(): Promise<ScrapedData> {
       },
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch: ${response.status}`);
-    }
 
-    const html = await response.text();
-    const $ = cheerio.load(html);
-    const date: string = $("#graphPageLeft h1").text();
-    const rowsData: RowData[] = [];
-    $("tbody tr").each((_, row) => {
-      const cells = $(row).find("td");
-      const specification = $(cells[0]).text().trim();
-      const value = $(cells[1]).text().trim();
+    if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`);
+   
+     const html = await response.text();
+     const $ = cheerio.load(html);
+   
+     const date = $("#graphPageLeft h1").text().trim();
+     const description = $("meta[name=Description]").attr("content") || "";
+   
+     const tables = $("table");
+     const generalInfo: RowData[] = [];
+     const gasolinePricesPHP: RowData[] = [];
+    const analytics: RowData[] = []
+     // first table 'general info'
+     const generalTable = tables.eq(0);
+     generalTable.find("tbody tr").each((_, row) => {
+       const cells = $(row).find("td");
+       const specification = $(cells[0]).text().trim();
+       const value = $(cells[1]).text().trim();
+       if (specification && value) generalInfo.push({ specification, value });
+     });
+   
+     // second table to organize 'PricesPHP'
+     const phpTable = tables.eq(1);
+     phpTable.find("tbody tr").each((_, row) => {
+       const cells = $(row).find("td");
+       const specification = $(cells[0]).text().trim();
+       const value = $(cells[1]).text().trim();
+       if (specification && value) gasolinePricesPHP.push({ specification, value });
+     });
+   
 
-      if (specification && value) {
-        rowsData.push({ specification, value });
-      }
-    });
-
-    const metadata = $("meta[name=Description]").attr("content") || "";
-
-    // keyword to MATCH columns and rows
-    const analyticsKeywords = [
-      "percent of world average",
-      "correlation with crude oil",
-      "percent change if oil prices",
-      "correlation with usd exchange rate",
-      "price flexibility index",
-      "correlation with diesel fuel",
-      "percent of diesel price",
-      "cost of 40 liter",
-    ];
-
-    const generalKeywords = [
-      "current price",
-      "measure",
-      "last update",
-      "data availability",
-      "data frequency",
-    ];
-
-    const recentKeywords = [
-      "current price",
-      "one month ago",
-      "three months ago",
-      "one year ago",
-    ];
-
-    const analytics: RowData[] = [];
-    const generalInfo: RowData[] = [];
-    const gasolinePricesPHP: RowData[] = [];
-
-    for (const row of rowsData) {
-      const lower = row.specification.toLowerCase();
-      if (analyticsKeywords.some((k) => lower.includes(k))) {
-        analytics.push(row);
-      } else if (generalKeywords.some((k) => lower.includes(k))) {
-        generalInfo.push(row);
-      } else if (recentKeywords.some((k) => lower.includes(k))) {
-        gasolinePricesPHP.push(row);
-      }
-    }
-
+  const analyticsTable = tables.eq(2);
+     analyticsTable.find("tbody tr").each((_, row) => {
+       const cells = $(row).find("td");
+       const specification = $(cells[0]).text().trim();
+       const value = $(cells[1]).text().trim();
+       if (specification && value) analytics.push({ specification, value });
+     });
     const result: ScrapedData = {
-      description: metadata,
+      description,
       date,
       analytics,
       generalInfo,

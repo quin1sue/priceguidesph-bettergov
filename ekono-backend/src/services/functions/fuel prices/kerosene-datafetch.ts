@@ -39,53 +39,39 @@ export async function scrapeKerosenePrices(): Promise<ScrapedData> {
       throw new Error(`Failed to fetch: ${response.status}`);
     }
 
-    const html = await response.text();
-    const $ = cheerio.load(html);
-    const date: string = $("#graphPageLeft h1").text();
-    // Extract table rows
-    const rowsData: RowData[] = [];
-    $("tbody tr").each((_, row) => {
-      const cells = $(row).find("td");
-      const specification = $(cells[0]).text().trim();
-      const value = $(cells[1]).text().trim();
-
-      if (specification && value) {
-        rowsData.push({ specification, value });
-      }
-    });
-
-    const metadata = $("meta[name=Description]").attr("content") || "";
-
-    //keyword to MATCH the columns and rows
-    const generalKeywords = [
-      "current price",
-      "measure",
-      "last update",
-      "data availability",
-      "data frequency",
-    ];
-
-    const recentKeywords = [
-      "current price",
-      "one month ago",
-      "three months ago",
-      "one year ago",
-    ];
-
-    const generalInfo: RowData[] = [];
-    const kerosenePricesPHP: RowData[] = [];
-
-    for (const row of rowsData) {
-      const lower = row.specification.toLowerCase();
-      if (generalKeywords.some((k) => lower.includes(k))) {
-        generalInfo.push(row);
-      } else if (recentKeywords.some((k) => lower.includes(k))) {
-        kerosenePricesPHP.push(row);
-      }
-    }
+    if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`);
+   
+     const html = await response.text();
+     const $ = cheerio.load(html);
+   
+     const date = $("#graphPageLeft h1").text().trim();
+     const description = $("meta[name=Description]").attr("content") || "";
+   
+     const tables = $("table");
+     const generalInfo: RowData[] = [];
+     const kerosenePricesPHP: RowData[] = [];
+   
+     // first table 'general info'
+     const generalTable = tables.eq(0);
+     generalTable.find("tbody tr").each((_, row) => {
+       const cells = $(row).find("td");
+       const specification = $(cells[0]).text().trim();
+       const value = $(cells[1]).text().trim();
+       if (specification && value) generalInfo.push({ specification, value });
+     });
+   
+     // second table to organize 'PricesPHP'
+     const phpTable = tables.eq(1);
+     phpTable.find("tbody tr").each((_, row) => {
+       const cells = $(row).find("td");
+       const specification = $(cells[0]).text().trim();
+       const value = $(cells[1]).text().trim();
+       if (specification && value) kerosenePricesPHP.push({ specification, value });
+     });
+   
 
     const result: ScrapedData = {
-      description: metadata,
+      description,
       date,
       generalInfo,
       kerosenePricesPHP,
