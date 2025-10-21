@@ -1,7 +1,5 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { TableSkeleton } from "../global/skeleton";
+import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -9,30 +7,20 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { MainJson } from "@/functions/types";
+import { DashboardError } from "../dashboard/error-occured";
 
-export function DaPdfDataTable() {
-  const [data, setData] = useState<(MainJson & { error: string }) | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [selectedCommodity, setSelectedCommodity] = useState<string>("All"); // <-- selected commodity
+type MarketType = {
+  initialData: MainJson
+}
+export default function DaPdfDataTable({initialData} : MarketType) {
+  const [data] = useState<MainJson | null>(initialData);
+  const [selectedCommodity, setSelectedCommodity] = useState<string>("All"); // select commodity/filtering 
   let numberedArray: string[] = [];
 
-  useEffect(() => {
-    async function fetchDaPdfData() {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=market`
-      );
-      const json = await res.json();
-      setData(json);
-      setLoading(false);
-    }
-    fetchDaPdfData();
-  }, []);
 
-  if (loading) return <TableSkeleton />;
-  if (data?.error)
-    return (
-      <p className="text-red-500 text-center mt-10 text-sm">{data.error}</p>
-    );
+
+  if (!data?.success)
+    return <DashboardError message={initialData.error} />
 
   numberedArray = Array.from(
     { length: data?.commodities.length ?? 0 },

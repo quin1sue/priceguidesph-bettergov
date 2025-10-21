@@ -8,7 +8,7 @@ import {
   Bubbles,
   Waves,
 } from "lucide-react";
-
+import { PiGasCan } from "react-icons/pi";
 import {
   Sidebar,
   SidebarContent,
@@ -23,31 +23,36 @@ import Link from "next/link";
 
 // Menu items.
 const items = [
-  { title: "Exchange Currency Rates", url: "/dashboard", icon: PhilippinePeso },
+  { title: "Exchange Currency Rates", url: "/currency-exchange", icon: PhilippinePeso },
   {
     title: "Market Price Index",
-    url: "/dashboard?where=daily-price-index",
+    url: "/daily-price-index",
     icon: ShoppingBasket,
   },
   {
     title: "Cigarette Price Index",
-    url: "/dashboard?where=cigarette",
+    url: "/cigarette-index",
     icon: Cigarette,
   },
   {
     title: "Gasoline Prices",
-    url: "/dashboard?where=gasoline-prices",
+    url: "/gasoline",
     icon: Fuel,
   },
   {
+    title: "LPG Prices",
+    url: "/lpg",
+    icon: PiGasCan
+  },
+  {
     title: "Diesel Prices",
-    url: "/dashboard?where=diesel",
+    url: "/diesel",
     icon: Bubbles,
   },
-  { title: "Kerosene Prices", url: "/dashboard?where=kerosene", icon: Waves },
+  { title: "Kerosene Prices", url: "/kerosene", icon: Waves },
 ];
 
-const secondItems = [
+const externalSources = [
   {
     title: "Daily Minimum Wage Rates",
     url: "https://nwpc.dole.gov.ph/#dmwr",
@@ -78,7 +83,7 @@ export function AppSidebar() {
                 </SidebarMenuItem>
               ))}
               <SidebarGroupLabel>External Sources</SidebarGroupLabel>
-              {secondItems.map((item) => (
+              {externalSources.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url} target="_blank">

@@ -13,6 +13,8 @@ export type PetrolSection = {
 export type FuelTypePrice = {
   id: string; // FuelType ID
   name: string;
+  error: string;
+  success: boolean;
   description: string;
   date: string;
   sections: PetrolSection[];

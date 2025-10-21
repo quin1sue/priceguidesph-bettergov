@@ -12,7 +12,7 @@ export function Logo() {
           width={900}
           className="w-[60px]"
         />
-        <p className="font-bold text-xl">PhPriceGuides</p>
+        <p className="font-bold text-xl">PriceGuides</p>
       </Link>
     </main>
   );

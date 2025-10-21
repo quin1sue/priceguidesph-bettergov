@@ -30,14 +30,14 @@ export function NavDashboard() {
          <section className="relative flex-col space-x-2.5 items-center justify-center">
           <Link href="/" className="flex items-center space-x-2">
             <Image
-              title="PhPriceGuides"
+              title="PriceGuides"
               src="/bettergov-icon.svg"
-              alt="PhPriceGuides Logo"
+              alt="PriceGuides Logo"
               width={60}
               height={60}
               className="w-[20px] h-[20px] sm:w-[40px] sm:h-[40px]"
             />
-            <p className="font-bold text-sm sm:text-lg">PhPriceGuides</p>
+            <p className="font-bold text-sm sm:text-lg">PriceGuides</p>
           
           </Link>
         </section>

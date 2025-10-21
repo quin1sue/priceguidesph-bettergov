@@ -10,28 +10,32 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Philippine Price Guides",
-    default: "Philippine Price Guides | BetterGovPh",
+    template: "%s | Price Guides",
+    default: "Price Guides | BetterGovPh",
   },
   description:
     "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
-  keywords: ["bettergov", "phpriceguides"],
+  keywords: ["bettergov", "phpriceguides", "priceguides"],
   icons: { icon: "/icon.png" },
-
+  creator: "Alquin Suedad",
+  publisher: "BetterGovPh",
   authors: [
     { name: "Alquin Suedad", url: "https://github.com/quin1sue" },
     {
       name: "Sam Daniel Mugar",
       url: "https://www.linkedin.com/in/sam-daniel-mugar/",
     },
+    {name: "BetterGovPh",
+      url: "https://github.com/bettergovph"
+    }
   ],
-  metadataBase: new URL("https://philippine-price-guides.vercel.app"),
+  metadataBase: new URL("https://price-guides.bettergov.ph"),
   openGraph: {
     type: "website",
     title: "Philippine Price Guides",
     description:
       "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
-    url: "https://philippine-price-guides.vercel.app",
+    url: "https://price-guides.bettergov.ph",
     images: [
       {
         url: "/banner-white.png",
@@ -46,11 +50,16 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Philippine Price Guides",
     description:
-      "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
+      "Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
     images: ["/banner-white.png"],
   },
   alternates: {
-    canonical: "https://philippine-price-guides.vercel.app",
+    canonical: "https://price-guides.bettergov.ph",
+    languages: {
+      'tl-PH': "/tl-PH",
+      'en-PH': '/en-PH',
+      'en-US': '/en-US'
+    }
   },
   robots: {
     index: true,
@@ -73,11 +82,11 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Philippine Price Guides",
-            url: "https://philippine-price-guides.vercel.app",
-            logo: "https://philippine-price-guides.vercel.app/icon.png",
+            url: "https://price-guides.bettergov.ph",
+            logo: "https://price-guides.bettergov.ph/icon.png",
             sameAs: [
               "https://github.com/quin1sue",
-              "https://www.linkedin.com/in/sam-daniel-mugar/",
+              "https://www.linkedin.com/in/sam-daniel-mugar",
             ],
           }),
         }}

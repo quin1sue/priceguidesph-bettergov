@@ -1,61 +1,40 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { TableSkeleton } from "../global/skeleton";
+import { useState } from "react";
+import { CurrencyRatesType } from "@/functions/types";
+import { DashboardError } from "../dashboard/error-occured";
 
-export const FxRates: React.FC = () => {
-  const [rates, setRates] = useState<Record<string, number>>({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+type CurrencyType = {
+  initialData: CurrencyRatesType;
+};
+
+const FxRates = ({ initialData }: CurrencyType) => {
+  const [rates] = useState<Record<string, number>>(initialData.rates);
   const [search, setSearch] = useState("");
 
-  //rate converter
+  // Currency converter states
   const [amount, setAmount] = useState<number>(1);
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [result, setResult] = useState<number | null>(null);
 
-  useEffect(() => {
-    const fetchExchangeRates = async () => {
-      try {
-        const response = await fetch("/api/fxrates/", { method: "GET" });
-        if (!response.ok) throw new Error("Failed to fetch exchange rates");
+  const handleConvert = () => {
+    if (fromCurrency === "PHP") {
+      setResult(amount); 
+      return;
+    }
 
-        const result = await response.json();
+    const rate = rates[fromCurrency];
+    if (!rate) return setResult(null);
 
-        setRates(result.rates);
-      } catch (err) {
-        setError(("An error has occurred: " + err) as string);
-      } finally {
-        setLoading(false);
-      }
-    };
+    const phpValue = amount / rate;
+    setResult(phpValue);
+  };
 
-    fetchExchangeRates();
-  }, []);
-
- const handleConvert = () => {
-  // currency convert
-  const usdRate = rates["USD"];
-  if (!usdRate) return setResult(null);
-
-  const toPhp = (currency: string) => 1 / rates[currency];
-
-  if (fromCurrency === "USD") {
-    setResult(amount * toPhp("USD"));
-  } else {
-    const fromRate = rates[fromCurrency];
-    if (!fromRate) return setResult(null);
-    setResult(amount * toPhp(fromCurrency));
-  }
-};
-
+  // filter currencies via search
   const filtered = Object.entries(rates).filter(([currency]) =>
     currency.toLowerCase().includes(search.toLowerCase())
   );
-
-  if (loading) return <TableSkeleton />;
-  if (error) return <p className="text-red-500 p-4">{error}</p>;
-
+  if (!initialData.success) return <DashboardError message={initialData.error} />
   return (
     <main className="p-4 space-y-6 w-full h-[calc(100vh-7.5em)] overflow-y-auto">
       <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -71,7 +50,7 @@ export const FxRates: React.FC = () => {
         />
       </header>
 
-      {/* currency calc */}
+      {/* currency Converter */}
       <section className="border border-gray-200 rounded-lg p-4 bg-white shadow-sm">
         <h3 className="text-lg font-semibold text-gray-800 mb-3">
           Currency Converter
@@ -95,6 +74,7 @@ export const FxRates: React.FC = () => {
               </option>
             ))}
           </select>
+
           <button
             onClick={handleConvert}
             className="bg-blue-700 text-white rounded-md px-4 py-2 hover:bg-blue-800 transition"
@@ -113,20 +93,20 @@ export const FxRates: React.FC = () => {
         )}
       </section>
 
-      {/* exchange rates list */}
+      {/* exchange Rates List */}
       <section aria-label="Exchange Rates">
         <h3 className="text-lg font-semibold text-gray-800 mb-3">
-          All Currency Rates &#40;Base&#58; PHP&#41;
+          All Currency Rates Base&#58; &#40;PHP&#41;
         </h3>
         {filtered.length > 0 ? (
-          <ul className="divide-y border border-gray-200 rounded-lg bg-white shadow-sm">
+          <ul className="divide-y border border-gray-200 rounded-lg shadow-sm">
             {filtered.map(([currency, rate]) => (
               <li
                 key={currency}
                 className="flex justify-between p-4 hover:bg-gray-50 text-sm"
               >
                 <span className="font-medium text-gray-700">{currency}</span>
-                <span className="text-gray-900">₱{rate.toFixed(4)}</span>
+                <span className="text-gray-900">&#8369;{(1 / rate).toFixed(2)}</span>
               </li>
             ))}
           </ul>
@@ -137,3 +117,5 @@ export const FxRates: React.FC = () => {
     </main>
   );
 };
+
+export default FxRates;

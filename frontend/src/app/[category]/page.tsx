@@ -1,0 +1,85 @@
+import dynamic from "next/dynamic";
+import { Metadata, ResolvedMetadata } from "next";
+import { fetchKerosene, fetchDiesel, fetchGasoline, fetchLPG } from "@/lib/api/petrol-get";
+import { fetchCigarette } from "@/lib/api/cigarette-get";
+import { fetchMarket } from "@/lib/api/market-get";
+import { FuelTypePrice } from "@/functions/diesel";
+import { MainJson, CurrencyRatesType } from "@/functions/types";
+import { NotFound } from "@/components/custom/dashboard/category-notfound";
+import { fetchExchangeRates } from "@/lib/api/exchangerates";
+import { ComponentType } from "react";
+
+type CategoryData = MainJson | FuelTypePrice | CurrencyRatesType;
+
+// dynamic component type that accepts initialData prop AAAAAAAAHHH
+type CategoryComponent = ComponentType<{ initialData: CategoryData }>;
+
+const CigaretteDaily = dynamic(() => import("@/components/custom/searchparams/cigarette-daily"));
+const Market = dynamic(() => import("@/components/custom/searchparams/market"));
+const DieselDashboard = dynamic(() => import("@/components/custom/searchparams/dieseldashboard"));
+const ExchangeRate = dynamic(() => import("@/components/custom/searchparams/exchangeRate"));
+
+const componentMap: Record<string, CategoryComponent> = {
+  "cigarette-index": CigaretteDaily as CategoryComponent,
+  "daily-price-index": Market as CategoryComponent,
+  "kerosene": DieselDashboard as CategoryComponent,
+  "diesel": DieselDashboard as CategoryComponent,
+  "gasoline": DieselDashboard as CategoryComponent,
+  "lpg": DieselDashboard as CategoryComponent,
+  "currency-exchange": ExchangeRate as CategoryComponent,
+};
+
+const fetcherMap: Record<string, () => Promise<CategoryData>> = {
+  "cigarette-index": fetchCigarette,
+  "kerosene": fetchKerosene,
+  "diesel": fetchDiesel,
+  "lpg": fetchLPG,
+  "gasoline": fetchGasoline,
+  "daily-price-index": fetchMarket,
+  "currency-exchange": fetchExchangeRates
+};
+
+type PageParams = {
+  params: Promise<{ category: string }>;
+};
+
+export async function generateMetadata(
+  { params }: PageParams,
+  parent: Promise<ResolvedMetadata>
+): Promise<Metadata> {
+  const { category } = await params;
+  const previousImages = (await parent).openGraph?.images || [];
+  const fetchMetadata = fetcherMap[category];
+  
+  if (!fetchMetadata) {
+    return {
+      title: "Category Not Found",
+      description: "This category does not exist in Price Guides PH.",
+      openGraph: {
+        images: [...previousImages]
+      }
+    };
+  }
+  
+  const metadata: CategoryData = await fetchMetadata();
+
+  return {
+    title: metadata.name,
+    description: metadata.description,
+    openGraph: {
+      images: [...previousImages]
+    }
+  };
+}
+
+export default async function Page({ params }: PageParams) {
+  const { category } = await params;
+  const Component = componentMap[category];
+  const fetcher = fetcherMap[category];
+
+  if (!Component || !fetcher) return <NotFound />;
+
+  const initialData = await fetcher();
+  
+  return <Component initialData={initialData} />;
+}
