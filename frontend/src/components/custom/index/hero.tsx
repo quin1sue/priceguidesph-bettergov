@@ -82,7 +82,7 @@ export const HeroIndex = () => {
             — empowering you with reliable and transparent economic data.
           </p>
           <Link
-            href="/market-price-index"
+            href="/daily-price-index"
             className="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full shadow-lg hover:shadow-blue-300/50 transition-transform hover:-translate-y-0.5 flex items-center gap-2 text-base"
           >
             <TrendingUp className="w-5 h-5" />
