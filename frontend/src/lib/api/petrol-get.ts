@@ -1,8 +1,11 @@
+import { revalidateCache } from "../utils";
 
 export async function fetchKerosene() {
 try {
      const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Kerosene`
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Kerosene`,{
+            next: revalidateCache
+          }
         );
         if (!res.ok) {
             return {
@@ -24,7 +27,9 @@ try {
     export async function fetchLPG() {
                try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=LPG`
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=LPG`, {
+            next: revalidateCache
+          }
         );
         if (!res.ok) {
             return {
@@ -45,7 +50,9 @@ try {
 export async function fetchDiesel() {
        try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Diesel`
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Diesel`, {
+            next: revalidateCache
+          }
         );
         if (!res.ok) {
             return {
@@ -66,7 +73,9 @@ export async function fetchDiesel() {
 
 export async function fetchGasoline() {
         try { const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Gasoline`
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Gasoline`, {
+            next: revalidateCache
+          }
         );
         if (!res.ok) {
 

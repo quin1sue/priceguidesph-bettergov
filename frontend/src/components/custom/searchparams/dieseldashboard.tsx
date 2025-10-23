@@ -24,11 +24,12 @@ export default function FuelDataTable({initialData} : FuelListType) {
   return (
     <main className="space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] p-4">
       <header className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
+        <h2 className="text-2xl text-gray-700 my-3 font-bold">{data.date}</h2>
         <p className="text-sm text-gray-700">{data.description}</p>
         <p className="mt-2">
-          Source&#58;{" "}
+          Source&#58;
           <a
-            className="underline font-semibold text-blue-700"
+            className="underline font-semibold text-blue-700 ml-1"
             href="https://www.globalpetrolprices.com/Philippines/gasoline_prices/"
             target="_blank"
           >
@@ -36,7 +37,7 @@ export default function FuelDataTable({initialData} : FuelListType) {
           </a>
         </p>
       </header>
-
+   
       <Accordion
         type="multiple"
         defaultValue={data.sections.map((s) => s.name) || []}

@@ -1,7 +1,8 @@
+import { revalidateCache } from "../utils";
 
 export const fetchExchangeRates = async () => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_FE_DOMAIN}/api/fxrates/`, { method: "GET" });
+    const response = await fetch(`${process.env.NEXT_PUBLIC_FE_DOMAIN}/api/fxrates/`, {next: revalidateCache, method: "GET" });
 
     if (!response.ok) 
         return {

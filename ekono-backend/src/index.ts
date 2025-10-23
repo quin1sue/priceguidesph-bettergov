@@ -101,10 +101,9 @@ app.get("/fuel-prices", async (c) => {
     const namePetrol = url.searchParams.get("category") || "Kerosene"; // default
 
     const fuelType = await db
-      .prepare(`SELECT * FROM FuelType WHERE name = ? LIMIT 1`)
+      .prepare(`SELECT * FROM FuelType WHERE name = ? ORDER BY date DESC`)
       .bind(namePetrol)
-      .first();
-
+      .first()
     if (!fuelType) return c.json([], 200);
 
     const sectionsResult = await db

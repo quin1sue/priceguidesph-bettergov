@@ -1,8 +1,11 @@
+import { revalidateCache } from "../utils";
+
 export const fetchCigarette = async () => {
     try {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=cigarette`,
           {
+            next: revalidateCache,
             method: "GET",
             credentials: "include",
             headers: { "Content-Type": "application/json" },

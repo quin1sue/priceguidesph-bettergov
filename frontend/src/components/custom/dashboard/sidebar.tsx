@@ -3,8 +3,6 @@ import {
   ShoppingBasket,
   Fuel,
   PhilippinePeso,
-  ChartNoAxesGantt,
-  BusFront,
   Bubbles,
   Waves,
 } from "lucide-react";
@@ -52,18 +50,6 @@ const items = [
   { title: "Kerosene Prices", url: "/kerosene", icon: Waves },
 ];
 
-const externalSources = [
-  {
-    title: "Daily Minimum Wage Rates",
-    url: "https://nwpc.dole.gov.ph/#dmwr",
-    icon: ChartNoAxesGantt,
-  },
-  {
-    title: "Fare Rates",
-    url: "https://ltfrb.gov.ph/fare-rates/",
-    icon: BusFront,
-  },
-];
 export function AppSidebar() {
   return (
     <Sidebar className="mt-[6.1em] overflow-hidden z-20">
@@ -79,17 +65,6 @@ export function AppSidebar() {
                       <item.icon color="blue" />
                       <span>{item.title}</span>
                     </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-              <SidebarGroupLabel>External Sources</SidebarGroupLabel>
-              {externalSources.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url} target="_blank">
-                      <item.icon color="blue" />
-                      <span>{item.title}</span>
-                    </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
