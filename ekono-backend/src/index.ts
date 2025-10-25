@@ -23,9 +23,30 @@ app.use(
   })
 );
 
+app.use("/", async (c) => {
+  
+  const date = new Date();
+  date.setDate(date.getDate() - 1)
+  const formatted = date.toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  })
+
+  return c.json(formatted)
+})
 // GET REQUESTS
 app.get("/market", async (c) => {
   try {
+  // get the date of the market  
+  const date = new Date();
+  date.setDate(date.getDate())
+  const formattedDate = date.toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  })
+
     const category = c.req.url.includes("category=")
       ? new URL(c.req.url).searchParams.get("category")
       : "market"; // default params
@@ -35,11 +56,11 @@ app.get("/market", async (c) => {
       .prepare(
         `SELECT id, date, category 
          FROM PriceGroup 
-         WHERE category = ? 
+         WHERE category = ? AND date <= ?
          ORDER BY date DESC 
          LIMIT 1`
       )
-      .bind(category?.toLowerCase())
+      .bind(category?.toLowerCase(), formattedDate)
       .first();
   
     if (!priceGroup) {
