@@ -1,5 +1,5 @@
 import { getDocument } from "pdfjs-serverless";
-import { MarketCommodity } from "../../../lib/types/market-types";
+import { MarketCommodity } from "../../../../lib/types/market-types";
 type Item = {
   specification: string;
   price: number;

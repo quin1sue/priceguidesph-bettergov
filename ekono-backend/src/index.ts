@@ -1,6 +1,6 @@
 import { ExecutionContext, Hono } from "hono";
 import { cors } from "hono/cors";
-import { D1Database, ScheduledController } from "@cloudflare/workers-types";
+import { D1Database, D1Result, ScheduledController } from "@cloudflare/workers-types";
 import { insertAllFuels } from "./lib/triggers/fuel-prices/diesel-triggers";
 import { insertMarketData } from "./lib/triggers/market-index/market-triggers";
 import { insertCigaretteData } from "./lib/triggers/market-index/cigarette-triggers";
@@ -23,34 +23,29 @@ app.use(
   })
 );
 
-app.use("/", async (c) => {
-  
-  const date = new Date();
-  date.setDate(date.getDate() - 1)
-  const formatted = date.toLocaleString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric"
-  })
-
-  return c.json(formatted)
-})
 // GET REQUESTS
 app.get("/market", async (c) => {
   try {
   // get the date of the market  
   const date = new Date();
-  date.setDate(date.getDate())
   const formattedDate = date.toLocaleString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric"
   })
 
+
     const category = c.req.url.includes("category=")
       ? new URL(c.req.url).searchParams.get("category")
       : "market"; // default params
     const db = c.env.MY_DB;
+
+  const dateData: D1Result<Record<string, unknown>> = await db
+  .prepare(`
+    SELECT date FROM PriceGroup 
+    WHERE category = ?`)
+    .bind(category)
+    .all()
 
     const priceGroup = await db
       .prepare(
@@ -97,7 +92,7 @@ app.get("/market", async (c) => {
     
     return c.json(
       {
-        ...priceGroup, 
+        dateData: dateData.results.map((date: Record<string, unknown>) => date.date ),
         name: priceGroup["category"] as string === "market" ? "Market Price" : "Cigarette Price",
         success: true,
         description: `DA Price Monitoring report: latest ${category} prices as of ${priceGroup.date}`,

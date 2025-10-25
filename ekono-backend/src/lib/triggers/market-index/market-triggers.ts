@@ -1,5 +1,5 @@
 import { D1Database } from "@cloudflare/workers-types";
-import { parseMarketPdf } from "../../../services/functions/market index/parsePdfMarket";
+import { parseMarketPdf } from "../../../services/functions/market index/pdf/parsePdfMarket";
 import * as cheerio from "cheerio";
 import { MarketCommodity } from "../../types/market-types";
 

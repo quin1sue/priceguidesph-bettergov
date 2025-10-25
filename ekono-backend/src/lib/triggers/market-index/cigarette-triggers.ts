@@ -1,5 +1,5 @@
 import { D1Database } from "@cloudflare/workers-types";
-import { parseDaPdfCig } from "../../../services/functions/market index/parsePdfCig";
+import { parseDaPdfCig } from "../../../services/functions/market index/pdf/parsePdfCig";
 import { MarketCommodity } from "../../types/market-types";
 import * as cheerio from "cheerio";
 export async function insertCigaretteData(db: D1Database) {
