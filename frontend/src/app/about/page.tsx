@@ -4,6 +4,7 @@ import { Database, Clock, Github, Globe } from "lucide-react";
 import { Footer } from "@/components/custom/global/footer";
 import { Metadata } from "next";
 import DataSource from "@/components/custom/index/datasources";
+
 export const metadata: Metadata = {
   title: "About",
   description: "PriceGuides, by BetterGovPh, is a user-friendly web platform delivering real-time and historical data on product and commodity prices for informed decision-making."

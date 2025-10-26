@@ -5,4 +5,5 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+// caching
 export const revalidateCache = { revalidate: 60 }; 

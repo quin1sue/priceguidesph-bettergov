@@ -1,8 +1,9 @@
-
+"use client"
 import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaDiscord } from "react-icons/fa";
 import { NavDropdown, NavDropdownComm } from "../index/NavigationDropdown";
+import OfflineNotifier from "../global/offlineNotify";
 
 export function NavDashboard() {
   return (
@@ -12,12 +13,14 @@ export function NavDashboard() {
           <li className="mt-2 hover:underline text-blue-500">
             <a href="https://bettergov.ph/join-us"  target="_blank" rel="noopener noreferrer">&#128640; Join Us</a>
           </li>
+            <li className="mt-2 hover:underline">
+            <Link href={"/installation"}>Install App</Link>
+          </li>
           <li className="mt-2 hover:underline">
             <Link href={"/about"}>About</Link>
           </li>
           
-          {[["BetterGov.ph", "https://bettergov.ph/"],
-        ["Hotlines", "https://bettergov.ph/philippines/hotlines"]].map(([name, href], index) => {
+          {[["BetterGov.ph", "https://bettergov.ph/"]].map(([name, href], index) => {
           return (
             <li key={index} className="mt-2 hover:underline">
               <a href={href} target="_blank" rel="noreferrer noopener">{name}</a>
@@ -62,9 +65,9 @@ export function NavDashboard() {
             <FaDiscord size={20} />
           </Link>
         </section>
-     
+      
       </main>   
-     
+       <OfflineNotifier />
     </header>
   );
 }

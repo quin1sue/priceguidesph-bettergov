@@ -22,7 +22,7 @@ export default function FuelDataTable({initialData} : FuelListType) {
   if (!data?.success) return <DashboardError message={data?.error} />
   if (!data) return null;
   return (
-    <main className="space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] p-4">
+       <>
       <header className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
         <h2 className="text-2xl text-gray-700 my-3 font-bold">{data.date}</h2>
         <p className="text-sm text-gray-700">{data.description}</p>
@@ -67,6 +67,6 @@ export default function FuelDataTable({initialData} : FuelListType) {
           </AccordionItem>
         ))}
       </Accordion>
-    </main>
+    </>
   );
 }

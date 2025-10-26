@@ -15,9 +15,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <AppSidebar />
     <SidebarTrigger className="absolute top-10 left-10 md:hidden" />
           <Suspense fallback={<TableSkeleton />}> 
-               {children}
+            <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] w-full">
+              <article className="mb-[6.5em]">
+            {children}
+              </article>
+            </main>
           </Suspense>
-         
         </SidebarProvider>
       </main>
     </>
