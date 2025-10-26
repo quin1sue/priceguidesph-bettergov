@@ -36,7 +36,7 @@ type CigaretteListType = {
       : data.commodities.filter(c => c.commodity === selectedCommodity);
 if (!data.success) return <DashboardError message={data.error} />
   return (
-    <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] w-full">
+    <>
       <header className="p-4 bg-white border space-y-2 border-gray-200 rounded-xl shadow-sm">
          <p className="text-sm text-gray-700">
           Latest DA Price Monitoring Report:
@@ -116,7 +116,7 @@ if (!data.success) return <DashboardError message={data.error} />
           </AccordionItem>
         ))}
       </Accordion>
-    </main>
+    </>
   );
 };
 

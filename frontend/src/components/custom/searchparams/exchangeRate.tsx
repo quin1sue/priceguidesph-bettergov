@@ -36,7 +36,7 @@ const FxRates = ({ initialData }: CurrencyType) => {
   );
   if (!initialData.success) return <DashboardError message={initialData.error} />
   return (
-    <main className="p-4 space-y-6 w-full h-[calc(100vh-7.5em)] overflow-y-auto">
+        <>
       <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <h2 className="text-2xl font-semibold text-blue-700">
           PHP Exchange Rates
@@ -114,7 +114,7 @@ const FxRates = ({ initialData }: CurrencyType) => {
           <p className="text-gray-500">No matching currencies found.</p>
         )}
       </section>
-    </main>
+    </>
   );
 };
 

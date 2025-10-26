@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { startupImage } from "@/lib/metadata";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -16,7 +17,12 @@ export const metadata: Metadata = {
   description:
     "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
   keywords: ["bettergov", "phpriceguides", "priceguides"],
-  icons: { icon: "/icon.png" },
+  icons: { icon: "/icon.png", apple: {url: "/icons/icon-180x180.png"} },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    startupImage: startupImage
+  },
   creator: "Alquin Suedad",
   publisher: "BetterGovPh",
   authors: [
@@ -67,6 +73,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  minimumScale: 1, // how far user can zoom out
+  userScalable: false, // disable zooming
+  width: "device-width" 
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -92,7 +104,10 @@ export default function RootLayout({
         }}
       />
 
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        {children}
+        
+        </body>
     </html>
   );
 }

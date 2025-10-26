@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaDiscord, FaBars, FaTimes } from "react-icons/fa";
 import { NavDropdown, NavDropdownComm, NavDropDownService } from "../index/NavigationDropdown";
+import OfflineNotifier from "./offlineNotify";
 
 interface NavProps {
   pos?: "fixed" | "static" | "relative";
@@ -17,7 +18,7 @@ export function Nav({ pos = "fixed" }: NavProps) {
   const dashboardLinks = [
     ["Market Prices", "/daily-price-index"],
     ["Cigarettes", "/cigarette-index"],
-    ["Gasoline", "/gasoline-price"],
+    ["Gasoline", "/gasoline"],
     ["Currency Exchange", "/currency-exchange"],
     ["LPG", "lpg"]
   ];
@@ -46,16 +47,18 @@ export function Nav({ pos = "fixed" }: NavProps) {
   return (
     <header className={`${pos} w-full top-0 left-0 z-30`}>
       <header className="md:flex items-center justify-center w-full h-[2.5em] backdrop-blur-md px-11 max-sm:text-[9.5px] md:text-[13px]">
-        <ul className="flex items-center justify-center max-sm:space-x-4 sm:space-x-7">
+        <ul className="flex items-center justify-center max-sm:space-x-3 sm:space-x-7">
           <li className="mt-2 hover:underline text-blue-500">
             <a href="https://bettergov.ph/join-us"  target="_blank" rel="noopener noreferrer">&#128640; Join Us</a>
+          </li>
+            <li className="mt-2 hover:underline">
+            <Link href={"/installation"}>Install App</Link>
           </li>
           <li className="mt-2 hover:underline">
             <Link href={"/about"}>About</Link>
           </li>
           
-          {[["BetterGov.ph", "https://bettergov.ph/"],
-        ["Hotlines", "https://bettergov.ph/philippines/hotlines"]].map(([name, href], index) => {
+          {[["BetterGov.ph", "https://bettergov.ph/"]].map(([name, href], index) => {
           return (
             <li key={index} className="mt-2 hover:underline">
               <a href={href} target="_blank" rel="noreferrer noopener">{name}</a>
@@ -76,11 +79,10 @@ export function Nav({ pos = "fixed" }: NavProps) {
             height={60}
             className="w-[25px] h-[25px] sm:w-[50px] sm:h-[50px]"
           />
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex-col items-center space-x-2">
             <p className="font-bold text-sm md:text-[15px]">PriceGuides by BetterGovPh</p>
           </Link>
         </section>
-
         <section className="hidden md:flex items-center space-x-4">
           <NavDropdownComm />
           <NavDropDownService />
@@ -111,7 +113,7 @@ export function Nav({ pos = "fixed" }: NavProps) {
           {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </button>
       </main>
-
+<OfflineNotifier />
       
       <nav
         ref={menuRef}

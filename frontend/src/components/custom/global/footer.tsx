@@ -1,22 +1,9 @@
-"use client";
 import Link from "next/link";
-import { FaDiscord, FaGithub } from "react-icons/fa";
 import Image from "next/image";
-export const Footer = () => {
-  const services = [
-    ["Gasoline Prices", "/gasoline"],
-    ["Kerosene Prices", "/kerosene"],
-    ["Diesel Prices", "/diesel"],
-    ["Market Prices", "/daily-price-index"],
-    ["Cigarette Prices", "/cigarette-index"],
-  ];
+import { FaDiscord, FaGithub } from "react-icons/fa";
 
-  const govLinks = [
-    ["Philippine Statistics Authority (PSA)", "https://psa.gov.ph"],
-    ["Department of Energy (DOE)", "https://www.doe.gov.ph"],
-    ["Department of Trade and Industry (DTI)", "https://www.dti.gov.ph"],
-    ["Bangko Sentral ng Pilipinas (BSP)", "https://www.bsp.gov.ph"],
-  ];
+export const Footer = () => {
+
 
   const community: [string, string, React.ComponentType<{ size?: number }>][] =
     [
@@ -29,12 +16,15 @@ export const Footer = () => {
     ];
 
   return (
-    <footer className="bg-black text-gray-300 py-12 px-6 border-t border-gray-800">
+    <footer
+      className={`bg-black text-gray-300 py-12 px-6 border-t pb-safe`}
+    >
       <section className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* About */}
         <article>
           <header>
             <Link
-              href={"/about"}
+              href="/about"
               className="text-white font-semibold text-lg mb-4"
             >
               About
@@ -45,39 +35,37 @@ export const Footer = () => {
             transparency for the Philippines. Tracking fuel, energy, and market
             data to help citizens stay informed.
           </p>
-          {/* logo section */}
-          <section className="mt-2 pt-2 flex-row items-center space-x-2 text-sm font-bold border-gray-600 border-t-[1px]">
-            <article className="flex items-center space-x-2"> 
+
+          <section className="mt-2 pt-2 flex flex-col gap-2 text-sm font-bold border-gray-600 border-t-[1px]">
+            <article className="flex items-center gap-2">
               <Image
-              src={"/bettergov-icon-white.png"}
-              alt="BetterGov Icon"
-              height={1000}
-              width={1000}
-              className="h-[47px] w-[47px]"
-            />
-            <a
-              href="https://bettergov.ph/"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="hover:underline"
-            >
-              BetterGovPh
-            </a></article>
-              <article className="flex items-center space-x-2"> <Image
-              src={"/icon.png"}
-              alt="BetterGov Icon"
-              height={1000}
-              width={1000}
-              className="h-[47px] w-[47px]"
-            />
-            <Link
-              href="/"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="hover:underline"
-            >
-              PriceGuides
-            </Link></article>
+                src="/bettergov-icon-white.png"
+                alt="BetterGov Icon"
+                height={1000}
+                width={1000}
+                className="h-[47px] w-[47px]"
+              />
+              <a
+                href="https://bettergov.ph/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                BetterGovPh
+              </a>
+            </article>
+            <article className="flex items-center gap-2">
+              <Image
+                src="/icon.png"
+                alt="PriceGuides Icon"
+                height={1000}
+                width={1000}
+                className="h-[47px] w-[47px]"
+              />
+              <Link href="/" className="hover:underline">
+                PriceGuides
+              </Link>
+            </article>
           </section>
         </article>
 
@@ -87,8 +75,14 @@ export const Footer = () => {
             <h3 className="text-white font-semibold text-lg mb-4">Services</h3>
           </header>
           <ul className="space-y-2 text-sm">
-            {services.map(([name, link], index) => (
-              <li key={index}>
+            {[
+              ["Gasoline Prices", "/gasoline"],
+              ["Kerosene Prices", "/kerosene"],
+              ["Diesel Prices", "/diesel"],
+              ["Market Prices", "/daily-price-index"],
+              ["Cigarette Prices", "/cigarette-index"],
+            ].map(([name, link], idx) => (
+              <li key={idx}>
                 <Link
                   href={link}
                   className="hover:text-blue-700 text-white transition"
@@ -108,8 +102,16 @@ export const Footer = () => {
             </h3>
           </header>
           <ul className="space-y-2 text-sm">
-            {govLinks.map(([name, link], index) => (
-              <li key={index}>
+            {[
+              ["Philippine Statistics Authority (PSA)", "https://psa.gov.ph"],
+              ["Department of Energy (DOE)", "https://www.doe.gov.ph"],
+              [
+                "Department of Trade and Industry (DTI)",
+                "https://www.dti.gov.ph",
+              ],
+              ["Bangko Sentral ng Pilipinas (BSP)", "https://www.bsp.gov.ph"],
+            ].map(([name, link], idx) => (
+              <li key={idx}>
                 <a
                   href={link}
                   target="_blank"
@@ -129,8 +131,8 @@ export const Footer = () => {
             <h3 className="text-white font-semibold text-lg mb-4">Community</h3>
           </header>
           <ul className="flex flex-col gap-3 text-sm">
-            {community.map(([name, link, Icon], index) => (
-              <li key={index}>
+            {community.map(([name, link, Icon], idx) => (
+              <li key={idx}>
                 <a
                   href={link}
                   target="_blank"
@@ -147,8 +149,10 @@ export const Footer = () => {
       </section>
 
       <section className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()}
-        <span className="font-semibold text-white">PriceGuides</span> by <span className="font-semibold text-white">BetterGov.ph</span>  — See sources for their respective licenses
+        &copy; {new Date().getFullYear()}{" "}
+        <span className="font-semibold text-white">PriceGuides</span> by{" "}
+        <span className="font-semibold text-white">BetterGov.ph</span> — See
+        sources for their respective licenses
       </section>
     </footer>
   );
