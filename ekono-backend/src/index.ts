@@ -1,10 +1,10 @@
 import { ExecutionContext, Hono } from "hono";
 import { cors } from "hono/cors";
-import { D1Database, D1Result, ScheduledController } from "@cloudflare/workers-types";
+import { D1Database, ScheduledController } from "@cloudflare/workers-types";
 import { insertAllFuels } from "./lib/triggers/fuel-prices/diesel-triggers";
 import { insertMarketData } from "./lib/triggers/market-index/market-triggers";
 import { insertCigaretteData } from "./lib/triggers/market-index/cigarette-triggers";
-
+import drugPriceJson from "../public/data/drugprice.json";
 export type Bindings = {
   MY_DB: D1Database;
 };
@@ -15,49 +15,75 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use(
   "/*",
   cors({
-    origin: ["http://localhost:3000", // locally
-    "https://price-guides.bettergov.ph"],
+    origin: [
+      "http://localhost:3000", // locally
+      "https://price-guides.bettergov.ph",
+    ],
     allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
 
+app.get("/drugprice", async (c) => {
+  // group by first word of the DrugName
+  const mapped = drugPriceJson.reduce<Record<string, typeof drugPriceJson>>(
+    (acc, drug) => {
+      if (!drug.DrugName) return acc;
+      const key = drug.DrugName.split(" ")[0];
+      if (!acc[key]) acc[key] = [];
+      acc[key].push(drug);
+      return acc;
+    },
+    {}
+  );
+
+  return c.json({
+    name: "Drug Price Index", description: `This dataset provides up-to-date pricing information on pharmaceutical products in the Philippines, sourced from the Department of Health’s Drug Price Reference Index (DPRI). It includes detailed price ranges — Lowest, Median, and Highest — for a wide variety of drugs, covering oral tablets, injections, suspensions, and more. The DPRI serves as a reliable reference for healthcare providers, pharmacists, and consumers, helping them make informed decisions on medicine procurement and cost comparisons. All data are publicly available and maintained by the Department of Health to ensure transparency and accessibility in the pharmaceutical market.`,
+    date: "Drug Price Reference Index: 2025 as of October 7, 2025",
+    success: true,
+    data: mapped,
+   });
+});
+
 // GET REQUESTS
 app.get("/market", async (c) => {
   try {
-  // get the date of the market  
-  const date = new Date();
-  const formattedDate = date.toLocaleString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric"
-  })
-
+    // get the date of the market
+    const date = new Date();
+    const formattedDate = date
+      .toLocaleString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })
+      .trim();
 
     const category = c.req.url.includes("category=")
       ? new URL(c.req.url).searchParams.get("category")
       : "market"; // default params
     const db = c.env.MY_DB;
 
-  const dateData: D1Result<Record<string, unknown>> = await db
-  .prepare(`
+    const dateData = await db
+      .prepare(
+        `
     SELECT date FROM PriceGroup 
-    WHERE category = ?`)
-    .bind(category)
-    .all()
+    WHERE category = ?`
+      )
+      .bind(category)
+      .all();
 
     const priceGroup = await db
       .prepare(
-        `SELECT id, date, category 
+        `SELECT * 
          FROM PriceGroup 
          WHERE category = ? AND date <= ?
          ORDER BY date DESC 
          LIMIT 1`
       )
-      .bind(category?.toLowerCase(), formattedDate)
+      .bind(category?.toLowerCase(), formattedDate as string)
       .first();
-  
+
     if (!priceGroup) {
       return c.json({ message: "No market data found" }, 404);
     }
@@ -89,13 +115,19 @@ app.get("/market", async (c) => {
         };
       })
     );
-    
+
     return c.json(
       {
-        dateData: dateData.results.map((date: Record<string, unknown>) => date.date ),
-        name: priceGroup["category"] as string === "market" ? "Market Price" : "Cigarette Price",
+        dateData: dateData.results.map(
+          (date: Record<string, unknown>) => date.date
+        ),
+        name:
+          (priceGroup["category"] as string) === "market"
+            ? "Market Price"
+            : "Cigarette Price",
         success: true,
         description: `DA Price Monitoring report: latest ${category} prices as of ${priceGroup.date}`,
+        date: priceGroup.date,
         commodities: commoditiesWithItems,
       },
       200,
@@ -119,7 +151,7 @@ app.get("/fuel-prices", async (c) => {
     const fuelType = await db
       .prepare(`SELECT * FROM FuelType WHERE name = ? ORDER BY date DESC`)
       .bind(namePetrol)
-      .first()
+      .first();
     if (!fuelType) return c.json([], 200);
 
     const sectionsResult = await db
@@ -168,7 +200,7 @@ export default {
     ctx: ExecutionContext
   ) {
     switch (controller.cron) {
-      case "0 0 * * 3": // tue in ph,wed in utc
+      case "0 0 * * 2-6": // runs in weekdays 12am
         ctx.waitUntil(
           (async () => {
             try {
@@ -180,7 +212,7 @@ export default {
           })()
         );
         break;
-      case "0 7 * * *": // 3pm in ph, 7am in utc 
+      case "0 6-8 * * *": // runs 2pm - 5pm in GMT time
         ctx.waitUntil(
           (async () => {
             try {
@@ -192,7 +224,7 @@ export default {
           })()
         );
         break;
-      case "0 9 * * *": // 5pm in ph, 9am in utc
+      case "30 7-9 * * *": // runs for every 1hr and 30mins GMT time 2:30pm to 3:
         ctx.waitUntil(
           (async () => {
             try {

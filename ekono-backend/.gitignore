@@ -31,7 +31,3 @@ lerna-debug.log*
 
 # misc
 .DS_Store
-
-# files
-/public
-/src/services/functions/market index/pdf/drugprice-index.ts

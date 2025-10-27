@@ -8,7 +8,7 @@ import OfflineNotifier from "../global/offlineNotify";
 export function NavDashboard() {
   return (
     <header className={`w-full top-0 left-0 z-50`}>
-            <header className="md:flex items-center justify-center w-full h-[2.5em] backdrop-blur-md px-11 max-sm:text-[9.5px] md:text-[13px]">
+            <header className="md:flex items-center justify-center w-full h-[3.5em] backdrop-blur-md px-11 max-sm:text-[10.2px] md:text-[13px]">
         <ul className="flex items-center justify-center max-sm:space-x-4 sm:space-x-7">
           <li className="mt-2 hover:underline text-blue-500">
             <a href="https://bettergov.ph/join-us"  target="_blank" rel="noopener noreferrer">&#128640; Join Us</a>

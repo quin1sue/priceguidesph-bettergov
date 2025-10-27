@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { startupImage } from "@/lib/metadata";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -106,7 +106,7 @@ export default function RootLayout({
 
       <body className={`${inter.className} antialiased`}>
         {children}
-        
+        <SpeedInsights />
         </body>
     </html>
   );

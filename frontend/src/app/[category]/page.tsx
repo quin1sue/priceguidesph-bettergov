@@ -2,24 +2,25 @@ import dynamic from "next/dynamic";
 import { Metadata, ResolvedMetadata } from "next";
 import { fetchKerosene, fetchDiesel, fetchGasoline, fetchLPG } from "@/lib/api/petrol-get";
 import { fetchCigarette } from "@/lib/api/cigarette-get";
-import { fetchMarket } from "@/lib/api/market-get";
+import { fetchMarket, fetchDrugPrice} from "@/lib/api/market-get";
 import { FuelTypePrice } from "@/functions/diesel";
-import { MainJson, CurrencyRatesType } from "@/functions/types";
+import { MainJson, CurrencyRatesType, DrugPriceType } from "@/functions/types";
 import { NotFound } from "@/components/custom/dashboard/category-notfound";
 import { fetchExchangeRates } from "@/lib/api/exchangerates";
 import { ComponentType } from "react";
-
-type CategoryData = MainJson | FuelTypePrice | CurrencyRatesType;
+type CategoryData = MainJson | FuelTypePrice | CurrencyRatesType | DrugPriceType;
 
 // dynamic component type that accepts initialData prop AAAAAAAAHHH
 type CategoryComponent = ComponentType<{ initialData: CategoryData }>;
 
+const DrugPriceList = dynamic(() => import("@/components/custom/searchparams/drugprice"))
 const CigaretteDaily = dynamic(() => import("@/components/custom/searchparams/cigarette-daily"));
 const Market = dynamic(() => import("@/components/custom/searchparams/market"));
 const DieselDashboard = dynamic(() => import("@/components/custom/searchparams/dieseldashboard"));
 const ExchangeRate = dynamic(() => import("@/components/custom/searchparams/exchangeRate"));
 
 const componentMap: Record<string, CategoryComponent> = {
+  "drug-price-index": DrugPriceList as CategoryComponent,
   "cigarette-index": CigaretteDaily as CategoryComponent,
   "daily-price-index": Market as CategoryComponent,
   "kerosene": DieselDashboard as CategoryComponent,
@@ -30,6 +31,7 @@ const componentMap: Record<string, CategoryComponent> = {
 };
 
 const fetcherMap: Record<string, () => Promise<CategoryData>> = {
+  "drug-price-index": fetchDrugPrice,
   "cigarette-index": fetchCigarette,
   "kerosene": fetchKerosene,
   "diesel": fetchDiesel,

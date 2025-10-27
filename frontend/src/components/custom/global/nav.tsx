@@ -46,7 +46,7 @@ export function Nav({ pos = "fixed" }: NavProps) {
 
   return (
     <header className={`${pos} w-full top-0 left-0 z-30`}>
-      <header className="md:flex items-center justify-center w-full h-[2.5em] backdrop-blur-md px-11 max-sm:text-[9.5px] md:text-[13px]">
+      <header className="md:flex items-center justify-center w-full h-[3.5em] backdrop-blur-md px-11 max-sm:text-[10.2px] md:text-[13px]">
         <ul className="flex items-center justify-center max-sm:space-x-3 sm:space-x-7">
           <li className="mt-2 hover:underline text-blue-500">
             <a href="https://bettergov.ph/join-us"  target="_blank" rel="noopener noreferrer">&#128640; Join Us</a>
@@ -118,7 +118,7 @@ export function Nav({ pos = "fixed" }: NavProps) {
       <nav
         ref={menuRef}
         style={{ maxHeight: `${menuHeight}px` }}
-        className={`md:hidden overflow-hidden px-4 transition-all duration-300 ease-in-out backdrop-blur-md fixed top-[4rem] left-0 w-full shadow-md flex flex-col space-y-2 z-40`}
+        className={`md:hidden overflow-hidden px-4 transition-all duration-300 ease-in-out backdrop-blur-md fixed top-[6rem] left-0 w-full shadow-md flex flex-col space-y-2 z-40`}
       >
         <p className="border-t-2 border-gray-400 text-sm mt-2 pt-2 font-semibold">Services</p>
         {dashboardLinks.map(([name, link], index) => (

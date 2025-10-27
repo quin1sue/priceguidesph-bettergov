@@ -15,8 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7
     },
+    {
+      url: "https://price-guides.bettergov.ph/about",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9
+    },
 ]
-  const dynamicUrls: MetadataRoute.Sitemap = ["cigarette-index", "daily-price-index", "diesel", "currency-exchange"].map((category) => ({
+  const dynamicUrls: MetadataRoute.Sitemap = ["drug-price-index", "cigarette-index", "daily-price-index", "diesel", "currency-exchange"].map((category) => ({
     url: `https://price-guides.bettergov.ph/${category}`,
     lastModified: new Date(),
     changeFrequency: "weekly",

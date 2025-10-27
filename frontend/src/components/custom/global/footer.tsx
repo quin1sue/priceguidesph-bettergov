@@ -81,6 +81,7 @@ export const Footer = () => {
               ["Diesel Prices", "/diesel"],
               ["Market Prices", "/daily-price-index"],
               ["Cigarette Prices", "/cigarette-index"],
+              ["Drug Prices", "/drug-price-index"]
             ].map(([name, link], idx) => (
               <li key={idx}>
                 <Link

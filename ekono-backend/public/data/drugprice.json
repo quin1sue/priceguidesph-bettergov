@@ -1,0 +1,5113 @@
+[
+  {
+    "id": 1,
+    "DrugName": "Acetylcysteine 100 mg Oral Powder Sachet",
+    "Lowest": 7.7,
+    "Median": 8.0,
+    "Highest": 12.0
+  },
+  {
+    "id": 2,
+    "DrugName": "Acetylcysteine 100 mg/mL, 3 mL Respiratory Solution Ampule",
+    "Lowest": 77.5,
+    "Median": 108.13,
+    "Highest": 383.0
+  },
+  {
+    "id": 3,
+    "DrugName": "Acetylcysteine 200 mg Oral Powder Sachet",
+    "Lowest": 6.12,
+    "Median": 8.44,
+    "Highest": 16.72
+  },
+  {
+    "id": 4,
+    "DrugName": "Acetylcysteine 200 mg/mL, 25 mL Solution for Injection Bottle",
+    "Lowest": 1278.0,
+    "Median": 1500.0,
+    "Highest": 1812.0
+  },
+  {
+    "id": 5,
+    "DrugName": "Acetylcysteine 600mg Effervescent Tablet",
+    "Lowest": 9.82,
+    "Median": 11.85,
+    "Highest": 33.0
+  },
+  {
+    "id": 6,
+    "DrugName": "Aciclovir 200 mg Tablet",
+    "Lowest": 3.1,
+    "Median": 4.52,
+    "Highest": 15.7
+  },
+  {
+    "id": 7,
+    "DrugName": "Aciclovir 25 mg/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 174.34,
+    "Median": 194.0,
+    "Highest": 551.3
+  },
+  {
+    "id": 8,
+    "DrugName": "Aciclovir 400 mg Tablet",
+    "Lowest": 3.0,
+    "Median": 7.43,
+    "Highest": 18.88
+  },
+  {
+    "id": 9,
+    "DrugName": "Aciclovir 800 mg Tablet",
+    "Lowest": 4.55,
+    "Median": 20.41,
+    "Highest": 60.0
+  },
+  {
+    "id": 10,
+    "DrugName": "Adenosine 3 mg/mL, 2 mL Solution for Injection Vial",
+    "Lowest": 70.0,
+    "Median": 208.29,
+    "Highest": 1960.0
+  },
+  {
+    "id": 11,
+    "DrugName": "Albendazole 400 mg Chewable Tablet",
+    "Lowest": 4.85,
+    "Median": 6.93,
+    "Highest": 9.0
+  },
+  {
+    "id": 12,
+    "DrugName": "Albumin, Human 20%, 50 mL Solution for Injection Bottle",
+    "Lowest": 1600.0,
+    "Median": 1957.5,
+    "Highest": 3700.0
+  },
+  {
+    "id": 13,
+    "DrugName": "Albumin, Human 25%, 50 mL Solution for Injection Bottle",
+    "Lowest": 1999.0,
+    "Median": 2669.35,
+    "Highest": 3838.13
+  },
+  {
+    "id": 14,
+    "DrugName": "Alendronate 70 mg Tablet",
+    "Lowest": 99.0,
+    "Median": 120.0,
+    "Highest": 135.85
+  },
+  {
+    "id": 15,
+    "DrugName": "All-in-one Admixtures 1000 Kcal",
+    "Lowest": 1600.0,
+    "Median": 2247.0,
+    "Highest": 2515.0
+  },
+  {
+    "id": 16,
+    "DrugName": "All-in-one Admixtures 1300 Kcal",
+    "Lowest": 2354.9,
+    "Median": 2577.45,
+    "Highest": 2800.0
+  },
+  {
+    "id": 17,
+    "DrugName": "All-in-one Admixtures 1400 Kcal",
+    "Lowest": 1595.0,
+    "Median": 1920.0,
+    "Highest": 3300.0
+  },
+  {
+    "id": 18,
+    "DrugName": "All-in-one Admixtures 1900 Kcal",
+    "Lowest": 1900.0,
+    "Median": 2440.0,
+    "Highest": 2980.0
+  },
+  {
+    "id": 19,
+    "DrugName": "Allopurinol 100 mg Tablet",
+    "Lowest": 0.6,
+    "Median": 1.36,
+    "Highest": 4.0
+  },
+  {
+    "id": 20,
+    "DrugName": "Allopurinol 300 mg Tablet",
+    "Lowest": 1.57,
+    "Median": 2.8,
+    "Highest": 7.0
+  },
+  {
+    "id": 21,
+    "DrugName": "Alprazolam 500 mcg Tablet",
+    "Lowest": 8.0,
+    "Median": 15.0,
+    "Highest": 17.0
+  },
+  {
+    "id": 22,
+    "DrugName": "Aluminum Hydroxide + Magnesium Hydroxide 200 mg + 100 mg Tablet",
+    "Lowest": 0.64,
+    "Median": 1.23,
+    "Highest": 14.0
+  },
+  {
+    "id": 23,
+    "DrugName": "Aluminum Hydroxide + Magnesium Hydroxide 225 mg + 200 mg/5 mL, 120 mL Oral Suspension Bottle",
+    "Lowest": 28.0,
+    "Median": 42.8,
+    "Highest": 62.0
+  },
+  {
+    "id": 24,
+    "DrugName": "Aluminum Hydroxide + Magnesium Hydroxide 225 mg + 200 mg/5 mL, 60 mL Oral Suspension Bottle",
+    "Lowest": 22.0,
+    "Median": 29.98,
+    "Highest": 70.0
+  },
+  {
+    "id": 25,
+    "DrugName": "Amikacin 125 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 22.45,
+    "Median": 24.07,
+    "Highest": 73.83
+  },
+  {
+    "id": 26,
+    "DrugName": "Amikacin 125 mg/mL, 2 mL Solution for Injection Vial",
+    "Lowest": 21.25,
+    "Median": 23.45,
+    "Highest": 55.0
+  },
+  {
+    "id": 27,
+    "DrugName": "Amikacin 250 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 27.89,
+    "Median": 29.89,
+    "Highest": 96.8
+  },
+  {
+    "id": 28,
+    "DrugName": "Amikacin 250 mg/mL, 2 mL Solution for Injection Vial",
+    "Lowest": 25.77,
+    "Median": 31.69,
+    "Highest": 97.88
+  },
+  {
+    "id": 29,
+    "DrugName": "Amikacin 50 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 35.88,
+    "Median": 41.38,
+    "Highest": 46.88
+  },
+  {
+    "id": 30,
+    "DrugName": "Amikacin 50 mg/mL, 2 mL Solution for Injection Vial",
+    "Lowest": 19.44,
+    "Median": 35.89,
+    "Highest": 48.0
+  },
+  {
+    "id": 31,
+    "DrugName": "Amino Acid + Glucose + Electrolytes + Vitamin B1, 1000 mL Solution for Injection",
+    "Lowest": 923.4,
+    "Median": 1157.2,
+    "Highest": 1386.0
+  },
+  {
+    "id": 32,
+    "DrugName": "Amino Acid + Glucose + Electrolytes + Vitamin B1, 500 mL Solution for Injection",
+    "Lowest": 620.4,
+    "Median": 842.0,
+    "Highest": 842.0
+  },
+  {
+    "id": 33,
+    "DrugName": "Amino Acids, Crystalline Standard 6%, 100 mL Solution for Injection Bottle",
+    "Lowest": 360.0,
+    "Median": 450.0,
+    "Highest": 995.0
+  },
+  {
+    "id": 34,
+    "DrugName": "Amino Acids, Crystalline Standard 7%, 500 mL Solution for Injection Bottle",
+    "Lowest": 368.0,
+    "Median": 500.0,
+    "Highest": 800.0
+  },
+  {
+    "id": 35,
+    "DrugName": "Amino Acids, Crystalline Standard 8%, 500 mL Solution for Injection Bottle",
+    "Lowest": 506.0,
+    "Median": 672.83,
+    "Highest": 1056.0
+  },
+  {
+    "id": 36,
+    "DrugName": "Aminophylline (Theophylline Ethylenediamine) 25 mg/mL, 10 mL Solution for Injection Ampule",
+    "Lowest": 9.22,
+    "Median": 18.96,
+    "Highest": 37.88
+  },
+  {
+    "id": 37,
+    "DrugName": "Amiodarone 200 mg Tablet",
+    "Lowest": 8.0,
+    "Median": 12.83,
+    "Highest": 55.0
+  },
+  {
+    "id": 38,
+    "DrugName": "Amiodarone 50 mg/mL, 3 mL Solution for Injection Ampule",
+    "Lowest": 185.0,
+    "Median": 315.0,
+    "Highest": 495.0
+  },
+  {
+    "id": 39,
+    "DrugName": "Amlodipine 10 mg Tablet",
+    "Lowest": 0.26,
+    "Median": 0.46,
+    "Highest": 18.3
+  },
+  {
+    "id": 40,
+    "DrugName": "Amlodipine 5 mg Tablet",
+    "Lowest": 0.19,
+    "Median": 0.33,
+    "Highest": 4.5
+  },
+  {
+    "id": 41,
+    "DrugName": "Amoxicillin 100 mg/mL, 15 mL Oral Drops",
+    "Lowest": 16.25,
+    "Median": 21.0,
+    "Highest": 45.0
+  },
+  {
+    "id": 42,
+    "DrugName": "Amoxicillin 250 mg Capsule",
+    "Lowest": 1.75,
+    "Median": 2.05,
+    "Highest": 4.0
+  },
+  {
+    "id": 43,
+    "DrugName": "Amoxicillin 250 mg/5 mL, 60 mL Oral Suspension",
+    "Lowest": 4.88,
+    "Median": 35.08,
+    "Highest": 80.0
+  },
+  {
+    "id": 44,
+    "DrugName": "Amoxicillin 500 mg Capsule",
+    "Lowest": 1.38,
+    "Median": 1.87,
+    "Highest": 4.0
+  },
+  {
+    "id": 45,
+    "DrugName": "Amphotericin B (Lipid Complex) 50 mg vial",
+    "Lowest": 9974.95,
+    "Median": 10972.0,
+    "Highest": 11470.0
+  },
+  {
+    "id": 46,
+    "DrugName": "Amphotericin B (Non-Lipid Complex) 50 mg Powder for Injection Vial",
+    "Lowest": 757.0,
+    "Median": 1416.5,
+    "Highest": 3200.0
+  },
+  {
+    "id": 47,
+    "DrugName": "Ampicillin + Sulbactam 1000 mg + 500 mg Powder for Injection Vial",
+    "Lowest": 29.5,
+    "Median": 44.39,
+    "Highest": 750.0
+  },
+  {
+    "id": 48,
+    "DrugName": "Ampicillin + Sulbactam 500 mg + 250 mg Powder for Injection Vial",
+    "Lowest": 16.2,
+    "Median": 28.12,
+    "Highest": 470.0
+  },
+  {
+    "id": 49,
+    "DrugName": "Ampicillin 1 g Powder for Injection Vial",
+    "Lowest": 12.44,
+    "Median": 18.34,
+    "Highest": 27.83
+  },
+  {
+    "id": 50,
+    "DrugName": "Ampicillin 250 mg Powder for Injection Vial",
+    "Lowest": 9.72,
+    "Median": 12.43,
+    "Highest": 34.0
+  },
+  {
+    "id": 51,
+    "DrugName": "Ampicillin 500 mg Powder for Injection Vial",
+    "Lowest": 6.0,
+    "Median": 11.29,
+    "Highest": 49.0
+  },
+  {
+    "id": 52,
+    "DrugName": "Anastrazole 1 mg Film Coated Tablet",
+    "Lowest": 16.37,
+    "Median": 18.5,
+    "Highest": 45.0
+  },
+  {
+    "id": 53,
+    "DrugName": "Anti-Rabies serum 200 IU/mL, 5 mL Solution for Injection Vial (Equine)",
+    "Lowest": 757.0,
+    "Median": 1270.0,
+    "Highest": 2000.0
+  },
+  {
+    "id": 54,
+    "DrugName": "Anti-tetanus serum (equine) 1500 IU/0.7 mL solution for injection, ampul",
+    "Lowest": 82.4,
+    "Median": 123.0,
+    "Highest": 148.0
+  },
+  {
+    "id": 55,
+    "DrugName": "Antithymocyte Immunoglobulin (ATG) (rabbit) 25 mg/5 mL vial",
+    "Lowest": 13108.61,
+    "Median": 13108.61,
+    "Highest": 13108.61
+  },
+  {
+    "id": 56,
+    "DrugName": "Aripiprazole 10 mg orally disintegrating tablet",
+    "Lowest": 34.98,
+    "Median": 211.1,
+    "Highest": 222.03
+  },
+  {
+    "id": 57,
+    "DrugName": "Aripiprazole 10 mg Tablet",
+    "Lowest": 19.48,
+    "Median": 34.48,
+    "Highest": 59.0
+  },
+  {
+    "id": 58,
+    "DrugName": "Aripiprazole 400 mg Powder for Injection Pre-filled Syringe",
+    "Lowest": 6244.55,
+    "Median": 6313.0,
+    "Highest": 6938.39
+  },
+  {
+    "id": 59,
+    "DrugName": "Ascorbic Acid (Vitamin C) 100 mg/5 mL, 120 mL Syrup Bottle",
+    "Lowest": 18.0,
+    "Median": 29.0,
+    "Highest": 36.8
+  },
+  {
+    "id": 60,
+    "DrugName": "Ascorbic Acid (Vitamin C) 100 mg/5 mL, 60 mL Syrup Bottle",
+    "Lowest": 15.8,
+    "Median": 28.0,
+    "Highest": 72.0
+  },
+  {
+    "id": 61,
+    "DrugName": "Ascorbic Acid (Vitamin C) 100 mg/mL, 15 mL Oral Drops Bottle",
+    "Lowest": 15.0,
+    "Median": 24.64,
+    "Highest": 45.0
+  },
+  {
+    "id": 62,
+    "DrugName": "Ascorbic Acid (Vitamin C) 250 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 10.0,
+    "Median": 18.35,
+    "Highest": 26.0
+  },
+  {
+    "id": 63,
+    "DrugName": "Ascorbic Acid (Vitamin C) 500 mg Tablet",
+    "Lowest": 0.45,
+    "Median": 0.75,
+    "Highest": 2.5
+  },
+  {
+    "id": 64,
+    "DrugName": "Asparaginase 10,000 IU Powder for Injection Vial",
+    "Lowest": 1079.0,
+    "Median": 1100.0,
+    "Highest": 3000.0
+  },
+  {
+    "id": 65,
+    "DrugName": "Aspirin 80 mg Tablet",
+    "Lowest": 0.44,
+    "Median": 0.62,
+    "Highest": 2.88
+  },
+  {
+    "id": 66,
+    "DrugName": "Atenolol 100 mg Tablet",
+    "Lowest": 2.45,
+    "Median": 4.0,
+    "Highest": 4.89
+  },
+  {
+    "id": 67,
+    "DrugName": "Atenolol 50 mg Tablet",
+    "Lowest": 1.0,
+    "Median": 2.0,
+    "Highest": 11.0
+  },
+  {
+    "id": 68,
+    "DrugName": "Atorvastatin 10 mg Tablet",
+    "Lowest": 0.9,
+    "Median": 1.96,
+    "Highest": 6.0
+  },
+  {
+    "id": 69,
+    "DrugName": "Atorvastatin 20 mg Tablet",
+    "Lowest": 1.0,
+    "Median": 1.98,
+    "Highest": 7.8
+  },
+  {
+    "id": 70,
+    "DrugName": "Atorvastatin 40 mg Tablet",
+    "Lowest": 0.21,
+    "Median": 3.8,
+    "Highest": 24.2
+  },
+  {
+    "id": 71,
+    "DrugName": "Atorvastatin 80 mg Tablet",
+    "Lowest": 2.31,
+    "Median": 7.5,
+    "Highest": 29.5
+  },
+  {
+    "id": 72,
+    "DrugName": "Atracurium 10 mg/mL, 2.5 mL Solution for Injection Ampule",
+    "Lowest": 48.78,
+    "Median": 88.78,
+    "Highest": 325.0
+  },
+  {
+    "id": 73,
+    "DrugName": "Atracurium 10 mg/mL, 5 mL Solution for Injection Ampule",
+    "Lowest": 290.0,
+    "Median": 306.39,
+    "Highest": 322.78
+  },
+  {
+    "id": 74,
+    "DrugName": "Atropine 1 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 18.0,
+    "Median": 34.41,
+    "Highest": 100.0
+  },
+  {
+    "id": 75,
+    "DrugName": "Azathioprine 50 mg tablet",
+    "Lowest": 27.44,
+    "Median": 34.0,
+    "Highest": 34.3
+  },
+  {
+    "id": 76,
+    "DrugName": "Azithromycin 200 mg/5 mL, 15 mL Oral Suspension Bottle",
+    "Lowest": 8.92,
+    "Median": 104.0,
+    "Highest": 386.57
+  },
+  {
+    "id": 77,
+    "DrugName": "Azithromycin 200 mg/5 mL, 60 mL Oral Suspension Bottle",
+    "Lowest": 191.1,
+    "Median": 273.0,
+    "Highest": 386.5
+  },
+  {
+    "id": 78,
+    "DrugName": "Azithromycin 500 mg Powder for Injection Vial",
+    "Lowest": 65.0,
+    "Median": 184.25,
+    "Highest": 498.5
+  },
+  {
+    "id": 79,
+    "DrugName": "Azithromycin 500 mg Tablet",
+    "Lowest": 5.29,
+    "Median": 8.85,
+    "Highest": 120.0
+  },
+  {
+    "id": 80,
+    "DrugName": "Aztreonam 1 g Powder for Injection",
+    "Lowest": 649.0,
+    "Median": 857.5,
+    "Highest": 1350.0
+  },
+  {
+    "id": 81,
+    "DrugName": "Baclofen 10 mg Tablet",
+    "Lowest": 9.59,
+    "Median": 11.75,
+    "Highest": 15.4
+  },
+  {
+    "id": 82,
+    "DrugName": "Balanced Multiple Maintenance Solution + Dextrose 5%, 1 L Solution for Injection Bottle",
+    "Lowest": 25.98,
+    "Median": 45.12,
+    "Highest": 79.47
+  },
+  {
+    "id": 83,
+    "DrugName": "Balanced Multiple Maintenance Solution + Dextrose 5%, 500 mL Solution for Injection Bag",
+    "Lowest": 23.44,
+    "Median": 24.44,
+    "Highest": 79.8
+  },
+  {
+    "id": 84,
+    "DrugName": "Balanced Multiple Maintenance Solution + Dextrose 5%, 500 mL Solution for Injection Bottle",
+    "Lowest": 22.89,
+    "Median": 29.67,
+    "Highest": 106.33
+  },
+  {
+    "id": 85,
+    "DrugName": "Balanced Multiple Replacement Solution, 1 L Solution for Injection Bottle (with pH 7.4)",
+    "Lowest": 29.0,
+    "Median": 36.92,
+    "Highest": 108.0
+  },
+  {
+    "id": 86,
+    "DrugName": "BCG Vaccine 500 mcg/mL vial + 1 mL diluent in ampule (Per Dose)",
+    "Lowest": 400.0,
+    "Median": 687.5,
+    "Highest": 5299.0
+  },
+  {
+    "id": 87,
+    "DrugName": "Beractant 25 mg/mL, 4 mL Depot Powder for Injection Vial",
+    "Lowest": 10354.0,
+    "Median": 12178.0,
+    "Highest": 12178.0
+  },
+  {
+    "id": 88,
+    "DrugName": "Betahistine 16 mg Tablet",
+    "Lowest": 2.45,
+    "Median": 6.15,
+    "Highest": 61.0
+  },
+  {
+    "id": 89,
+    "DrugName": "Betahistine 24 mg Tablet",
+    "Lowest": 6.1,
+    "Median": 15.0,
+    "Highest": 45.0
+  },
+  {
+    "id": 90,
+    "DrugName": "Betahistine 8 mg Tablet",
+    "Lowest": 1.5,
+    "Median": 5.1,
+    "Highest": 15.5
+  },
+  {
+    "id": 91,
+    "DrugName": "Betamethasone 0.1%, 5 g cream tube",
+    "Lowest": 29.0,
+    "Median": 51.5,
+    "Highest": 169.0
+  },
+  {
+    "id": 92,
+    "DrugName": "Betamethasone 0.1%, 5 g Ointment Tube",
+    "Lowest": 32.5,
+    "Median": 40.0,
+    "Highest": 45.0
+  },
+  {
+    "id": 93,
+    "DrugName": "Bicalutamide 50 mg Tablet",
+    "Lowest": 17.0,
+    "Median": 21.44,
+    "Highest": 24.0
+  },
+  {
+    "id": 94,
+    "DrugName": "Biperiden 2 mg Tablet",
+    "Lowest": 0.88,
+    "Median": 4.88,
+    "Highest": 5.12
+  },
+  {
+    "id": 95,
+    "DrugName": "Biphasic Isophane Human Insulin 70/30 (Recombinant Dna) 100 IU/mL, 10 mL Vial",
+    "Lowest": 104.9,
+    "Median": 245.81,
+    "Highest": 575.0
+  },
+  {
+    "id": 96,
+    "DrugName": "Bisacodyl 10 mg Suppository",
+    "Lowest": 18.22,
+    "Median": 47.34,
+    "Highest": 97.0
+  },
+  {
+    "id": 97,
+    "DrugName": "Bisacodyl 5 mg Suppository",
+    "Lowest": 0.72,
+    "Median": 31.68,
+    "Highest": 44.0
+  },
+  {
+    "id": 98,
+    "DrugName": "Bisacodyl 5 mg Tablet",
+    "Lowest": 0.65,
+    "Median": 1.58,
+    "Highest": 9.0
+  },
+  {
+    "id": 99,
+    "DrugName": "Bleomycin 15 IU Powder for Injection Vial",
+    "Lowest": 1695.0,
+    "Median": 1750.0,
+    "Highest": 2500.0
+  },
+  {
+    "id": 100,
+    "DrugName": "Brimonidine 0.15%, 5 mL Eye Drops Bottle",
+    "Lowest": 708.48,
+    "Median": 708.48,
+    "Highest": 1150.0
+  },
+  {
+    "id": 101,
+    "DrugName": "Brinzolamide 1%, 5 mL Eye Drops Bottle",
+    "Lowest": 1064.0,
+    "Median": 1132.0,
+    "Highest": 1200.0
+  },
+  {
+    "id": 102,
+    "DrugName": "Budesonide + Formoterol 160 mcg + 4.5 mcg, 120 doses Metered Dose Inhaler",
+    "Lowest": 683.97,
+    "Median": 758.39,
+    "Highest": 842.65
+  },
+  {
+    "id": 103,
+    "DrugName": "Budesonide + Formoterol 160 mcg + 4.5 mcg, 60 doses Dry Powder Inhaler",
+    "Lowest": 834.44,
+    "Median": 834.44,
+    "Highest": 1106.98
+  },
+  {
+    "id": 104,
+    "DrugName": "Budesonide + Formoterol 80 mcg + 4.5 mcg, 120 doses Metered Dose Inhaler",
+    "Lowest": 586.65,
+    "Median": 604.56,
+    "Highest": 622.47
+  },
+  {
+    "id": 105,
+    "DrugName": "Budesonide 250 mcg/mL, 2 mL Respiratory Solution",
+    "Lowest": 13.0,
+    "Median": 29.35,
+    "Highest": 60.0
+  },
+  {
+    "id": 106,
+    "DrugName": "Bupivacaine + Dextrose 0.5% 4 mL ampul (spinal) with 8% dextrose",
+    "Lowest": 50.0,
+    "Median": 98.17,
+    "Highest": 565.0
+  },
+  {
+    "id": 107,
+    "DrugName": "Bupivacaine 0.5% (isobaric), 5 mL Ampule (spinal)",
+    "Lowest": 765.0,
+    "Median": 765.0,
+    "Highest": 765.0
+  },
+  {
+    "id": 108,
+    "DrugName": "Bupivacaine 0.5%, 10 mL Solution for Injection Ampule",
+    "Lowest": 57.33,
+    "Median": 137.06,
+    "Highest": 449.0
+  },
+  {
+    "id": 109,
+    "DrugName": "Bupivacaine 0.5%, 5 mL Solution for Injection Ampule",
+    "Lowest": 74.34,
+    "Median": 78.89,
+    "Highest": 558.0
+  },
+  {
+    "id": 110,
+    "DrugName": "Butamirate 50 mg Modified Release Tablet",
+    "Lowest": 5.75,
+    "Median": 9.76,
+    "Highest": 15.59
+  },
+  {
+    "id": 111,
+    "DrugName": "Butorphanol 2 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 147.88,
+    "Median": 298.88,
+    "Highest": 689.0
+  },
+  {
+    "id": 112,
+    "DrugName": "Calamine 8%, 60 mL Lotion Bottle",
+    "Lowest": 106.0,
+    "Median": 112.4,
+    "Highest": 118.8
+  },
+  {
+    "id": 113,
+    "DrugName": "Calcium (equiv. to 500 mg elemental calcium) Tablet",
+    "Lowest": 0.8,
+    "Median": 0.91,
+    "Highest": 1.65
+  },
+  {
+    "id": 114,
+    "DrugName": "Calcium Carbonate (equiv, to 500 mg elemental calcium) chewable tablet",
+    "Lowest": 0.65,
+    "Median": 1.22,
+    "Highest": 9.75
+  },
+  {
+    "id": 115,
+    "DrugName": "Calcium Carbonate (equiv, to 500 mg elemental calcium) tablet",
+    "Lowest": 0.5,
+    "Median": 1.23,
+    "Highest": 7.5
+  },
+  {
+    "id": 116,
+    "DrugName": "Calcium Carbonate + Cholecalciferol (Vitamin D3) Equiv. to 500 mg elemental calcium + 400 IU Film Coated Tablet",
+    "Lowest": 1.65,
+    "Median": 2.56,
+    "Highest": 5.52
+  },
+  {
+    "id": 117,
+    "DrugName": "Calcium Carbonate + Cholecalciferol (Vitamin D3) Equiv. to 600 mg elemental calcium + 400 IU Film Coated Tablet",
+    "Lowest": 1.9,
+    "Median": 4.0,
+    "Highest": 6.2
+  },
+  {
+    "id": 118,
+    "DrugName": "Calcium Folinate (Leucovorin Calcium) 10 mg/mL, 5 mL Solution for Injection Ampule",
+    "Lowest": 128.7,
+    "Median": 144.35,
+    "Highest": 160.0
+  },
+  {
+    "id": 119,
+    "DrugName": "Calcium Folinate (Leucovorin Calcium) 10 mg/mL, 5 mL Solution for Injection Vial",
+    "Lowest": 119.0,
+    "Median": 144.5,
+    "Highest": 408.0
+  },
+  {
+    "id": 120,
+    "DrugName": "Calcium Gluconate 10%, 10 mL Solution for Injection Ampule",
+    "Lowest": 11.23,
+    "Median": 12.87,
+    "Highest": 118.0
+  },
+  {
+    "id": 121,
+    "DrugName": "Calcium Gluconate 10%, 10 mL Solution for Injection Vial",
+    "Lowest": 11.89,
+    "Median": 25.62,
+    "Highest": 116.0
+  },
+  {
+    "id": 122,
+    "DrugName": "Calcium Gluconate 10%, 20 mL Solution for Injection Bottle",
+    "Lowest": 39.0,
+    "Median": 39.5,
+    "Highest": 40.0
+  },
+  {
+    "id": 123,
+    "DrugName": "Capecitabine 500 mg Tablet",
+    "Lowest": 19.0,
+    "Median": 22.0,
+    "Highest": 37.5
+  },
+  {
+    "id": 124,
+    "DrugName": "Captopril 25 mg Tablet",
+    "Lowest": 0.38,
+    "Median": 0.95,
+    "Highest": 2.4
+  },
+  {
+    "id": 125,
+    "DrugName": "Carbamazepine 200 mg Tablet",
+    "Lowest": 1.75,
+    "Median": 3.0,
+    "Highest": 3.78
+  },
+  {
+    "id": 126,
+    "DrugName": "Carbetocin 100 mcg/mL, 1 mL Solution for Injection Vial",
+    "Lowest": 1021.0,
+    "Median": 1320.0,
+    "Highest": 1497.81
+  },
+  {
+    "id": 127,
+    "DrugName": "Carboplatin 10 mg/mL, 15 mL Solution for Injection Vial",
+    "Lowest": 524.0,
+    "Median": 679.0,
+    "Highest": 1200.0
+  },
+  {
+    "id": 128,
+    "DrugName": "Carboplatin 10 mg/mL, 45 mL Solution for Injection Vial",
+    "Lowest": 890.0,
+    "Median": 1430.0,
+    "Highest": 3600.0
+  },
+  {
+    "id": 129,
+    "DrugName": "Carboprost 125 mcg/0.5 mL, 0.5 mL Solution for Injection Ampule",
+    "Lowest": 28.0,
+    "Median": 200.0,
+    "Highest": 238.0
+  },
+  {
+    "id": 130,
+    "DrugName": "Carboprost 125 mcg/0.5 mL, 0.5 mL Solution for Injection Vial",
+    "Lowest": 137.14,
+    "Median": 185.0,
+    "Highest": 228.0
+  },
+  {
+    "id": 131,
+    "DrugName": "Carboprost 250 mcg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 156.0,
+    "Median": 300.5,
+    "Highest": 608.0
+  },
+  {
+    "id": 132,
+    "DrugName": "Carboprost 250 mcg/mL, 1 mL Solution for Injection Vial",
+    "Lowest": 202.0,
+    "Median": 205.02,
+    "Highest": 207.24
+  },
+  {
+    "id": 133,
+    "DrugName": "Carvedilol 25 mg Tablet",
+    "Lowest": 1.98,
+    "Median": 5.37,
+    "Highest": 19.8
+  },
+  {
+    "id": 134,
+    "DrugName": "Carvedilol 6.25 mg Tablet",
+    "Lowest": 0.97,
+    "Median": 1.31,
+    "Highest": 6.9
+  },
+  {
+    "id": 135,
+    "DrugName": "Cefalexin 100 mg/mL, 10 mL Oral Drops Bottle",
+    "Lowest": 18.8,
+    "Median": 25.0,
+    "Highest": 50.0
+  },
+  {
+    "id": 136,
+    "DrugName": "Cefalexin 250 mg/5 mL, 60 mL Oral Suspension Bottle",
+    "Lowest": 26.0,
+    "Median": 44.38,
+    "Highest": 57.5
+  },
+  {
+    "id": 137,
+    "DrugName": "Cefalexin 250 mg/5 mL, 60 mL Syrup Bottle",
+    "Lowest": 24.5,
+    "Median": 27.45,
+    "Highest": 37.0
+  },
+  {
+    "id": 138,
+    "DrugName": "Cefalexin 500 mg Capsule",
+    "Lowest": 2.5,
+    "Median": 4.16,
+    "Highest": 28.75
+  },
+  {
+    "id": 139,
+    "DrugName": "Cefazolin 1 g Powder for Injection Vial",
+    "Lowest": 18.2,
+    "Median": 21.89,
+    "Highest": 280.0
+  },
+  {
+    "id": 140,
+    "DrugName": "Cefepime 1 g Powder for Injection Vial",
+    "Lowest": 57.89,
+    "Median": 72.35,
+    "Highest": 350.0
+  },
+  {
+    "id": 141,
+    "DrugName": "Cefepime 2 g Powder for Injection Vial",
+    "Lowest": 137.43,
+    "Median": 182.44,
+    "Highest": 356.0
+  },
+  {
+    "id": 142,
+    "DrugName": "Cefepime 500 mg Powder for Injection Vial",
+    "Lowest": 188.0,
+    "Median": 428.22,
+    "Highest": 668.45
+  },
+  {
+    "id": 143,
+    "DrugName": "Cefixime 100 mg/5 mL, 60 mL Oral Suspension Bottle",
+    "Lowest": 30.0,
+    "Median": 138.0,
+    "Highest": 299.9
+  },
+  {
+    "id": 144,
+    "DrugName": "Cefixime 20 mg/mL, 10 mL Oral Drops Bottle",
+    "Lowest": 86.0,
+    "Median": 130.0,
+    "Highest": 170.0
+  },
+  {
+    "id": 145,
+    "DrugName": "Cefixime 200 mg Capsule",
+    "Lowest": 4.7,
+    "Median": 6.98,
+    "Highest": 47.5
+  },
+  {
+    "id": 146,
+    "DrugName": "Cefixime 400 mg Capsule",
+    "Lowest": 16.0,
+    "Median": 22.1,
+    "Highest": 32.15
+  },
+  {
+    "id": 147,
+    "DrugName": "Cefotaxime 500 mg Powder for Injection Vial + 2 mL Diluent",
+    "Lowest": 147.78,
+    "Median": 324.88,
+    "Highest": 725.0
+  },
+  {
+    "id": 148,
+    "DrugName": "Cefoxitin 1 g Powder for Injection Vial",
+    "Lowest": 7.4,
+    "Median": 74.24,
+    "Highest": 665.0
+  },
+  {
+    "id": 149,
+    "DrugName": "Ceftaxidime (Ceftazidime) 1 g Powder for Injection Vial",
+    "Lowest": 29.0,
+    "Median": 39.34,
+    "Highest": 200.0
+  },
+  {
+    "id": 150,
+    "DrugName": "Ceftaxidime (Ceftazidime) 500 mg Powder for Injection Vial",
+    "Lowest": 122.89,
+    "Median": 292.0,
+    "Highest": 294.88
+  },
+  {
+    "id": 151,
+    "DrugName": "Ceftriaxone 1 g Powder for Injection Vial + 10 mL Diluent",
+    "Lowest": 14.48,
+    "Median": 22.56,
+    "Highest": 538.5
+  },
+  {
+    "id": 152,
+    "DrugName": "Cefuroxime 1.5 g Powder for Injection Vial",
+    "Lowest": 40.0,
+    "Median": 54.77,
+    "Highest": 140.0
+  },
+  {
+    "id": 153,
+    "DrugName": "Cefuroxime 125 mg/5 mL, 70 mL Oral Suspension Bottle",
+    "Lowest": 98.0,
+    "Median": 182.5,
+    "Highest": 200.97
+  },
+  {
+    "id": 154,
+    "DrugName": "Cefuroxime 250 mg/5 mL, 120 mL Bottle",
+    "Lowest": 105.0,
+    "Median": 121.0,
+    "Highest": 155.0
+  },
+  {
+    "id": 155,
+    "DrugName": "Cefuroxime 250 mg/5 mL, 50 mL Oral Suspension Bottle",
+    "Lowest": 102.59,
+    "Median": 139.0,
+    "Highest": 213.0
+  },
+  {
+    "id": 156,
+    "DrugName": "Cefuroxime 500 mg Tablet",
+    "Lowest": 1.05,
+    "Median": 11.8,
+    "Highest": 45.0
+  },
+  {
+    "id": 157,
+    "DrugName": "Cefuroxime 750 mg vial",
+    "Lowest": 13.0,
+    "Median": 20.89,
+    "Highest": 89.97
+  },
+  {
+    "id": 158,
+    "DrugName": "Celecoxib 200 mg Capsule",
+    "Lowest": 1.5,
+    "Median": 2.43,
+    "Highest": 28.9
+  },
+  {
+    "id": 159,
+    "DrugName": "Celecoxib 400 mg Capsule",
+    "Lowest": 3.75,
+    "Median": 6.95,
+    "Highest": 13.0
+  },
+  {
+    "id": 160,
+    "DrugName": "Cetirizine 1 mg/mL, 60 mL Oral Solution Bottle",
+    "Lowest": 18.67,
+    "Median": 38.5,
+    "Highest": 73.0
+  },
+  {
+    "id": 161,
+    "DrugName": "Cetirizine 10 mg Tablet",
+    "Lowest": 0.22,
+    "Median": 0.39,
+    "Highest": 27.0
+  },
+  {
+    "id": 162,
+    "DrugName": "Cetirizine 10 mg/mL, 10 mL Oral Drops Bottle",
+    "Lowest": 32.38,
+    "Median": 52.75,
+    "Highest": 70.0
+  },
+  {
+    "id": 163,
+    "DrugName": "Cetirizine 2.5 mg/mL, 10 mL Oral Drops Bottle",
+    "Lowest": 18.1,
+    "Median": 35.0,
+    "Highest": 120.0
+  },
+  {
+    "id": 164,
+    "DrugName": "Cetirizine 5 mg/5 mL, 30 mL Syrup Bottle",
+    "Lowest": 20.75,
+    "Median": 42.0,
+    "Highest": 95.0
+  },
+  {
+    "id": 165,
+    "DrugName": "Chlorhexidine 0.12%, 120 mL Oral Solution Bottle",
+    "Lowest": 95.0,
+    "Median": 109.33,
+    "Highest": 236.0
+  },
+  {
+    "id": 166,
+    "DrugName": "Chlorphenamine (Chlopheniramine) 10 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 9.5,
+    "Median": 12.25,
+    "Highest": 15.0
+  },
+  {
+    "id": 167,
+    "DrugName": "Chlorphenamine (Chlopheniramine) 4 mg Tablet",
+    "Lowest": 0.32,
+    "Median": 0.7,
+    "Highest": 2.31
+  },
+  {
+    "id": 168,
+    "DrugName": "Chlorpromazine 100 mg Tablet",
+    "Lowest": 2.19,
+    "Median": 2.24,
+    "Highest": 2.27
+  },
+  {
+    "id": 169,
+    "DrugName": "Chlorpromazine 200 mg Tablet",
+    "Lowest": 2.21,
+    "Median": 2.27,
+    "Highest": 3.84
+  },
+  {
+    "id": 170,
+    "DrugName": "Ciclosporin 100 mg Capsule",
+    "Lowest": 106.0,
+    "Median": 114.2,
+    "Highest": 139.0
+  },
+  {
+    "id": 171,
+    "DrugName": "Ciclosporin 25 mg Capsule",
+    "Lowest": 25.41,
+    "Median": 34.46,
+    "Highest": 37.53
+  },
+  {
+    "id": 172,
+    "DrugName": "Cilostazol 100 mg Tablet",
+    "Lowest": 10.2,
+    "Median": 12.0,
+    "Highest": 30.5
+  },
+  {
+    "id": 173,
+    "DrugName": "Cilostazol 50 mg Tablet",
+    "Lowest": 6.42,
+    "Median": 9.5,
+    "Highest": 12.1
+  },
+  {
+    "id": 174,
+    "DrugName": "Cinnarizine 25 mg Tablet",
+    "Lowest": 0.6,
+    "Median": 1.23,
+    "Highest": 3.0
+  },
+  {
+    "id": 175,
+    "DrugName": "Ciprofloxacin 2 mg/mL, 100 mL Solution for Injection Vial",
+    "Lowest": 16.44,
+    "Median": 23.43,
+    "Highest": 990.0
+  },
+  {
+    "id": 176,
+    "DrugName": "Ciprofloxacin 400 mg/200 mL, IV Infusion",
+    "Lowest": 605.0,
+    "Median": 662.5,
+    "Highest": 720.0
+  },
+  {
+    "id": 177,
+    "DrugName": "Ciprofloxacin 500 mg Tablet",
+    "Lowest": 1.43,
+    "Median": 1.83,
+    "Highest": 19.75
+  },
+  {
+    "id": 178,
+    "DrugName": "Cisplatin 1 mg/mL, 50 mL Solution for Injection Vial",
+    "Lowest": 292.0,
+    "Median": 310.0,
+    "Highest": 840.0
+  },
+  {
+    "id": 179,
+    "DrugName": "Clarithromycin 125 mg/5 mL, 50 mL Oral Suspension Bottle",
+    "Lowest": 110.5,
+    "Median": 155.0,
+    "Highest": 283.0
+  },
+  {
+    "id": 180,
+    "DrugName": "Clarithromycin 250 mg Tablet",
+    "Lowest": 20.0,
+    "Median": 22.75,
+    "Highest": 25.5
+  },
+  {
+    "id": 181,
+    "DrugName": "Clarithromycin 250 mg/5 mL, 50 mL Oral Suspension Bottle",
+    "Lowest": 267.0,
+    "Median": 420.0,
+    "Highest": 550.0
+  },
+  {
+    "id": 182,
+    "DrugName": "Clarithromycin 500 mg Tablet",
+    "Lowest": 7.95,
+    "Median": 14.0,
+    "Highest": 168.0
+  },
+  {
+    "id": 183,
+    "DrugName": "Clindamycin 150 mg Capsule",
+    "Lowest": 3.3,
+    "Median": 4.9,
+    "Highest": 11.99
+  },
+  {
+    "id": 184,
+    "DrugName": "Clindamycin 150 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 44.78,
+    "Median": 58.44,
+    "Highest": 198.0
+  },
+  {
+    "id": 185,
+    "DrugName": "Clindamycin 150 mg/mL, 4 mL Solution for Injection Ampule",
+    "Lowest": 34.23,
+    "Median": 58.78,
+    "Highest": 370.0
+  },
+  {
+    "id": 186,
+    "DrugName": "Clindamycin 300 mg Capsule",
+    "Lowest": 3.79,
+    "Median": 5.86,
+    "Highest": 35.0
+  },
+  {
+    "id": 187,
+    "DrugName": "Clindamycin 75 mg/5 mL, 60 mL Oral Suspension Bottle",
+    "Lowest": 380.0,
+    "Median": 435.0,
+    "Highest": 485.0
+  },
+  {
+    "id": 188,
+    "DrugName": "Clobetasol 0.05%, 15 g Cream Tube",
+    "Lowest": 39.75,
+    "Median": 48.0,
+    "Highest": 465.0
+  },
+  {
+    "id": 189,
+    "DrugName": "Clobetasol 0.05%, 5 g Cream Tube",
+    "Lowest": 34.88,
+    "Median": 92.5,
+    "Highest": 113.85
+  },
+  {
+    "id": 190,
+    "DrugName": "Clobetasol 0.05%, 5 g Ointment Tube",
+    "Lowest": 67.5,
+    "Median": 140.0,
+    "Highest": 176.0
+  },
+  {
+    "id": 191,
+    "DrugName": "Clonazepam 2 mg Tablet",
+    "Lowest": 3.89,
+    "Median": 8.25,
+    "Highest": 10.0
+  },
+  {
+    "id": 192,
+    "DrugName": "Clonidine 150 mcg Tablet",
+    "Lowest": 3.84,
+    "Median": 6.36,
+    "Highest": 15.0
+  },
+  {
+    "id": 193,
+    "DrugName": "Clonidine 150 mcg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 62.35,
+    "Median": 108.0,
+    "Highest": 108.0
+  },
+  {
+    "id": 194,
+    "DrugName": "Clonidine 75 mcg Tablet",
+    "Lowest": 2.52,
+    "Median": 3.9,
+    "Highest": 10.0
+  },
+  {
+    "id": 195,
+    "DrugName": "Clopidogrel 75 mg Tablet",
+    "Lowest": 0.53,
+    "Median": 1.04,
+    "Highest": 27.5
+  },
+  {
+    "id": 196,
+    "DrugName": "Clotrimazole 1% (10 mg/ g), 10 g Cream Tube",
+    "Lowest": 70.0,
+    "Median": 108.57,
+    "Highest": 147.14
+  },
+  {
+    "id": 197,
+    "DrugName": "Clotrimazole 1% (10 mg/ g), 20 g Cream Tube",
+    "Lowest": 45.0,
+    "Median": 150.0,
+    "Highest": 345.0
+  },
+  {
+    "id": 198,
+    "DrugName": "Cloxacillin 250 mg/5 mL, 60 mL Oral Solution Bottle",
+    "Lowest": 32.0,
+    "Median": 37.5,
+    "Highest": 46.0
+  },
+  {
+    "id": 199,
+    "DrugName": "Cloxacillin 500 mg Capsule",
+    "Lowest": 2.0,
+    "Median": 3.7,
+    "Highest": 6.8
+  },
+  {
+    "id": 200,
+    "DrugName": "Clozapine 100 mg Tablet",
+    "Lowest": 5.5,
+    "Median": 7.63,
+    "Highest": 15.0
+  },
+  {
+    "id": 201,
+    "DrugName": "Clozapine 25 mg Tablet",
+    "Lowest": 6.9,
+    "Median": 8.68,
+    "Highest": 12.0
+  },
+  {
+    "id": 219,
+    "DrugName": "Dantrolene 20 mg (with mannitol 3 g)/vial, 60 mL Sterile Water",
+    "Lowest": 1795.0,
+    "Median": 8546.5,
+    "Highest": 15298.0
+  },
+  {
+    "id": 220,
+    "DrugName": "Deferiprone 500 mg Tablet",
+    "Lowest": 102.0,
+    "Median": 105.97,
+    "Highest": 106.0
+  },
+  {
+    "id": 221,
+    "DrugName": "Deferoxamine 500 mg Powder for Injection Vial",
+    "Lowest": 183.32,
+    "Median": 183.32,
+    "Highest": 183.32
+  },
+  {
+    "id": 222,
+    "DrugName": "Dexamethasone 4 mg Tablet",
+    "Lowest": 16.0,
+    "Median": 23.0,
+    "Highest": 33.0
+  },
+  {
+    "id": 223,
+    "DrugName": "Dexamethasone 4 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 6.12,
+    "Median": 8.18,
+    "Highest": 33.43
+  },
+  {
+    "id": 224,
+    "DrugName": "Dexamethasone 4 mg/mL, 2 mL Solution for Injection Vial",
+    "Lowest": 7.2,
+    "Median": 12.54,
+    "Highest": 17.88
+  },
+  {
+    "id": 225,
+    "DrugName": "Dexamethasone 5 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 14.18,
+    "Median": 52.67,
+    "Highest": 79.44
+  },
+  {
+    "id": 226,
+    "DrugName": "Dexamethasone 500 mcg Tablet",
+    "Lowest": 2.9,
+    "Median": 3.75,
+    "Highest": 20.0
+  },
+  {
+    "id": 227,
+    "DrugName": "Dextran, High Molecular Weight (Dextran 70) + Dextrose 6% + 5%, 500 mL Solution for Injection Bottle",
+    "Lowest": 515.0,
+    "Median": 521.5,
+    "Highest": 528.0
+  },
+  {
+    "id": 228,
+    "DrugName": "Dextromethorphan 10 mg Tablet",
+    "Lowest": 1.5,
+    "Median": 1.85,
+    "Highest": 2.2
+  },
+  {
+    "id": 229,
+    "DrugName": "Dextrose + Lactated Ringer's 5%, 1 L Solution for Injection Bottle",
+    "Lowest": 24.26,
+    "Median": 33.95,
+    "Highest": 95.0
+  },
+  {
+    "id": 230,
+    "DrugName": "Dextrose + Lactated Ringer's 5%, 500 mL Solution for Injection Bottle",
+    "Lowest": 23.0,
+    "Median": 36.75,
+    "Highest": 106.0
+  },
+  {
+    "id": 231,
+    "DrugName": "Dextrose + Sodium Chloride 5% + 0.3%, 1 L Solution for Injection Bottle",
+    "Lowest": 21.89,
+    "Median": 29.52,
+    "Highest": 105.34
+  },
+  {
+    "id": 232,
+    "DrugName": "Dextrose + Sodium Chloride 5% + 0.3%, 500 mL Solution for Injection Bottle",
+    "Lowest": 19.34,
+    "Median": 25.0,
+    "Highest": 107.0
+  },
+  {
+    "id": 233,
+    "DrugName": "Dextrose + Sodium Chloride 5% + 0.45%, 500 mL Solution for Injection",
+
+"Lowest": 61.6,
+    "Median": 95.0,
+    "Highest": 347.0
+  },
+  {
+    "id": 234,
+    "DrugName": "Dextrose + Sodium Chloride 5% + 0.9%, 1 L Solution for Injection Bottle",
+    "Lowest": 8.98,
+    "Median": 31.75,
+    "Highest": 98.0
+  },
+  {
+    "id": 235,
+    "DrugName": "Dextrose + Sodium Chloride 5% + 0.9%, 500 mL Solution for Injection Bottle",
+    "Lowest": 21.89,
+    "Median": 26.32,
+    "Highest": 64.0
+  },
+  {
+    "id": 236,
+    "DrugName": "Dextrose In Water 10%, 1 L Solution for Injection Bottle",
+    "Lowest": 28.9,
+    "Median": 33.97,
+    "Highest": 37.5
+  },
+  {
+    "id": 237,
+    "DrugName": "Dextrose In Water 10%, 500 mL Solution for Injection Bottle",
+    "Lowest": 21.0,
+    "Median": 26.24,
+    "Highest": 76.32
+  },
+  {
+    "id": 238,
+    "DrugName": "Dextrose In Water 5%, 1 L Solution for Injection Bottle",
+    "Lowest": 21.18,
+    "Median": 31.25,
+    "Highest": 140.0
+  },
+  {
+    "id": 239,
+    "DrugName": "Dextrose In Water 5%, 250 mL Solution for Injection Bottle",
+    "Lowest": 24.0,
+    "Median": 69.0,
+    "Highest": 103.0
+  },
+  {
+    "id": 240,
+    "DrugName": "Dextrose In Water 5%, 500 mL Solution for Injection Bottle",
+    "Lowest": 19.78,
+    "Median": 25.57,
+    "Highest": 98.0
+  },
+  {
+    "id": 241,
+    "DrugName": "Diazepam 5 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 13.82,
+    "Median": 137.94,
+    "Highest": 234.89
+  },
+  {
+    "id": 242,
+    "DrugName": "Diclofenac 25 mg/mL, 3 mL Solution for Injection Ampule",
+    "Lowest": 12.89,
+    "Median": 16.3,
+    "Highest": 24.35
+  },
+  {
+    "id": 243,
+    "DrugName": "Diclofenac 50 mg Enteric Coated Tablet",
+    "Lowest": 0.51,
+    "Median": 1.4,
+    "Highest": 1.75
+  },
+  {
+    "id": 244,
+    "DrugName": "Diclofenac 50 mg Tablet",
+    "Lowest": 0.65,
+    "Median": 1.98,
+    "Highest": 2.0
+  },
+  {
+    "id": 245,
+    "DrugName": "Dicycloverine (Dicyclomine) 10 mg Tablet",
+    "Lowest": 0.32,
+    "Median": 0.83,
+    "Highest": 2.8
+  },
+  {
+    "id": 246,
+    "DrugName": "Dicycloverine (Dicyclomine) 10 mg/5 mL, 60 mL Syrup Bottle",
+    "Lowest": 14.6,
+    "Median": 29.98,
+    "Highest": 71.28
+  },
+  {
+    "id": 247,
+    "DrugName": "Digoxin 250 mcg Tablet",
+    "Lowest": 0.95,
+    "Median": 4.12,
+    "Highest": 6.98
+  },
+  {
+    "id": 248,
+    "DrugName": "Digoxin 250 mcg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 92.79,
+    "Median": 123.83,
+    "Highest": 198.0
+  },
+  {
+    "id": 249,
+    "DrugName": "Digoxin 50 mcg/mL, 60 mL Oral Elixir Bottle",
+    "Lowest": 561.52,
+    "Median": 745.87,
+    "Highest": 787.0
+  },
+  {
+    "id": 250,
+    "DrugName": "Diloxanide 500 mg Tablet",
+    "Lowest": 30.0,
+    "Median": 31.75,
+    "Highest": 33.5
+  },
+    {
+    "id": 251,
+    "DrugName": "Diltiazem 60 mg Tablet",
+    "Lowest": 2.92,
+    "Median": 7.0,
+    "Highest": 18.0
+  },
+  {
+    "id": 252,
+    "DrugName": "Diphenhydramine 12.5 mg/5 mL, 60 mL Syrup Bottle",
+    "Lowest": 10.25,
+    "Median": 21.5,
+    "Highest": 80.0
+  },
+  {
+    "id": 253,
+    "DrugName": "Diphenhydramine 25 mg Capsule",
+    "Lowest": 1.07,
+    "Median": 1.56,
+    "Highest": 5.0
+  },
+  {
+    "id": 254,
+    "DrugName": "Diphenhydramine 50 mg Capsule",
+    "Lowest": 0.68,
+    "Median": 1.5,
+    "Highest": 3.25
+  },
+  {
+    "id": 255,
+    "DrugName": "Diphenhydramine 50 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 3.68,
+    "Median": 16.89,
+    "Highest": 98.0
+  },
+  {
+    "id": 256,
+    "DrugName": "Diptheria, Tetanus, Pertussis, Hepatitis B Recombinant and Haemophilus Influenza Type B (Hib) Combined Vaccine 0.5 mL suspension vial",
+    "Lowest": 405.0,
+    "Median": 1127.5,
+    "Highest": 1850.0
+  },
+  {
+    "id": 257,
+    "DrugName": "Divalproex Sodium (Sodium Valproate + Valproic Acid) 250 mg Extended Release Tablet",
+    "Lowest": 7.1,
+    "Median": 8.33,
+    "Highest": 8.88
+  },
+  {
+    "id": 258,
+    "DrugName": "Divalproex Sodium (Sodium Valproate + Valproic Acid) 500 mg Tablet",
+    "Lowest": 5.9,
+    "Median": 11.38,
+    "Highest": 23.0
+  },
+  {
+    "id": 259,
+    "DrugName": "Dobutamine 50 mg/mL, 5 mL Solution for Injection Ampule",
+    "Lowest": 18.89,
+    "Median": 65.62,
+    "Highest": 238.0
+  },
+  {
+    "id": 260,
+    "DrugName": "Docetaxel 20 mg/0.5 mL, 0.5 mL Solution for Injection Vial",
+    "Lowest": 358.89,
+    "Median": 520.0,
+    "Highest": 998.0
+  },
+  {
+    "id": 261,
+    "DrugName": "Docetaxel 20 mg/mL, 1 mL Solution for Injection Vial",
+    "Lowest": 370.0,
+    "Median": 532.0,
+    "Highest": 1050.0
+  },
+  {
+    "id": 262,
+    "DrugName": "Docetaxel 40 mg/mL, 2 mL Solution for Injection Vial",
+    "Lowest": 884.6,
+    "Median": 1361.19,
+    "Highest": 2998.0
+  },
+  {
+    "id": 263,
+    "DrugName": "Docetaxel 80 mg/4mL, 4mL Concentrate Solution for Infusion Vial",
+    "Lowest": 1260.0,
+    "Median": 2205.0,
+    "Highest": 3150.0
+  },
+  {
+    "id": 264,
+    "DrugName": "Domperidone 1 mg/mL, 60 mL Suspension for Injection Bottle",
+    "Lowest": 33.0,
+    "Median": 72.0,
+    "Highest": 148.0
+  },
+  {
+    "id": 265,
+    "DrugName": "Domperidone 10 mg Tablet",
+    "Lowest": 0.61,
+    "Median": 1.78,
+    "Highest": 14.0
+  },
+  {
+    "id": 266,
+    "DrugName": "Donepezil 10 mg Tablet",
+    "Lowest": 12.0,
+    "Median": 24.0,
+    "Highest": 39.6
+  },
+  {
+    "id": 267,
+    "DrugName": "Dopamine 40 mg/mL, 5 mL Solution for Injection Ampule",
+    "Lowest": 28.8,
+    "Median": 37.44,
+    "Highest": 147.45
+  },
+  {
+    "id": 268,
+    "DrugName": "Dorzolamide 2%, 5 mL Eye Drops Bottle",
+    "Lowest": 677.95,
+    "Median": 677.95,
+    "Highest": 780.0
+  },
+  {
+    "id": 269,
+    "DrugName": "Doxorubicin 2 mg/mL, 25 mL Solution for Injection Vial",
+    "Lowest": 265.0,
+    "Median": 329.88,
+    "Highest": 510.0
+  },
+  {
+    "id": 270,
+    "DrugName": "Doxorubicin 50 mg Powder for Injection Vial",
+    "Lowest": 375.0,
+    "Median": 429.4,
+    "Highest": 1873.0
+  },
+  {
+    "id": 271,
+    "DrugName": "Doxycycline 100 mg Capsule",
+    "Lowest": 1.19,
+    "Median": 2.88,
+    "Highest": 11.0
+  },
+  {
+    "id": 272,
+    "DrugName": "Dydrogesterone 10 mg Tablet",
+    "Lowest": 11.98,
+    "Median": 62.9,
+    "Highest": 85.0
+  },
+  {
+    "id": 273,
+    "DrugName": "Enalapril 20 mg Tablet",
+    "Lowest": 3.62,
+    "Median": 5.25,
+    "Highest": 7.5
+  },
+  {
+    "id": 274,
+    "DrugName": "Enalapril 5 mg Tablet",
+    "Lowest": 2.48,
+    "Median": 4.0,
+    "Highest": 8.0
+  },
+  {
+    "id": 275,
+    "DrugName": "Enoxaparin 100 mg/mL, 0.4 mL Solution for Injection Pre-filled Syringe",
+    "Lowest": 114.89,
+    "Median": 172.89,
+    "Highest": 550.0
+  },
+  {
+    "id": 276,
+    "DrugName": "Enoxaparin 100 mg/mL, 0.6 mL Solution for Injection Pre-filled Syringe",
+    "Lowest": 162.0,
+    "Median": 219.0,
+    "Highest": 500.0
+  },
+  {
+    "id": 277,
+    "DrugName": "Eperisone 50 mg Tablet",
+    "Lowest": 8.75,
+    "Median": 11.75,
+    "Highest": 30.0
+  },
+  {
+    "id": 278,
+    "DrugName": "Ephedrine 50 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 77.88,
+    "Median": 113.5,
+    "Highest": 283.89
+  },
+  {
+    "id": 279,
+    "DrugName": "Epinephrine (Adrenaline) 1 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 8.12,
+    "Median": 14.12,
+    "Highest": 32.0
+  },
+  {
+    "id": 280,
+    "DrugName": "Epirubicin 50 mg Powder for Injection Vial",
+    "Lowest": 1395.0,
+    "Median": 2100.0,
+    "Highest": 2675.0
+  },
+  {
+    "id": 281,
+    "DrugName": "Epoetin Alfa (Recombinant Human Erythropoetin) 10,000 IU/mL Solution for Injection Pre-filled Syringe",
+    "Lowest": 900.0,
+    "Median": 1338.0,
+    "Highest": 1495.0
+  },
+  {
+    "id": 282,
+    "DrugName": "Epoetin Alfa (Recombinant Human Erythropoetin) 4000 IU/0.4 mL Solution for Injection Pre-filled Syringe",
+    "Lowest": 197.24,
+    "Median": 395.0,
+    "Highest": 525.0
+  },
+  {
+    "id": 283,
+    "DrugName": "Epoetin Alfa (Recombinant Human Erythropoetin) 4000 IU/mL, 1 mL Solution for Injection Vial",
+    "Lowest": 168.88,
+    "Median": 216.5,
+    "Highest": 480.0
+  },
+  {
+    "id": 284,
+    "DrugName": "Epoetin Beta (Recombinant Erythropoetin) 10,000 IU/0.6 mL Solution for Injection Prefilled Syringe",
+    "Lowest": 2858.04,
+    "Median": 2918.18,
+    "Highest": 2978.31
+  },
+  {
+    "id": 285,
+    "DrugName": "Epoetin Beta (Recombinant Erythropoetin) 2000 IU/0.3 mL Solution for Injection Prefilled Syringe",
+    "Lowest": 400.0,
+    "Median": 403.84,
+    "Highest": 407.67
+  },
+  {
+    "id": 286,
+    "DrugName": "Epoetin Beta (Recombinant Erythropoetin) 5000 IU/0.3 mL Solution for Injection Prefilled Syringe",
+    "Lowest": 953.0,
+    "Median": 1000.0,
+    "Highest": 1278.98
+  },
+  {
+    "id": 287,
+    "DrugName": "Ertapenem 1 g Powder for Injection Vial",
+    "Lowest": 1429.0,
+    "Median": 1656.5,
+    "Highest": 2144.0
+  },
+  {
+    "id": 288,
+    "DrugName": "Erythromycin 0.5%, 3.5 g Eye Ointment Tube",
+    "Lowest": 87.0,
+    "Median": 100.0,
+    "Highest": 600.0
+  },
+  {
+    "id": 289,
+    "DrugName": "Erythromycin 0.5%, 5 g Eye Ointment Tube",
+    "Lowest": 118.5,
+    "Median": 143.0,
+    "Highest": 280.0
+  },
+  {
+    "id": 290,
+    "DrugName": "Erythromycin 200 mg/5 mL, 60 mL Oral Suspension",
+    "Lowest": 45.0,
+    "Median": 49.0,
+    "Highest": 100.0
+  },
+  {
+    "id": 291,
+    "DrugName": "Erythromycin 500 mg Tablet",
+    "Lowest": 4.1,
+    "Median": 4.8,
+    "Highest": 5.4
+  },
+  {
+    "id": 292,
+    "DrugName": "Escitalopram 10 mg Tablet",
+    "Lowest": 3.12,
+    "Median": 8.37,
+    "Highest": 21.0
+  },
+  {
+    "id": 293,
+    "DrugName": "Esmolol 10 mg/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 417.34,
+    "Median": 680.0,
+    "Highest": 988.0
+  },
+  {
+    "id": 294,
+    "DrugName": "Ethambutol 400 mg Tablet",
+    "Lowest": 2.81,
+    "Median": 4.05,
+    "Highest": 5.12
+  },
+  {
+    "id": 295,
+    "DrugName": "Etoposide 100 mg Powder for Injection Vial",
+    "Lowest": 240.0,
+    "Median": 259.51,
+    "Highest": 279.02
+  },
+  {
+    "id": 296,
+    "DrugName": "Etoposide 20 mg/mL, 5 mL Solution for Injection Vial",
+    "Lowest": 220.0,
+    "Median": 260.0,
+    "Highest": 299.0
+  },
+  {
+    "id": 297,
+    "DrugName": "Everolimus 500 mcg Tablet",
+    "Lowest": 145.0,
+    "Median": 155.42,
+    "Highest": 165.83
+  },
+  {
+    "id": 298,
+    "DrugName": "Felodipine 5 mg Modified Release Tablet",
+    "Lowest": 5.37,
+    "Median": 7.2,
+    "Highest": 15.0
+  },
+  {
+    "id": 299,
+    "DrugName": "Fenofibrate 160 mg Tablet",
+    "Lowest": 3.0,
+    "Median": 11.98,
+    "Highest": 22.85
+  },
+  {
+    "id": 300,
+    "DrugName": "Fenofibrate 200 mg Capsule",
+    "Lowest": 2.35,
+    "Median": 7.5,
+    "Highest": 27.0
+  },
+  {
+    "id": 301,
+    "DrugName": "Fentanyl 50 mcg/mL, 10 mL Solution for Injection Ampule",
+    "Lowest": 27.88,
+    "Median": 111.89,
+    "Highest": 210.0
+  },
+  {
+    "id": 302,
+    "DrugName": "Fentanyl 50 mcg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 27.44,
+    "Median": 40.0,
+    "Highest": 374.0
+  },
+  {
+    "id": 303,
+    "DrugName": "Ferrous Salt (equiv. to 15 mg elemental iron)/0.6 mL, 15 mL Oral Drops",
+    "Lowest": 17.02,
+    "Median": 22.5,
+    "Highest": 35.0
+  },
+  {
+    "id": 304,
+    "DrugName": "Ferrous Salt (equiv. to 30 mg elemental iron)/5 mL, 60 mL Syrup",
+    "Lowest": 16.0,
+    "Median": 22.0,
+    "Highest": 40.0
+  },
+  {
+    "id": 305,
+    "DrugName": "Ferrous Salt (equiv. to 60 mg elemental iron) Tablet",
+    "Lowest": 1.0,
+    "Median": 1.38,
+    "Highest": 2.0
+  },
+  {
+    "id": 306,
+    "DrugName": "Ferrous Salt + Folic Acid 60 mg elemental iron + 400 mcg Capsule",
+    "Lowest": 0.69,
+    "Median": 0.87,
+    "Highest": 3.0
+  },
+  {
+    "id": 307,
+    "DrugName": "Ferrous Salt + Folic Acid 60 mg elemental iron + 400 mcg Film Coated Tablet",
+    "Lowest": 0.64,
+    "Median": 0.87,
+    "Highest": 3.79
+  },
+  {
+    "id": 308,
+    "DrugName": "Ferrous Salt + Folic Acid 60 mg elemental iron + 400 mcg Tablet",
+    "Lowest": 0.44,
+    "Median": 0.89,
+    "Highest": 1.98
+  },
+  {
+    "id": 309,
+    "DrugName": "Filgrastim (G-CSF) 300 mcg/0.5 mL, 0.5 mL Solution for Injection Pre-filled Syringe",
+    "Lowest": 497.0,
+    "Median": 758.0,
+    "Highest": 1500.0
+  },
+  {
+    "id": 310,
+    "DrugName": "Filgrastim (G-CSF) 300 mcg/1.2 mL, 1.2 mL Solution for Injection Vial",
+    "Lowest": 594.0,
+    "Median": 1568.0,
+    "Highest": 2500.0
+  },
+  {
+    "id": 311,
+    "DrugName": "Filgrastim (G-CSF) 300 mcg/mL, 1 mL Solution for Injection Vial",
+    "Lowest": 551.82,
+    "Median": 764.91,
+    "Highest": 978.0
+  },
+  {
+    "id": 312,
+    "DrugName": "Finasteride 5 mg Tablet",
+    "Lowest": 5.9,
+    "Median": 7.2,
+    "Highest": 18.0
+  },
+  {
+    "id": 313,
+    "DrugName": "Fluconazole 150 mg Capsule",
+    "Lowest": 4.8,
+    "Median": 38.0,
+    "Highest": 230.0
+  },
+  {
+    "id": 314,
+    "DrugName": "Fluconazole 2 mg/mL, 100 mL Solution for Injection Vial",
+    "Lowest": 50.0,
+    "Median": 179.44,
+    "Highest": 474.33
+  },
+  {
+    "id": 315,
+    "DrugName": "Fluconazole 200 mg Capsule",
+    "Lowest": 100.0,
+    "Median": 279.0,
+    "Highest": 310.0
+  },
+  {
+    "id": 316,
+    "DrugName": "Fluconazole 50 mg Capsule",
+    "Lowest": 56.0,
+    "Median": 68.0,
+    "Highest": 78.0
+  },
+  {
+    "id": 317,
+    "DrugName": "Flumazenil 100 mcg/mL, 5 mL Solution for Injection Ampule",
+    "Lowest": 787.0,
+    "Median": 1988.0,
+    "Highest": 1998.0
+  },
+  {
+    "id": 318,
+    "DrugName": "Fluorouracil 50 mg/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 25.5,
+    "Median": 60.0,
+    "Highest": 68.0
+  },
+  {
+    "id": 319,
+    "DrugName": "Fluoxetine 20 mg Capsule",
+    "Lowest": 11.89,
+    "Median": 18.64,
+    "Highest": 22.5
+  },
+  {
+    "id": 320,
+    "DrugName": "Flupentixol 20 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 224.0,
+    "Median": 284.0,
+    "Highest": 344.0
+  },
+  {
+    "id": 321,
+    "DrugName": "Fluphenazine 25 mg/mL, 1mL ampul",
+    "Lowest": 58.74,
+    "Median": 64.89,
+    "Highest": 77.87
+  },
+  {
+    "id": 322,
+    "DrugName": "Fluticasone + Salmeterol 125 mcg + 25 mcg, 120 actuations Metered Dose Inhaler",
+    "Lowest": 114.0,
+    "Median": 195.0,
+    "Highest": 360.0
+  },
+  {
+    "id": 323,
+    "DrugName": "Fluticasone + Salmeterol 250 mcg + 25 mcg, 120 actuations Metered Dose Inhaler",
+    "Lowest": 140.0,
+    "Median": 240.0,
+    "Highest": 519.95
+  },
+  {
+    "id": 324,
+    "DrugName": "Fluticasone 0.05%/dose, 120 doses Nasal Solution",
+    "Lowest": 247.79,
+    "Median": 247.79,
+    "Highest": 247.79
+  },
+  {
+    "id": 325,
+    "DrugName": "Folic Acid 5 mg Capsule",
+    "Lowest": 0.8,
+    "Median": 2.0,
+    "Highest": 4.98
+  },
+  {
+    "id": 326,
+    "DrugName": "Folic Acid 5 mg Tablet",
+    "Lowest": 1.0,
+    "Median": 3.0,
+    "Highest": 4.75
+  },
+  {
+    "id": 327,
+    "DrugName": "Fondaparinux 2.5 mg/0.5 mL Solution for Injection Pre-filled Syringe",
+    "Lowest": 1100.0,
+    "Median": 1193.5,
+    "Highest": 1378.0
+  },
+  {
+    "id": 328,
+    "DrugName": "Fosfomycin 3 g Oral Granules Sachet",
+    "Lowest": 351.0,
+    "Median": 429.88,
+    "Highest": 461.44
+  },
+  {
+    "id": 329,
+    "DrugName": "Furosemide 10 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 3.59,
+    "Median": 4.78,
+    "Highest": 68.0
+  },
+  {
+    "id": 330,
+    "DrugName": "Furosemide 20 mg Tablet",
+    "Lowest": 0.44,
+    "Median": 1.0,
+    "Highest": 5.0
+  },
+  {
+    "id": 331,
+    "DrugName": "Furosemide 40 mg Tablet",
+    "Lowest": 0.4,
+    "Median": 1.3,
+    "Highest": 9.3
+  },
+  {
+    "id": 332,
+    "DrugName": "Fusidate Sodium/Fusidic Acid 2%, 15 g Ointment",
+    "Lowest": 90.0,
+    "Median": 95.0,
+    "Highest": 170.0
+  },
+  {
+    "id": 333,
+    "DrugName": "Fusidate Sodium/Fusidic Acid 2%, 5 g Cream",
+    "Lowest": 80.0,
+    "Median": 162.36,
+    "Highest": 239.88
+  },
+  {
+    "id": 334,
+    "DrugName": "Gabapentin 100 mg Capsule",
+    "Lowest": 4.38,
+    "Median": 6.45,
+    "Highest": 19.68
+  },
+  {
+    "id": 335,
+    "DrugName": "Gabapentin 300 mg Capsule",
+    "Lowest": 1.8,
+    "Median": 6.75,
+    "Highest": 32.49
+  },
+  {
+    "id": 336,
+    "DrugName": "Gadobutrol 1 mmol/mL, 5 mL Solution for Injection Pre-filled Syringe",
+    "Lowest": 2000.0,
+    "Median": 2300.0,
+    "Highest": 2589.56
+  },
+  {
+    "id": 337,
+    "DrugName": "Gadoteric Acid 0.5 mmol/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 1650.0,
+    "Median": 1999.0,
+    "Highest": 2100.0
+  },
+  {
+    "id": 338,
+    "DrugName": "Gemcitabine 1 g Powder for Injection Vial",
+    "Lowest": 800.0,
+    "Median": 980.0,
+    "Highest": 2800.0
+  },
+  {
+    "id": 339,
+    "DrugName": "Gemcitabine 200 mg Powder for Injection Vial",
+    "Lowest": 289.0,
+    "Median": 304.0,
+    "Highest": 650.0
+  },
+  {
+    "id": 340,
+    "DrugName": "Gentamicin 40 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 3.17,
+    "Median": 5.47,
+    "Highest": 29.45
+  },
+  {
+    "id": 341,
+    "DrugName": "Gliclazide 30 mg Modified Release Tablet",
+    "Lowest": 1.25,
+    "Median": 2.93,
+    "Highest": 4.5
+  },
+  {
+    "id": 342,
+    "DrugName": "Gliclazide 60 mg Modified Release Tablet",
+    "Lowest": 4.08,
+    "Median": 7.94,
+    "Highest": 17.5
+  },
+  {
+    "id": 343,
+    "DrugName": "Gliclazide 80 mg Tablet",
+    "Lowest": 1.24,
+    "Median": 2.65,
+    "Highest": 6.0
+  },
+  {
+    "id": 344,
+    "DrugName": "Glucose (Dextrose) 50%, 50 mL Solution for Injection Vial",
+    "Lowest": 19.5,
+    "Median": 42.0,
+    "Highest": 114.0
+  },
+  {
+    "id": 345,
+    "DrugName": "Haloperidol 5 mg Tablet",
+    "Lowest": 2.32,
+    "Median": 2.81,
+    "Highest": 3.34
+  },
+  {
+    "id": 346,
+    "DrugName": "Haloperidol 5 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 439.0,
+    "Median": 725.0,
+    "Highest": 730.45
+  },
+  {
+    "id": 347,
+    "DrugName": "Haloperidol 50 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 445.79,
+    "Median": 728.0,
+    "Highest": 729.89
+  },
+  {
+    "id": 348,
+    "DrugName": "Heparin (Unfractionated) 1000 IU/mL, 5 mL Solution for Injection Vial (Bovine Origin)",
+    "Lowest": 51.89,
+    "Median": 80.0,
+    "Highest": 260.0
+  },
+  {
+    "id": 349,
+    "DrugName": "Heparin (Unfractionated) 5000 IU/mL, 5 mL Solution for Injection Vial (Bovine Origin)",
+    "Lowest": 80.0,
+    "Median": 187.89,
+    "Highest": 324.0
+  },
+  {
+    "id": 350,
+    "DrugName": "Hepatitis B Immunoglobulin (Human), 0.5 mL Vial",
+    "Lowest": 2000.0,
+    "Median": 2185.0,
+    "Highest": 2400.0
+  },
+    {
+    "id": 351,
+    "DrugName": "Hydralazine 20 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 15.24,
+    "Median": 22.64,
+    "Highest": 46.0
+  },
+  {
+    "id": 352,
+    "DrugName": "Hydrocortisone 1%, 10 g Cream Tube",
+    "Lowest": 59.0,
+    "Median": 72.0,
+    "Highest": 117.0
+  },
+  {
+    "id": 353,
+    "DrugName": "Hydrocortisone 1%, 5 g Cream Tube",
+    "Lowest": 70.0,
+    "Median": 86.5,
+    "Highest": 128.7
+  },
+  {
+    "id": 354,
+    "DrugName": "Hydrocortisone 100 mg Powder for Injection Vial",
+    "Lowest": 10.0,
+    "Median": 15.64,
+    "Highest": 157.5
+  },
+  {
+    "id": 355,
+    "DrugName": "Hydrocortisone 125 mg/mL, 2 mL Vial",
+    "Lowest": 39.34,
+    "Median": 185.0,
+    "Highest": 279.0
+  },
+  {
+    "id": 356,
+    "DrugName": "Hydrocortisone 250 mg Powder for Injection Vial",
+    "Lowest": 37.44,
+    "Median": 62.78,
+    "Highest": 270.0
+  },
+  {
+    "id": 357,
+    "DrugName": "Hydrocortisone 50 mg/mL, 2 mL Vial",
+    "Lowest": 14.43,
+    "Median": 149.0,
+    "Highest": 149.5
+  },
+  {
+    "id": 358,
+    "DrugName": "Hydrogen Peroxide 3%, 120 mL Solution Bottle",
+    "Lowest": 11.0,
+    "Median": 20.5,
+    "Highest": 37.0
+  },
+  {
+    "id": 359,
+    "DrugName": "Hydrogen Peroxide 3%, 60 mL Solution Bottle",
+    "Lowest": 15.0,
+    "Median": 17.5,
+    "Highest": 20.0
+  },
+  {
+    "id": 360,
+    "DrugName": "Hydroxyethyl Starch 6%, 500 mL Solution for Injection Bottle",
+    "Lowest": 330.0,
+    "Median": 500.0,
+    "Highest": 780.0
+  },
+  {
+    "id": 361,
+    "DrugName": "Hydroxyurea 500 mg Capsule",
+    "Lowest": 18.0,
+    "Median": 31.0,
+    "Highest": 32.5
+  },
+  {
+    "id": 362,
+    "DrugName": "Hydroxyzine 25 mg Tablet",
+    "Lowest": 16.2,
+    "Median": 18.8,
+    "Highest": 19.08
+  },
+  {
+    "id": 363,
+    "DrugName": "Hyoscine 10 mg Tablet",
+    "Lowest": 1.68,
+    "Median": 2.69,
+    "Highest": 7.1
+  },
+  {
+    "id": 364,
+    "DrugName": "Hyoscine 20 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 7.54,
+    "Median": 15.29,
+    "Highest": 57.95
+  },
+  {
+    "id": 365,
+    "DrugName": "Hypertonic Lactate 250 mL Solution for Injection Bag",
+    "Lowest": 789.15,
+    "Median": 884.0,
+    "Highest": 930.1
+  },
+  {
+    "id": 366,
+    "DrugName": "Hypromellose 0.3%, 10 mL Eye Drops Bottle",
+    "Lowest": 78.0,
+    "Median": 135.0,
+    "Highest": 300.0
+  },
+  {
+    "id": 367,
+    "DrugName": "Hypromellose 5 mg/mL, 10 mL Eye Drops Bottle",
+    "Lowest": 120.0,
+    "Median": 153.0,
+    "Highest": 184.0
+  },
+  {
+    "id": 368,
+    "DrugName": "Ibuprofen 100 mg/5 mL, 60 mL Oral Suspension",
+    "Lowest": 52.0,
+    "Median": 55.5,
+    "Highest": 99.0
+  },
+  {
+    "id": 369,
+    "DrugName": "Ibuprofen 200 mg Tablet",
+    "Lowest": 1.2,
+    "Median": 2.23,
+    "Highest": 4.5
+  },
+  {
+    "id": 370,
+    "DrugName": "Ibuprofen 200 mg/5 mL, 60 mL Oral Suspension",
+    "Lowest": 40.42,
+    "Median": 58.0,
+    "Highest": 137.7
+  },
+  {
+    "id": 371,
+    "DrugName": "Ibuprofen 400 mg Tablet",
+    "Lowest": 0.7,
+    "Median": 2.1,
+    "Highest": 3.5
+  },
+  {
+    "id": 372,
+    "DrugName": "Ifosfamide 1 g Powder for Injection Vial",
+    "Lowest": 818.0,
+    "Median": 990.0,
+    "Highest": 1379.46
+  },
+  {
+    "id": 373,
+    "DrugName": "Ifosfamide 2 g Powder for Injection Vial",
+    "Lowest": 1700.0,
+    "Median": 1900.0,
+    "Highest": 2200.0
+  },
+  {
+    "id": 374,
+    "DrugName": "Imatinib 100 mg Tablet",
+    "Lowest": 22.48,
+    "Median": 34.98,
+    "Highest": 50.0
+  },
+  {
+    "id": 375,
+    "DrugName": "Imatinib 400 mg Tablet",
+    "Lowest": 44.48,
+    "Median": 90.0,
+    "Highest": 110.0
+  },
+  {
+    "id": 376,
+    "DrugName": "Immunoglobulin Normal, Human (IGIV) 50 mg/mL, 100 mL Vial",
+    "Lowest": 13936.0,
+    "Median": 14525.0,
+    "Highest": 19500.0
+  },
+  {
+    "id": 377,
+    "DrugName": "Immunoglobulin Normal, Human (IGIV) 50 mg/mL, 50 mL Vial",
+    "Lowest": 6947.0,
+    "Median": 7999.0,
+    "Highest": 13936.0
+  },
+  {
+    "id": 378,
+    "DrugName": "Indacaterol + Glycopyrronium 110 mcg + 50 mcg Dry Powder Capsule for Inhalation",
+    "Lowest": 53.33,
+    "Median": 62.3,
+    "Highest": 66.67
+  },
+  {
+    "id": 379,
+    "DrugName": "Influenza Polyvalent Vaccine, 0.5 mL Suspension for Injection Ampule",
+    "Lowest": 550.0,
+    "Median": 575.0,
+    "Highest": 600.0
+  },
+  {
+    "id": 380,
+    "DrugName": "Insulin Glargine 100 IU/mL, 10 mL Vial",
+    "Lowest": 400.0,
+    "Median": 1158.5,
+    "Highest": 1572.0
+  },
+  {
+    "id": 381,
+    "DrugName": "Insulin Glargine 100 IU/mL, 3 mL Pre-filled Pen",
+    "Lowest": 350.0,
+    "Median": 469.0,
+    "Highest": 1136.0
+  },
+  {
+    "id": 382,
+    "DrugName": "Intraocular Irrigating Solution (Balanced Salt Solution), 500 mL Solution Bottle",
+    "Lowest": 318.5,
+    "Median": 420.0,
+    "Highest": 480.0
+  },
+  {
+    "id": 383,
+    "DrugName": "Iodixanol 652 mg/mL (equiv. to 320 mg Iodine), 100 mL Solution for Injection Vial",
+    "Lowest": 5604.05,
+    "Median": 5852.03,
+    "Highest": 6100.0
+  },
+  {
+    "id": 384,
+    "DrugName": "Iodixanol 652 mg/mL (equiv. to 320 mg Iodine), 50 mL Solution for Injection Vial",
+    "Lowest": 1861.99,
+    "Median": 2857.0,
+    "Highest": 3852.0
+  },
+  {
+    "id": 385,
+    "DrugName": "Iohexol 300 mg iodine/mL, 100 mL Solution for Injection Vial",
+    "Lowest": 1481.0,
+    "Median": 2426.88,
+    "Highest": 3115.0
+  },
+  {
+    "id": 386,
+    "DrugName": "Iohexol 300 mg iodine/mL, 50 mL Solution for Injection Vial",
+    "Lowest": 730.0,
+    "Median": 890.0,
+    "Highest": 1910.0
+  },
+  {
+    "id": 387,
+    "DrugName": "Iohexol 350 mg iodine/mL, 100 mL Solution for Injection Vial",
+    "Lowest": 1810.0,
+    "Median": 2150.0,
+    "Highest": 3852.0
+  },
+  {
+    "id": 388,
+    "DrugName": "Iohexol 350 mg iodine/mL, 50 mL Solution for Injection Vial",
+    "Lowest": 770.0,
+    "Median": 1058.22,
+    "Highest": 2559.00
+},
+{
+ "id": 389,
+ "drugName": "Iopamidol 612 mg/mL (equiv. to 300 mg Iodine), 100 mL Solution for Injection Vial",
+ "Lowest": 1197.00,
+ "Median": 1297.50,
+ "Highest": 3750.00   
+},
+  {
+    "id": 390,
+    "DrugName": "Iopamidol 612 mg/mL (equiv. to 300 mg Iodine), 50 mL Solution for Injection Vial",
+    "Lowest": 677.0,
+    "Median": 763.9,
+    "Highest": 2150.0
+  },
+  {
+    "id": 391,
+    "DrugName": "Iopamidol 755 mg/mL (equiv. to 370 mg Iodine), 100 mL Solution for Injection Vial",
+    "Lowest": 1640.0,
+    "Median": 1780.0,
+    "Highest": 1788.0
+  },
+  {
+    "id": 392,
+    "DrugName": "Iopamidol 755 mg/mL (equiv. to 370 mg Iodine), 50 mL Solution for Injection Vial",
+    "Lowest": 768.8,
+    "Median": 1384.3,
+    "Highest": 1960.8
+  },
+  {
+    "id": 393,
+    "DrugName": "Iopromide 300 mg/mL (equiv. to 623 mg Iodine), 50 mL Solution for Injection Vial",
+    "Lowest": 889.35,
+    "Median": 889.35,
+    "Highest": 889.35
+  },
+  {
+    "id": 394,
+    "DrugName": "Iopromide 370 mg/mL (equiv. to 769 mg Iodine), 100 mL Solution for Injection Vial",
+    "Lowest": 2730.0,
+    "Median": 2850.0,
+    "Highest": 3715.0
+  },
+  {
+    "id": 395,
+    "DrugName": "Iopromide 370 mg/mL (equiv. to 769 mg Iodine), 50 mL Solution for Injection Vial",
+    "Lowest": 1400.0,
+    "Median": 1475.0,
+    "Highest": 2425.0
+  },
+  {
+    "id": 396,
+    "DrugName": "Ioversol 636 mg/mL (equiv. to 300 mg/mL Iodine), 50 mL Solution for Injection Vial",
+    "Lowest": 1320.0,
+    "Median": 1320.0,
+    "Highest": 1320.0
+  },
+  {
+    "id": 397,
+    "DrugName": "Ioversol 741 mg/mL (equiv. to 350 mg/mL Iodine), 50 mL Solution for Injection Vial",
+    "Lowest": 1572.0,
+    "Median": 1898.88,
+    "Highest": 2202.5
+  },
+  {
+    "id": 398,
+    "DrugName": "Ipratropium + Salbutamol 20 mcg + 100 mcg, 200 doses Metered Dose Inhaler",
+    "Lowest": 650.0,
+    "Median": 784.0,
+    "Highest": 850.8
+  },
+  {
+    "id": 399,
+    "DrugName": "Ipratropium + Salbutamol 500 mcg + 2.5 mg, 2.5 mL Respiratory Solution",
+    "Lowest": 6.2,
+    "Median": 10.74,
+    "Highest": 27.0
+  },
+  {
+    "id": 400,
+    "DrugName": "Irbesartan + Hydrochlorothiazide 150 mg + 12.5 mg Tablet",
+    "Lowest": 7.48,
+    "Median": 7.73,
+    "Highest": 9.98
+  },
+  {
+    "id": 401,
+    "DrugName": "Irbesartan 150 mg Tablet",
+    "Lowest": 1.98,
+    "Median": 2.64,
+    "Highest": 8.19
+  },
+  {
+    "id": 402,
+    "DrugName": "Irbesartan 300 mg Tablet",
+    "Lowest": 3.0,
+    "Median": 5.5,
+    "Highest": 27.0
+  },
+  {
+    "id": 403,
+    "DrugName": "Irinotecan 100 mg/5 mL, Solution for Injection Vial",
+    "Lowest": 685.82,
+    "Median": 920.0,
+    "Highest": 1850.0
+  },
+  {
+    "id": 404,
+    "DrugName": "Irinotecan 40 mg/2mL, Injection Vial",
+    "Lowest": 265.0,
+    "Median": 530.0,
+    "Highest": 596.0
+  },
+  {
+    "id": 405,
+    "DrugName": "Iron Sucrose 20 mg/mL, 5 mL Solution for Injection Ampule",
+    "Lowest": 40.0,
+    "Median": 57.88,
+    "Highest": 149.5
+  },
+  {
+    "id": 406,
+    "DrugName": "Isoflurane, 100 mL Volatile Liquid for Inhalation Bottle",
+    "Lowest": 1564.0,
+    "Median": 1965.5,
+    "Highest": 2493.0
+  },
+  {
+    "id": 407,
+    "DrugName": "Isoniazid + Rifampicin + Pyrazinamide + Ethambutol 75 mg + 150 mg + 400 mg + 275 mg Tablet",
+    "Lowest": 5.75,
+    "Median": 7.0,
+    "Highest": 14.0
+  },
+  {
+    "id": 408,
+    "DrugName": "Isoniazid + Rifampicin 75 mg + 150 mg Tablet",
+    "Lowest": 3.9,
+    "Median": 4.96,
+    "Highest": 8.0
+  },
+  {
+    "id": 409,
+    "DrugName": "Isophane Insulin Human (Recombinant DNA) 100 IU/mL, 10 mL Suspension for Injection Vial",
+    "Lowest": 107.9,
+    "Median": 190.0,
+    "Highest": 450.0
+  },
+  {
+    "id": 410,
+    "DrugName": "Isosorbide Dinitrate 10 mg Tablet",
+    "Lowest": 1.19,
+    "Median": 5.7,
+    "Highest": 9.0
+  },
+  {
+    "id": 411,
+    "DrugName": "Isosorbide Dinitrate 5 mg Sublingual Tablet",
+    "Lowest": 2.67,
+    "Median": 13.5,
+    "Highest": 19.0
+  },
+  {
+    "id": 412,
+    "DrugName": "Isosorbide-5-Mononitrate 30 mg Modified Release Tablet",
+    "Lowest": 2.85,
+    "Median": 5.81,
+    "Highest": 16.97
+  },
+  {
+    "id": 413,
+    "DrugName": "Isosorbide-5-Mononitrate 60 mg Modified Release Tablet",
+    "Lowest": 2.98,
+    "Median": 6.18,
+    "Highest": 9.99
+  },
+  {
+    "id": 414,
+    "DrugName": "Isotonic electrolyte solution for IV infusion 1 L",
+    "Lowest": 132.0,
+    "Median": 198.0,
+    "Highest": 207.9
+  },
+  {
+    "id": 415,
+    "DrugName": "Isoxsuprine 10 mg Tablet",
+    "Lowest": 3.0,
+    "Median": 5.8,
+    "Highest": 19.5
+  },
+  {
+    "id": 416,
+    "DrugName": "Isoxsuprine 5 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 80.0,
+    "Median": 129.98,
+    "Highest": 215.0
+  },
+  {
+    "id": 417,
+    "DrugName": "Itraconazole 100 mg Capsule",
+    "Lowest": 19.0,
+    "Median": 22.0,
+    "Highest": 80.0
+  },
+  {
+    "id": 418,
+    "DrugName": "Ketamine 50 mg/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 289.0,
+    "Median": 450.0,
+    "Highest": 1727.0
+  },
+  {
+    "id": 419,
+    "DrugName": "Ketoconazole 2% (20 mg/g), 15 g Cream Tube",
+    "Lowest": 40.0,
+    "Median": 69.74,
+    "Highest": 114.0
+  },
+  {
+    "id": 420,
+    "DrugName": "Ketorolac 30 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 7.88,
+    "Median": 13.78,
+    "Highest": 80.0
+  },
+  {
+    "id": 421,
+    "DrugName": "Lactated Ringer’s, 1 L Solution for Injection Bag",
+    "Lowest": 30.0,
+    "Median": 62.77,
+    "Highest": 98.0
+  },
+  {
+    "id": 422,
+    "DrugName": "Lactated Ringer's, 1 L Solution for Injection Bottle",
+    "Lowest": 23.25,
+    "Median": 35.44,
+    "Highest": 98.0
+  },
+  {
+    "id": 423,
+    "DrugName": "Lactated Ringer's, 500 mL Solution for Injection Bottle",
+    "Lowest": 23.0,
+    "Median": 47.56,
+    "Highest": 60.34
+  },
+  {
+    "id": 424,
+    "DrugName": "Lactulose 3.3 g/5 mL (3.35 g/5 mL), 120 mL Syrup Bottle",
+    "Lowest": 76.77,
+    "Median": 97.68,
+    "Highest": 239.5
+  },
+  {
+    "id": 425,
+    "DrugName": "Lagundi [Vitex Negundo L. (Fam. Verbenaceae)] 300 mg Tablet",
+    "Lowest": 0.75,
+    "Median": 1.38,
+    "Highest": 2.09
+  },
+  {
+    "id": 426,
+    "DrugName": "Lagundi [Vitex Negundo L. (Fam. Verbenaceae)] 300 mg/5 mL, 120 mL Syrup Bottle",
+    "Lowest": 33.15,
+    "Median": 58.44,
+    "Highest": 127.98
+  },
+  {
+    "id": 427,
+    "DrugName": "Lagundi [Vitex Negundo L. (Fam. Verbenaceae)] 300 mg/5 mL, 60 mL Syrup Bottle",
+    "Lowest": 26.0,
+    "Median": 44.9,
+    "Highest": 79.0
+  },
+  {
+    "id": 428,
+    "DrugName": "Lagundi [Vitex Negundo L. (Fam. Verbenaceae)] 600 mg Tablet",
+    "Lowest": 1.6,
+    "Median": 2.34,
+    "Highest": 3.6
+  },
+  {
+    "id": 429,
+    "DrugName": "Lamotrigine 100 mg Tablet",
+    "Lowest": 7.0,
+    "Median": 7.7,
+    "Highest": 22.66
+  },
+  {
+    "id": 430,
+    "DrugName": "Lamotrigine 50 mg Tablet",
+    "Lowest": 5.25,
+    "Median": 5.65,
+    "Highest": 14.7
+  },
+  {
+    "id": 431,
+    "DrugName": "Lansoprazole 30 mg Capsule",
+    "Lowest": 7.0,
+    "Median": 15.2,
+    "Highest": 28.0
+  },
+  {
+    "id": 432,
+    "DrugName": "Latanoprost 50 mcg/mL, 2.5 mL Eye Drops Bottle",
+    "Lowest": 540.0,
+    "Median": 600.0,
+    "Highest": 1450.0
+  },
+  {
+    "id": 433,
+    "DrugName": "Letrozole 2.5 mg Film Coated Tablet",
+    "Lowest": 8.0,
+    "Median": 10.75,
+    "Highest": 27.55
+  },
+  {
+    "id": 434,
+    "DrugName": "Leuproreline 11.25 mg depot solution, vial with syringe",
+    "Lowest": 5320.0,
+    "Median": 8616.07,
+    "Highest": 9721.43
+  },
+  {
+    "id": 435,
+    "DrugName": "Leuproreline 3.75 mg Powder for Injection Vial + 2 mL Diluent",
+    "Lowest": 1792.0,
+    "Median": 3131.0,
+    "Highest": 3724.82
+  },
+  {
+    "id": 436,
+    "DrugName": "Levetiracetam 1 g Film Coated Tablet",
+    "Lowest": 14.48,
+    "Median": 14.88,
+    "Highest": 21.0
+  },
+  {
+    "id": 437,
+    "DrugName": "Levetiracetam 100 mg/mL, 100 mL Oral Solution Bottle",
+    "Lowest": 448.0,
+    "Median": 786.5,
+    "Highest": 1125.0
+  },
+  {
+    "id": 438,
+    "DrugName": "Levetiracetam 100 mg/mL, 5 mL Solution for Injection Vial",
+    "Lowest": 159.5,
+    "Median": 434.25,
+    "Highest": 1500.0
+  },
+  {
+    "id": 439,
+    "DrugName": "Levetiracetam 250 mg Film Coated Tablet",
+    "Lowest": 6.0,
+    "Median": 10.75,
+    "Highest": 14.8
+  },
+  {
+    "id": 440,
+    "DrugName": "Levetiracetam 500 mg Film Coated Tablet",
+    "Lowest": 7.0,
+    "Median": 9.05,
+    "Highest": 16.3
+  },
+  {
+    "id": 441,
+    "DrugName": "Levobupivacaine 5 mg/mL, 10 mL Solution for Injection Ampule",
+    "Lowest": 200.0,
+    "Median": 200.0,
+    "Highest": 200.0
+  },
+  {
+    "id": 442,
+    "DrugName": "Levodopa + Carbidopa 100 mg + 25 mg Tablet",
+    "Lowest": 12.33,
+    "Median": 13.7,
+    "Highest": 15.4
+  },
+  {
+    "id": 443,
+    "DrugName": "Levodopa + Carbidopa 250 mg + 25 mg Tablet",
+    "Lowest": 16.55,
+    "Median": 19.94,
+    "Highest": 23.85
+  },
+  {
+    "id": 444,
+    "DrugName": "Levofloxacin 5 mg/mL (0.5 % w/v), 5 mL Eye Drops Bottle",
+    "Lowest": 195.0,
+    "Median": 360.5,
+    "Highest": 580.0
+  },
+  {
+    "id": 445,
+    "DrugName": "Levofloxacin 5 mg/mL, 100 mL Solution for Injection Vial",
+    "Lowest": 47.25,
+    "Median": 79.0,
+    "Highest": 1079.0
+  },
+  {
+    "id": 446,
+    "DrugName": "Levofloxacin 5 mg/mL, 150 mL Solution for Injection Vial",
+    "Lowest": 750.0,
+    "Median": 765.0,
+    "Highest": 780.0
+  },
+  {
+    "id": 447,
+    "DrugName": "Levofloxacin 500 mg Tablet",
+    "Lowest": 3.75,
+    "Median": 6.0,
+    "Highest": 40.0
+  },
+  {
+    "id": 448,
+    "DrugName": "Levofloxacin 750 mg Tablet",
+    "Lowest": 7.5,
+    "Median": 18.0,
+    "Highest": 55.66
+  },
+  {
+    "id": 449,
+    "DrugName": "Levothyroxine 100 mcg Tablet",
+    "Lowest": 3.4,
+    "Median": 7.4,
+    "Highest": 9.5
+  },
+  {
+    "id": 450,
+    "DrugName": "Levothyroxine 150 mcg Tablet",
+    "Lowest": 9.0,
+    "Median": 9.9,
+    "Highest": 10.8
+  },
+   {
+    "id": 451,
+    "DrugName": "Levothyroxine 50 mcg Tablet",
+    "Lowest": 1.9,
+    "Median": 4.78,
+    "Highest": 5.98
+  },
+  {
+    "id": 452,
+    "DrugName": "Lidocaine 10%, 50 mL Spray Bottle",
+    "Lowest": 1969.3,
+    "Median": 2433.7,
+    "Highest": 2695.0
+  },
+  {
+    "id": 453,
+    "DrugName": "Lidocaine 2%, 1.8 mL carpule (with epinephrine)",
+    "Lowest": 19.28,
+    "Median": 29.0,
+    "Highest": 88.0
+  },
+  {
+    "id": 454,
+    "DrugName": "Lidocaine 2%, 5 mL Solution for Injection Ampule",
+    "Lowest": 6.25,
+    "Median": 12.0,
+    "Highest": 39.0
+  },
+  {
+    "id": 455,
+    "DrugName": "Lidocaine 2%, 5 mL Solution for Injection Vial",
+    "Lowest": 8.0,
+    "Median": 10.0,
+    "Highest": 12.0
+  },
+  {
+    "id": 456,
+    "DrugName": "Lidocaine 2%, 50 mL Solution for Injection Vial",
+    "Lowest": 8.0,
+    "Median": 36.84,
+    "Highest": 72.23
+  },
+  {
+    "id": 457,
+    "DrugName": "Linezolid 2 mg/mL, 300 mL Solution for Injection Bag",
+    "Lowest": 1334.0,
+    "Median": 1625.0,
+    "Highest": 3000.0
+  },
+  {
+    "id": 458,
+    "DrugName": "Linezolid 600 mg Film Coated Tablet",
+    "Lowest": 295.0,
+    "Median": 997.75,
+    "Highest": 2620.0
+  },
+  {
+    "id": 459,
+    "DrugName": "Lipids 20%, 100 mL Emulsion for Injection Bottle",
+    "Lowest": 537.9,
+    "Median": 623.45,
+    "Highest": 709.0
+  },
+  {
+    "id": 460,
+    "DrugName": "Lipids 20%, 250 mL Emulsion for Injection Bottle",
+    "Lowest": 750.0,
+    "Median": 757.83,
+    "Highest": 757.85
+  },
+  {
+    "id": 461,
+    "DrugName": "Lithium Carbonate 450 mg Modified Release Tablet",
+    "Lowest": 12.0,
+    "Median": 12.0,
+    "Highest": 12.0
+  },
+  {
+    "id": 462,
+    "DrugName": "Loperamide 2 mg Capsule",
+    "Lowest": 0.5,
+    "Median": 0.95,
+    "Highest": 3.5
+  },
+  {
+    "id": 463,
+    "DrugName": "Loratadine 10 mg Tablet",
+    "Lowest": 0.85,
+    "Median": 1.98,
+    "Highest": 5.5
+  },
+  {
+    "id": 464,
+    "DrugName": "Loratadine 5 mg/5 mL, 30 mL Syrup Bottle",
+    "Lowest": 80.0,
+    "Median": 82.5,
+    "Highest": 85.0
+  },
+  {
+    "id": 465,
+    "DrugName": "Losartan + Hydrochlorothiazide 50 mg + 12.5 mg Tablet",
+    "Lowest": 1.2,
+    "Median": 2.95,
+    "Highest": 20.5
+  },
+  {
+    "id": 466,
+    "DrugName": "Losartan 100 mg Tablet",
+    "Lowest": 0.69,
+    "Median": 2.24,
+    "Highest": 20.5
+  },
+  {
+    "id": 467,
+    "DrugName": "Losartan 50 mg Tablet",
+    "Lowest": 0.51,
+    "Median": 0.78,
+    "Highest": 15.5
+  },
+  {
+    "id": 468,
+    "DrugName": "Magnesium Sulfate 250 mg/mL, 10 mL Solution for Injection Ampule",
+    "Lowest": 21.78,
+    "Median": 56.54,
+    "Highest": 92.33
+  },
+  {
+    "id": 469,
+    "DrugName": "Magnesium Sulfate 250 mg/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 52.79,
+    "Median": 58.0,
+    "Highest": 92.33
+  },
+  {
+    "id": 470,
+    "DrugName": "Magnesium Sulfate 250 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 21.25,
+    "Median": 44.63,
+    "Highest": 68.0
+  },
+  {
+    "id": 471,
+    "DrugName": "Magnesium Sulfate 250 mg/mL, 20 mL Solution for Injection Vial",
+    "Lowest": 3.68,
+    "Median": 30.0,
+    "Highest": 72.0
+  },
+  {
+    "id": 472,
+    "DrugName": "Magnesium Sulfate 500 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 84.88,
+    "Median": 84.88,
+    "Highest": 85.0
+  },
+  {
+    "id": 473,
+    "DrugName": "Mannitol 20%, 500 mL Solution for Injection Bottle",
+    "Lowest": 61.34,
+    "Median": 73.89,
+    "Highest": 315.0
+  },
+  {
+    "id": 474,
+    "DrugName": "Mebendazole 100 mg/5 mL, 60 mL Oral Suspension Bottle",
+    "Lowest": 21.88,
+    "Median": 25.0,
+    "Highest": 40.0
+  },
+  {
+    "id": 475,
+    "DrugName": "Mebendazole 500 mg Chewable Tablet",
+    "Lowest": 3.43,
+    "Median": 3.61,
+    "Highest": 3.79
+  },
+  {
+    "id": 476,
+    "DrugName": "Mebendazole 500 mg Tablet",
+    "Lowest": 2.0,
+    "Median": 2.86,
+    "Highest": 3.71
+  },
+  {
+    "id": 477,
+    "DrugName": "Mecobalamin 500 mcg Tablet",
+    "Lowest": 8.0,
+    "Median": 9.51,
+    "Highest": 14.4
+  },
+  {
+    "id": 478,
+    "DrugName": "Mecobalamin 500 mcg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 104.98,
+    "Median": 145.0,
+    "Highest": 185.0
+  },
+  {
+    "id": 479,
+    "DrugName": "Medroxyprogesterone 10 mg Tablet",
+    "Lowest": 75.0,
+    "Median": 75.0,
+    "Highest": 90.0
+  },
+  {
+    "id": 480,
+    "DrugName": "Medroxyprogesterone 150 mg/mL, 1 mL Suspension for Injection Vial",
+    "Lowest": 31.24,
+    "Median": 36.89,
+    "Highest": 46.8
+  },
+  {
+    "id": 481,
+    "DrugName": "Mefenamic Acid 250 mg Capsule",
+    "Lowest": 0.64,
+    "Median": 1.08,
+    "Highest": 3.0
+  },
+  {
+    "id": 482,
+    "DrugName": "Mefenamic Acid 500 mg Capsule",
+    "Lowest": 0.75,
+    "Median": 1.04,
+    "Highest": 7.0
+  },
+  {
+    "id": 483,
+    "DrugName": "Mefenamic Acid 500 mg Tablet",
+    "Lowest": 1.15,
+    "Median": 1.76,
+    "Highest": 5.16
+  },
+  {
+    "id": 484,
+    "DrugName": "Memantine 10 mg Film Coated Tablet",
+    "Lowest": 9.8,
+    "Median": 14.79,
+    "Highest": 27.7
+  },
+  {
+    "id": 485,
+    "DrugName": "Meropenem 1 g Powder for Injection Vial",
+    "Lowest": 132.78,
+    "Median": 189.71,
+    "Highest": 1827.5
+  },
+  {
+    "id": 486,
+    "DrugName": "Meropenem 500 mg Powder for Injection Vial",
+    "Lowest": 106.89,
+    "Median": 139.33,
+    "Highest": 458.0
+  },
+  {
+    "id": 487,
+    "DrugName": "Mesalazine 1.5 g Gastro-resistant Prolonged Release Granules Sachet",
+    "Lowest": 155.81,
+    "Median": 155.81,
+    "Highest": 155.81
+  },
+  {
+    "id": 488,
+    "DrugName": "Mesalazine 500 mg Enteric Coated Tablet",
+    "Lowest": 59.45,
+    "Median": 79.73,
+    "Highest": 100.0
+  },
+  {
+    "id": 489,
+    "DrugName": "Mesna (Sodium-2-Mercaptoethanesulphonate) 100 mg/mL, 4 mL Solution for Injection Ampule",
+    "Lowest": 125.0,
+    "Median": 140.0,
+    "Highest": 400.0
+  },
+  {
+    "id": 490,
+    "DrugName": "Metformin 500 mg Film Coated Tablet",
+    "Lowest": 0.36,
+    "Median": 0.52,
+    "Highest": 15.9
+  },
+  {
+    "id": 491,
+    "DrugName": "Metformin 500 mg Tablet",
+    "Lowest": 0.43,
+    "Median": 0.54,
+    "Highest": 11.5
+  },
+  {
+    "id": 492,
+    "DrugName": "Methimazole (Thiamazole) 5 mg Tablet",
+    "Lowest": 2.48,
+    "Median": 4.73,
+    "Highest": 10.8
+  },
+  {
+    "id": 493,
+    "DrugName": "Methotrexate 100 mg/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 4299.0,
+    "Median": 5000.0,
+    "Highest": 5500.0
+  },
+  {
+    "id": 494,
+    "DrugName": "Methotrexate 2.5 mg Tablet",
+    "Lowest": 7.0,
+    "Median": 9.0,
+    "Highest": 10.0
+  },
+  {
+    "id": 495,
+    "DrugName": "Methyldopa 250 mg Tablet",
+    "Lowest": 3.62,
+    "Median": 6.8,
+    "Highest": 15.0
+  },
+  {
+    "id": 496,
+    "DrugName": "Methylergometrine (Methylergonovine) 200 mcg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 22.89,
+    "Median": 30.0,
+    "Highest": 149.88
+  },
+  {
+    "id": 497,
+    "DrugName": "Methylprednisolone 1 g Powder for Injection Vial + 16 mL Diluent",
+    "Lowest": 1280.49,
+    "Median": 2000.0,
+    "Highest": 2745.0
+  },
+  {
+    "id": 498,
+    "DrugName": "Methylprednisolone 125 mg Powder for Injection Vial + 2 mL Diluent",
+    "Lowest": 520.0,
+    "Median": 635.0,
+    "Highest": 850.0
+  },
+  {
+    "id": 499,
+    "DrugName": "Methylprednisolone 16 mg Tablet",
+    "Lowest": 8.0,
+    "Median": 9.58,
+    "Highest": 22.0
+  },
+  {
+    "id": 500,
+    "DrugName": "Methylprednisolone 4 mg Tablet",
+    "Lowest": 4.0,
+    "Median": 6.0,
+    "Highest": 10.0
+  },
+    {
+    "id": 501,
+    "DrugName": "Methylprednisolone 40 mg Powder for Injection Vial",
+    "Lowest": 250.0,
+    "Median": 301.75,
+    "Highest": 448.0
+  },
+  {
+    "id": 502,
+    "DrugName": "Methylprednisolone 500 mg Powder for Injection Vial + Diluent",
+    "Lowest": 1100.0,
+    "Median": 1240.0,
+    "Highest": 2000.0
+  },
+  {
+    "id": 503,
+    "DrugName": "Methylprednisolone 500mg/7.7ml Vial + Diluent",
+    "Lowest": 939.0,
+    "Median": 1100.0,
+    "Highest": 1699.0
+  },
+  {
+    "id": 504,
+    "DrugName": "Metoclopramide 10 mg Tablet",
+    "Lowest": 0.8,
+    "Median": 1.38,
+    "Highest": 8.0
+  },
+  {
+    "id": 505,
+    "DrugName": "Metoclopramide 5 mg/5 mL, 60 mL Syrup Bottle",
+    "Lowest": 19.83,
+    "Median": 20.0,
+    "Highest": 22.5
+  },
+  {
+    "id": 506,
+    "DrugName": "Metoclopramide 5 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 3.12,
+    "Median": 5.89,
+    "Highest": 14.73
+  },
+  {
+    "id": 507,
+    "DrugName": "Metoprolol 100 mg Tablet",
+    "Lowest": 0.9,
+    "Median": 1.6,
+    "Highest": 2.97
+  },
+  {
+    "id": 508,
+    "DrugName": "Metoprolol 50 mg Tablet",
+    "Lowest": 0.6,
+    "Median": 1.1,
+    "Highest": 2.5
+  },
+  {
+    "id": 509,
+    "DrugName": "Metronidazole 125 mg/5 mL, 60 mL Oral Suspension Bottle",
+    "Lowest": 18.55,
+    "Median": 25.0,
+    "Highest": 136.0
+  },
+  {
+    "id": 510,
+    "DrugName": "Metronidazole 5 mg/mL, 100 mL Solution for Injection Vial",
+    "Lowest": 12.89,
+    "Median": 16.54,
+    "Highest": 79.86
+  },
+  {
+    "id": 511,
+    "DrugName": "Metronidazole 500 mg Tablet",
+    "Lowest": 0.95,
+    "Median": 1.51,
+    "Highest": 20.0
+  },
+  {
+    "id": 512,
+    "DrugName": "Micafungin 50 mg Powder for Injection Vial",
+    "Lowest": 5500.0,
+    "Median": 5500.0,
+    "Highest": 5500.0
+  },
+  {
+    "id": 513,
+    "DrugName": "Midazolam 1 mg/mL, 5 mL Solution for Injection Ampule",
+    "Lowest": 52.33,
+    "Median": 65.0,
+    "Highest": 100.0
+  },
+  {
+    "id": 514,
+    "DrugName": "Midazolam 5 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 46.74,
+    "Median": 57.34,
+    "Highest": 112.98
+  },
+  {
+    "id": 515,
+    "DrugName": "Midazolam 5 mg/mL, 3 mL Solution for Injection Ampule",
+    "Lowest": 67.44,
+    "Median": 89.17,
+    "Highest": 104.89
+  },
+  {
+    "id": 516,
+    "DrugName": "Modified Fluid Gelatin (Polymerisate Of Degraded Succinylated Gelatin) 4%, 500 mL Solution for Injection Bottle",
+    "Lowest": 650.0,
+    "Median": 752.0,
+    "Highest": 800.0
+  },
+  {
+    "id": 517,
+    "DrugName": "Monobasic/Dibasic Sodium Phosphate 19 g + 7 g/118 mL, 133 mL Rectal Solution Bottle",
+    "Lowest": 141.0,
+    "Median": 222.43,
+    "Highest": 368.0
+  },
+  {
+    "id": 518,
+    "DrugName": "Montelukast 10 mg Tablet",
+    "Lowest": 1.9,
+    "Median": 6.05,
+    "Highest": 15.22
+  },
+  {
+    "id": 519,
+    "DrugName": "Montelukast 4 mg Chewable Tablet",
+    "Lowest": 2.97,
+    "Median": 6.37,
+    "Highest": 135.0
+  },
+  {
+    "id": 520,
+    "DrugName": "Montelukast 5 mg Chewable Tablet",
+    "Lowest": 3.7,
+    "Median": 6.67,
+    "Highest": 17.25
+  },
+  {
+    "id": 521,
+    "DrugName": "Morphine 10 mg Tablet",
+    "Lowest": 40.0,
+    "Median": 50.0,
+    "Highest": 50.0
+  },
+  {
+    "id": 522,
+    "DrugName": "Morphine 10 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 59.0,
+    "Median": 67.89,
+    "Highest": 164.98
+  },
+  {
+    "id": 523,
+    "DrugName": "Moxifloxacin 0.5% (5 mg/mL), 5 mL Eye Drops Bottle",
+    "Lowest": 259.0,
+    "Median": 405.0,
+    "Highest": 640.9
+  },
+  {
+    "id": 524,
+    "DrugName": "Moxifloxacin 400 mg Film Coated Tablet",
+    "Lowest": 49.0,
+    "Median": 53.5,
+    "Highest": 142.0
+  },
+  {
+    "id": 525,
+    "DrugName": "Multivitamins Capsule",
+    "Lowest": 0.55,
+    "Median": 1.28,
+    "Highest": 4.0
+  },
+  {
+    "id": 526,
+    "DrugName": "Multivitamins Tablet",
+    "Lowest": 0.72,
+    "Median": 1.34,
+    "Highest": 3.25
+  },
+  {
+    "id": 527,
+    "DrugName": "Multivitamins per 1 mL, 15 mL Oral Drops Bottle",
+    "Lowest": 15.2,
+    "Median": 26.95,
+    "Highest": 57.42
+  },
+  {
+    "id": 528,
+    "DrugName": "Multivitamins per 5 mL, 120 mL Syrup Bottle",
+    "Lowest": 29.0,
+    "Median": 46.08,
+    "Highest": 84.15
+  },
+  {
+    "id": 529,
+    "DrugName": "Multivitamins per 5 mL, 60 mL Syrup Bottle",
+    "Lowest": 18.0,
+    "Median": 32.0,
+    "Highest": 75.0
+  },
+  {
+    "id": 530,
+    "DrugName": "Mupirocin 2%, 15 g Ointment Tube",
+    "Lowest": 45.2,
+    "Median": 99.39,
+    "Highest": 420.0
+  },
+  {
+    "id": 531,
+    "DrugName": "Mupirocin 2%, 5 g Ointment Tube",
+    "Lowest": 32.0,
+    "Median": 57.5,
+    "Highest": 128.0
+  },
+  {
+    "id": 532,
+    "DrugName": "Mycophenolate Mofetil 500 mg Tablet",
+    "Lowest": 42.86,
+    "Median": 45.0,
+    "Highest": 53.0
+  },
+  {
+    "id": 533,
+    "DrugName": "Nalbuphine 10 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 18.44,
+    "Median": 51.78,
+    "Highest": 189.85
+  },
+  {
+    "id": 534,
+    "DrugName": "Naloxone 400 mcg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 233.0,
+    "Median": 324.45,
+    "Highest": 412.0
+  },
+  {
+    "id": 535,
+    "DrugName": "Naltrexone 50 mg Tablet",
+    "Lowest": 84.0,
+    "Median": 84.0,
+    "Highest": 120.0
+  },
+  {
+    "id": 536,
+    "DrugName": "Naproxen 550 mg (equiv. to 500 mg Naproxen) Tablet",
+    "Lowest": 4.03,
+    "Median": 8.0,
+    "Highest": 9.0
+  },
+  {
+    "id": 537,
+    "DrugName": "Neostigmine 500 mcg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 29.0,
+    "Median": 85.0,
+    "Highest": 432.0
+  },
+  {
+    "id": 538,
+    "DrugName": "Nepafenac 1 mg/mL, 5 mL Eye Drops Bottle",
+    "Lowest": 698.95,
+    "Median": 698.95,
+    "Highest": 735.5
+  },
+  {
+    "id": 539,
+    "DrugName": "Nicardipine 1 mg/mL, 10 mL Solution for Injection Ampule",
+    "Lowest": 38.24,
+    "Median": 60.45,
+    "Highest": 770.8
+  },
+  {
+    "id": 540,
+    "DrugName": "Nicardipine 1 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 62.0,
+    "Median": 93.89,
+    "Highest": 450.0
+  },
+  {
+    "id": 541,
+    "DrugName": "Nifedipine 10 mg Capsule",
+    "Lowest": 2.0,
+    "Median": 3.52,
+    "Highest": 8.1
+  },
+  {
+    "id": 542,
+    "DrugName": "Nifedipine 30 mg Modified Release Tablet",
+    "Lowest": 41.25,
+    "Median": 41.25,
+    "Highest": 84.95
+  },
+  {
+    "id": 543,
+    "DrugName": "Nitrofurantoin 100 mg Capsule",
+    "Lowest": 3.3,
+    "Median": 4.8,
+    "Highest": 15.0
+  },
+  {
+    "id": 544,
+    "DrugName": "Norepinephrine 1 mg/mL, 10 mL Solution for Injection Ampule",
+    "Lowest": 101.0,
+    "Median": 352.8,
+    "Highest": 420.0
+  },
+  {
+    "id": 545,
+    "DrugName": "Norepinephrine 1 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 51.24,
+    "Median": 68.89,
+    "Highest": 436.0
+  },
+  {
+    "id": 546,
+    "DrugName": "Norepinephrine 1 mg/mL, 4 mL Solution for Injection Ampule",
+    "Lowest": 53.89,
+    "Median": 81.72,
+    "Highest": 550.0
+  },
+  {
+    "id": 547,
+    "DrugName": "Norepinephrine 2 mg/mL, 4 mL Solution for Injection Ampule",
+    "Lowest": 65.0,
+    "Median": 638.21,
+    "Highest": 1650.0
+  },
+  {
+    "id": 548,
+    "DrugName": "Nystatin 100,000 units/mL, 30 mL Oral Suspension Bottle",
+    "Lowest": 59.8,
+    "Median": 118.0,
+    "Highest": 190.0
+  },
+  {
+    "id": 549,
+    "DrugName": "Octreotide 100 mcg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 370.0,
+    "Median": 438.12,
+    "Highest": 630.0
+  },
+  {
+    "id": 550,
+    "DrugName": "Octreotide 500 mcg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 2134.13,
+    "Median": 2134.13,
+    "Highest": 2134.13
+  },
+    {
+    "id": 551,
+    "DrugName": "Ofloxacin 0.3%, 5 mL Ear Drops Bottle",
+    "Lowest": 160.95,
+    "Median": 215.0,
+    "Highest": 244.0
+  },
+  {
+    "id": 552,
+    "DrugName": "Ofloxacin 0.3%, 5 mL Eye Drops Bottle",
+    "Lowest": 175.0,
+    "Median": 192.5,
+    "Highest": 199.0
+  },
+  {
+    "id": 553,
+    "DrugName": "Ofloxacin 200 mg Tablet",
+    "Lowest": 2.3,
+    "Median": 2.85,
+    "Highest": 3.7
+  },
+  {
+    "id": 554,
+    "DrugName": "Olanzapine 10 mg Orodispersible Tablet",
+    "Lowest": 2.59,
+    "Median": 9.98,
+    "Highest": 28.0
+  },
+  {
+    "id": 555,
+    "DrugName": "Olanzapine 10 mg Tablet",
+    "Lowest": 1.23,
+    "Median": 2.66,
+    "Highest": 12.75
+  },
+  {
+    "id": 556,
+    "DrugName": "Olanzapine 5 mg Tablet",
+    "Lowest": 3.96,
+    "Median": 7.98,
+    "Highest": 15.45
+  },
+  {
+    "id": 557,
+    "DrugName": "Omeprazole 20 mg Capsule",
+    "Lowest": 0.65,
+    "Median": 1.78,
+    "Highest": 125.0
+  },
+  {
+    "id": 558,
+    "DrugName": "Omeprazole 40 mg Capsule",
+    "Lowest": 2.92,
+    "Median": 3.4,
+    "Highest": 85.0
+  },
+  {
+    "id": 559,
+    "DrugName": "Omeprazole 40 mg Powder for Injection Vial + 10 mL solvent",
+    "Lowest": 1.4,
+    "Median": 23.88,
+    "Highest": 487.5
+  },
+  {
+    "id": 560,
+    "DrugName": "Ondansetron 2 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 38.0,
+    "Median": 114.0,
+    "Highest": 212.0
+  },
+  {
+    "id": 561,
+    "DrugName": "Ondansetron 2 mg/mL, 4 mL Solution for Injection Ampule",
+    "Lowest": 38.0,
+    "Median": 57.66,
+    "Highest": 359.0
+  },
+  {
+    "id": 562,
+    "DrugName": "Ondansetron 8 mg Tablet",
+    "Lowest": 55.0,
+    "Median": 62.0,
+    "Highest": 85.0
+  },
+  {
+    "id": 563,
+    "DrugName": "Oral Rehydration Salts (75 - Replacement) 20.5 g Oral Powder Sachet",
+    "Lowest": 2.25,
+    "Median": 3.72,
+    "Highest": 16.0
+  },
+  {
+    "id": 564,
+    "DrugName": "Oxacillin 500 mg Powder for Injection Vial",
+    "Lowest": 9.89,
+    "Median": 21.0,
+    "Highest": 90.0
+  },
+  {
+    "id": 565,
+    "DrugName": "Oxaliplatin 5 mg/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 262.0,
+    "Median": 667.57,
+    "Highest": 977.0
+  },
+  {
+    "id": 566,
+    "DrugName": "Oxaliplatin 5 mg/mL, 20 mL Solution for Injection Vial",
+    "Lowest": 620.0,
+    "Median": 1000.1,
+    "Highest": 2700.0
+  },
+  {
+    "id": 567,
+    "DrugName": "Oxaliplatin 50 mg Powder for Injection Vial",
+    "Lowest": 727.45,
+    "Median": 1058.73,
+    "Highest": 1875.0
+  },
+  {
+    "id": 568,
+    "DrugName": "Oxcarbazepine 300 mg Tablet",
+    "Lowest": 8.5,
+    "Median": 13.58,
+    "Highest": 21.51
+  },
+  {
+    "id": 569,
+    "DrugName": "Oxcarbazepine 60 mg/mL, 100 mL Oral Suspension Bottle",
+    "Lowest": 567.02,
+    "Median": 589.03,
+    "Highest": 611.03
+  },
+  {
+    "id": 570,
+    "DrugName": "Oxcarbazepine 600 mg Tablet",
+    "Lowest": 18.13,
+    "Median": 18.77,
+    "Highest": 18.79
+  },
+  {
+    "id": 571,
+    "DrugName": "Oxycodone 10 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 1019.7,
+    "Median": 1147.23,
+    "Highest": 1285.0
+  },
+  {
+    "id": 572,
+    "DrugName": "Oxytocin 10 IU/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 6.62,
+    "Median": 9.34,
+    "Highest": 285.0
+  },
+  {
+    "id": 573,
+    "DrugName": "Paclitaxel 6 mg/mL, 16.7 mL Solution for Injection Vial",
+    "Lowest": 302.84,
+    "Median": 693.0,
+    "Highest": 2500.0
+  },
+  {
+    "id": 574,
+    "DrugName": "Paclitaxel 6 mg/mL, 25 mL Solution for Injection Vial",
+    "Lowest": 1810.0,
+    "Median": 2725.0,
+    "Highest": 3710.0
+  },
+  {
+    "id": 575,
+    "DrugName": "Paclitaxel 6 mg/mL, 43.4 mL Solution for Injection Vial",
+    "Lowest": 1630.0,
+    "Median": 2200.0,
+    "Highest": 3579.0
+  },
+  {
+    "id": 576,
+    "DrugName": "Paclitaxel 6 mg/mL, 5 mL Solution for Injection Vial",
+    "Lowest": 258.89,
+    "Median": 300.0,
+    "Highest": 1500.0
+  },
+  {
+    "id": 577,
+    "DrugName": "Paliperidone 100 mg/mL, 1 mL Prolonged Release Suspension for Injection Pre-filled Syringe",
+    "Lowest": 6066.07,
+    "Median": 6066.37,
+    "Highest": 6066.67
+  },
+  {
+    "id": 578,
+    "DrugName": "Paliperidone Palmitate 150 mg/1.5 mL prolonged release suspension for injection (PPPI)",
+    "Lowest": 6066.07,
+    "Median": 6066.67,
+    "Highest": 6066.67
+  },
+  {
+    "id": 579,
+    "DrugName": "Pantoprazole 20 mg Enteric Coated Tablet",
+    "Lowest": 18.0,
+    "Median": 18.05,
+    "Highest": 18.1
+  },
+  {
+    "id": 580,
+    "DrugName": "Pantoprazole 40 mg Tablet",
+    "Lowest": 5.34,
+    "Median": 8.0,
+    "Highest": 80.0
+  },
+  {
+    "id": 581,
+    "DrugName": "Paracetamol 10 mg/mL, 100 mL Solution for Injection Vial",
+    "Lowest": 46.5,
+    "Median": 62.98,
+    "Highest": 415.0
+  },
+  {
+    "id": 582,
+    "DrugName": "Paracetamol 10 mg/mL, 50 mL Solution for Injection Vial",
+    "Lowest": 217.8,
+    "Median": 287.5,
+    "Highest": 415.0
+  },
+  {
+    "id": 583,
+    "DrugName": "Paracetamol 100 mg/mL, 15 mL Oral Drops Bottle",
+    "Lowest": 14.0,
+    "Median": 23.0,
+    "Highest": 58.0
+  },
+  {
+    "id": 584,
+    "DrugName": "Paracetamol 120 mg/5 mL (125 mg/5 mL), 60 mL Oral Suspension Bottle",
+    "Lowest": 14.0,
+    "Median": 18.0,
+    "Highest": 20.5
+  },
+  {
+    "id": 585,
+    "DrugName": "Paracetamol 120 mg/5 mL (125 mg/5 mL), 60 mL Syrup Bottle",
+    "Lowest": 18.5,
+    "Median": 19.15,
+    "Highest": 19.8
+  },
+  {
+    "id": 586,
+    "DrugName": "Paracetamol 125 mg Suppository",
+    "Lowest": 32.44,
+    "Median": 54.45,
+    "Highest": 55.0
+  },
+  {
+    "id": 587,
+    "DrugName": "Paracetamol 150 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 2.97,
+    "Median": 4.22,
+    "Highest": 12.0
+  },
+  {
+    "id": 588,
+    "DrugName": "Paracetamol 250 mg Suppository",
+    "Lowest": 18.98,
+    "Median": 47.89,
+    "Highest": 48.98
+  },
+  {
+    "id": 589,
+    "DrugName": "Paracetamol 250 mg/5 mL, 60 mL Oral Suspension Bottle",
+    "Lowest": 14.0,
+    "Median": 25.5,
+    "Highest": 125.0
+  },
+  {
+    "id": 590,
+    "DrugName": "Paracetamol 250 mg/5 mL, 60 mL Syrup Bottle",
+    "Lowest": 16.0,
+    "Median": 30.8,
+    "Highest": 48.0
+  },
+  {
+    "id": 591,
+    "DrugName": "Paracetamol 500 mg Tablet",
+    "Lowest": 0.34,
+    "Median": 0.72,
+    "Highest": 2.2
+  },
+  {
+    "id": 592,
+    "DrugName": "Penicillin G Benzathine (Benzathine Benzylpenicillin) 1,200,000 units Modified Release Powder for Injection Vial",
+    "Lowest": 34.43,
+    "Median": 48.72,
+    "Highest": 150.0
+  },
+  {
+    "id": 593,
+    "DrugName": "Penicillin G Crystalline (Benyzylpenicillin) 1,000,000 units Powder for Injection Vial",
+    "Lowest": 9.77,
+    "Median": 16.45,
+    "Highest": 18.0
+  },
+  {
+    "id": 594,
+    "DrugName": "Penicillin G Crystalline (Benyzylpenicillin) 5,000,000 units Powder for Injection Vial",
+    "Lowest": 16.88,
+    "Median": 20.98,
+    "Highest": 28.44
+  },
+  {
+    "id": 595,
+    "DrugName": "Peritoneal Dialysis 1.5%, 2 L Solution for Injection Bag",
+    "Lowest": 169.64,
+    "Median": 188.0,
+    "Highest": 223.0
+  },
+  {
+    "id": 596,
+    "DrugName": "Peritoneal Dialysis 2.3%, 2 L Solution for Injection Bag",
+    "Lowest": 175.6,
+    "Median": 184.8,
+    "Highest": 194.0
+  },
+  {
+    "id": 597,
+    "DrugName": "Peritoneal Dialysis 2.5% 2 L bottle",
+    "Lowest": 194.0,
+    "Median": 212.0,
+    "Highest": 230.0
+  },
+  {
+    "id": 598,
+    "DrugName": "Peritoneal Dialysis 4.25%, 2 L Solution for Injection Bottle",
+    "Lowest": 175.0,
+    "Median": 184.0,
+    "Highest": 230.0
+  },
+  {
+    "id": 599,
+    "DrugName": "Permethrin 5%, 60 mL Shampoo Bottle",
+    "Lowest": 201.0,
+    "Median": 210.8,
+    "Highest": 220.8
+  },
+  {
+    "id": 600,
+    "DrugName": "Pethidine (Meperidine) 50 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 102.45,
+    "Median": 232.0,
+    "Highest": 492.0
+  },
+    {
+    "id": 601,
+    "DrugName": "Phenobarbital 30 mg Tablet",
+    "Lowest": 5.0,
+    "Median": 5.18,
+    "Highest": 5.36
+  },
+  {
+    "id": 602,
+    "DrugName": "Phenobarbital 60 mg Tablet",
+    "Lowest": 5.24,
+    "Median": 7.0,
+    "Highest": 8.95
+  },
+  {
+    "id": 603,
+    "DrugName": "Phenytoin 100 mg Capsule",
+    "Lowest": 8.47,
+    "Median": 11.5,
+    "Highest": 28.0
+  },
+  {
+    "id": 604,
+    "DrugName": "Phenytoin 125 mg/5 mL, 120 mL Oral Suspension Bottle",
+    "Lowest": 370.0,
+    "Median": 487.0,
+    "Highest": 745.0
+  },
+  {
+    "id": 605,
+    "DrugName": "Phenytoin 50 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 63.44,
+    "Median": 195.0,
+    "Highest": 678.5
+  },
+  {
+    "id": 606,
+    "DrugName": "Phytomenadione (Phytonadione, Vitamin K1) 10 mg/mL, 1 mL Solution for Injection Ampule (as mixed micelle)",
+    "Lowest": 9.0,
+    "Median": 15.78,
+    "Highest": 43.0
+  },
+  {
+    "id": 607,
+    "DrugName": "Pilocarpine 2%, 15 mL Eye Drops Bottle",
+    "Lowest": 270.18,
+    "Median": 288.6,
+    "Highest": 297.2
+  },
+  {
+    "id": 608,
+    "DrugName": "Piperacillin + Tazobactam 2 g + 250 mg Powder for Injection Vial",
+    "Lowest": 58.44,
+    "Median": 98.79,
+    "Highest": 566.1
+  },
+  {
+    "id": 609,
+    "DrugName": "Piperacillin + Tazobactam 4 g + 500 mg Powder for Injection Vial",
+    "Lowest": 73.44,
+    "Median": 92.24,
+    "Highest": 952.5
+  },
+  {
+    "id": 610,
+    "DrugName": "Polymyxin B 500,000 Units, 5 mL Powder for Injection Vial",
+    "Lowest": 1300.0,
+    "Median": 2080.0,
+    "Highest": 3990.0
+  },
+  {
+    "id": 611,
+    "DrugName": "Potassium (as citrate) 1080 mg (10 mEq) tablet",
+    "Lowest": 4.55,
+    "Median": 6.5,
+    "Highest": 12.2
+  },
+  {
+    "id": 612,
+    "DrugName": "Potassium Chloride 2 mEq/mL, 20 mL Solution for Injection Vial",
+    "Lowest": 15.0,
+    "Median": 34.33,
+    "Highest": 54.89
+  },
+  {
+    "id": 613,
+    "DrugName": "Potassium Chloride 600 mg Tablet",
+    "Lowest": 7.75,
+    "Median": 10.98,
+    "Highest": 15.6
+  },
+  {
+    "id": 614,
+    "DrugName": "Potassium Chloride 750 mg (equiv. to 10 mEq Potassium) Sustained Release Tablet",
+    "Lowest": 10.0,
+    "Median": 15.3,
+    "Highest": 25.5
+  },
+  {
+    "id": 615,
+    "DrugName": "Povidone Iodine 1%, 60 mL Oral Solution Bottle",
+    "Lowest": 40.0,
+    "Median": 95.0,
+    "Highest": 105.0
+  },
+  {
+    "id": 616,
+    "DrugName": "Povidone Iodine 10%, 120 mL Solution Bottle",
+    "Lowest": 32.0,
+    "Median": 43.5,
+    "Highest": 55.0
+  },
+  {
+    "id": 617,
+    "DrugName": "Povidone Iodine 10%, 60 mL Solution Bottle",
+    "Lowest": 39.0,
+    "Median": 63.0,
+    "Highest": 105.0
+  },
+  {
+    "id": 618,
+    "DrugName": "Prednisolone 1%, 5 mL Eye Drops Bottle",
+    "Lowest": 98.0,
+    "Median": 195.0,
+    "Highest": 408.0
+  },
+  {
+    "id": 619,
+    "DrugName": "Prednisone 10 mg Tablet",
+    "Lowest": 0.75,
+    "Median": 2.05,
+    "Highest": 4.25
+  },
+  {
+    "id": 620,
+    "DrugName": "Prednisone 10 mg/5 mL, 60 mL Oral Suspension Bottle",
+    "Lowest": 53.75,
+    "Median": 75.0,
+    "Highest": 111.0
+  },
+  {
+    "id": 621,
+    "DrugName": "Prednisone 20 mg Tablet",
+    "Lowest": 1.88,
+    "Median": 3.73,
+    "Highest": 6.0
+  },
+  {
+    "id": 622,
+    "DrugName": "Prednisone 5 mg Tablet",
+    "Lowest": 0.55,
+    "Median": 1.25,
+    "Highest": 3.0
+  },
+  {
+    "id": 623,
+    "DrugName": "Propofol 10 mg/mL, 20 mL Emulsion for Injection Ampule",
+    "Lowest": 38.49,
+    "Median": 42.88,
+    "Highest": 559.25
+  },
+  {
+    "id": 624,
+    "DrugName": "Propofol 10 mg/mL, 20 mL Emulsion for Injection Vial",
+    "Lowest": 39.77,
+    "Median": 200.0,
+    "Highest": 500.0
+  },
+  {
+    "id": 625,
+    "DrugName": "Propofol 10 mg/mL, 50 mL Emulsion for Injection Vial",
+    "Lowest": 210.0,
+    "Median": 400.0,
+    "Highest": 500.0
+  },
+  {
+    "id": 626,
+    "DrugName": "Propranolol 10 mg Tablet",
+    "Lowest": 0.71,
+    "Median": 3.8,
+    "Highest": 20.0
+  },
+  {
+    "id": 627,
+    "DrugName": "Propranolol 40 mg Tablet",
+    "Lowest": 0.7,
+    "Median": 5.5,
+    "Highest": 8.45
+  },
+  {
+    "id": 628,
+    "DrugName": "Propylthiouracil 50 mg Tablet",
+    "Lowest": 10.82,
+    "Median": 13.75,
+    "Highest": 20.79
+  },
+  {
+    "id": 629,
+    "DrugName": "Protamine 10 mg/mL, 5 mL Ampule",
+    "Lowest": 528.0,
+    "Median": 610.0,
+    "Highest": 620.12
+  },
+  {
+    "id": 630,
+    "DrugName": "Pyrazinamide 250 mg/5 mL, 120 mL Oral Suspension Bottle",
+    "Lowest": 83.1,
+    "Median": 93.51,
+    "Highest": 103.91
+  },
+  {
+    "id": 631,
+    "DrugName": "Quetiapine 100 mg Tablet",
+    "Lowest": 15.0,
+    "Median": 21.29,
+    "Highest": 23.94
+  },
+  {
+    "id": 632,
+    "DrugName": "Quetiapine 200 mg Tablet",
+    "Lowest": 20.0,
+    "Median": 24.25,
+    "Highest": 24.5
+  },
+  {
+    "id": 633,
+    "DrugName": "Quetiapine 25 mg Tablet",
+    "Lowest": 8.47,
+    "Median": 12.35,
+    "Highest": 17.0
+  },
+  {
+    "id": 634,
+    "DrugName": "Quetiapine 300 mg Tablet",
+    "Lowest": 39.0,
+    "Median": 40.0,
+    "Highest": 45.0
+  },
+  {
+    "id": 635,
+    "DrugName": "Rabies Immunoglobulin (Human) 150 IU/mL, 2 mL Solution for Injection Vial",
+    "Lowest": 3000.0,
+    "Median": 3922.5,
+    "Highest": 4845.0
+  },
+  {
+    "id": 636,
+    "DrugName": "Ranitidine 150 mg Tablet",
+    "Lowest": 0.88,
+    "Median": 1.5,
+    "Highest": 3.0
+  },
+  {
+    "id": 637,
+    "DrugName": "Ranitidine 25 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 5.34,
+    "Median": 9.89,
+    "Highest": 40.0
+  },
+  {
+    "id": 638,
+    "DrugName": "Ranitidine 300 mg Tablet",
+    "Lowest": 2.34,
+    "Median": 2.77,
+    "Highest": 3.89
+  },
+  {
+    "id": 639,
+    "DrugName": "Regular, Insulin (Recombinant DNA Human) 100 IU/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 107.9,
+    "Median": 269.34,
+    "Highest": 579.0
+  },
+  {
+    "id": 640,
+    "DrugName": "Remifentanil 1 mg Powder for Injection Vial",
+    "Lowest": 1487.0,
+    "Median": 1647.0,
+    "Highest": 1649.0
+  },
+  {
+    "id": 641,
+    "DrugName": "Rifampicin 200 mg/5 mL, 120 mL Oral Suspension Bottle",
+    "Lowest": 233.6,
+    "Median": 281.15,
+    "Highest": 290.0
+  },
+  {
+    "id": 642,
+    "DrugName": "Rifaximin 200 mg Tablet",
+    "Lowest": 63.2,
+    "Median": 63.2,
+    "Highest": 63.2
+  },
+  {
+    "id": 643,
+    "DrugName": "Risperidone 1 mg Tablet",
+    "Lowest": 5.98,
+    "Median": 6.48,
+    "Highest": 6.68
+  },
+  {
+    "id": 644,
+    "DrugName": "Risperidone 2 mg Tablet",
+    "Lowest": 0.87,
+    "Median": 3.22,
+    "Highest": 26.0
+  },
+  {
+    "id": 645,
+    "DrugName": "Rocuronium 10 mg/mL, 5 mL Solution for Injection Vial",
+    "Lowest": 99.78,
+    "Median": 142.78,
+    "Highest": 600.0
+  },
+  {
+    "id": 646,
+    "DrugName": "Ropivacaine 10 mg/mL, 10 mL Solution for Injection Ampule",
+    "Lowest": 337.63,
+    "Median": 387.7,
+    "Highest": 518.0
+  },
+  {
+    "id": 647,
+    "DrugName": "Rosuvastatin 10 mg Tablet",
+    "Lowest": 1.89,
+    "Median": 3.24,
+    "Highest": 14.55
+  },
+  {
+    "id": 648,
+    "DrugName": "Rosuvastatin 20 mg Tablet",
+    "Lowest": 1.9,
+    "Median": 3.87,
+    "Highest": 28.0
+  },
+  {
+    "id": 649,
+    "DrugName": "Sacubitril + Valsartan 100 mg (48.6 mg + 51.4 mg) Tablet",
+    "Lowest": 50.0,
+    "Median": 61.88,
+    "Highest": 150.0
+  },
+  {
+    "id": 650,
+    "DrugName": "Sacubitril + Valsartan 200 mg (97.2 mg + 102.8 mg) Tablet",
+    "Lowest": 55.24,
+    "Median": 56.25,
+    "Highest": 56.25
+  },
+   {
+    "id": 651,
+    "DrugName": "Sacubitril + Valsartan 50 mg (24.3 mg + 25.7 mg) Tablet",
+    "Lowest": 12.94,
+    "Median": 57.76,
+    "Highest": 64.9
+  },
+  {
+    "id": 652,
+    "DrugName": "Salbutamol 1 mg/mL (unit dose), 2.5 mL Respiratory Solution Ampule",
+    "Lowest": 1.94,
+    "Median": 4.61,
+    "Highest": 17.0
+  },
+  {
+    "id": 653,
+    "DrugName": "Salbutamol 100 mcg/dose, 200 actuations Breath Actuated Metered Dose Inhaler",
+    "Lowest": 58.24,
+    "Median": 95.0,
+    "Highest": 121.0
+  },
+  {
+    "id": 654,
+    "DrugName": "Salbutamol 100 mcg/dose, 200 actuations Metered Dose Inhaler",
+    "Lowest": 60.0,
+    "Median": 71.56,
+    "Highest": 148.0
+  },
+  {
+    "id": 655,
+    "DrugName": "Salbutamol 2 mg/5 mL, 60 mL Syrup Bottle",
+    "Lowest": 13.0,
+    "Median": 23.2,
+    "Highest": 57.4
+  },
+  {
+    "id": 656,
+    "DrugName": "Salbutamol 2 mg/mL, 2.5 mL Respiratory Solution",
+    "Lowest": 1.94,
+    "Median": 6.68,
+    "Highest": 9.0
+  },
+  {
+    "id": 657,
+    "DrugName": "Sambong [Blumea Balsamifera (L) Dc (Fam. Compositae)] 250 mg tablet",
+    "Lowest": 4.5,
+    "Median": 4.9,
+    "Highest": 5.3
+  },
+  {
+    "id": 658,
+    "DrugName": "Sambong [Blumea Balsamifera (L) Dc (Fam. Compositae)] 500 mg Tablet",
+    "Lowest": 2.68,
+    "Median": 4.5,
+    "Highest": 6.5
+  },
+  {
+    "id": 659,
+    "DrugName": "Sertraline 50 mg Tablet",
+    "Lowest": 4.38,
+    "Median": 7.59,
+    "Highest": 14.0
+  },
+  {
+    "id": 660,
+    "DrugName": "Serum, Anti-Rabies 1500 IU/0.7 mL, 0.7 mL Solution for Injection Ampule (Equine)",
+    "Lowest": 124.65,
+    "Median": 125.33,
+    "Highest": 126.0
+  },
+  {
+    "id": 661,
+    "DrugName": "Serum, Anti-Tetanus 1500 IU/mL, 1 mL Solution for Injection Ampule (Equine)",
+    "Lowest": 0.95,
+    "Median": 111.74,
+    "Highest": 145.0
+  },
+  {
+    "id": 662,
+    "DrugName": "Sevoflurane, 250 mL Volatile Liquid for Inhalation Bottle",
+    "Lowest": 2689.0,
+    "Median": 4053.5,
+    "Highest": 14645.0
+  },
+  {
+    "id": 663,
+    "DrugName": "Silver Sulfadiazine 1%, 15 g Cream Tube",
+    "Lowest": 53.18,
+    "Median": 59.25,
+    "Highest": 118.0
+  },
+  {
+    "id": 664,
+    "DrugName": "Silver Sulfadiazine 1%, 25 g Cream Tube",
+    "Lowest": 61.89,
+    "Median": 69.89,
+    "Highest": 129.78
+  },
+  {
+    "id": 665,
+    "DrugName": "Silver Sulfadiazine 1%, 500 g Cream Jar",
+    "Lowest": 782.8,
+    "Median": 850.0,
+    "Highest": 950.0
+  },
+  {
+    "id": 666,
+    "DrugName": "Simvastatin 20 mg Tablet",
+    "Lowest": 0.72,
+    "Median": 1.27,
+    "Highest": 3.75
+  },
+  {
+    "id": 667,
+    "DrugName": "Simvastatin 40 mg Tablet",
+    "Lowest": 1.99,
+    "Median": 3.65,
+    "Highest": 7.0
+  },
+  {
+    "id": 668,
+    "DrugName": "Sirolimus 0.5 mg tablet",
+    "Lowest": 135.0,
+    "Median": 135.5,
+    "Highest": 136.0
+  },
+  {
+    "id": 669,
+    "DrugName": "Sodium Bicarbonate 1 mEq/mL, 20 mL Solution for Injection Ampule",
+    "Lowest": 5.04,
+    "Median": 48.89,
+    "Highest": 249.79
+  },
+  {
+    "id": 670,
+    "DrugName": "Sodium Bicarbonate 1 mEq/mL, 50 mL Solution for Injection Ampule",
+    "Lowest": 91.98,
+    "Median": 99.89,
+    "Highest": 155.51
+  },
+  {
+    "id": 671,
+    "DrugName": "Sodium Bicarbonate 650 mg Tablet",
+    "Lowest": 1.0,
+    "Median": 2.09,
+    "Highest": 3.95
+  },
+  {
+    "id": 672,
+    "DrugName": "Sodium Chloride 0.9%, 1 L Solution Bottle (For Irrigation)",
+    "Lowest": 24.0,
+    "Median": 32.24,
+    "Highest": 77.55
+  },
+  {
+    "id": 673,
+    "DrugName": "Sodium Chloride 0.9%, 1 L Solution for Injection Bottle",
+    "Lowest": 9.5,
+    "Median": 27.44,
+    "Highest": 85.0
+  },
+  {
+    "id": 674,
+    "DrugName": "Sodium Chloride 0.9%, 100 mL Solution for Injection Bottle",
+    "Lowest": 26.77,
+    "Median": 44.34,
+    "Highest": 63.0
+  },
+  {
+    "id": 675,
+    "DrugName": "Sodium Chloride 0.9%, 50 mL Solution for Injection Bottle",
+    "Lowest": 15.44,
+    "Median": 18.88,
+    "Highest": 59.44
+  },
+  {
+    "id": 676,
+    "DrugName": "Sodium Chloride 0.9%, 500 mL Solution for Injection Bottle",
+    "Lowest": 20.0,
+    "Median": 28.89,
+    "Highest": 118.5
+  },
+  {
+    "id": 677,
+    "DrugName": "Sodium Chloride 2.5 mEq/mL, 20 mL Solution for Injection Vial",
+    "Lowest": 15.0,
+    "Median": 30.0,
+    "Highest": 65.0
+  },
+  {
+    "id": 678,
+    "DrugName": "Sodium Hyaluronate 0.1% (1 mg/mL), 5 mL Eye Drops Bottle",
+    "Lowest": 160.0,
+    "Median": 160.0,
+    "Highest": 321.0
+  },
+  {
+    "id": 679,
+    "DrugName": "Sodium Valproate + Valproic Acid 500 mg (333 mg + 145 mg) controlled release tablet",
+    "Lowest": 7.9,
+    "Median": 8.4,
+    "Highest": 21.45
+  },
+  {
+    "id": 680,
+    "DrugName": "Spironolactone 100 mg Tablet",
+    "Lowest": 5.0,
+    "Median": 27.88,
+    "Highest": 28.0
+  },
+  {
+    "id": 681,
+    "DrugName": "Spironolactone 25 mg Tablet",
+    "Lowest": 2.26,
+    "Median": 6.25,
+    "Highest": 17.5
+  },
+  {
+    "id": 682,
+    "DrugName": "Spironolactone 50 mg Tablet",
+    "Lowest": 6.4,
+    "Median": 10.23,
+    "Highest": 24.94
+  },
+  {
+    "id": 683,
+    "DrugName": "Sterile Water For Injection, 1 L Bottle",
+    "Lowest": 10.0,
+    "Median": 27.15,
+    "Highest": 138.0
+  },
+  {
+    "id": 684,
+    "DrugName": "Sterile Water For Injection, 100 mL Bottle",
+    "Lowest": 30.89,
+    "Median": 42.57,
+    "Highest": 78.0
+  },
+  {
+    "id": 685,
+    "DrugName": "Sterile Water For Injection, 20 mL Ampule",
+    "Lowest": 20.0,
+    "Median": 22.5,
+    "Highest": 25.0
+  },
+  {
+    "id": 686,
+    "DrugName": "Sterile Water For Injection, 50 mL Bottle",
+    "Lowest": 15.78,
+    "Median": 17.89,
+    "Highest": 122.0
+  },
+  {
+    "id": 687,
+    "DrugName": "Sterile Water For Injection, 500 mL Bottle",
+    "Lowest": 11.41,
+    "Median": 72.26,
+    "Highest": 133.1
+  },
+  {
+    "id": 688,
+    "DrugName": "Sucralfate 1 g Tablet",
+    "Lowest": 26.33,
+    "Median": 27.49,
+    "Highest": 44.55
+  },
+  {
+    "id": 689,
+    "DrugName": "Sugammadex 100 mg/mL, 2 mL Solution for Injection Vial",
+    "Lowest": 1800.0,
+    "Median": 4997.5,
+    "Highest": 6000.0
+  },
+  {
+    "id": 690,
+    "DrugName": "Suxamethonium (Succinylcholine) 20 mg/mL, 10 mL Solution for Injection Vial",
+    "Lowest": 127.88,
+    "Median": 419.0,
+    "Highest": 697.0
+  },
+  {
+    "id": 691,
+    "DrugName": "Tacrolimus 1 mg Capsule",
+    "Lowest": 71.43,
+    "Median": 100.0,
+    "Highest": 163.0
+  },
+  {
+    "id": 692,
+    "DrugName": "Tafluprost 15 mcg/mL, 0.3 mL Eye Drops Bottle",
+    "Lowest": 676.65,
+    "Median": 676.65,
+    "Highest": 676.65
+  },
+  {
+    "id": 693,
+    "DrugName": "Tamoxifen 20 mg Tablet",
+    "Lowest": 5.95,
+    "Median": 9.94,
+    "Highest": 16.0
+  },
+  {
+    "id": 694,
+    "DrugName": "Tamsulosin 200 mcg Capsule",
+    "Lowest": 4.05,
+    "Median": 6.95,
+    "Highest": 30.0
+  },
+  {
+    "id": 695,
+    "DrugName": "Tamsulosin 200 mcg Orodispersible Tablet",
+    "Lowest": 6.95,
+    "Median": 10.2,
+    "Highest": 20.0
+  },
+  {
+    "id": 696,
+    "DrugName": "Tamsulosin 400 mcg Prolonged Release Film Coated Tablet",
+    "Lowest": 5.0,
+    "Median": 7.99,
+    "Highest": 20.0
+  },
+  {
+    "id": 697,
+    "DrugName": "Telmisartan + Hydrochlorothiazide 40 mg + 12.5 mg tablet",
+    "Lowest": 5.6,
+    "Median": 10.08,
+    "Highest": 27.0
+  },
+  {
+    "id": 698,
+    "DrugName": "Telmisartan 40 mg Tablet",
+    "Lowest": 1.64,
+    "Median": 2.0,
+    "Highest": 16.5
+  },
+  {
+    "id": 699,
+    "DrugName": "Telmisartan 80 mg Tablet",
+    "Lowest": 2.5,
+    "Median": 3.5,
+    "Highest": 35.0
+  },
+  {
+    "id": 700,
+    "DrugName": "Tenofovir Disoproxil 300 mg Tablet",
+    "Lowest": 38.0,
+    "Median": 38.44,
+    "Highest": 39.98
+  },
+   {
+    "id": 701,
+    "DrugName": "Terazosin 2 mg Tablet",
+    "Lowest": 20.0,
+    "Median": 21.0,
+    "Highest": 22.0
+  },
+  {
+    "id": 702,
+    "DrugName": "Terbutaline 500 mcg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 50.93,
+    "Median": 98.0,
+    "Highest": 299.89
+  },
+  {
+    "id": 703,
+    "DrugName": "Tetanus Immunoglobulin (Human) 250 IU/mL, 1 mL Solution for Injection Pre-filled Syringe",
+    "Lowest": 700.0,
+    "Median": 980.23,
+    "Highest": 1330.0
+  },
+  {
+    "id": 704,
+    "DrugName": "Tetanus Toxoid 0.5 mL Ampul (IM)",
+    "Lowest": 32.78,
+    "Median": 57.33,
+    "Highest": 100.0
+  },
+  {
+    "id": 705,
+    "DrugName": "Timolol 0.5%, 5 mL Eye Drops Bottle",
+    "Lowest": 180.0,
+    "Median": 295.0,
+    "Highest": 437.5
+  },
+  {
+    "id": 706,
+    "DrugName": "Tobramycin + Dexamethasone 0.3% + 0.1%, 3.5 g Eye Ointment Tube",
+    "Lowest": 125.0,
+    "Median": 499.27,
+    "Highest": 674.25
+  },
+  {
+    "id": 707,
+    "DrugName": "Tobramycin + Dexamethasone 0.3% + 0.1%, 5 mL Eye Drops Bottle",
+    "Lowest": 107.0,
+    "Median": 200.0,
+    "Highest": 450.0
+  },
+  {
+    "id": 708,
+    "DrugName": "Tobramycin 0.3%, 3.5 g Eye Ointment Tube",
+    "Lowest": 429.9,
+    "Median": 429.9,
+    "Highest": 429.9
+  },
+  {
+    "id": 709,
+    "DrugName": "Tobramycin 0.3%, 5 mL Eye Drops Bottle",
+    "Lowest": 80.0,
+    "Median": 155.0,
+    "Highest": 308.0
+  },
+  {
+    "id": 710,
+    "DrugName": "Tolvaptan 15 mg Tablet",
+    "Lowest": 607.2,
+    "Median": 652.8,
+    "Highest": 693.75
+  },
+  {
+    "id": 711,
+    "DrugName": "Topiramate 25 mg Tablet",
+    "Lowest": 7.94,
+    "Median": 8.4,
+    "Highest": 9.37
+  },
+  {
+    "id": 712,
+    "DrugName": "Topiramate 50 mg Tablet",
+    "Lowest": 7.0,
+    "Median": 7.99,
+    "Highest": 20.5
+  },
+  {
+    "id": 713,
+    "DrugName": "Tramadol 50 mg Capsule",
+    "Lowest": 1.0,
+    "Median": 2.0,
+    "Highest": 4.5
+  },
+  {
+    "id": 714,
+    "DrugName": "Tramadol 50 mg/mL, 1 mL Solution for Injection Ampule",
+    "Lowest": 6.08,
+    "Median": 8.51,
+    "Highest": 34.8
+  },
+  {
+    "id": 715,
+    "DrugName": "Tramadol 50 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 5.7,
+    "Median": 8.98,
+    "Highest": 60.0
+  },
+  {
+    "id": 716,
+    "DrugName": "Tranexamic Acid 100 mg/mL, 5 mL Solution for Injection Ampule",
+    "Lowest": 3.86,
+    "Median": 20.34,
+    "Highest": 130.0
+  },
+  {
+    "id": 717,
+    "DrugName": "Tranexamic Acid 500 mg Capsule",
+    "Lowest": 4.0,
+    "Median": 6.0,
+    "Highest": 44.95
+  },
+  {
+    "id": 718,
+    "DrugName": "Trastuzumab 600 mg/5 mL (120 mg/mL) solution for injection, 5 mL vial",
+    "Lowest": 23214.29,
+    "Median": 23214.29,
+    "Highest": 23214.29
+  },
+  {
+    "id": 719,
+    "DrugName": "Travoprost 0.004%, 2.5 mL Eye Drops Bottle",
+    "Lowest": 1283.36,
+    "Median": 1516.68,
+    "Highest": 1750.0
+  },
+  {
+    "id": 720,
+    "DrugName": "Trimetazidine 35 mg Tablet",
+    "Lowest": 0.85,
+    "Median": 2.64,
+    "Highest": 19.5
+  },
+  {
+    "id": 721,
+    "DrugName": "Tropicamide + Phenylephrine Hydrochloride 5 mg + 5 mg/mL, 10 mL Eye Drops Bottle",
+    "Lowest": 418.95,
+    "Median": 498.75,
+    "Highest": 665.0
+  },
+  {
+    "id": 722,
+    "DrugName": "Ursodeoxycholic Acid 250 mg Capsule",
+    "Lowest": 13.0,
+    "Median": 22.0,
+    "Highest": 36.0
+  },
+  {
+    "id": 723,
+    "DrugName": "Ursodeoxycholic Acid 250 mg Tablet",
+    "Lowest": 16.8,
+    "Median": 24.3,
+    "Highest": 35.0
+  },
+  {
+    "id": 724,
+    "DrugName": "Ursodeoxycholic Acid 500 mg Tablet",
+    "Lowest": 18.0,
+    "Median": 50.0,
+    "Highest": 74.39
+  },
+  {
+    "id": 725,
+    "DrugName": "Vaccine, Influenza Polyvalent 0.5 mL Suspension for Injection Pre-filled Syringe",
+    "Lowest": 550.0,
+    "Median": 590.0,
+    "Highest": 650.0
+  },
+  {
+    "id": 726,
+    "DrugName": "Vaccine, Rabies Chick Embryo Cell 2.5 IU Powder for Injection Vial + 1 mL Diluent (Purified, Inactivated)",
+    "Lowest": 768.0,
+    "Median": 1228.0,
+    "Highest": 1785.0
+  },
+  {
+    "id": 727,
+    "DrugName": "Vaccine, Rabies Vero Cell (Purified) 2.5 IU/0.5 mL vial + diluent (Per Dose)",
+    "Lowest": 272.0,
+    "Median": 680.0,
+    "Highest": 1302.0
+  },
+  {
+    "id": 728,
+    "DrugName": "Vaccine, Tetanus Toxoid 40 IU (5 lf)/0.5 mL, 0.5 mL Suspension for Injection Ampule",
+    "Lowest": 32.78,
+    "Median": 71.06,
+    "Highest": 100.0
+  },
+  {
+    "id": 729,
+    "DrugName": "Valaciclovir 500 mg Tablet",
+    "Lowest": 25.0,
+    "Median": 27.0,
+    "Highest": 30.0
+  },
+  {
+    "id": 730,
+    "DrugName": "Valganciclovir 450 mg Tablet",
+    "Lowest": 242.0,
+    "Median": 250.0,
+    "Highest": 260.0
+  },
+  {
+    "id": 731,
+    "DrugName": "Valproic Acid 250 mg/5 mL, 120 mL Syrup Bottle",
+    "Lowest": 640.0,
+    "Median": 731.31,
+    "Highest": 804.37
+  },
+  {
+    "id": 732,
+    "DrugName": "Valproic Acid 500 mg tablet",
+    "Lowest": 11.38,
+    "Median": 11.38,
+    "Highest": 11.38
+  },
+  {
+    "id": 733,
+    "DrugName": "Valsartan 160 mg Film Coated Tablet",
+    "Lowest": 9.2,
+    "Median": 11.08,
+    "Highest": 12.48
+  },
+  {
+    "id": 734,
+    "DrugName": "Valsartan 80 mg Film Coated Tablet",
+    "Lowest": 7.2,
+    "Median": 8.55,
+    "Highest": 11.64
+  },
+  {
+    "id": 735,
+    "DrugName": "Vancomycin 1 g Powder for Injection Vial",
+    "Lowest": 60.0,
+    "Median": 130.0,
+    "Highest": 1400.0
+  },
+  {
+    "id": 736,
+    "DrugName": "Vancomycin 500 mg Powder for Injection Vial",
+    "Lowest": 49.89,
+    "Median": 58.56,
+    "Highest": 995.0
+  },
+  {
+    "id": 737,
+    "DrugName": "Vasopressin 20 IU/mL vial",
+    "Lowest": 1639.0,
+    "Median": 1979.75,
+    "Highest": 2500.0
+  },
+  {
+    "id": 738,
+    "DrugName": "Verapamil 2.5 mg/mL, 2 mL Solution for Injection Ampule",
+    "Lowest": 125.0,
+    "Median": 125.0,
+    "Highest": 125.0
+  },
+  {
+    "id": 739,
+    "DrugName": "Vitamin B1 B6 B12 100 mg B1 + 100 mg B6 + 1 mg B12 per 3 mL ampul",
+    "Lowest": 12.8,
+    "Median": 21.68,
+    "Highest": 175.0
+  },
+  {
+    "id": 740,
+    "DrugName": "Vitamin B1 B6 B12 100 mg B1 + 5 mg B6 + 50 mcg B12 per tablet",
+    "Lowest": 0.46,
+    "Median": 1.2,
+    "Highest": 11.0
+  },
+  {
+    "id": 741,
+    "DrugName": "Voriconazole 200 mg Film Coated Tablet",
+    "Lowest": 1000.0,
+    "Median": 1090.0,
+    "Highest": 1100.0
+  },
+  {
+    "id": 742,
+    "DrugName": "Voriconazole 200 mg Powder for Injection Vial",
+    "Lowest": 4399.0,
+    "Median": 4550.0,
+    "Highest": 4699.0
+  },
+  {
+    "id": 743,
+    "DrugName": "Warfarin 2.5 mg Tablet",
+    "Lowest": 8.5,
+    "Median": 15.09,
+    "Highest": 26.5
+  },
+  {
+    "id": 744,
+    "DrugName": "Warfarin 5 mg Tablet",
+    "Lowest": 12.0,
+    "Median": 14.02,
+    "Highest": 21.0
+  },
+  {
+    "id": 745,
+    "DrugName": "Zinc as sulfate monohydrate (equiv. to 10 mg elemental/mL), 15 mL Oral Drops Bottle",
+    "Lowest": 14.27,
+    "Median": 30.6,
+    "Highest": 64.97
+  },
+  {
+    "id": 746,
+    "DrugName": "Zinc as sulfate monohydrate (equiv. to 20 mg elemental zinc/5 mL), 60 mL Syrup Bottle",
+    "Lowest": 20.48,
+    "Median": 32.0,
+    "Highest": 68.0
+  },
+  {
+    "id": 747,
+    "DrugName": "Zoledronic Acid 4 mg/5 mL concentrated solution for IV infusion",
+    "Lowest": 999.0,
+    "Median": 1472.5,
+    "Highest": 4500.0
+  }
+]

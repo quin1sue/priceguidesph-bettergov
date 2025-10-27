@@ -5,6 +5,7 @@ import {
   PhilippinePeso,
   Bubbles,
   Waves,
+  Pill 
 } from "lucide-react";
 import { PiGasCan } from "react-icons/pi";
 import {
@@ -26,6 +27,11 @@ const items = [
     title: "Market Price Index",
     url: "/daily-price-index",
     icon: ShoppingBasket,
+  },
+  {
+    title: "Drug Price Index",
+    url: "drug-price-index",
+    icon: Pill
   },
   {
     title: "Cigarette Price Index",
@@ -51,8 +57,8 @@ const items = [
 ];
 
 export function AppSidebar() {
-  return (
-    <Sidebar className="mt-[6.1em] overflow-hidden z-20">
+  return (  
+    <Sidebar className="mt-[7em] overflow-hidden z-20">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Economic Indicators </SidebarGroupLabel>

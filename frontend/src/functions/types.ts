@@ -11,17 +11,16 @@ export type Commodity = {
 export type MainJson = {
   id: string;
   error: string;
-  success:boolean;
-  name: string
+  success: boolean;
+  name: string;
   description: string;
   date: string;
   category: string;
   commodities: Commodity[];
 };
 
-
 export type CurrencyRatesType = {
-  success: boolean,
+  success: boolean;
   terms: string;
   error: string;
   name: string;
@@ -30,8 +29,26 @@ export type CurrencyRatesType = {
   timestamp: number;
   date: string;
   base: string;
-  rates: Record<string, number>
-} 
+  rates: Record<string, number>;
+};
+
+export type DrugPriceType = {
+  name: string  
+  date: string;
+  success: boolean;
+  description: string;
+  title: string;
+  data: Record<
+    string,
+    {
+      id: number;
+      DrugName: string;
+      Lowest: number;
+      Median: number;
+      Highest: number;
+    }[]
+  >;
+};
 // export type ElectricityPriceData = {
 //   description: string;
 //   date: string;

@@ -13,10 +13,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex items-center overflow-hidden">
         <SidebarProvider>
           <AppSidebar />
-    <SidebarTrigger className="absolute top-10 left-10 md:hidden" />
+    <SidebarTrigger className="absolute top-13 left-10 md:hidden" />
           <Suspense fallback={<TableSkeleton />}> 
             <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] w-full">
-              <article className="mb-[6.5em]">
+              <article className="mb-[?]">
             {children}
               </article>
             </main>
