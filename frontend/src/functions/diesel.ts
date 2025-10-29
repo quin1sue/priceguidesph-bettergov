@@ -14,6 +14,7 @@ export type FuelTypePrice = {
   id: string; // FuelType ID
   name: string;
   error: string;
+  status: boolean
   success: boolean;
   description: string;
   date: string;

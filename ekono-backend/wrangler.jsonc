@@ -2,6 +2,16 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ekono-backend",
   "main": "src/index.ts",
+  "ratelimits": [
+    {
+      "name": "FREE_RATE_LIMITER",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 70,
+        "period": 60
+      }
+    }
+  ],
   "compatibility_date": "2025-10-13",
   "compatibility_flags": [
     "nodejs_compat"

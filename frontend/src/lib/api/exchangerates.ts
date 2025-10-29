@@ -1,12 +1,14 @@
-import { revalidateCache } from "../utils";
 
 export const fetchExchangeRates = async () => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_FE_DOMAIN}/api/fxrates/`, {next: revalidateCache, method: "GET" });
+    const response = await fetch(`${process.env.NEXT_PUBLIC_FE_DOMAIN}/api/fxrates/`, {
+       next: {revalidate: 30}
+       ,method: "GET" });
+    const errorMessage = response.status === 429 ? "Whoa! You’re requesting too fast. Take a short break and try again soon.": "fetching currency rates data failed"
 
     if (!response.ok) 
         return {
-      error: "Fetching Currency Rates data failed ",
+      error: errorMessage,
       success: false,
     };
 
@@ -19,6 +21,7 @@ export const fetchExchangeRates = async () => {
       ...result,
     };
   } catch (err) {
+    
     return {
       error: "An error has occurred: " + err as string,
       success: false,

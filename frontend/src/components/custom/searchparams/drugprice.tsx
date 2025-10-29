@@ -36,7 +36,6 @@ const DrugPriceList = ({ initialData }: DrugPriceListProps) => {
   }
 
   const defaultAccordionValues = filteredDrugs.map((_, idx) => `${idx}`);
-  console.log("length: ",initialData.data.length)
   return (
     <>
       <header className="p-4 bg-white border space-y-2 border-gray-200 rounded-xl shadow-sm">

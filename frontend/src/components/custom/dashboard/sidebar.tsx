@@ -1,3 +1,4 @@
+"use client"
 import {
   Cigarette,
   ShoppingBasket,
@@ -7,6 +8,7 @@ import {
   Waves,
   Pill 
 } from "lucide-react";
+
 import { PiGasCan } from "react-icons/pi";
 import {
   Sidebar,

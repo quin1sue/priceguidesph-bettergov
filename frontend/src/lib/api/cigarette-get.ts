@@ -1,18 +1,18 @@
-import { revalidateCache } from "../utils";
 
 export const fetchCigarette = async () => {
     try {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=cigarette`,
           {
-            next: revalidateCache,
             method: "GET",
             credentials: "include",
             headers: { "Content-Type": "application/json" },
           }
         );
+          const errorMessage = res.status === 429 ? "Whoa! You’re requesting too fast. Take a short break and try again soon." : "fetching market data failed"
+
         if (!res.ok) return {
-            error: "failed to fetch cigarette data",
+            error: errorMessage,
             success: false
         }
       const result = await res.json()

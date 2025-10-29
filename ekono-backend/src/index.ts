@@ -1,12 +1,15 @@
-import { ExecutionContext, Hono } from "hono";
+import {  ExecutionContext, Hono  } from "hono";
 import { cors } from "hono/cors";
-import { D1Database, ScheduledController } from "@cloudflare/workers-types";
+import { D1Database, RateLimit, ScheduledController } from "@cloudflare/workers-types";
 import { insertAllFuels } from "./lib/triggers/fuel-prices/diesel-triggers";
 import { insertMarketData } from "./lib/triggers/market-index/market-triggers";
 import { insertCigaretteData } from "./lib/triggers/market-index/cigarette-triggers";
 import drugPriceJson from "../public/data/drugprice.json";
+import { rateLimiter } from "./lib/middleware/middleware";
+
 export type Bindings = {
   MY_DB: D1Database;
+  FREE_RATE_LIMITER: RateLimit
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
@@ -16,7 +19,7 @@ app.use(
   "/*",
   cors({
     origin: [
-      "http://localhost:3000", // locally
+      "http://localhost:3000",
       "https://price-guides.bettergov.ph",
     ],
     allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
@@ -24,6 +27,8 @@ app.use(
     credentials: true,
   })
 );
+// rate limiter
+app.use("/*", rateLimiter)
 
 app.get("/drugprice", async (c) => {
   // group by first word of the DrugName
@@ -49,7 +54,6 @@ app.get("/drugprice", async (c) => {
 // GET REQUESTS
 app.get("/market", async (c) => {
   try {
-    // get the date of the market
     const date = new Date();
     const formattedDate = date
       .toLocaleString("en-US", {
@@ -61,27 +65,35 @@ app.get("/market", async (c) => {
 
     const category = c.req.url.includes("category=")
       ? new URL(c.req.url).searchParams.get("category")
-      : "market"; // default params
+      : "market";
+
+    const dateParam = new URL(c.req.url).searchParams.get("date");
+    const selectedDate = dateParam ?? formattedDate;
+
     const db = c.env.MY_DB;
 
+    // Fetch available date options up to the selected date
     const dateData = await db
       .prepare(
         `
-    SELECT date FROM PriceGroup 
-    WHERE category = ?`
+        SELECT date FROM PriceGroup 
+        WHERE category = ? AND date <= ?
+      `
       )
-      .bind(category)
+      .bind(category, selectedDate)
       .all();
 
     const priceGroup = await db
       .prepare(
-        `SELECT * 
-         FROM PriceGroup 
-         WHERE category = ? AND date <= ?
-         ORDER BY date DESC 
-         LIMIT 1`
+        `
+        SELECT * 
+        FROM PriceGroup 
+        WHERE category = ? AND date <= ?
+        ORDER BY date DESC 
+        LIMIT 1
+      `
       )
-      .bind(category?.toLowerCase(), formattedDate as string)
+      .bind(category?.toLowerCase(), selectedDate)
       .first();
 
     if (!priceGroup) {
@@ -90,21 +102,24 @@ app.get("/market", async (c) => {
 
     const commodities = await db
       .prepare(
-        `SELECT id, commodity 
-         FROM PriceCommodity 
-         WHERE group_id = ?`
+        `
+        SELECT id, commodity 
+        FROM PriceCommodity 
+        WHERE group_id = ?
+      `
       )
       .bind(priceGroup.id)
       .all();
 
-    // for each commodity, get its items
     const commoditiesWithItems = await Promise.all(
-      commodities.results.map(async (commodity: any) => {
+      commodities.results.map(async (commodity) => {
         const items = await db
           .prepare(
-            `SELECT specification, price 
-             FROM PriceItem 
-             WHERE commodity_id = ?`
+            `
+            SELECT specification, price 
+            FROM PriceItem 
+            WHERE commodity_id = ?
+          `
           )
           .bind(commodity.id)
           .all();
@@ -119,10 +134,10 @@ app.get("/market", async (c) => {
     return c.json(
       {
         dateData: dateData.results.map(
-          (date: Record<string, unknown>) => date.date
+          (date) => date.date
         ),
         name:
-          (priceGroup["category"] as string) === "market"
+          priceGroup["category"] === "market"
             ? "Market Price"
             : "Cigarette Price",
         success: true,
@@ -140,6 +155,7 @@ app.get("/market", async (c) => {
     return c.json({ error: "Failed to fetch market data" }, 500);
   }
 });
+
 
 // KEROSENE, DIESEL, GASOLINE PETROL RELATED DATA
 app.get("/fuel-prices", async (c) => {
@@ -191,7 +207,7 @@ app.get("/fuel-prices", async (c) => {
   }
 });
 
-// cron trigger scheduling
+// cron trigger scheduling and rate limiting
 export default {
   fetch: app.fetch,
   async scheduled(
@@ -241,4 +257,4 @@ export default {
         console.log("no matching cron for: ", controller.cron);
     }
   },
-};
+}

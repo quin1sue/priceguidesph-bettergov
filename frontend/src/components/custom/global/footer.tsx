@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import Image from "next/image";
 import { FaDiscord, FaGithub } from "react-icons/fa";

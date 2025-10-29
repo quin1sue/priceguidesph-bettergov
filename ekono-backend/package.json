@@ -13,7 +13,7 @@
     "pdfjs-serverless": "^1.1.0"
   },
   "devDependencies": {
-    "wrangler": "^4.45.0"
+    "wrangler": "^4.45.1"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

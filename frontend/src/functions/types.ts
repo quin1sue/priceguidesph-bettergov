@@ -11,6 +11,8 @@ export type Commodity = {
 export type MainJson = {
   id: string;
   error: string;
+  status: number
+  dateData: string[]
   success: boolean;
   name: string;
   description: string;
@@ -24,6 +26,7 @@ export type CurrencyRatesType = {
   terms: string;
   error: string;
   name: string;
+  status: boolean
   description: string;
   privacy: string;
   timestamp: number;
@@ -35,6 +38,8 @@ export type CurrencyRatesType = {
 export type DrugPriceType = {
   name: string  
   date: string;
+  status: boolean
+  error: string
   success: boolean;
   description: string;
   title: string;

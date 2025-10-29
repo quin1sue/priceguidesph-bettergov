@@ -48,6 +48,7 @@ export default function DataSource() {
                 <a className="text-sm hover:underline font-bold mb-2" href={source.link} target="_blank" rel="noreferrer noopener">{source.name}</a>
               <div className="w-full h-12 relative mb-2">
                 <Image
+                sizes=""
                   src={source.logo}
                   alt={source.name}
                   fill

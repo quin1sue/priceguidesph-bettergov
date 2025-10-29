@@ -7,9 +7,11 @@ try {
             next: revalidateCache
           }
         );
+            const errorMessage = res.status === 429 ? "Whoa! You’re requesting too fast. Take a short break and try again soon." : "fetching kerosene data failed"
+
         if (!res.ok) {
             return {
-            error: "Failed to fetch kerosene data",
+            error: errorMessage,
             success: false
         }
         }
@@ -31,9 +33,12 @@ try {
             next: revalidateCache
           }
         );
+
+            const errorMessage = res.status === 429 ? "Whoa! You’re requesting too fast. Take a short break and try again soon." : "fetching market data failed"
+
         if (!res.ok) {
             return {
-            error: "Failed to fetch diesel data",
+            error: errorMessage,
             success: false
         }
         }
@@ -54,9 +59,11 @@ export async function fetchDiesel() {
             next: revalidateCache
           }
         );
+          const errorMessage = res.status === 429 ? "Whoa! You’re requesting too fast. Take a short break and try again soon." : "fetching market data failed"
+
         if (!res.ok) {
             return {
-            error: "Failed to fetch diesel data",
+            error: errorMessage,
             success: false
         }
         }
@@ -73,9 +80,7 @@ export async function fetchDiesel() {
 
 export async function fetchGasoline() {
         try { const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Gasoline`, {
-            next: revalidateCache
-          }
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Gasoline`
         );
         if (!res.ok) {
 

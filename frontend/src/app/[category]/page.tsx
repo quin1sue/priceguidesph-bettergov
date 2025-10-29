@@ -8,6 +8,7 @@ import { MainJson, CurrencyRatesType, DrugPriceType } from "@/functions/types";
 import { NotFound } from "@/components/custom/dashboard/category-notfound";
 import { fetchExchangeRates } from "@/lib/api/exchangerates";
 import { ComponentType } from "react";
+import { DashboardError } from "@/components/custom/dashboard/error-occured";
 type CategoryData = MainJson | FuelTypePrice | CurrencyRatesType | DrugPriceType;
 
 // dynamic component type that accepts initialData prop AAAAAAAAHHH
@@ -44,6 +45,11 @@ const fetcherMap: Record<string, () => Promise<CategoryData>> = {
 type PageParams = {
   params: Promise<{ category: string }>;
 };
+export async function generateStaticParams() {
+  return Object.keys(componentMap).map((category) => ({ category }));
+}
+
+export const revalidate = 1800; // 30mins
 
 export async function generateMetadata(
   { params }: PageParams,
@@ -83,5 +89,7 @@ export default async function Page({ params }: PageParams) {
 
   const initialData = await fetcher();
   
+  // if not success, returns a dashboard component with an error message. It could be.. the server is being rate limited or other server error occurrence
+  if (!initialData.success) return <DashboardError message={initialData.error} /> 
   return <Component initialData={initialData} />;
 }
