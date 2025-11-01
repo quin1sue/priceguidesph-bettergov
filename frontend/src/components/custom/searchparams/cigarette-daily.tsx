@@ -16,8 +16,7 @@ type CigaretteListType = {
 };
 
 const CigarettePriceList = ({ initialData }: CigaretteListType) => {
-  const [data, setData] /*will set this later for refresh fetching*/ =
-    useState<FuelDataOrError | null>(initialData);
+  const [data, setData] = useState<FuelDataOrError | null>(initialData);
   const [loading, setLoading] = useState<boolean>(false);
   const [selectedCommodity, setSelectedCommodity] = useState<string>("All");
   const [selectDate, setSelectDate] = useState<string>(initialData.date);
@@ -59,7 +58,7 @@ const CigarettePriceList = ({ initialData }: CigaretteListType) => {
   if (!data.success) return <DashboardError message={data.error} />;
   return (
     <>
-      <header className="p-4 bg-white border space-y-2 border-gray-200 rounded-xl shadow-sm">
+      <header className="p-4 border space-y-2 border-gray-200 rounded-xl shadow-sm">
         <p className="text-sm text-gray-700">
           Latest DA Price Monitoring Report:
           <span className="font-semibold text-gray-900"> {data?.date}</span>
@@ -106,7 +105,7 @@ const CigarettePriceList = ({ initialData }: CigaretteListType) => {
               <button
                 onClick={handleSearchDate}
                 disabled={loading}
-                className="bg-blue-600 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
+                className="bg-blue-500 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
               >
                 {loading ? "Loading..." : "Search"}
               </button>
@@ -145,7 +144,7 @@ const CigarettePriceList = ({ initialData }: CigaretteListType) => {
           <AccordionItem
             key={idx}
             value={`${idx}`}
-            className="border border-gray-200 rounded-xl bg-white shadow-sm"
+            className="border border-gray-200 rounded-xl shadow-sm"
           >
             <AccordionTrigger className="px-4 py-3 text-left font-semibold text-gray-900 hover:text-blue-700 transition">
               {section.commodity}

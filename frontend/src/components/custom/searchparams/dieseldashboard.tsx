@@ -23,7 +23,7 @@ export default function FuelDataTable({initialData} : FuelListType) {
   if (!data) return null;
   return (
        <>
-      <header className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
+      <header className=" border border-gray-200 p-4 rounded-xl shadow-sm">
         <h2 className="text-2xl text-gray-700 my-3 font-bold">{data.date}</h2>
         <p className="text-sm text-gray-700">{data.description}</p>
         <p className="mt-2">
@@ -47,7 +47,7 @@ export default function FuelDataTable({initialData} : FuelListType) {
           <AccordionItem
             key={section.id}
             value={section.name}
-            className="border rounded-lg bg-white shadow-sm"
+            className="border rounded-lg shadow-sm"
           >
             <AccordionTrigger className="px-4 py-3 font-semibold text-gray-900 hover:text-blue-700">
               {section.name}

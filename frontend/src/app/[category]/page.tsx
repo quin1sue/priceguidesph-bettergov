@@ -4,14 +4,15 @@ import { fetchKerosene, fetchDiesel, fetchGasoline, fetchLPG } from "@/lib/api/p
 import { fetchCigarette } from "@/lib/api/cigarette-get";
 import { fetchMarket, fetchDrugPrice} from "@/lib/api/market-get";
 import { FuelTypePrice } from "@/functions/diesel";
-import { MainJson, CurrencyRatesType, DrugPriceType } from "@/functions/types";
+import { MainJson, CurrencyRatesType, DrugPriceType, EconomicIndicatorsType } from "@/functions/types";
 import { NotFound } from "@/components/custom/dashboard/category-notfound";
 import { fetchExchangeRates } from "@/lib/api/exchangerates";
 import { ComponentType } from "react";
 import { DashboardError } from "@/components/custom/dashboard/error-occured";
-type CategoryData = MainJson | FuelTypePrice | CurrencyRatesType | DrugPriceType;
+import { fetchIndicators } from "@/lib/api/economic-indicator";
+type CategoryData = MainJson | FuelTypePrice | CurrencyRatesType | DrugPriceType | EconomicIndicatorsType;
 
-// dynamic component type that accepts initialData prop AAAAAAAAHHH
+// dynamic component type that accepts initialData prop
 type CategoryComponent = ComponentType<{ initialData: CategoryData }>;
 
 const DrugPriceList = dynamic(() => import("@/components/custom/searchparams/drugprice"))
@@ -19,8 +20,10 @@ const CigaretteDaily = dynamic(() => import("@/components/custom/searchparams/ci
 const Market = dynamic(() => import("@/components/custom/searchparams/market"));
 const DieselDashboard = dynamic(() => import("@/components/custom/searchparams/dieseldashboard"));
 const ExchangeRate = dynamic(() => import("@/components/custom/searchparams/exchangeRate"));
+const DashboardPage = dynamic(() => import("@/components/custom/dashboard/page"))
 
 const componentMap: Record<string, CategoryComponent> = {
+  "indicator": DashboardPage as CategoryComponent,
   "drug-price-index": DrugPriceList as CategoryComponent,
   "cigarette-index": CigaretteDaily as CategoryComponent,
   "daily-price-index": Market as CategoryComponent,
@@ -32,6 +35,7 @@ const componentMap: Record<string, CategoryComponent> = {
 };
 
 const fetcherMap: Record<string, () => Promise<CategoryData>> = {
+  "indicator": fetchIndicators,
   "drug-price-index": fetchDrugPrice,
   "cigarette-index": fetchCigarette,
   "kerosene": fetchKerosene,

@@ -4,9 +4,10 @@ import { D1Database, RateLimit, ScheduledController } from "@cloudflare/workers-
 import { insertAllFuels } from "./lib/triggers/fuel-prices/diesel-triggers";
 import { insertMarketData } from "./lib/triggers/market-index/market-triggers";
 import { insertCigaretteData } from "./lib/triggers/market-index/cigarette-triggers";
-import drugPriceJson from "../public/data/drugprice.json";
+import drugPriceJson from "./data/drugprice.json";
 import { rateLimiter } from "./lib/middleware/middleware";
-
+import { decodeEconomicIndicators, EconomicRecord } from "./services/functions/economic-indicators/eco-indicator";
+import { cache } from "hono/cache";
 export type Bindings = {
   MY_DB: D1Database;
   FREE_RATE_LIMITER: RateLimit
@@ -14,6 +15,15 @@ export type Bindings = {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
+
+// caching
+app.get("*",
+  cache({
+    cacheName: "priceguides-cache",
+    cacheControl: 'max-age=3600',
+    cacheableStatusCodes: [ 202 ] // for static data json/csv 
+  })
+)
 //apply CORS
 app.use(
   "/*",
@@ -29,6 +39,77 @@ app.use(
 );
 // rate limiter
 app.use("/*", rateLimiter)
+
+
+// fetch format: /economic-indicator?country=PHL&indicator=SL.UEM.ADVN.ZS&year=2020
+app.get("/economic-indicator", async (c) => {  
+  const country = c.req.query("country");
+  const indicator = c.req.query("indicator");
+  const yearParam = c.req.query("year");
+  const year = yearParam ? Number(yearParam) : undefined; // if year is not specified, all year values will be returned
+
+  try {
+    let data: EconomicRecord[] = await decodeEconomicIndicators();
+
+    // Filter by country
+    if (country) {
+      data = data.filter(
+        (d) => d.countryCode.toLowerCase() === country.toLowerCase()
+      );
+    }
+
+    // Filter by indicator code or name
+    if (indicator) {
+      data = data.filter(
+        (d) =>
+          d.indicatorCode.toLowerCase() === indicator.toLowerCase() ||
+          d.indicatorName.toLowerCase().includes(indicator.toLowerCase())
+      );
+    }
+
+    // Filter by year
+    if (year) {
+      data = data.map((d) => ({
+        ...d,
+        data: d.data.filter((y) => y.year === year),
+      }));
+    }
+
+    return c.json({
+      count: data.length,
+      success: true,
+      results: data,
+    }, 202);
+  } catch (err) {
+    console.error(err);
+    return c.text("Failed to fetch economic indicators", 500);
+  }
+});
+
+// list all
+app.get("/economic-indicator/list", async (c) => {
+  try {
+    const data: EconomicRecord[] = await decodeEconomicIndicators();
+
+    // Map to include slug, code, name, metadata, and filtered yearly data
+    const list = data.map((d) => ({
+      slug: d.slug,
+      indicatorCode: d.indicatorCode,
+      indicatorName: d.indicatorName,
+      description: d.note,
+      category: d.category,
+      organization: d.organization,
+      // filter 2000 to current data
+      data: d.data.filter((y) => y.year >= 2000),
+    }));
+
+    return c.json({
+      title: "Economic Indicators", success: true, result: list}, 202);
+  } catch (err) {
+    console.error(err);
+    return c.text("Failed to fetch indicator list", 500);
+  }
+});
 
 app.get("/drugprice", async (c) => {
   // group by first word of the DrugName
@@ -48,101 +129,79 @@ app.get("/drugprice", async (c) => {
     date: "Drug Price Reference Index: 2025 as of October 7, 2025",
     success: true,
     data: mapped,
-   });
+   }, 202);
 });
 
 // GET REQUESTS
 app.get("/market", async (c) => {
   try {
-    const date = new Date();
-    const formattedDate = date
-      .toLocaleString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      })
-      .trim();
-
-    const category = c.req.url.includes("category=")
-      ? new URL(c.req.url).searchParams.get("category")
-      : "market";
-
-    const dateParam = new URL(c.req.url).searchParams.get("date");
-    const selectedDate = dateParam ?? formattedDate;
-
     const db = c.env.MY_DB;
 
-    // Fetch available date options up to the selected date
-    const dateData = await db
-      .prepare(
-        `
-        SELECT date FROM PriceGroup 
-        WHERE category = ? AND date <= ?
-      `
-      )
-      .bind(category, selectedDate)
-      .all();
+    const url = new URL(c.req.url);
+    const category = url.searchParams.get("category")?.toLowerCase() || "market";
+    const dateParam = url.searchParams.get("date");
 
-    const priceGroup = await db
-      .prepare(
+    let priceGroup;
+
+    if (dateParam) {
+      // user specified a date
+      priceGroup = await db
+        .prepare(
+          `
+          SELECT * FROM PriceGroup
+          WHERE category = ? AND date <= ?
+          ORDER BY date DESC
+          LIMIT 1
         `
-        SELECT * 
-        FROM PriceGroup 
-        WHERE category = ? AND date <= ?
-        ORDER BY date DESC 
-        LIMIT 1
-      `
-      )
-      .bind(category?.toLowerCase(), selectedDate)
-      .first();
+        )
+        .bind(category, dateParam)
+        .first();
+    } else {
+      // no date specified, just get latest record
+      priceGroup = await db
+        .prepare(
+          `
+          SELECT * FROM PriceGroup
+          WHERE category = ?
+          ORDER BY date DESC
+          LIMIT 1
+        `
+        )
+        .bind(category)
+        .first();
+    }
 
     if (!priceGroup) {
       return c.json({ message: "No market data found" }, 404);
     }
 
+    const dateData = await db
+      .prepare(`SELECT date FROM PriceGroup WHERE category = ? ORDER BY date DESC`)
+      .bind(category)
+      .all();
+
     const commodities = await db
-      .prepare(
-        `
-        SELECT id, commodity 
-        FROM PriceCommodity 
-        WHERE group_id = ?
-      `
-      )
+      .prepare(`SELECT id, commodity FROM PriceCommodity WHERE group_id = ?`)
       .bind(priceGroup.id)
       .all();
 
     const commoditiesWithItems = await Promise.all(
       commodities.results.map(async (commodity) => {
         const items = await db
-          .prepare(
-            `
-            SELECT specification, price 
-            FROM PriceItem 
-            WHERE commodity_id = ?
-          `
-          )
+          .prepare(`SELECT specification, price FROM PriceItem WHERE commodity_id = ?`)
           .bind(commodity.id)
           .all();
-
-        return {
-          ...commodity,
-          items: items.results,
-        };
+        return { ...commodity, items: items.results };
       })
     );
 
     return c.json(
       {
-        dateData: dateData.results.map(
-          (date) => date.date
-        ),
-        name:
-          priceGroup["category"] === "market"
-            ? "Market Price"
-            : "Cigarette Price",
         success: true,
+        name: category === "market" ? "Market Price" : "Cigarette Price",
         description: `DA Price Monitoring report: latest ${category} prices as of ${priceGroup.date}`,
         date: priceGroup.date,
+        dateData: dateData.results.map((d) => d.date),
         commodities: commoditiesWithItems,
       },
       200,
@@ -155,6 +214,7 @@ app.get("/market", async (c) => {
     return c.json({ error: "Failed to fetch market data" }, 500);
   }
 });
+
 
 
 // KEROSENE, DIESEL, GASOLINE PETROL RELATED DATA

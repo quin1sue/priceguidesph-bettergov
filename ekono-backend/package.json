@@ -9,11 +9,13 @@
   "dependencies": {
     "@cloudflare/workers-types": "^4.20251014.0",
     "cheerio": "^1.1.2",
-    "hono": "^4.10.2",
+    "hono": "^4.10.4",
+    "papaparse": "^5.5.3",
     "pdfjs-serverless": "^1.1.0"
   },
   "devDependencies": {
-    "wrangler": "^4.45.1"
+    "@types/papaparse": "^5.3.16",
+    "wrangler": "^4.45.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

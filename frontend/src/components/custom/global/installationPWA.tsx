@@ -56,11 +56,11 @@ export function InstallPrompt() {
   if (!isIOS && !deferredPrompt) return null; // not installable
 
   return (
-    <main className="pb-safe fixed w-full h-[8em] bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
+    <main className="pb-safe fixed w-full h-[8em] bottom-0 left-0 right-0 shadow-lg border-t border-gray-200 z-50">
       <article className="max-w-md mx-auto px-4 py-4 sm:py-5">
         <section className="flex flex-col items-center space-y-4">
           <header className="flex items-center gap-2">
-            <Smartphone size={20} className="text-blue-600" />
+            <Smartphone size={20} className="text-blue-500" />
             <h3 className="text-lg font-semibold text-gray-800 tracking-tight">Install App</h3>
           </header>
 
@@ -68,7 +68,7 @@ export function InstallPrompt() {
           {deferredPrompt && (
             <button
               onClick={promptInstall}
-              className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 shadow-sm"
+              className="w-full max-w-xs bg-blue-500 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 shadow-sm"
             >
               Add to Home Screen
             </button>

@@ -11,8 +11,8 @@ export type Commodity = {
 export type MainJson = {
   id: string;
   error: string;
-  status: number
-  dateData: string[]
+  status: number;
+  dateData: string[];
   success: boolean;
   name: string;
   description: string;
@@ -26,7 +26,7 @@ export type CurrencyRatesType = {
   terms: string;
   error: string;
   name: string;
-  status: boolean
+  status: boolean;
   description: string;
   privacy: string;
   timestamp: number;
@@ -36,10 +36,10 @@ export type CurrencyRatesType = {
 };
 
 export type DrugPriceType = {
-  name: string  
+  name: string;
   date: string;
-  status: boolean
-  error: string
+  status: boolean;
+  error: string;
   success: boolean;
   description: string;
   title: string;
@@ -54,10 +54,20 @@ export type DrugPriceType = {
     }[]
   >;
 };
-// export type ElectricityPriceData = {
-//   description: string;
-//   date: string;
-//   prices: { specification: string; value: string }[];
-//   production: { specification: string; value: string }[];
-//   error?: string;
-// };
+
+export type EconomicIndicatorsType = {
+  name: string;
+  success: boolean;
+  error: string;
+  description: string;
+  result: {
+    indicatorName: string;
+    description: string
+    slug: string;
+    indicatorCode: string;
+    note: string;
+    category: string;
+    organization: string;
+    data: { year: number; value: number }[];
+  }[];
+};
