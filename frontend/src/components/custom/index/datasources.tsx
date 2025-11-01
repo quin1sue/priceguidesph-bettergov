@@ -3,6 +3,12 @@ import Image from "next/image";
 export default function DataSource() {
   const sources = [
     {
+      name: "World Bank",
+      logo: "/worldbank-logo.svg",
+      link: "https://data.worldbank.org/country/philippines",
+      description: "Official economic data for the Philippines (CC BY 4.0)",
+    },
+    {
       name: "FX Rates",
       logo: "/fxrates-logo.png",
       link: "https://fxratesapi.com/",
@@ -23,10 +29,7 @@ export default function DataSource() {
   ];
 
   return (
-    <section
-    
-      className="z-50 w-full py-12 px-4 sm:px-8 bg-white border-t border-gray-200"
-    >
+    <section className="z-50 w-full py-12 px-4 sm:px-8 border-t border-gray-200">
       <div className="z-50 max-w-5xl mx-auto text-center">
         <h2
           id="data-sources-title"
@@ -45,17 +48,24 @@ export default function DataSource() {
               key={idx}
               className="w-28 sm:w-32 flex flex-col items-center text-center group transition transform hover:scale-105"
             >
-                <a className="text-sm hover:underline font-bold mb-2" href={source.link} target="_blank" rel="noreferrer noopener">{source.name}</a>
+              <a
+                className="text-sm hover:underline font-bold mb-2"
+                href={source.link}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {source.name}
+              </a>
               <div className="w-full h-12 relative mb-2">
                 <Image
-                sizes=""
+                  sizes=""
                   src={source.logo}
                   alt={source.name}
                   fill
                   className="object-contain"
                 />
               </div>
-              <figcaption className="text-xs sm:text-sm text-gray-700 group-hover:text-blue-600 transition">
+              <figcaption className="text-xs sm:text-sm text-gray-700 group-hover:text-blue-500 transition">
                 {source.description}
               </figcaption>
             </figure>

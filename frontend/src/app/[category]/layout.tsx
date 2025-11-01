@@ -2,27 +2,30 @@ import { NavDashboard } from "@/components/custom/dashboard/nav.dashboard";
 import { AppSidebar } from "@/components/custom/dashboard/sidebar";
 import { TableSkeleton } from "@/components/custom/global/skeleton";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { IndicatorProvider } from "@/lib/context/indicator";
 import { Suspense } from "react";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Component({ children }: { children: React.ReactNode }) {
+
   return (
     <>
-      {/* navigation */}
+    <IndicatorProvider>
       <NavDashboard />
-      {/* main contents in the dashboard */}
-      <main className="flex items-center overflow-hidden">
+      <main className="flex items-center overflow-hidden relative">
         <SidebarProvider>
-          <AppSidebar />
-    <SidebarTrigger className="absolute top-13 left-10 md:hidden" />
-          <Suspense fallback={<TableSkeleton />}> 
-            <main className="p-4 space-y-6 overflow-y-auto h-[calc(100vh-7.5em)] w-full">
-              <article className="mb-[?]">
-            {children}
+          <AppSidebar/>
+
+          {/* mobile sidebar trigger */}
+          <SidebarTrigger className="fixed top-14.5 z-50 right-25 md:hidden" />
+          <Suspense fallback={<TableSkeleton />}>
+            <main className="space-y-6 p-4 overflow-y-auto h-[calc(100vh)] w-full">
+              <article className="mt-[7.5em]">
+                {children} 
               </article>
             </main>
           </Suspense>
         </SidebarProvider>
       </main>
-    </>
+   </IndicatorProvider> </>
   );
 }

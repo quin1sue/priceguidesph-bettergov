@@ -3,8 +3,9 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaDiscord, FaBars, FaTimes } from "react-icons/fa";
-import { NavDropdown, NavDropdownComm, NavDropDownService } from "../index/NavigationDropdown";
+import { NavDropdown, NavDropdownComm } from "../index/NavigationDropdown";
 import OfflineNotifier from "./offlineNotify";
+import { Button } from "@/components/ui/button";
 
 interface NavProps {
   pos?: "fixed" | "static" | "relative";
@@ -80,12 +81,13 @@ export function Nav({ pos = "fixed" }: NavProps) {
             className="w-[25px] h-[25px] sm:w-[50px] sm:h-[50px]"
           />
           <Link href="/" className="flex-col items-center space-x-2">
-            <p className="font-bold text-sm md:text-[15px]">PriceGuides by BetterGovPh</p>
+            <p className="font-bold text-sm md:text-[15px]">PriceGuides</p>
           </Link>
         </section>
         <section className="hidden md:flex items-center space-x-4">
+          <Button className="bg-blue-500 hover:bg-blue-500/80"><Link href={"/indicator"}>Dashboard</Link></Button>
           <NavDropdownComm />
-          <NavDropDownService />
+         
           <NavDropdown />
           <Link
             href="https://github.com/quin1sue/priceguidesph-bettergov"
@@ -105,13 +107,16 @@ export function Nav({ pos = "fixed" }: NavProps) {
           </Link>
         </section>
 
-        {/* Mobile Hamburger */}
-        <button
+<section className="md:hidden space-x-4 flex items-center">   
+          <Button className="block md:hidden h-[2.5em] bg-blue-500"><Link href={"/indicator"} >Dashboard</Link></Button>
+  <button
           className="md:hidden text-gray-700 hover:text-gray-900 transition"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-        </button>
+        </button></section>
+        {/* Mobile Hamburger */}
+     
       </main>
 <OfflineNotifier />
       

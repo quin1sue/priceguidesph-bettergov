@@ -38,7 +38,7 @@ const DrugPriceList = ({ initialData }: DrugPriceListProps) => {
   const defaultAccordionValues = filteredDrugs.map((_, idx) => `${idx}`);
   return (
     <>
-      <header className="p-4 bg-white border space-y-2 border-gray-200 rounded-xl shadow-sm">
+      <header className="p-4border space-y-2 border-gray-200 rounded-xl shadow-sm">
         <p className="text-md font-bold text-gray-700">{initialData.date}</p>
         <p className="text-sm max-sm:text-[12px]">All Prices of Medicines reflected are VAT inclusive (except for medicines under VAT exempt list issued by FDA)
 Health facilities may have a price variation up to 5.1% above the DPRI to account for inflation</p>
@@ -98,7 +98,7 @@ Health facilities may have a price variation up to 5.1% above the DPRI to accoun
           <AccordionItem
             key={idx}
             value={`${idx}`}
-            className="border border-gray-200 rounded-xl bg-white shadow-sm"
+            className="border border-gray-200 rounded-xl shadow-sm"
           >
             <AccordionTrigger className="px-4 py-3 text-left font-semibold text-gray-900 hover:text-blue-700 transition">
               {drugName}

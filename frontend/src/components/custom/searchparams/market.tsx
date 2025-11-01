@@ -99,7 +99,7 @@ export default function DaPdfDataTable({ initialData }: MarketType) {
             <button
               onClick={handleSearchDate}
               disabled={loading}
-              className="bg-blue-600 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
+              className="bg-blue-500 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
             >
               {loading ? "Loading..." : "Search"}
             </button>

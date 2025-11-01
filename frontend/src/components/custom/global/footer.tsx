@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link";
 import Image from "next/image";
-import { FaDiscord, FaGithub } from "react-icons/fa";
-
-export const Footer = () => {
+import { FaDiscord } from "react-icons/fa";
+import { Github } from "lucide-react";
+export const Footer = ({ pos } : { pos? : string;}) => {
 
 
   const community: [string, string, React.ComponentType<{ size?: number }>][] =
@@ -12,13 +12,13 @@ export const Footer = () => {
       [
         "Contributions are welcome!",
         "https://github.com/quin1sue/priceguidesph-bettergov",
-        FaGithub,
+        Github,
       ],
     ];
 
   return (
     <footer
-      className={`bg-black text-gray-300 py-12 px-6 border-t pb-safe`}
+      className={`bg-gray-900 ${pos} w-full text-white py-12 px-6 border-t pb-safe`}
     >
       <section className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* About */}
@@ -151,7 +151,7 @@ export const Footer = () => {
       </section>
 
       <section className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()}{" "}
+        &copy; 2025{" "}
         <span className="font-semibold text-white">PriceGuides</span> by{" "}
         <span className="font-semibold text-white">BetterGov.ph</span> — See
         sources for their respective licenses

@@ -53,7 +53,7 @@ export function NavDropdownComm() {
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuTrigger>Community</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4 z-50">
+            <ul className="grid w-[200px] gap-4 z-[100]">
              <li> {socialLinks.map(([name, href, Icon], index) => {
                 return (
                    <NavigationMenuLink asChild key={index}>
@@ -80,7 +80,7 @@ const isMobile = useIsMobile()
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuTrigger>Services</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4 z-50">
+            <ul className="grid w-[200px] gap-4">
              <li> {servicesLink.map(([name, href], index) => {
                 return (
                    <NavigationMenuLink asChild key={index}>
@@ -107,7 +107,7 @@ export function NavDropdown() {
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuTrigger>BetterGov Projects</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4 z-50">
+            <ul className="grid w-[200px] gap-4 z-[100]">
              <li> {bettergovLink.map(([name, href], index) => {
                 return (
                    <NavigationMenuLink asChild key={index}>
