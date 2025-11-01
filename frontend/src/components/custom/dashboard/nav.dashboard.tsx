@@ -196,7 +196,7 @@ export function NavDashboard() {
           </div>
         </div>
 
-        {/* Mobile Search */}
+        {/* mobile Search */}
         <div
           ref={mobileRef}
           className="relative flex-1 max-w-md mx-4 md:mx-0 flex md:hidden items-center mt-2"

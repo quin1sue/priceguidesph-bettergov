@@ -20,6 +20,8 @@
 - [TypeScript](https://www.typescriptlang.org/) – Type-safe code
 - [Vercel](https://vercel.com/) – Hosting and deployment
 - [pdfjs-serverless](https://www.npmjs.com/package/pdfjs-serverless/v/0.5.0) – PDF parsing library
+- [ShadcnUI](https://ui.shadcn.com/) - Reusable Component
+- [Recharts](https://recharts.github.io/) - Chart Components
 
 ## Backend
 
@@ -30,6 +32,12 @@
 
 ---
 
+### Folder
+`.
+.
+├── ./ekono-backend -- backend directory  [Hono.js]
+└── ./frontend      -- frontend directory [Next.js]
+`
 ## Installation
 
 1. **Clone the repository**

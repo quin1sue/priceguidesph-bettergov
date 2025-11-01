@@ -13,7 +13,7 @@ type MetadataRow = {
   SOURCE_ORGANIZATION: string;
 };
 
-// Each yearly data point
+// each yearly data point
 type YearlyData = {
   year: number;
   value: number | null; // null if value is missing
@@ -30,7 +30,7 @@ type IndicatorMeta = {
 export type EconomicRecord = {
   slug: string;              // Unique identifier (same as indicator code)
   country: string;           // Country name
-  countryCode: string;       // Country code (e.g., PHL)
+  countryCode: string;       // Country code PHL
   category: string;         // category filtering
   indicatorCode: string;     // Code for the indicator
   indicatorName: string;     // Human-readable name
@@ -70,9 +70,7 @@ export async function decodeEconomicIndicators(): Promise<EconomicRecord[]> {
     skipEmptyLines: true
   }).data;
 
-  // -----------------------------
-  // Build a map from indicator code → metadata
-  // -----------------------------
+  // Build a map from indicator code for metadata
   const metaMap = new Map<string, IndicatorMeta>();
   for (const m of metadata) {
     if (!m.INDICATOR_CODE) continue; // Skip invalid rows
@@ -83,14 +81,10 @@ export async function decodeEconomicIndicators(): Promise<EconomicRecord[]> {
     });
   }
 
-  // -----------------------------
   // Detect which columns are years
-  // -----------------------------
   const yearColumns = Object.keys(data[0] || {}).filter((k) => /^\d{4}$/.test(k));
 
-  // -----------------------------
   // Transform raw rows to structured EconomicRecord[]
-  // -----------------------------
   const decoded: EconomicRecord[] = data.map((row) => {
     const code = row["Indicator Code"]?.trim();        // Normalize indicator code
     const meta = code ? metaMap.get(code) : undefined; // Lookup metadata
@@ -136,17 +130,13 @@ export async function filterEconomicData({
   const data = await decodeEconomicIndicators();
   let filtered = data;
 
-  // -----------------------------
   // Filter by country code
-  // -----------------------------
   if (country) {
     const normalizedCountry = country.trim().toLowerCase();
     filtered = filtered.filter((d) => d.countryCode.toLowerCase() === normalizedCountry);
   }
 
-  // -----------------------------
   // Filter by indicator code or name
-  // -----------------------------
   if (indicator) {
     const normalizedIndicator = indicator.trim().toLowerCase();
     filtered = filtered.filter(
@@ -156,9 +146,7 @@ export async function filterEconomicData({
     );
   }
 
-  // -----------------------------
-  // Filter by year (reduces yearly data array)
-  // -----------------------------
+  // filter by year
   if (year) {
     filtered = filtered.map((d) => ({
       ...d,
@@ -169,9 +157,6 @@ export async function filterEconomicData({
   return filtered;
 }
 
-// -----------------------------
-// Optional: List unique indicators
-// -----------------------------
 export async function listIndicators(): Promise<{ slug: string; name: string }[]> {
   const data = await decodeEconomicIndicators();
   const map = new Map<string, string>();
