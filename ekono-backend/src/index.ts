@@ -104,7 +104,7 @@ app.get("/economic-indicator/list", async (c) => {
     }));
 
     return c.json({
-      title: "Economic Indicators", success: true, result: list}, 202);
+      title: "BetterGovPh", success: true, result: list}, 202);
   } catch (err) {
     console.error(err);
     return c.text("Failed to fetch indicator list", 500);
