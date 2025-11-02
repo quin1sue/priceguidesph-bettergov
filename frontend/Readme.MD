@@ -33,11 +33,20 @@ pnpm run dev
 
 ### Folders
 
-- [Routes](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/app)
-  - [About](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/app/about)
-  - [Index](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/app)
-  - [Dashboard](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/app/dashboard)
-
-* [Images](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/public)
-* [Components](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/components)
-* [Functions/Types](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/frontend/src/functions)
+```bash
+frontend/
+├── public                   <- images/icons/banners
+└── src                      <- main source directory/
+    ├── app                  <- folder routes 
+    ├── installation (route) <- installation page
+    ├── about (route)        <- about page
+    ├── [category]           <- indicator category page/
+    │   └── [indicator]      <- nested dynamic route for specific indicator detail
+    ├── components           <- reusable ui components/
+    │   ├── custom           <- custom made components
+    │   └── ui               <- shadcnUI components 
+    ├── functions\types      <- type definitions 
+    └── lib/
+        ├── api              <- api functions fetch
+        └── context          <- context providers/hooks
+```

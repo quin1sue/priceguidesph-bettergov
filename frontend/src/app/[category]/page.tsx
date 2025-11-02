@@ -49,9 +49,6 @@ const fetcherMap: Record<string, () => Promise<CategoryData>> = {
 type PageParams = {
   params: Promise<{ category: string }>;
 };
-export async function generateStaticParams() {
-  return Object.keys(componentMap).map((category) => ({ category }));
-}
 
 export const revalidate = 1800; // 30mins
 
@@ -77,7 +74,7 @@ export async function generateMetadata(
 
   return {
     title: metadata.name,
-    description: metadata.description,
+    description: metadata.description ||  "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
     openGraph: {
       images: [...previousImages]
     }

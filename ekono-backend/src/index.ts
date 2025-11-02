@@ -21,7 +21,7 @@ app.get("*",
   cache({
     cacheName: "priceguides-cache",
     cacheControl: 'max-age=3600',
-    cacheableStatusCodes: [ 202 ] // for static data json/csv 
+    cacheableStatusCodes: [ 202, 200 ] // for static data json/csv 
   })
 )
 //apply CORS
@@ -79,7 +79,7 @@ app.get("/economic-indicator", async (c) => {
       count: data.length,
       success: true,
       results: data,
-    }, 202);
+    }, 200);
   } catch (err) {
     console.error(err);
     return c.text("Failed to fetch economic indicators", 500);
@@ -104,7 +104,7 @@ app.get("/economic-indicator/list", async (c) => {
     }));
 
     return c.json({
-      title: "BetterGovPh", success: true, result: list}, 202);
+      title: "BetterGovPh", success: true, result: list}, 200);
   } catch (err) {
     console.error(err);
     return c.text("Failed to fetch indicator list", 500);

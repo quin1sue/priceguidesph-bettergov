@@ -20,6 +20,23 @@ pnpm install
 pnpm run dev
 ```
 
+### Folders
+
+```bash
+ekono-backend/
+├── migrations             <- sql migrations
+├── wrangler.jsonc         <- Cloudflare Workers Configuration
+└── src/
+    ├── data               <- static data
+    ├── lib/
+    │   ├── middleware     <- server middleware
+    │   ├── triggers       <- cron trigger scheduled functions
+    │   └── types          <- type definitions
+    ├── metadata           <- static metadata
+    ├── services\functions <- function controllers
+    └── *index.ts*         <- HTTP request handler entry point
+```
+
 ### Others
 
 [For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types)
@@ -30,9 +47,3 @@ Pass the `CloudflareBindings` as generics when instantiation `Hono`:
 // src/index.ts
 const app = new Hono<{ Bindings: CloudflareBindings }>();
 ```
-
-### Folders
-
-- [Services](https://github.com/quin1sue/priceguidesph-bettergov/tree/main/ekono-backend/src/services/functions)
-- [Index](https://github.com/quin1sue/priceguidesph-bettergov/blob/main/ekono-backend/src/index.ts)
-- [Bindings](https://github.com/quin1sue/priceguidesph-bettergov/blob/main/ekono-backend/wrangler.jsonc)

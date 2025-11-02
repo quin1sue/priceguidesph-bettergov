@@ -33,11 +33,11 @@
 ---
 
 ### Folder
-`.
+```bash
 .
 ├── ./ekono-backend -- backend directory  [Hono.js]
 └── ./frontend      -- frontend directory [Next.js]
-`
+```
 ## Installation
 
 1. **Clone the repository**

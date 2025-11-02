@@ -14,7 +14,7 @@ export async function fetchIndicators() {
      const result = await response.json();
     
     return {
-      name: "Economic Indicators",
+      name: "BetterGovPh",
       success: true,
       ...result,
     };
