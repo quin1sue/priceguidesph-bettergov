@@ -22,7 +22,7 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.get("*",
   cache({
     cacheName: "priceguides-cache",
-    cacheControl: 'max-age=31556952',
+    cacheControl: 'max-age=3600',
     cacheableStatusCodes: [ 202, 200 ] // for static data json/csv 
   })
 )

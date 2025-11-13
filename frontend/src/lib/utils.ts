@@ -6,4 +6,4 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // caching
-export const revalidateCache = { revalidate: 60 }; 
+export const revalidateCache = { revalidate: 3600 }; 
