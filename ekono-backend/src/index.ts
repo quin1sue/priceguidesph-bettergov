@@ -8,6 +8,8 @@ import drugPriceJson from "./data/drugprice.json";
 import { rateLimiter } from "./lib/middleware/middleware";
 import { decodeEconomicIndicators, EconomicRecord } from "./services/functions/economic-indicators/eco-indicator";
 import { cache } from "hono/cache";
+import { PriceGroup } from "./lib/types/market-types";
+import { FuelType, FuelSection, FuelItem } from "./lib/types/petrol-types";
 export type Bindings = {
   MY_DB: D1Database;
   FREE_RATE_LIMITER: RateLimit
@@ -20,7 +22,7 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.get("*",
   cache({
     cacheName: "priceguides-cache",
-    cacheControl: 'max-age=3600',
+    cacheControl: 'max-age=31556952',
     cacheableStatusCodes: [ 202, 200 ] // for static data json/csv 
   })
 )
@@ -28,11 +30,8 @@ app.get("*",
 app.use(
   "/*",
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://price-guides.bettergov.ph",
-    ],
-    allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    origin: '*',
+    allowMethods: ["GET"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
@@ -141,51 +140,40 @@ app.get("/market", async (c) => {
     const category = url.searchParams.get("category")?.toLowerCase() || "market";
     const dateParam = url.searchParams.get("date");
 
-    let priceGroup;
+    const priceGroups = await db
+      .prepare(`SELECT * FROM PriceGroup WHERE category = ?`)
+      .bind(category)
+      .all<PriceGroup>();
 
-    if (dateParam) {
-      // user specified a date
-      priceGroup = await db
-        .prepare(
-          `
-          SELECT * FROM PriceGroup
-          WHERE category = ? AND date <= ?
-          ORDER BY date DESC
-          LIMIT 1
-        `
-        )
-        .bind(category, dateParam)
-        .first();
-    } else {
-      // no date specified, just get latest record
-      priceGroup = await db
-        .prepare(
-          `
-          SELECT * FROM PriceGroup
-          WHERE category = ?
-          ORDER BY date DESC
-          LIMIT 1
-        `
-        )
-        .bind(category)
-        .first();
-    }
-
-    if (!priceGroup) {
+    if (!priceGroups.results.length) {
       return c.json({ message: "No market data found" }, 404);
     }
 
-    const dateData = await db
-      .prepare(`SELECT date FROM PriceGroup WHERE category = ? ORDER BY date DESC`)
-      .bind(category)
-      .all();
+    const sortedGroups = priceGroups.results.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+
+    );
+
+    let priceGroup;
+
+    if (dateParam) {
+      // If user specifies a date, pick the latest record before or on that date
+      const targetDate = new Date(dateParam);
+      priceGroup = sortedGroups.find(g => new Date(g.date) <= targetDate) || sortedGroups[0];
+    } else {
+      // Otherwise just take the latest record
+      priceGroup = sortedGroups[0];
+    }
+
+    // Get all available dates sorted chronologically (latest first)
+    const dateData = sortedGroups.map(g => g.date);
 
     const commodities = await db
       .prepare(`SELECT id, commodity FROM PriceCommodity WHERE group_id = ?`)
       .bind(priceGroup.id)
       .all();
 
-    const commoditiesWithItems = await Promise.all(
+      const commoditiesWithItems = await Promise.all(
       commodities.results.map(async (commodity) => {
         const items = await db
           .prepare(`SELECT specification, price FROM PriceItem WHERE commodity_id = ?`)
@@ -201,19 +189,17 @@ app.get("/market", async (c) => {
         name: category === "market" ? "Market Price" : "Cigarette Price",
         description: `DA Price Monitoring report: latest ${category} prices as of ${priceGroup.date}`,
         date: priceGroup.date,
-        dateData: dateData.results.map((d) => d.date),
+        dateData,
         commodities: commoditiesWithItems,
       },
-      200,
-      {
-        "Cache-Control": "s-maxage=900, stale-while-revalidate=300",
-      }
+      200
     );
   } catch (err) {
     console.error(err);
     return c.json({ error: "Failed to fetch market data" }, 500);
   }
 });
+
 
 
 
@@ -224,25 +210,38 @@ app.get("/fuel-prices", async (c) => {
     const url = new URL(c.req.url);
     const namePetrol = url.searchParams.get("category") || "Kerosene"; // default
 
-    const fuelType = await db
-      .prepare(`SELECT * FROM FuelType WHERE name = ? ORDER BY date DESC`)
+    // Get all fuel type records
+    const fuelTypes = await db
+      .prepare(`SELECT * FROM FuelType WHERE name = ?`)
       .bind(namePetrol)
-      .first();
-    if (!fuelType) return c.json([], 200);
+      .all<FuelType>();
+
+    if (!fuelTypes.results.length) {
+      return c.json([], 200);
+    }
+
+    // Sort by actual date value (newest first)
+    const sortedFuelTypes = fuelTypes.results.sort(
+      (a, b) =>
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+
+    // Pick the most recent one
+    const fuelType = sortedFuelTypes[0];
 
     const sectionsResult = await db
       .prepare(`SELECT id, name FROM FuelSection WHERE fuel_id = ?`)
       .bind(fuelType.id)
-      .all();
+      .all<FuelSection>();
 
     const sections = await Promise.all(
-      sectionsResult.results.map(async (section: any) => {
+      sectionsResult.results.map(async (section) => {
         const itemsResult = await db
           .prepare(
             `SELECT specification, value FROM FuelItem WHERE section_id = ?`
           )
           .bind(section.id)
-          .all();
+          .all<FuelItem>();
 
         return {
           ...section,
@@ -250,22 +249,21 @@ app.get("/fuel-prices", async (c) => {
         };
       })
     );
+
     return c.json(
       {
-        ...fuelType,
         success: true,
+        ...fuelType,
         sections,
       },
-      200,
-      {
-        "Cache-Control": "s-maxage=900, stale-while-revalidate=300",
-      }
+      200
     );
   } catch (error) {
     console.error("An error has occurred: ", error);
     return c.json({ error: "Failed to fetch fuel data" }, 500);
   }
 });
+
 
 // cron trigger scheduling and rate limiting
 export default {

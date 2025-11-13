@@ -16,7 +16,7 @@ export const IndicatorProvider = ({ children }: { children: React.ReactNode }) =
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/economic-indicator/list`,
           {
             method: "GET",
-            next: { revalidate: 5000 },
+            next: { revalidate: 31536000 },
           }
         );
 
