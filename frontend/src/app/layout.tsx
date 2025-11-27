@@ -3,8 +3,8 @@ import { Figtree } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { startupImage } from "@/lib/metadata";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 const figtree = Figtree({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   description:
     "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
   keywords: ["bettergov", "phpriceguides", "priceguides"],
-  icons: { icon: "/icon.png", apple: {url: "/icons/icon-180x180.png"} },
+  icons: { icon: "/icon.png", apple: { url: "/icons/icon-180x180.png" } },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    startupImage: startupImage
+    startupImage: startupImage,
   },
   creator: "Alquin Suedad",
   publisher: "BetterGovPh",
@@ -32,9 +32,7 @@ export const metadata: Metadata = {
       name: "Sam Daniel Mugar",
       url: "https://www.linkedin.com/in/sam-daniel-mugar/",
     },
-    {name: "BetterGovPh",
-      url: "https://github.com/bettergovph"
-    }
+    { name: "BetterGovPh", url: "https://github.com/bettergovph" },
   ],
   metadataBase: new URL("https://price-guides.bettergov.ph"),
   openGraph: {
@@ -63,10 +61,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://price-guides.bettergov.ph",
     languages: {
-      'tl-PH': "/tl-PH",
-      'en-PH': '/en-PH',
-      'en-US': '/en-US'
-    }
+      "tl-PH": "/tl-PH",
+      "en-PH": "/en-PH",
+      "en-US": "/en-US",
+    },
   },
   robots: {
     index: true,
@@ -77,8 +75,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   minimumScale: 1, // how far user can zoom out
   userScalable: false, // disable zooming
-  width: "device-width" 
-}
+  width: "device-width",
+};
 
 export default function RootLayout({
   children,
@@ -109,7 +107,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
-        </body>
+      </body>
     </html>
   );
 }

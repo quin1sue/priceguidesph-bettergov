@@ -17,7 +17,9 @@ export const metadata: Metadata = {
 export default function GlobalNotFound() {
   return (
     <html lang="en">
-      <body  className={`${inter.className} text-gray-600 text-center flex items-center justify-center w-full h-screen`}>
+      <body
+        className={`${inter.className} text-gray-600 text-center flex items-center justify-center w-full h-screen`}
+      >
         <header className="flex-col space-y-3">
           <Image
             src={"/not-found.svg"}
@@ -29,7 +31,7 @@ export default function GlobalNotFound() {
           <h3 className="font-bold">
             Oops... This is not the web page you are looking for.
           </h3>
-          <Link href={"/dashboard"} className="underline ">
+          <Link href={"/"} className="underline ">
             To Dashboard
           </Link>
         </header>
