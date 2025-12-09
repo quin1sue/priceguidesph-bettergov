@@ -48,7 +48,6 @@ app.use("/*", rateLimiter);
 
 // fetch format: /economic-indicator?country=PHL&indicator=SL.UEM.ADVN.ZS&year=2020
 app.get("/economic-indicator", async (c) => {
-  const country = c.req.query("country");
   const indicator = c.req.query("indicator");
   const yearParam = c.req.query("year");
   const year = yearParam ? Number(yearParam) : undefined; // if year is not specified, all year values will be returned

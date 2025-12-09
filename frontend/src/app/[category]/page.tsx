@@ -101,16 +101,18 @@ export async function generateMetadata(
 
 export default async function Page({ params }: PageParams) {
   const { category } = await params;
-  const Component = componentMap[category];
+
+  const loadComponent = componentMap[category];
   const fetcher = fetcherMap[category];
 
-  if (!Component || !fetcher) return <NotFound />;
+  if (!loadComponent || !fetcher) return <NotFound />;
 
   const initialData = await fetcher();
-
-  // if not success, returns a dashboard component with an error message.
-  // It could be.. the server is being rate limited or other server error occurrence
   if (!initialData.success)
     return <DashboardError message={initialData.error} />;
+
+  // Preload + Render
+  const Component = loadComponent;
+
   return <Component initialData={initialData} />;
 }
