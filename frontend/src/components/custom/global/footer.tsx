@@ -1,11 +1,9 @@
-"use client"
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { FaDiscord } from "react-icons/fa";
 import { Github } from "lucide-react";
-export const Footer = ({ pos } : { pos? : string;}) => {
-
-
+export const Footer = ({ pos }: { pos?: string }) => {
   const community: [string, string, React.ComponentType<{ size?: number }>][] =
     [
       ["Discord", "https://discord.gg/RpYZyCupuj", FaDiscord],
@@ -82,7 +80,7 @@ export const Footer = ({ pos } : { pos? : string;}) => {
               ["Diesel Prices", "/diesel"],
               ["Market Prices", "/daily-price-index"],
               ["Cigarette Prices", "/cigarette-index"],
-              ["Drug Prices", "/drug-price-index"]
+              ["Drug Prices", "/drug-price-index"],
             ].map(([name, link], idx) => (
               <li key={idx}>
                 <Link

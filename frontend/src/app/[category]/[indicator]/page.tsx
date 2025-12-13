@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import IndicatorClient from "./indicatorClient";
 import { NotFound } from "@/components/custom/dashboard/category-notfound";
+import { ResultSchema } from "@/functions/zod/economic-indicator";
 
 type Params = {
   params: Promise<{
@@ -16,7 +17,9 @@ async function getIndicatorData(indicator: string) {
   if (!res.ok) return { success: false };
 
   const json = await res.json();
-  return { data: json.results[0], success: true };
+  const parsed = ResultSchema.parse(json);
+  const fetchedData = parsed.results[0] ?? [];
+  return { data: fetchedData, success: fetchedData !== null };
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -35,7 +38,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       data.note || `Explore ${data.indicatorName} data in ${data.country}.`,
     openGraph: {
       title: data.indicatorName,
-      description: data.note,
+      description: data.note as string,
       type: "article",
       url: `${process.env.NEXT_PUBLIC_FE_DOMAIN}/${category}/${indicator}`,
     },

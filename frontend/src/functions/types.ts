@@ -56,13 +56,12 @@ export type DrugPriceType = {
 };
 
 export type EconomicIndicatorsType = {
-  name: string;
+  title: string;
   success: boolean;
   error: string;
-  description: string;
   result: {
     indicatorName: string;
-    description: string
+    description: string;
     slug: string;
     indicatorCode: string;
     note: string;

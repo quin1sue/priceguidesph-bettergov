@@ -1,21 +1,24 @@
-
 export async function fetchIndicators() {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/economic-indicator/list`, {
-        method: "GET",
-    })
-
-        const errorMessage = response.status === 429 ? "Whoa! You’re requesting too fast. Take a short break and try again soon.": "fetching currency rates data failed"
-    if (!response.ok) {
-        return {
-            error: errorMessage,
-            success: false
-        }
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/economic-indicator/list`,
+    {
+      method: "GET",
     }
-     const result = await response.json();
-    
+  );
+
+  const errorMessage =
+    response.status === 429
+      ? "Whoa! You’re requesting too fast. Take a short break and try again soon."
+      : "fetching currency rates data failed";
+  if (!response.ok) {
     return {
-      name: "BetterGovPh",
-      success: true,
-      ...result,
+      error: errorMessage,
+      success: false,
     };
+  }
+  const result = await response.json();
+  return {
+    success: true,
+    ...result,
+  };
 }

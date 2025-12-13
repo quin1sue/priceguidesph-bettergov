@@ -12,7 +12,14 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import { Container, HandCoins, Handshake, LucideIcon, Store } from "lucide-react";
+import { paths } from "@/lib/metadata";
+import {
+  Container,
+  HandCoins,
+  Handshake,
+  LucideIcon,
+  Store,
+} from "lucide-react";
 
 // Menu items.
 const marketLinks = [
@@ -46,7 +53,7 @@ const marketLinks = [
 
 const indicatorLinks: {
   category: string;
-  icon: LucideIcon,
+  icon: LucideIcon;
   data: {
     url: string;
     title: string;
@@ -62,12 +69,12 @@ const indicatorLinks: {
       },
       {
         url: "/indicator/SM.POP.TOTL.ZS",
-        title: "International migrant stock"
+        title: "International migrant stock",
       },
       {
         url: "SH.H2O.BASW.ZS",
-        title: "People using water services"
-      }
+        title: "People using water services",
+      },
     ],
   },
   {
@@ -92,7 +99,7 @@ const indicatorLinks: {
       },
     ],
   },
-    {
+  {
     category: "Environment",
     icon: Container,
     data: [
@@ -107,8 +114,10 @@ const indicatorLinks: {
     ],
   },
 ];
+
 export function AppSidebar() {
   const pathname = usePathname();
+  if (paths.includes(pathname)) return null;
   return (
     <Sidebar className={`no-scrollbar mt-[7em] z-20`}>
       <SidebarContent>
@@ -121,7 +130,10 @@ export function AppSidebar() {
             <SidebarMenu>
               {marketLinks.map((item, index) => (
                 <SidebarMenuItem key={index}>
-                  <SidebarMenuButton asChild className="hover:bg-blue-500 hover:text-white">
+                  <SidebarMenuButton
+                    asChild
+                    className="hover:bg-blue-500 hover:text-white"
+                  >
                     <Link
                       href={item.url}
                       className={`${
@@ -141,20 +153,25 @@ export function AppSidebar() {
           {indicatorLinks.map((label, index) => {
             return (
               <div key={index}>
-                <SidebarGroupLabel>{<label.icon />}&nbsp; {label.category}</SidebarGroupLabel>
+                <SidebarGroupLabel>
+                  {<label.icon />}&nbsp; {label.category}
+                </SidebarGroupLabel>
                 <SidebarGroupContent>
                   <SidebarMenu>
                     {label.data.map((attribute, index) => {
                       return (
                         <SidebarMenuItem key={index}>
-                  <SidebarMenuButton asChild className="hover:bg-blue-500 hover:text-white">
+                          <SidebarMenuButton
+                            asChild
+                            className="hover:bg-blue-500 hover:text-white"
+                          >
                             <Link
                               href={attribute.url}
                               className={`${
-                        pathname === attribute.url
-                          ? "underline decoration-white bg-blue-500 text-white"
-                          : ""
-                      }`}
+                                pathname === attribute.url
+                                  ? "underline decoration-white bg-blue-500 text-white"
+                                  : ""
+                              }`}
                             >
                               {attribute.title}
                             </Link>
@@ -168,7 +185,9 @@ export function AppSidebar() {
               </div>
             );
           })}
-          <p className="font-semibold text-sm ml-2 text-gray-700 mt-2">1500+ more data</p>
+          <p className="font-semibold text-sm ml-2 text-gray-700 mt-2">
+            1500+ more data
+          </p>
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>

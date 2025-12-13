@@ -74,7 +74,7 @@ app.get("/economic-indicator", async (c) => {
 
     return c.json(
       {
-        count: data.length,
+        count: Number(data.length),
         success: true,
         results: data,
       },
@@ -84,7 +84,9 @@ app.get("/economic-indicator", async (c) => {
     console.error(err);
     return c.json(
       {
+        count: 0,
         success: false,
+        results: [],
       },
       500
     );
@@ -96,7 +98,6 @@ app.get("/economic-indicator/list", async (c) => {
   try {
     const data: EconomicRecord[] = await decodeEconomicIndicators();
 
-    // Map to include slug, code, name, metadata, and filtered yearly data
     const list = data.map((d) => ({
       slug: d.slug,
       indicatorCode: d.indicatorCode,
@@ -104,7 +105,6 @@ app.get("/economic-indicator/list", async (c) => {
       description: d.note,
       category: d.category,
       organization: d.organization,
-      // filter 2000 to current data
       data: d.data.filter((y) => y.year >= 2000),
     }));
 

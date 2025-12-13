@@ -1,6 +1,5 @@
 "use client";
 
-import { NotFound } from "@/components/custom/dashboard/category-notfound";
 import {
   ResponsiveContainer,
   ComposedChart,

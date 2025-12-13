@@ -5,6 +5,12 @@ import "./globals.css";
 import { startupImage } from "@/lib/metadata";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { IndicatorProvider } from "@/lib/context/indicator";
+import { NavDashboard } from "@/components/custom/dashboard/nav.dashboard";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/custom/dashboard/sidebar";
+import { TableSkeleton } from "@/components/custom/global/skeleton";
+import { Suspense } from "react";
 const figtree = Figtree({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -104,7 +110,22 @@ export default function RootLayout({
       />
 
       <body className={`${figtree.className} antialiased`}>
-        {children}
+        <IndicatorProvider>
+          <NavDashboard />
+          <main className="flex items-center overflow-hidden relative">
+            <SidebarProvider>
+              <AppSidebar />
+
+              {/* mobile sidebar trigger */}
+              <SidebarTrigger className="fixed top-13.5 z-50 right-22 md:hidden" />
+              <Suspense fallback={<TableSkeleton />}>
+                <main className="space-y-6 overflow-y-auto h-[calc(100vh)] w-full">
+                  <article className="mt-[7.5em]">{children}</article>
+                </main>
+              </Suspense>
+            </SidebarProvider>
+          </main>
+        </IndicatorProvider>{" "}
         <Analytics />
         <SpeedInsights />
       </body>

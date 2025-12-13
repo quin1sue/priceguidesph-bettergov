@@ -6,23 +6,26 @@ import { FaGithub, FaDiscord } from "react-icons/fa";
 import { NavDropdown, NavDropdownComm } from "../index/NavigationDropdown";
 import OfflineNotifier from "../global/offlineNotify";
 import { useIndicators } from "@/lib/context/indicator";
-import { EconomicIndicatorsType } from "@/functions/types";
 import { useState, useMemo, useRef, useEffect } from "react";
 import { Search } from "lucide-react";
-
+import { usePathname } from "next/navigation";
+import { paths } from "@/lib/metadata";
 export function NavDashboard() {
-  const indicator: EconomicIndicatorsType = useIndicators();
-
+  const indicator = useIndicators();
+  const pathname = usePathname();
   const [search, setSearch] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [highlighted, setHighlighted] = useState<number>(0);
 
- //refs for desktop and mobile
+  //refs for desktop and mobile
   const desktopRef = useRef<HTMLDivElement>(null);
   const mobileRef = useRef<HTMLDivElement>(null);
 
   // Flatten all indicators for search
-  const allIndicators = useMemo(() => indicator.result || [], [indicator]);
+  const allIndicators = useMemo(
+    () => indicator.data?.result || [],
+    [indicator]
+  );
 
   // Filtered suggestions
   const suggestions = useMemo(() => {
@@ -33,23 +36,6 @@ export function NavDashboard() {
       )
       .slice(0, 10);
   }, [search, allIndicators]);
-
-  // Keyboard navigation
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!showSuggestions) return;
-    if (e.key === "ArrowDown") {
-      setHighlighted((prev) => Math.min(prev + 1, suggestions.length - 1));
-    } else if (e.key === "ArrowUp") {
-      setHighlighted((prev) => Math.max(prev - 0, 0));
-    } else if (e.key === "Enter") {
-      e.preventDefault();
-      const slug = suggestions[highlighted]?.slug;
-      if (slug) {
-        setShowSuggestions(false);
-        setSearch("");
-      }
-    }
-  };
 
   // click outside to close dropdown
   useEffect(() => {
@@ -106,7 +92,7 @@ export function NavDashboard() {
       })}
     </ul>
   );
-
+  if (paths.includes(pathname)) return null;
   return (
     <>
       <header className="fixed w-full top-0 left-0 z-50 shadow-md bg-white/80 backdrop-blur-md">
@@ -166,7 +152,6 @@ export function NavDashboard() {
                 setShowSuggestions(true);
                 setHighlighted(0);
               }}
-              onKeyDown={handleKeyDown}
               onFocus={() => setShowSuggestions(true)}
               placeholder="Search data e.g GDP, employment rate..."
               className="w-full border border-gray-300 rounded-md h-10 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -209,7 +194,6 @@ export function NavDashboard() {
               setShowSuggestions(true);
               setHighlighted(0);
             }}
-            onKeyDown={handleKeyDown}
             onFocus={() => setShowSuggestions(true)}
             placeholder="Search data e.g GDP, employment rate..."
             className="w-full border border-gray-300 rounded-md h-10 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"

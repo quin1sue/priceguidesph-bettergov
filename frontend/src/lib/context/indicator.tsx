@@ -1,63 +1,70 @@
-"use client"
-import { createContext, useContext, useEffect, useState } from "react"
-import { EconomicIndicatorsType } from "@/functions/types"
+"use client";
+
+import { createContext, useContext, useEffect, useState } from "react";
+import { EconomicIndicatorsSchema } from "@/functions/zod/economic-indicator";
+import type { EconomicIndicatorsType } from "@/functions/zod/economic-indicator";
 import FullPageLoader from "@/components/custom/global/FullPageLoader";
 
-const IndicatorContext = createContext<EconomicIndicatorsType | undefined>(undefined);
+type IndicatorContextValue = {
+  data: EconomicIndicatorsType | null;
+  isLoading: boolean;
+  error: string | null;
+};
 
-export const IndicatorProvider = ({ children }: { children: React.ReactNode }) => {
-  const [data, setData] = useState<EconomicIndicatorsType | undefined>(undefined);
-  const [isLoading, setLoading] = useState<boolean>(true);
+const IndicatorContext = createContext<IndicatorContextValue | undefined>(
+  undefined
+);
+
+export const IndicatorProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [data, setData] = useState<EconomicIndicatorsType | null>(null);
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchIndicator = async () => {
+    const fetchIndicators = async () => {
       try {
-        const response = await fetch(
+        const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/economic-indicator/list`,
           {
-            method: "GET",
-            next: { revalidate: 31536000 },
+            cache: "no-store",
           }
         );
+        if (!res.ok) throw new Error("Server Error");
 
-        if (!response.ok) {
-          setData({
-            success: false,
-            error: "Server Error Occured",
-          } as EconomicIndicatorsType);
-          return;
-        }
-
-        const result = await response.json();
-        setData(result);
+        const json = await res.json();
+        const parsed = EconomicIndicatorsSchema.parse(json);
+        setData({ ...parsed, error: "" });
       } catch (err: unknown) {
-        console.error("Server Error Occured:", err);
+        console.error("Indicator fetch failed:", err);
+        setError("Server Error");
         setData({
+          title: "BetterGovPh",
           success: false,
-          error: "Server Error Occured",
-        } as EconomicIndicatorsType);
+          result: [],
+          error: "Server Error Occurred",
+        });
       } finally {
         setLoading(false);
       }
     };
-    fetchIndicator();
+
+    fetchIndicators();
   }, []);
 
   return (
-    <IndicatorContext.Provider value={data}>
-      {/* Always render provider; children only when data is ready */}
-      {isLoading || !data ? <FullPageLoader /> : children}
+    <IndicatorContext.Provider value={{ data, isLoading, error }}>
+      {isLoading ? <FullPageLoader /> : children}
     </IndicatorContext.Provider>
   );
 };
 
-
-
 export const useIndicators = () => {
-    const context = useContext(IndicatorContext);
-    if (context === undefined) {
-        throw new Error("useIndicator must be used within IndicatorProvider");
-    }
-
-    return context
-}
+  const context = useContext(IndicatorContext);
+  if (!context)
+    throw new Error("useIndicators must be used within IndicatorProvider");
+  return context;
+};
