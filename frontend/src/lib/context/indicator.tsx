@@ -30,7 +30,7 @@ export const IndicatorProvider = ({
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/economic-indicator/list`,
           {
-            cache: "no-store",
+            next: { revalidate: 3600 },
           }
         );
         if (!res.ok) throw new Error("Server Error");
