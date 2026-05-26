@@ -12,8 +12,8 @@ export async function insertMarketData(db: D1Database) {
   const element = $("#tablepress-112 .row-striping tr td a");
   const latestElement = element.first();
   const pdfDate = latestElement.text().trim();
-  const latestHref = latestElement.attr("href") as string;
-
+  const latestHref =
+    "https://www.da.gov.ph/wp-content/uploads/2026/05/May-24-2026-DPI-AFC.pdf";
   //checks duplicates
   const existing = await db
     .prepare(`SELECT id FROM PriceGroup WHERE date = ? AND category = ?`)
@@ -39,7 +39,7 @@ export async function insertMarketData(db: D1Database) {
     const commodityId = crypto.randomUUID();
     await db
       .prepare(
-        `INSERT INTO PriceCommodity (id, group_id, commodity) VALUES (?, ?, ?)`
+        `INSERT INTO PriceCommodity (id, group_id, commodity) VALUES (?, ?, ?)`,
       )
       .bind(commodityId, groupId, commodity.commodity)
       .run();
@@ -47,7 +47,7 @@ export async function insertMarketData(db: D1Database) {
     for (const item of commodity.items) {
       await db
         .prepare(
-          `INSERT INTO PriceItem (id, commodity_id, specification, price) VALUES (?, ?, ?, ?)`
+          `INSERT INTO PriceItem (id, commodity_id, specification, price) VALUES (?, ?, ?, ?)`,
         )
         .bind(crypto.randomUUID(), commodityId, item.specification, item.price)
         .run();

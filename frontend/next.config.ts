@@ -3,6 +3,7 @@ const nextConfig: NextConfig = {
   experimental: {
     globalNotFound: true,
   },
+  // reactCompiler: true,
   async rewrites() {
     return [
       {

@@ -12,7 +12,7 @@ type IndicatorContextValue = {
 };
 
 const IndicatorContext = createContext<IndicatorContextValue | undefined>(
-  undefined
+  undefined,
 );
 
 export const IndicatorProvider = ({
@@ -31,9 +31,13 @@ export const IndicatorProvider = ({
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/economic-indicator/list`,
           {
             next: { revalidate: 3600 },
-          }
+          },
         );
-        if (!res.ok) throw new Error("Server Error");
+        if (!res.ok) {
+          console.log("Status:", res.status);
+          console.log("Status Text:", res.statusText);
+          throw new Error("Server Error");
+        }
 
         const json = await res.json();
         const parsed = EconomicIndicatorsSchema.parse(json);

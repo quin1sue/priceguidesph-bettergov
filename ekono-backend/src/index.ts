@@ -31,7 +31,7 @@ app.get(
     cacheName: "priceguides-cache",
     cacheControl: "max-age=3600",
     cacheableStatusCodes: [202, 200], // for static data json/csv
-  })
+  }),
 );
 //apply CORS
 app.use(
@@ -41,7 +41,7 @@ app.use(
     allowMethods: ["GET"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
-  })
+  }),
 );
 // rate limiter
 app.use("/*", rateLimiter);
@@ -60,7 +60,7 @@ app.get("/economic-indicator", async (c) => {
       data = data.filter(
         (d) =>
           d.indicatorCode.toLowerCase() === indicator.toLowerCase() ||
-          d.indicatorName.toLowerCase().includes(indicator.toLowerCase())
+          d.indicatorName.toLowerCase().includes(indicator.toLowerCase()),
       );
     }
 
@@ -78,7 +78,7 @@ app.get("/economic-indicator", async (c) => {
         success: true,
         results: data,
       },
-      200
+      200,
     );
   } catch (err) {
     console.error(err);
@@ -88,7 +88,7 @@ app.get("/economic-indicator", async (c) => {
         success: false,
         results: [],
       },
-      500
+      500,
     );
   }
 });
@@ -114,7 +114,7 @@ app.get("/economic-indicator/list", async (c) => {
         success: true,
         result: list,
       },
-      200
+      200,
     );
   } catch (err) {
     console.error(err);
@@ -132,7 +132,7 @@ app.get("/drugprice", async (c) => {
       acc[key].push(drug);
       return acc;
     },
-    {}
+    {},
   );
 
   return c.json(
@@ -143,7 +143,7 @@ app.get("/drugprice", async (c) => {
       success: true,
       data: mapped,
     },
-    202
+    202,
   );
 });
 
@@ -167,7 +167,7 @@ app.get("/market", async (c) => {
     }
 
     const sortedGroups = priceGroups.results.sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
 
     let priceGroup;
@@ -195,12 +195,12 @@ app.get("/market", async (c) => {
       commodities.results.map(async (commodity) => {
         const items = await db
           .prepare(
-            `SELECT specification, price FROM PriceItem WHERE commodity_id = ?`
+            `SELECT specification, price FROM PriceItem WHERE commodity_id = ?`,
           )
           .bind(commodity.id)
           .all();
         return { ...commodity, items: items.results };
-      })
+      }),
     );
 
     return c.json(
@@ -212,7 +212,7 @@ app.get("/market", async (c) => {
         dateData,
         commodities: commoditiesWithItems,
       },
-      200
+      200,
     );
   } catch (err) {
     console.error(err);
@@ -239,7 +239,7 @@ app.get("/fuel-prices", async (c) => {
 
     // Sort by actual date value (newest first)
     const sortedFuelTypes = fuelTypes.results.sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
 
     // Pick the most recent one
@@ -254,7 +254,7 @@ app.get("/fuel-prices", async (c) => {
       sectionsResult.results.map(async (section) => {
         const itemsResult = await db
           .prepare(
-            `SELECT specification, value FROM FuelItem WHERE section_id = ?`
+            `SELECT specification, value FROM FuelItem WHERE section_id = ?`,
           )
           .bind(section.id)
           .all<FuelItem>();
@@ -263,7 +263,7 @@ app.get("/fuel-prices", async (c) => {
           ...section,
           items: itemsResult.results,
         };
-      })
+      }),
     );
 
     return c.json(
@@ -272,7 +272,7 @@ app.get("/fuel-prices", async (c) => {
         ...fuelType,
         sections,
       },
-      200
+      200,
     );
   } catch (error) {
     console.error("An error has occurred: ", error);
@@ -283,51 +283,45 @@ app.get("/fuel-prices", async (c) => {
 // cron trigger scheduling and rate limiting
 export default {
   fetch: app.fetch,
+
   async scheduled(
     controller: ScheduledController,
     env: Bindings,
-    ctx: ExecutionContext
+    ctx: ExecutionContext,
   ) {
-    switch (controller.cron) {
-      case "0 0 * * 2-6": // runs in weekdays 12am
-        ctx.waitUntil(
-          (async () => {
-            try {
-              await insertAllFuels(env.MY_DB);
-              console.log("fuel data inserted successfully");
-            } catch (err) {
-              console.error("fuel cron failed:", err);
-            }
-          })()
-        );
+    const cron = controller.cron.trim();
+
+    console.log("Cron triggered:", cron);
+
+    const runJob = async <T>(name: string, job: () => Promise<T>) => {
+      try {
+        const result = await job();
+        console.log(`[${name}] success`, result);
+      } catch (err) {
+        console.error(`[${name}] failed`, err);
+      }
+    };
+
+    switch (cron) {
+      case "0 0 * * 2-6":
+        ctx.waitUntil(runJob("Fuel Cron", () => insertAllFuels(env.MY_DB)));
+
         break;
-      case "0 6-8 * * *": // runs 2pm - 5pm in GMT time
-        ctx.waitUntil(
-          (async () => {
-            try {
-              await insertMarketData(env.MY_DB);
-              console.log("market data inserted successfully");
-            } catch (err) {
-              console.error("market cron failed:", err);
-            }
-          })()
-        );
+
+      case "0 6-8 * * *":
+        ctx.waitUntil(runJob("Market Cron", () => insertMarketData(env.MY_DB)));
+
         break;
-      case "30 7-9 * * *": // runs for every 1hr and 30mins GMT time 2:30pm to 3:
+
+      case "30 7-9 * * *":
         ctx.waitUntil(
-          (async () => {
-            try {
-              await insertCigaretteData(env.MY_DB);
-              console.log("cigarettes data inserted successfully");
-            } catch (err) {
-              console.error("cigarettes cron failed:", err);
-            }
-          })()
+          runJob("Cigarette Cron", () => insertCigaretteData(env.MY_DB)),
         );
+
         break;
 
       default:
-        console.log("no matching cron for: ", controller.cron);
+        console.warn("Unknown cron:", cron);
     }
   },
 };
