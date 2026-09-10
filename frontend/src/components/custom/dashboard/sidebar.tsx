@@ -49,6 +49,12 @@ const marketLinks = [
     url: "/diesel",
   },
   { title: "Kerosene Prices", url: "/kerosene" },
+  {
+    title: "Basic Necessities", url: "/bn-prices"
+  },
+  {
+    title: "Construction Materials", url: "/construction-prices"
+  }
 ];
 
 const indicatorLinks: {
@@ -59,61 +65,61 @@ const indicatorLinks: {
     title: string;
   }[];
 }[] = [
-  {
-    category: "Social",
-    icon: Handshake,
-    data: [
-      {
-        url: "/indicator/SP.DYN.LE00.IN",
-        title: "Life expectancy at birth",
-      },
-      {
-        url: "/indicator/SM.POP.TOTL.ZS",
-        title: "International migrant stock",
-      },
-      {
-        url: "SH.H2O.BASW.ZS",
-        title: "People using water services",
-      },
-    ],
-  },
-  {
-    category: "Economic",
-    icon: HandCoins,
-    data: [
-      {
-        url: "/indicator/NY.GDP.PCAP.KD.ZG",
-        title: "GDP per capita growth",
-      },
-      {
-        url: "/indicator/BX.TRF.PWKR.CD.DT",
-        title: "Personal remittances",
-      },
-      {
-        url: "/indicator/NY.GDP.MINR.RT.ZS",
-        title: "Mineral rents % of GDP",
-      },
-      {
-        url: "/indicator/NY.GDP.COAL.RT.ZS",
-        title: "Coal rents % of GDP",
-      },
-    ],
-  },
-  {
-    category: "Environment",
-    icon: Container,
-    data: [
-      {
-        url: "/indicator/AG.LND.FRST.ZS",
-        title: "Forest area (% of land area)",
-      },
-      {
-        url: "/indicator/EN.GHG.CH4.WA.MT.CE.AR5",
-        title: "Methane emissions from Waste",
-      },
-    ],
-  },
-];
+    {
+      category: "Social",
+      icon: Handshake,
+      data: [
+        {
+          url: "/indicator/SP.DYN.LE00.IN",
+          title: "Life expectancy at birth",
+        },
+        {
+          url: "/indicator/SM.POP.TOTL.ZS",
+          title: "International migrant stock",
+        },
+        {
+          url: "SH.H2O.BASW.ZS",
+          title: "People using water services",
+        },
+      ],
+    },
+    {
+      category: "Economic",
+      icon: HandCoins,
+      data: [
+        {
+          url: "/indicator/NY.GDP.PCAP.KD.ZG",
+          title: "GDP per capita growth",
+        },
+        {
+          url: "/indicator/BX.TRF.PWKR.CD.DT",
+          title: "Personal remittances",
+        },
+        {
+          url: "/indicator/NY.GDP.MINR.RT.ZS",
+          title: "Mineral rents % of GDP",
+        },
+        {
+          url: "/indicator/NY.GDP.COAL.RT.ZS",
+          title: "Coal rents % of GDP",
+        },
+      ],
+    },
+    {
+      category: "Environment",
+      icon: Container,
+      data: [
+        {
+          url: "/indicator/AG.LND.FRST.ZS",
+          title: "Forest area (% of land area)",
+        },
+        {
+          url: "/indicator/EN.GHG.CH4.WA.MT.CE.AR5",
+          title: "Methane emissions from Waste",
+        },
+      ],
+    },
+  ];
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -136,11 +142,10 @@ export function AppSidebar() {
                   >
                     <Link
                       href={item.url}
-                      className={`${
-                        pathname === item.url
+                      className={`${pathname === item.url
                           ? "underline decoration-white bg-blue-500 text-white"
                           : ""
-                      }`}
+                        }`}
                     >
                       {item.title}
                     </Link>
@@ -167,11 +172,10 @@ export function AppSidebar() {
                           >
                             <Link
                               href={attribute.url}
-                              className={`${
-                                pathname === attribute.url
+                              className={`${pathname === attribute.url
                                   ? "underline decoration-white bg-blue-500 text-white"
                                   : ""
-                              }`}
+                                }`}
                             >
                               {attribute.title}
                             </Link>

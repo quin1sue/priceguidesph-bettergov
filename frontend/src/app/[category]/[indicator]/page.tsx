@@ -18,7 +18,7 @@ async function getIndicatorData(indicator: string) {
 
   const json = await res.json();
   const parsed = ResultSchema.parse(json);
-  const fetchedData = parsed.results[0] ?? [];
+  const fetchedData = parsed.results[0] ?? null;
   return { data: fetchedData, success: fetchedData !== null };
 }
 

@@ -8,8 +8,12 @@ import {
 } from "@/lib/api/petrol-get";
 import { fetchCigarette } from "@/lib/api/cigarette-get";
 import { fetchMarket, fetchDrugPrice } from "@/lib/api/market-get";
+import { fetchBnPrices } from "@/lib/api/bn-get";
+import { fetchConstructionPrices } from "@/lib/api/construction-get";
 import { FuelTypePrice } from "@/functions/diesel";
 import { MainJson, CurrencyRatesType, DrugPriceType } from "@/functions/types";
+import { BnPriceType } from "@/functions/bn-types";
+import { ConstructionPriceType } from "@/functions/construction-types";
 import { NotFound } from "@/components/custom/dashboard/category-notfound";
 import { fetchExchangeRates } from "@/lib/api/exchangerates";
 import { ComponentType } from "react";
@@ -18,7 +22,9 @@ type CategoryData =
   | MainJson
   | FuelTypePrice
   | CurrencyRatesType
-  | DrugPriceType;
+  | DrugPriceType
+  | BnPriceType
+  | ConstructionPriceType;
 
 // dynamic component type that accepts initialData prop
 type CategoryComponent = ComponentType<{ initialData: CategoryData }>;
@@ -36,6 +42,12 @@ const DieselDashboard = dynamic(
 const ExchangeRate = dynamic(
   () => import("@/components/custom/searchparams/exchangeRate"),
 );
+const BnPrices = dynamic(
+  () => import("@/components/custom/searchparams/bn-prices"),
+);
+const ConstructionPrices = dynamic(
+  () => import("@/components/custom/searchparams/construction-prices"),
+);
 
 const componentMap: Record<string, CategoryComponent> = {
   "drug-price-index": DrugPriceList as CategoryComponent,
@@ -46,6 +58,8 @@ const componentMap: Record<string, CategoryComponent> = {
   gasoline: DieselDashboard as CategoryComponent,
   lpg: DieselDashboard as CategoryComponent,
   "currency-exchange": ExchangeRate as CategoryComponent,
+  "bn-prices": BnPrices as CategoryComponent,
+  "construction-prices": ConstructionPrices as CategoryComponent,
 };
 
 const fetcherMap: Record<string, (date?: string) => Promise<CategoryData>> = {
@@ -57,6 +71,8 @@ const fetcherMap: Record<string, (date?: string) => Promise<CategoryData>> = {
   gasoline: fetchGasoline,
   "daily-price-index": fetchMarket,
   "currency-exchange": fetchExchangeRates,
+  "bn-prices": fetchBnPrices,
+  "construction-prices": fetchConstructionPrices,
 };
 
 type PageParams = {
@@ -65,48 +81,58 @@ type PageParams = {
 };
 
 const categoryMetadata: Record<string, { title: string; description: string }> =
-  {
-    "daily-price-index": {
-      title: "Philippine market prices",
-      description:
-        "Browse Department of Agriculture prevailing market prices in the Philippines by report date and commodity.",
-    },
-    "cigarette-index": {
-      title: "Philippines cigarette prices",
-      description:
-        "Browse Department of Agriculture cigarette price-monitoring data for selected NCR retail establishments.",
-    },
-    "drug-price-index": {
-      title: "Philippine medicine prices",
-      description:
-        "Search Department of Health Drug Price Reference Index values for medicines in the Philippines.",
-    },
-    gasoline: {
-      title: "Philippines gasoline prices",
-      description:
-        "View the latest available gasoline price information for the Philippines.",
-    },
-    diesel: {
-      title: "Philippines diesel prices",
-      description:
-        "View the latest available diesel price information for the Philippines.",
-    },
-    kerosene: {
-      title: "Philippines kerosene prices",
-      description:
-        "View the latest available kerosene price information for the Philippines.",
-    },
-    lpg: {
-      title: "Philippines LPG prices",
-      description:
-        "View the latest available LPG price information for the Philippines.",
-    },
-    "currency-exchange": {
-      title: "PHP exchange rates",
-      description:
-        "Browse current exchange rates against the Philippine peso and convert currencies to PHP.",
-    },
-  };
+{
+  "daily-price-index": {
+    title: "Philippine market prices",
+    description:
+      "Browse Department of Agriculture prevailing market prices in the Philippines by report date and commodity.",
+  },
+  "cigarette-index": {
+    title: "Philippines cigarette prices",
+    description:
+      "Browse Department of Agriculture cigarette price-monitoring data for selected NCR retail establishments.",
+  },
+  "drug-price-index": {
+    title: "Philippine medicine prices",
+    description:
+      "Search Department of Health Drug Price Reference Index values for medicines in the Philippines.",
+  },
+  gasoline: {
+    title: "Philippines gasoline prices",
+    description:
+      "View the latest available gasoline price information for the Philippines.",
+  },
+  diesel: {
+    title: "Philippines diesel prices",
+    description:
+      "View the latest available diesel price information for the Philippines.",
+  },
+  kerosene: {
+    title: "Philippines kerosene prices",
+    description:
+      "View the latest available kerosene price information for the Philippines.",
+  },
+  lpg: {
+    title: "Philippines LPG prices",
+    description:
+      "View the latest available LPG price information for the Philippines.",
+  },
+  "currency-exchange": {
+    title: "PHP exchange rates",
+    description:
+      "Browse current exchange rates against the Philippine peso and convert currencies to PHP.",
+  },
+  "bn-prices": {
+    title: "Philippines Basic Necessities Price Guide",
+    description:
+      "Browse Department of Trade and Industry monitored prevailing prices for Basic Necessities (BN) in the National Capital Region.",
+  },
+  "construction-prices": {
+    title: "Philippines Construction Materials Price Guide",
+    description:
+      "Browse Department of Trade and Industry monitored prevailing prices for Construction Materials in the National Capital Region.",
+  },
+};
 
 export async function generateMetadata({
   params,

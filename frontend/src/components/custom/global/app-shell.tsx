@@ -17,7 +17,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {!isStandalonePage ? (
         <SidebarTrigger
           aria-label="Toggle navigation menu"
-          className="fixed right-4 top-28 z-50 md:hidden"
+          className="fixed right-4 top-14 z-50 md:hidden"
         />
       ) : null}
       <main

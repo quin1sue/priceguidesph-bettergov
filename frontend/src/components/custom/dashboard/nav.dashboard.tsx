@@ -61,7 +61,7 @@ export function NavDashboard() {
           <IndicatorSearch />
 
           {/* Right icons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 max-md:hidden">
             <NavDropdownComm />
             <NavDropdown />
             <Link
