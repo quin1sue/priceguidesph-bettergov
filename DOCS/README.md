@@ -10,7 +10,6 @@
 - Parses PDF documents to extract structured data
 - Provides data via API endpoints for easy access
 - Focus on transparency and public awareness
-
 ---
 
 ## Frontend:

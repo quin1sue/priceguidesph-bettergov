@@ -13,7 +13,7 @@ export default function InstallPage() {
     return (
         <>
         <Nav />
-      <main className="flex flex-col items-center justify-center min-h-[70vh] text-center px-6 bg-gray-50">
+      <main className="flex min-h-[70vh] flex-col items-center justify-center bg-gray-50 px-6 pt-28 text-center">
         <Smartphone size={48} className="text-blue-500 mb-4" />
         <h1 className="text-2xl font-bold">App Already Installed &#10003;</h1>
         <p className="mt-4 text-gray-600">
@@ -28,7 +28,7 @@ export default function InstallPage() {
   return (
     <>
     <Nav />
-    <main className="flex flex-col items-center justify-center min-h-[70vh] mt-[2em] text-center px-6 bg-gray-50">
+    <main className="flex min-h-[70vh] flex-col items-center justify-center bg-gray-50 px-6 pt-28 text-center">
       <Smartphone size={48} className="text-blue-500 mb-4" />
       <h1 className="text-2xl font-bold mb-2">Install PriceGuides App</h1>
       <p className="text-gray-600 mb-6 max-w-md">

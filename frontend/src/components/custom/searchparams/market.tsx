@@ -1,177 +1,104 @@
 "use client";
+
 import { useState } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { MainJson } from "@/functions/types";
-import { DashboardError } from "../dashboard/error-occured";
+import { DataDetails, PageHeader } from "../shared/page-header";
+import { EmptyState, ErrorState, InlineLoading } from "../shared/data-state";
 
-type MarketType = {
-  initialData: MainJson;
-};
+type MarketType = { initialData: MainJson };
 
-export default function DaPdfDataTable({ initialData }: MarketType) {
+export default function MarketPriceTable({ initialData }: MarketType) {
   const [data, setData] = useState<MainJson | null>(initialData);
-  const [selectedCommodity, setSelectedCommodity] = useState<string>("All");
-  const [selectDate, setSelectDate] = useState<string>(initialData.date);
+  const [selectedCommodity, setSelectedCommodity] = useState("All");
+  const [selectedDate, setSelectedDate] = useState(initialData.date);
   const [loading, setLoading] = useState(false);
 
-  if (!data?.success) return <DashboardError message={initialData.error} />;
+  if (!data?.success) return <ErrorState message={data?.error || "Market prices could not be loaded."} />;
 
-  // get numbered array for accordion open default
-  const numberedArray = Array.from(
-    { length: data.commodities.length ?? 0 },
-    (_, i) => String(i)
-  );
+  const commodities = data.commodities ?? [];
+  const filteredCommodities = selectedCommodity === "All"
+    ? commodities
+    : commodities.filter((commodity) => commodity.commodity === selectedCommodity);
 
-  const commodityOptions = ["All", ...data.commodities.map((c) => c.commodity)];
-
-  const filteredCommodities =
-    selectedCommodity === "All"
-      ? data.commodities
-      : data.commodities.filter((c) => c.commodity === selectedCommodity);
-
-  async function handleSearchDate() {
+  async function loadDate() {
     try {
       setLoading(true);
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=market&date=${selectDate}`,
-        { cache: "no-store" }
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=market&date=${encodeURIComponent(selectedDate)}`,
+        { cache: "no-store" },
       );
-      const json = await res.json();
-      if (!res.ok || !json.success) throw new Error(json.error);
-      setData(json);
-    } catch (err) {
-      console.error(err);
-      setData({
-        success: false,
-        error: "Failed to fetch market data. Please try again later.",
-      } as MainJson);
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error(result.error);
+      setData(result);
+    } catch {
+      setData({ success: false, error: "Market prices could not be refreshed. Please try again later." } as MainJson);
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <>
-      <header className={"shadow-sm border border-gray-200 p-4 rounded-xl"}>
-        <p className="text-sm text-gray-700">
-          Latest DA Price Monitoring Report:
-          <span className="font-semibold text-gray-900"> {loading ? "Loading" : data?.date}</span>
-        </p>
-        <p className="mt-2 text-sm text-gray-700">
-          Prevailing price is defined as the average price at which any basic
-          necessity has been sold in a given area. This is computed as the
-          average price using arithmetic mean formula.
-        </p>
-        <p className="mt-2 text-sm text-gray-700">
-          Source:
-          <a
-            className="font-semibold underline text-blue-700 ml-1"
-            href="https://www.da.gov.ph/price-monitoring/"
-            target="_blank"
-          >
-            Department of Agriculture
-          </a>
-        </p>
+    <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
+      <PageHeader
+        eyebrow="Department of Agriculture"
+        title="Philippine market prices"
+        description="Prevailing retail prices from the latest available Department of Agriculture monitoring report. Filter by report date or commodity."
+      />
+      <DataDetails source={{ name: "Department of Agriculture", href: "https://www.da.gov.ph/price-monitoring/" }} date={data.date}>
+        Prevailing price is the arithmetic mean of prices observed in the report’s covered establishments.
+      </DataDetails>
 
-        {/* Date and Commodity Filters */}
-        <article className="mt-4 flex flex-col gap-3">
-          <section className="flex items-center gap-2">
-            <label htmlFor="dateFilter" className="text-gray-700 text-sm">
-              Search Date:
-            </label>
-            <select
-              id="dateFilter"
-              className="border border-gray-300 rounded-md px-2 py-1 text-sm"
-              value={selectDate}
-              onChange={(e) => setSelectDate(e.target.value)}
-            >
-              {initialData.dateData.map((d, idx) => (
-                <option key={idx} value={d}>
-                  {d}
-                </option>
-              ))}
-            </select>
-            <button
-              onClick={handleSearchDate}
-              disabled={loading}
-              className="bg-blue-500 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
-            >
-              {loading ? "Loading..." : "Search"}
-            </button>
-          </section>
-
-          <section className="flex items-center gap-2">
-            <label htmlFor="commodityFilter" className="text-gray-700 text-sm">
-              Show Commodity:
-            </label>
-            <select
-              id="commodityFilter"
-              className="border border-gray-300 rounded-md px-2 py-1 text-sm"
-              value={selectedCommodity}
-              onChange={(e) => setSelectedCommodity(e.target.value)}
-            >
-              {commodityOptions.map((c, idx) => (
-                <option key={idx} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </section>
-        </article>
-      </header>
-
-      {/* Data Table */}
-      <Accordion
-        type="multiple"
-        defaultValue={numberedArray}
-        className="space-y-3 mt-4"
+      <form
+        className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-row sm:items-end"
+        onSubmit={(event) => { event.preventDefault(); void loadDate(); }}
+        aria-busy={loading}
       >
-        {filteredCommodities.map((commodityGroup, idx) => (
-          <AccordionItem
-            key={idx}
-            value={`${idx}`}
-            className="border border-gray-200 rounded-xl shadow-sm"
-          >
-            <AccordionTrigger className="px-4 py-3 text-left font-semibold text-gray-900 hover:text-blue-700 transition">
-              {commodityGroup.commodity}
-            </AccordionTrigger>
-            <AccordionContent className="px-4 pb-4">
-              <div className="overflow-x-auto">
-                <table className="w-full border border-gray-200 rounded-lg text-sm">
-                  <thead className="bg-gray-100 text-gray-700">
-                    <tr>
-                      <th className="p-2 text-left font-medium">
-                        Specification
-                      </th>
-                      <th className="p-2 text-left font-medium">
-                        Price &#40;&#8369;&#41;
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {commodityGroup.items.map((item, itemIdx) => (
-                      <tr
-                        key={itemIdx}
-                        className="border-t border-gray-100 hover:bg-gray-50 transition"
-                      >
-                        <td className="p-2">{item.specification}</td>
-                        <td className="p-2">
-                          {item.price !== null ? item.price : "N/A"}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </>
+        <label className="grid flex-1 gap-1.5 text-sm font-medium text-slate-800" htmlFor="market-date">
+          Report date
+          <select id="market-date" value={selectedDate} onChange={(event) => setSelectedDate(event.target.value)} className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+            {initialData.dateData.map((date) => <option key={date} value={date}>{date}</option>)}
+          </select>
+        </label>
+        <button type="submit" disabled={loading} className="h-10 rounded-md bg-blue-800 px-4 text-sm font-semibold text-white hover:bg-blue-900 disabled:cursor-wait disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+          {loading ? "Updating…" : "View report"}
+        </button>
+        <label className="grid flex-1 gap-1.5 text-sm font-medium text-slate-800" htmlFor="market-commodity">
+          Commodity
+          <select id="market-commodity" value={selectedCommodity} onChange={(event) => setSelectedCommodity(event.target.value)} className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+            <option value="All">All commodities</option>
+            {commodities.map((commodity) => <option key={commodity.commodity} value={commodity.commodity}>{commodity.commodity}</option>)}
+          </select>
+        </label>
+      </form>
+      {loading ? <InlineLoading label="Loading the selected report. Current data remains visible." /> : null}
+
+      {filteredCommodities.length ? (
+        <section aria-live="polite">
+          <Accordion type="multiple" defaultValue={filteredCommodities.map((_, index) => String(index))} className="space-y-3">
+            {filteredCommodities.map((commodity, index) => (
+              <AccordionItem key={commodity.commodity} value={String(index)} className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                <AccordionTrigger className="px-4 py-3 text-left font-semibold text-slate-950 hover:text-blue-800">
+                  {commodity.commodity}
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4">
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full text-sm">
+                      <caption className="sr-only">{commodity.commodity} prevailing prices in Philippine pesos</caption>
+                      <thead className="border-y border-slate-200 bg-slate-50 text-left text-slate-700">
+                        <tr><th scope="col" className="px-3 py-2 font-semibold">Specification</th><th scope="col" className="px-3 py-2 font-semibold">Price (PHP)</th></tr>
+                      </thead>
+                      <tbody>
+                        {commodity.items.map((item, itemIndex) => <tr key={itemIndex} className="border-b border-slate-100 last:border-0"><td className="px-3 py-2 text-slate-800">{item.specification}</td><td className="px-3 py-2 font-medium text-slate-950">{item.price ?? "Not available"}</td></tr>)}
+                      </tbody>
+                    </table>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </section>
+      ) : <EmptyState title="No commodities match this filter" description="Try choosing all commodities or another available report date." />}
+    </main>
   );
 }

@@ -5,7 +5,6 @@ export const fetchCigarette = async () => {
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=cigarette`,
           {
             method: "GET",
-            credentials: "include",
             headers: { "Content-Type": "application/json" },
           }
         );

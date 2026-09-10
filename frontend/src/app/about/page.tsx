@@ -4,17 +4,24 @@ import { Database, Clock, Github, Globe } from "lucide-react";
 import { Footer } from "@/components/custom/global/footer";
 import { Metadata } from "next";
 import DataSource from "@/components/custom/index/datasources";
+import { PageHeader } from "@/components/custom/shared/page-header";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "PriceGuides, by BetterGovPh, is a user-friendly web platform delivering real-time and historical data on product and commodity prices for informed decision-making."
+  title: "About PriceGuides",
+  description: "Learn how BetterGovPh PriceGuides presents Philippine market, fuel, medicine, exchange-rate, and economic indicator data.",
+  alternates: { canonical: "/about" },
 };
 export default function Page() {
   return (
     <>
       <Nav pos="fixed" />
-      <main className="mt-[10px] min-h-screen w-full flex flex-col items-center bg-gray-50 pt-[6rem] p-4 sm:px-8">
-        <article className="flex text-sm flex-col items-center max-w-4xl space-y-8 text-gray-700">
+      <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center bg-slate-50 px-4 py-28 sm:px-8">
+        <article className="flex max-w-4xl flex-col items-center space-y-8 text-sm text-slate-700">
+          <PageHeader
+            eyebrow="BetterGovPh"
+            title="About PriceGuides"
+            description="A public-data interface for finding Philippine price and economic information in one place."
+          />
           <Image
             src="/banner-blue.png"
             alt="Ph Price Guides Banner"

@@ -16,12 +16,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
   ];
-  const dynamicUrls: MetadataRoute.Sitemap = [
+  const categoryUrls: MetadataRoute.Sitemap = [
     "drug-price-index",
     "cigarette-index",
     "daily-price-index",
     "diesel",
-    "indicator",
+    "gasoline",
+    "kerosene",
+    "lpg",
     "currency-exchange",
   ].map((category) => ({
     url: `https://price-guides.bettergov.ph/${category}`,
@@ -29,5 +31,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly",
     priority: 0.9,
   }));
-  return [...staticUrls, ...dynamicUrls];
+  return [...staticUrls, ...categoryUrls];
 }

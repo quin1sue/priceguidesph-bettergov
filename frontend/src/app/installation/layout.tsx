@@ -3,7 +3,8 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Install App",
     description:
-      "Price Guides by BetterGovPh is now available to install on mobile for all platforms including iOS and Android"
+      "Install PriceGuides by BetterGovPh on a supported mobile device for quicker access to Philippine public data.",
+    alternates: { canonical: "/installation" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

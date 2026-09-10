@@ -1,4 +1,4 @@
-import { success, z } from "zod";
+import { z } from "zod";
 
 /** Atomic schema for yearly data */
 const YearlyDataSchema = z.object({

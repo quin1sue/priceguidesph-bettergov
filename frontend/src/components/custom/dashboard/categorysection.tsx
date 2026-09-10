@@ -19,7 +19,7 @@ export function CategorySection({ title, indicators }: Props) {
 
   return (
     <section className="my-10">
-      <h2 className="text-lg font-bold mb-4 border-l-4 border-blue-500 pl-2">
+      <h2 className="mb-4 border-l-4 border-blue-700 pl-3 text-lg font-bold text-slate-950">
         {title}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -27,22 +27,26 @@ export function CategorySection({ title, indicators }: Props) {
           const { value: recentValue, year: recentYear } = getMostRecentValue(indicator.data);
 
           return (
-            <main
+            <article
               key={index}
-              className="border border-gray-200 rounded-xl p-4 shadow-sm bg-white hover:shadow-md transition"
+              className="flex min-h-48 flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
             >
-              <Link href={`indicator/${indicator.slug}`} className="font-medium underline text-sm text-gray-700 mb-4">{indicator.indicatorName}</Link>
-              <p className="text-xs text-gray-700 mb-3 line-clamp-3">{indicator.description}</p>
-              <section className="flex justify-between items-center mb-2">
-                <p className="text-sm font-semibold text-blue-600"><span className="text-gray-700">Recent Value:</span> {recentValue}</p>
-                <p className="text-xs text-gray-400">{recentYear}</p>
+              <h3>
+                <Link href={`indicator/${indicator.slug}`} className="font-semibold text-slate-900 underline decoration-slate-300 underline-offset-4 hover:text-blue-800">
+                  {indicator.indicatorName}
+                </Link>
+              </h3>
+              <p className="mb-3 mt-3 line-clamp-3 text-sm leading-5 text-slate-600">{indicator.description}</p>
+              <section className="mt-auto flex items-center justify-between gap-3 border-t border-slate-100 pt-3">
+                <p className="text-sm font-semibold text-blue-800"><span className="font-normal text-slate-600">Latest:</span> {recentValue}</p>
+                <p className="text-xs text-slate-500">{recentYear}</p>
               </section>
-              <section className="overflow-x-auto">
-                <article style={{ minWidth: 300 }}>
+              {index < 2 ? (
+                <section className="mt-3 h-20" aria-label={`Trend preview for ${indicator.indicatorName}`}>
                   <MiniLineChart data={indicator.data} />
-                </article>
-              </section>
-            </main>
+                </section>
+              ) : null}
+            </article>
           );
         })}
       </div>

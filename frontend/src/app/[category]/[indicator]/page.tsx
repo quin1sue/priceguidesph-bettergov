@@ -12,7 +12,7 @@ type Params = {
 
 async function getIndicatorData(indicator: string) {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/economic-indicator?country=PHL&indicator=${indicator}`;
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetch(url, { next: { revalidate: 3600 } });
 
   if (!res.ok) return { success: false };
 
@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       type: "article",
       url: `${process.env.NEXT_PUBLIC_FE_DOMAIN}/${category}/${indicator}`,
     },
+    alternates: { canonical: `/${category}/${indicator}` },
   };
 }
 

@@ -1,26 +1,26 @@
-"use client";
-
-import { useState, useMemo } from "react";
 import { CategorySection } from "./categorysection";
 import { EconomicIndicatorsType } from "@/functions/types";
+import { PageHeader } from "../shared/page-header";
 
 type Props = {
   initialData: EconomicIndicatorsType;
 };
 
 export default function DashboardPage({ initialData }: Props) {
-  const [data] = useState(initialData.result ?? []);
-  const grouped = useMemo(() => {
-    return {
-      Economic: data.filter((d) => d.category === "Economic").slice(0, 9),
-      Social: data.filter((d) => d.category === "Social").slice(0, 9),
-      Environment: data.filter((d) => d.category === "Environment").slice(0, 9),
-    };
-  }, [data]);
+  const data = initialData.result ?? [];
+  const grouped = {
+    Economic: data.filter((d) => d.category === "Economic"),
+    Social: data.filter((d) => d.category === "Social"),
+    Environment: data.filter((d) => d.category === "Environment"),
+  };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-6">
-      <h1 className="text-2xl font-bold mb-6">Philippine Indicators</h1>
+    <main className="mx-auto max-w-7xl space-y-8 px-4 py-6 sm:px-6 lg:px-8">
+      <PageHeader
+        eyebrow="Philippines economic data"
+        title="Philippine economic indicators"
+        description="Explore national economic, social, and environmental indicators. Select an indicator to view its historical trend, definition, and source."
+      />
 
       <CategorySection
         title="Economic Indicators"
@@ -32,10 +32,10 @@ export default function DashboardPage({ initialData }: Props) {
         indicators={grouped.Environment}
       />
 
-      <p className="mt-6 text-sm text-blue-700 px-3 py-2 rounded-lg text-center">
-        Showing 10 items per category out of 1,500+ total indicators. Try
-        searching or filtering to explore more.
-      </p>
+      <aside className="rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-950">
+        This is a curated overview. Use the search in the header to explore the
+        full indicator collection.
+      </aside>
     </main>
   );
 }

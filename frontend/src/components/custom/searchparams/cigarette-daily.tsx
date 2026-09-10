@@ -1,177 +1,194 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { DashboardError } from "../dashboard/error-occured";
 import { MainJson } from "@/functions/types";
-type FuelDataOrError = MainJson & { error?: string };
+import { DataDetails, PageHeader } from "../shared/page-header";
+import { EmptyState, ErrorState, InlineLoading } from "../shared/data-state";
 
-type CigaretteListType = {
-  initialData: MainJson;
-};
+type CigarettePriceListProps = { initialData: MainJson };
 
-const CigarettePriceList = ({ initialData }: CigaretteListType) => {
-  const [data, setData] = useState<FuelDataOrError | null>(initialData);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [selectedCommodity, setSelectedCommodity] = useState<string>("All");
-  const [selectDate, setSelectDate] = useState<string>(initialData.date);
-  const initialDefaultValue = data?.commodities.map((_, i) => String(i)) || [];
+export default function CigarettePriceList({
+  initialData,
+}: CigarettePriceListProps) {
+  const [data, setData] = useState<MainJson | null>(initialData);
+  const [selectedCommodity, setSelectedCommodity] = useState("All");
+  const [selectedDate, setSelectedDate] = useState(initialData.date);
+  const [loading, setLoading] = useState(false);
 
-  if (data?.error) return <DashboardError message={data?.error} />
-  if (!data || data.commodities.length === 0)
-    return <p className="p-4 text-gray-500">No data available.</p>;
-
-  // Dropdown options
-  const commodityOptions = ["All", ...data.commodities.map((c) => c.commodity)];
-
-  // filtered commodities
-  const filteredCommodities =
+  if (!data?.success)
+    return (
+      <ErrorState
+        message={data?.error || "Cigarette price data could not be loaded."}
+      />
+    );
+  const commodities = data.commodities ?? [];
+  const visibleCommodities =
     selectedCommodity === "All"
-      ? data.commodities
-      : data.commodities.filter((c) => c.commodity === selectedCommodity);
+      ? commodities
+      : commodities.filter((item) => item.commodity === selectedCommodity);
 
-  async function handleSearchDate() {
+  async function loadDate() {
     try {
       setLoading(true);
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=cigarette&date=${selectDate}`,
-        { cache: "no-store" }
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=cigarette&date=${encodeURIComponent(selectedDate)}`,
+        { cache: "no-store" },
       );
-      const json = await res.json();
-      if (!res.ok || !json.success) throw new Error(json.error);
-      setData(json);
-    } catch (err) {
-      console.error(err);
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error(result.error);
+      setData(result);
+    } catch {
       setData({
         success: false,
-        error: "Failed to fetch cigarette data. Please try again later.",
+        error:
+          "Cigarette price data could not be refreshed. Please try again later.",
       } as MainJson);
     } finally {
       setLoading(false);
     }
   }
-  if (!data.success) return <DashboardError message={data.error} />;
+
   return (
-    <>
-      <header className="p-4 border space-y-2 border-gray-200 rounded-xl shadow-sm">
-        <p className="text-sm text-gray-700">
-          Latest DA Price Monitoring Report:
-          <span className="font-semibold text-gray-900"> {data?.date}</span>
-        </p>
-        <p className="text-sm text-gray-700">
-          <strong>Note&#58; </strong>The data that are being shown are the only
-          data that were available in the market/establishment.
-        </p>
-        <p className="text-sm">
-          Prevailing Retail Prices of Cigarettes in Selected Retail
-          Establishments in the National Capital Region &#40;NCR&#41;, by Brand
-          Name/Variant &#40;PHP&#47;pack&#41;
-        </p>
-        <p className="mt-2 text-sm text-gray-700">
-          Source&#58;
-          <a
-            className="underline font-semibold text-blue-700 ml-1"
-            href="https://www.da.gov.ph/price-monitoring/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Department of Agriculture
-          </a>
-        </p>
-
-        <header className="mt-3 rounded-md">
-          <article className="mt-4 flex flex-col sm:flex-col gap-3">
-            <section className="flex items-center gap-2">
-              <label htmlFor="dateFilter" className="text-gray-700 text-sm">
-                Search Date:
-              </label>
-              <select
-                id="dateFilter"
-                className="border border-gray-300 rounded-md px-2 py-1 text-sm"
-                value={selectDate}
-                onChange={(e) => setSelectDate(e.target.value)}
-              >
-                {initialData.dateData.map((d, idx) => (
-                  <option key={idx} value={d}>
-                    {d}
-                  </option>
-                ))}
-              </select>
-              <button
-                onClick={handleSearchDate}
-                disabled={loading}
-                className="bg-blue-500 text-white text-sm px-3 py-1 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
-              >
-                {loading ? "Loading..." : "Search"}
-              </button>
-            </section>
-
-            <section className="flex items-center gap-2">
-              <label
-                htmlFor="commodityFilter"
-                className="text-gray-700 text-sm"
-              >
-                Show Commodity:
-              </label>
-              <select
-                id="commodityFilter"
-                className="border border-gray-300 rounded-md px-2 py-1 text-sm"
-                value={selectedCommodity}
-                onChange={(e) => setSelectedCommodity(e.target.value)}
-              >
-                {commodityOptions.map((c, idx) => (
-                  <option key={idx} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-            </section>
-          </article>
-        </header>
-      </header>
-
-      <Accordion
-        type="multiple"
-        defaultValue={initialDefaultValue}
-        className="space-y-3"
+    <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
+      <PageHeader
+        eyebrow="Department of Agriculture"
+        title="Philippines cigarette prices"
+        description="Available cigarette prices from the DA monitoring report for selected retail establishments in the National Capital Region."
+      />
+      <DataDetails
+        source={{
+          name: "Department of Agriculture",
+          href: "https://www.da.gov.ph/price-monitoring/",
+        }}
+        date={data.date}
       >
-        {filteredCommodities.map((section, idx) => (
-          <AccordionItem
-            key={idx}
-            value={`${idx}`}
-            className="border border-gray-200 rounded-xl shadow-sm"
+        Prices are reported per pack where available; this is not a nationwide
+        price survey.
+      </DataDetails>
+      <form
+        className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-row sm:items-end"
+        onSubmit={(event) => {
+          event.preventDefault();
+          void loadDate();
+        }}
+        aria-busy={loading}
+      >
+        <label
+          className="grid flex-1 gap-1.5 text-sm font-medium text-slate-800"
+          htmlFor="cigarette-date"
+        >
+          Report date
+          <select
+            id="cigarette-date"
+            value={selectedDate}
+            onChange={(event) => setSelectedDate(event.target.value)}
+            className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
           >
-            <AccordionTrigger className="px-4 py-3 text-left font-semibold text-gray-900 hover:text-blue-700 transition">
-              {section.commodity}
-            </AccordionTrigger>
-
-            <AccordionContent className="px-4 pb-3">
-              {section.items.length > 0 ? (
-                <ul className="divide-y text-sm">
-                  {section.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="py-2 flex justify-between hover:bg-gray-50 rounded-md px-1 transition"
-                    >
-                      <p className="max-sm:text-sm">{item.specification}</p>
-                      <p className="font-medium">{`₱${item.price}`}</p>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-gray-500 text-sm">No items available.</p>
-              )}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </>
+            {initialData.dateData.map((date) => (
+              <option key={date} value={date}>
+                {date}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button
+          type="submit"
+          disabled={loading}
+          className="h-10 rounded-md bg-blue-800 px-4 text-sm font-semibold text-white hover:bg-blue-900 disabled:cursor-wait disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+        >
+          {loading ? "Updating…" : "View report"}
+        </button>
+        <label
+          className="grid flex-1 gap-1.5 text-sm font-medium text-slate-800"
+          htmlFor="cigarette-commodity"
+        >
+          Brand group
+          <select
+            id="cigarette-commodity"
+            value={selectedCommodity}
+            onChange={(event) => setSelectedCommodity(event.target.value)}
+            className="h-10 rounded-md border border-slate-300 bg-white px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+          >
+            <option value="All">All brand groups</option>
+            {commodities.map((commodity, index) => (
+              <option
+                key={`${commodity.commodity}-${index}`}
+                value={commodity.commodity}
+              >
+                {commodity.commodity}
+              </option>
+            ))}
+          </select>
+        </label>
+      </form>
+      {loading ? (
+        <InlineLoading label="Loading the selected report. Current data remains visible." />
+      ) : null}
+      {visibleCommodities.length ? (
+        <Accordion
+          type="multiple"
+          defaultValue={visibleCommodities.map((_, index) => String(index))}
+          className="space-y-3"
+          aria-live="polite"
+        >
+          {visibleCommodities.map((commodity, index) => (
+            <AccordionItem
+              key={`${commodity.commodity}-${index}`}
+              value={String(index)}
+              className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
+            >
+              <AccordionTrigger className="px-4 py-3 text-left font-semibold text-slate-950 hover:text-blue-800">
+                <span>{commodity.commodity}</span>
+              </AccordionTrigger>
+              <AccordionContent className="px-4 pb-4">
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-sm">
+                    <caption className="sr-only">
+                      {commodity.commodity} cigarette prices in Philippine pesos
+                    </caption>
+                    <thead className="border-y border-slate-200 bg-slate-50 text-left text-slate-700">
+                      <tr>
+                        <th scope="col" className="px-3 py-2 font-semibold">
+                          Brand / variant
+                        </th>
+                        <th scope="col" className="px-3 py-2 font-semibold">
+                          Price (PHP)
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {commodity.items.map((item, itemIndex) => (
+                        <tr
+                          key={`${item.specification}-${itemIndex}`}
+                          className="border-b border-slate-100 last:border-0"
+                        >
+                          <td className="px-3 py-2 text-slate-800">
+                            {item.specification}
+                          </td>
+                          <td className="px-3 py-2 font-medium text-slate-950">
+                            ₱{item.price}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      ) : (
+        <EmptyState
+          title="No brand groups match this filter"
+          description="Try choosing all brand groups or another report date."
+        />
+      )}
+    </main>
   );
-};
-
-export default CigarettePriceList;
+}

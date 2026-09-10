@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
+    host: "https://price-guides.bettergov.ph",
     sitemap: `https://price-guides.bettergov.ph/sitemap.xml`,
   };
 }

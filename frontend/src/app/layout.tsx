@@ -1,21 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { startupImage } from "@/lib/metadata";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import { IndicatorProvider } from "@/lib/context/indicator";
-import { NavDashboard } from "@/components/custom/dashboard/nav.dashboard";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/custom/dashboard/sidebar";
-import { TableSkeleton } from "@/components/custom/global/skeleton";
-import { Suspense } from "react";
-const figtree = Figtree({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
+import { AppShell } from "@/components/custom/global/app-shell";
 export const metadata: Metadata = {
   title: {
     template: "%s | Price Guides",
@@ -24,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
   keywords: ["bettergov", "phpriceguides", "priceguides"],
-  icons: { icon: "/icon.png", apple: { url: "/icons/icon-180x180.png" } },
+  icons: { icon: "/icon.png", apple: { url: "/icons/apple-icon-180.png" } },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -79,8 +68,6 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  minimumScale: 1, // how far user can zoom out
-  userScalable: false, // disable zooming
   width: "device-width",
 };
 
@@ -109,23 +96,14 @@ export default function RootLayout({
         }}
       />
 
-      <body className={`${figtree.className} antialiased`}>
-        <IndicatorProvider>
-          <NavDashboard />
-          <main className="flex items-center overflow-hidden relative">
-            <SidebarProvider>
-              <AppSidebar />
-
-              {/* mobile sidebar trigger */}
-              <SidebarTrigger className="fixed top-13.5 z-50 right-22 md:hidden" />
-              <Suspense fallback={<TableSkeleton />}>
-                <main className="space-y-6 overflow-y-auto h-[calc(100vh)] w-full">
-                  <article className="mt-[7.5em]">{children}</article>
-                </main>
-              </Suspense>
-            </SidebarProvider>
-          </main>
-        </IndicatorProvider>{" "}
+      <body className="bg-slate-50 font-sans antialiased">
+        <a
+          href="#main-content"
+          className="sr-only fixed left-4 top-4 z-[100] rounded-md bg-slate-950 px-3 py-2 text-sm font-semibold text-white focus:not-sr-only focus:outline-2 focus:outline-offset-2 focus:outline-blue-700"
+        >
+          Skip to main content
+        </a>
+        <AppShell>{children}</AppShell>
         <Analytics />
         <SpeedInsights />
       </body>

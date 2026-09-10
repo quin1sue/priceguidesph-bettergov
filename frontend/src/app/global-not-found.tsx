@@ -2,12 +2,6 @@ import Image from "next/image";
 import "./globals.css";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Inter } from "next/font/google";
-
-const inter = Inter({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Page Not Found | Price Guides",
@@ -17,9 +11,7 @@ export const metadata: Metadata = {
 export default function GlobalNotFound() {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} text-gray-600 text-center flex items-center justify-center w-full h-screen`}
-      >
+      <body className="flex h-screen w-full items-center justify-center text-center text-gray-600">
         <header className="flex-col space-y-3">
           <Image
             src={"/not-found.svg"}

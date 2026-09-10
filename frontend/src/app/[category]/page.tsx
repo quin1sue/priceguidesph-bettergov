@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { Metadata, ResolvedMetadata } from "next";
+import { Metadata } from "next";
 import {
   fetchKerosene,
   fetchDiesel,
@@ -63,27 +63,31 @@ type PageParams = {
   params: Promise<{ category: string }>;
 };
 
-export async function generateMetadata(
-  { params }: PageParams,
-  _parent: Promise<ResolvedMetadata>
-): Promise<Metadata> {
-  const { category } = await params;
-  const fetchMetadata = fetcherMap[category];
+const categoryMetadata: Record<string, { title: string; description: string }> = {
+  "daily-price-index": { title: "Philippine market prices", description: "Browse Department of Agriculture prevailing market prices in the Philippines by report date and commodity." },
+  "cigarette-index": { title: "Philippines cigarette prices", description: "Browse Department of Agriculture cigarette price-monitoring data for selected NCR retail establishments." },
+  "drug-price-index": { title: "Philippine medicine prices", description: "Search Department of Health Drug Price Reference Index values for medicines in the Philippines." },
+  gasoline: { title: "Philippines gasoline prices", description: "View the latest available gasoline price information for the Philippines." },
+  diesel: { title: "Philippines diesel prices", description: "View the latest available diesel price information for the Philippines." },
+  kerosene: { title: "Philippines kerosene prices", description: "View the latest available kerosene price information for the Philippines." },
+  lpg: { title: "Philippines LPG prices", description: "View the latest available LPG price information for the Philippines." },
+  "currency-exchange": { title: "PHP exchange rates", description: "Browse current exchange rates against the Philippine peso and convert currencies to PHP." },
+};
 
-  if (!fetchMetadata) {
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+  const { category } = await params;
+  const details = categoryMetadata[category];
+  if (!details) {
     return {
       title: "Category Not Found",
       description: "This category does not exist in Price Guides PH.",
     };
   }
 
-  const metadata: CategoryData = await fetchMetadata();
-
   return {
-    title: metadata.name,
-    description:
-      metadata.description ||
-      "Philippine Price Guides is an economic and financial data platform aimed at promoting transparency and awareness.",
+    title: details.title,
+    description: details.description,
+    alternates: { canonical: `/${category}` },
   };
 }
 
