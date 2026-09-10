@@ -17,32 +17,34 @@ import {
 import { cache } from "hono/cache";
 import { PriceGroup } from "./lib/types/market-types";
 import { FuelType, FuelSection, FuelItem } from "./lib/types/petrol-types";
+import { isIsoDate } from "./lib/utils/report-date";
+
 export type Bindings = {
   MY_DB: D1Database;
   FREE_RATE_LIMITER: RateLimit;
 };
 
+// Define Env interface incorporating both Bindings and ExecutionContext
 const app = new Hono<{ Bindings: Bindings }>();
 
-// caching
 app.get(
   "*",
   cache({
-    cacheName: "priceguides-cache",
+    cacheName: "priceguides-cache-v2",
     cacheControl: "max-age=3600",
-    cacheableStatusCodes: [202, 200], // for static data json/csv
+    cacheableStatusCodes: [200, 202],
   }),
 );
-//apply CORS
+
 app.use(
   "/*",
   cors({
     origin: "*",
     allowMethods: ["GET"],
     allowHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
   }),
 );
+
 // rate limiter
 app.use("/*", rateLimiter);
 
@@ -157,34 +159,37 @@ app.get("/market", async (c) => {
       url.searchParams.get("category")?.toLowerCase() || "market";
     const dateParam = url.searchParams.get("date");
 
-    const priceGroups = await db
-      .prepare(`SELECT * FROM PriceGroup WHERE category = ?`)
+    if (dateParam && !isIsoDate(dateParam)) {
+      return c.json({ error: "date must use YYYY-MM-DD" }, 400);
+    }
+
+    const priceGroup = await db
+      .prepare(
+        dateParam
+          ? `SELECT id, category, date, report_date FROM PriceGroup WHERE category = ? AND report_date = ? LIMIT 1`
+          : `SELECT id, category, date, report_date FROM PriceGroup WHERE category = ? AND report_date IS NOT NULL ORDER BY report_date DESC LIMIT 1`,
+      )
+      .bind(...(dateParam ? [category, dateParam] : [category]))
+      .first<PriceGroup>();
+
+    if (!priceGroup?.report_date) {
+      return c.json(
+        {
+          message: dateParam
+            ? "No market data found for this report date"
+            : "No market data found",
+        },
+        404,
+      );
+    }
+
+    const dates = await db
+      .prepare(
+        `SELECT report_date FROM PriceGroup WHERE category = ? AND report_date IS NOT NULL ORDER BY report_date DESC`,
+      )
       .bind(category)
-      .all<PriceGroup>();
-
-    if (!priceGroups.results.length) {
-      return c.json({ message: "No market data found" }, 404);
-    }
-
-    const sortedGroups = priceGroups.results.sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-    );
-
-    let priceGroup;
-
-    if (dateParam) {
-      // If user specifies a date, pick the latest record before or on that date
-      const targetDate = new Date(dateParam);
-      priceGroup =
-        sortedGroups.find((g) => new Date(g.date) <= targetDate) ||
-        sortedGroups[0];
-    } else {
-      // Otherwise just take the latest record
-      priceGroup = sortedGroups[0];
-    }
-
-    // Get all available dates sorted chronologically (latest first)
-    const dateData = sortedGroups.map((g) => g.date);
+      .all<{ report_date: string }>();
+    const dateData = dates.results.map((row) => row.report_date);
 
     const commodities = await db
       .prepare(`SELECT id, commodity FROM PriceCommodity WHERE group_id = ?`)
@@ -207,8 +212,10 @@ app.get("/market", async (c) => {
       {
         success: true,
         name: category === "market" ? "Market Price" : "Cigarette Price",
-        description: `DA Price Monitoring report: latest ${category} prices as of ${priceGroup.date}`,
-        date: priceGroup.date,
+        description: `DA Price Monitoring report: ${category} prices as of ${priceGroup.date}`,
+        date: priceGroup.report_date,
+        reportDate: priceGroup.report_date,
+        sourceDate: priceGroup.date,
         dateData,
         commodities: commoditiesWithItems,
       },
@@ -225,25 +232,39 @@ app.get("/fuel-prices", async (c) => {
   try {
     const db = c.env.MY_DB;
     const url = new URL(c.req.url);
-    const namePetrol = url.searchParams.get("category") || "Kerosene"; // default
-
-    // Get all fuel type records
-    const fuelTypes = await db
-      .prepare(`SELECT * FROM FuelType WHERE name = ?`)
-      .bind(namePetrol)
-      .all<FuelType>();
-
-    if (!fuelTypes.results.length) {
-      return c.json([], 200);
+    const namePetrol = url.searchParams.get("category") || "Kerosene";
+    const dateParam = url.searchParams.get("date");
+    if (dateParam && !isIsoDate(dateParam)) {
+      return c.json({ error: "date must use YYYY-MM-DD" }, 400);
     }
 
-    // Sort by actual date value (newest first)
-    const sortedFuelTypes = fuelTypes.results.sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-    );
+    const fuelType = await db
+      .prepare(
+        dateParam
+          ? `SELECT id, name, description, date, report_date FROM FuelType WHERE name = ? AND report_date = ? LIMIT 1`
+          : `SELECT id, name, description, date, report_date FROM FuelType WHERE name = ? AND report_date IS NOT NULL ORDER BY report_date DESC LIMIT 1`,
+      )
+      .bind(...(dateParam ? [namePetrol, dateParam] : [namePetrol]))
+      .first<FuelType>();
 
-    // Pick the most recent one
-    const fuelType = sortedFuelTypes[0];
+    if (!fuelType?.report_date) {
+      return c.json(
+        {
+          message: dateParam
+            ? "No fuel data found for this report date"
+            : "No fuel data found",
+        },
+        404,
+      );
+    }
+
+    const dates = await db
+      .prepare(
+        `SELECT report_date FROM FuelType WHERE name = ? AND report_date IS NOT NULL ORDER BY report_date DESC`,
+      )
+      .bind(namePetrol)
+      .all<{ report_date: string }>();
+    const dateData = dates.results.map((row) => row.report_date);
 
     const sectionsResult = await db
       .prepare(`SELECT id, name FROM FuelSection WHERE fuel_id = ?`)
@@ -269,7 +290,13 @@ app.get("/fuel-prices", async (c) => {
     return c.json(
       {
         success: true,
-        ...fuelType,
+        id: fuelType.id,
+        name: fuelType.name,
+        description: fuelType.description,
+        date: fuelType.report_date,
+        reportDate: fuelType.report_date,
+        sourceDate: fuelType.date,
+        dateData,
         sections,
       },
       200,
@@ -305,19 +332,18 @@ export default {
     switch (cron) {
       case "0 0 * * 2-6":
         ctx.waitUntil(runJob("Fuel Cron", () => insertAllFuels(env.MY_DB)));
-
         break;
 
       case "0 6-8 * * *":
+      case "0 6,7,8 * * *":
         ctx.waitUntil(runJob("Market Cron", () => insertMarketData(env.MY_DB)));
-
         break;
 
       case "30 7-9 * * *":
+      case "30 7,8,9 * * *":
         ctx.waitUntil(
           runJob("Cigarette Cron", () => insertCigaretteData(env.MY_DB)),
         );
-
         break;
 
       default:

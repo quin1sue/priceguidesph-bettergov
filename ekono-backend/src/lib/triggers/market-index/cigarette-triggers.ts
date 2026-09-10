@@ -2,6 +2,7 @@ import { D1Database } from "@cloudflare/workers-types";
 import { parseDaPdfCig } from "../../../services/functions/market index/pdf/parsePdfCig";
 import { MarketCommodity } from "../../types/market-types";
 import * as cheerio from "cheerio";
+import { normalizeReportDate } from "../../utils/report-date";
 export async function insertCigaretteData(db: D1Database) {
   const url = "https://www.da.gov.ph/price-monitoring/";
   const response = await fetch(url);
@@ -11,11 +12,13 @@ export async function insertCigaretteData(db: D1Database) {
   const element = $("#tablepress-233 .row-striping tr td a");
   const latestElement = element.first();
   const pdfDate = latestElement.text().trim();
+  const reportDate = normalizeReportDate(pdfDate);
+  if (!reportDate) throw new Error(`Unable to normalize cigarette source date: ${pdfDate}`);
   const latestHref = latestElement.attr("href") as string;
 
   const existing = await db
-    .prepare(`SELECT id FROM PriceGroup WHERE date = ? AND category = ?`)
-    .bind(pdfDate, "cigarette")
+    .prepare(`SELECT id FROM PriceGroup WHERE category = ? AND (report_date = ? OR date = ?)`)
+    .bind("cigarette", reportDate, pdfDate)
     .first();
 
   if (existing) {
@@ -29,8 +32,8 @@ export async function insertCigaretteData(db: D1Database) {
 
   const groupId = crypto.randomUUID();
   await db
-    .prepare(`INSERT INTO PriceGroup (id, date, category) VALUES (?, ?, ?)`)
-    .bind(groupId, pdfDate, "cigarette")
+    .prepare(`INSERT INTO PriceGroup (id, date, category, report_date) VALUES (?, ?, ?, ?)`)
+    .bind(groupId, pdfDate, "cigarette", reportDate)
     .run();
 
   for (const commodity of commodities) {

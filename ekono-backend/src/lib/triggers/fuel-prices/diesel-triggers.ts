@@ -4,6 +4,7 @@ import { scrapeGasolinePrices } from "../../../services/functions/fuel prices/ga
 import { scrapeKerosenePrices } from "../../../services/functions/fuel prices/kerosene-datafetch";
 import { ScrapedFuelData } from "../../types/petrol-types";
 import { scrapeLPGPrices } from "../../../services/functions/fuel prices/lpg-datafetch";
+import { normalizeReportDate } from "../../utils/report-date";
 
 async function insertFuelData(
   db: D1Database,
@@ -11,24 +12,29 @@ async function insertFuelData(
   scraped: ScrapedFuelData,
   sections: { name: string; items: any[] }[]
 ) {
+  const reportDate = normalizeReportDate(scraped.date);
+  if (!reportDate) {
+    throw new Error(`Unable to normalize ${fuelName} source date: ${scraped.date}`);
+  }
+
   const duplicate = await db
-    .prepare(`SELECT id FROM FuelType WHERE date = ? AND name = ?`)
-    .bind(scraped.date, fuelName)
+    .prepare(`SELECT id FROM FuelType WHERE name = ? AND (report_date = ? OR date = ?)`)
+    .bind(fuelName, reportDate, scraped.date)
     .first();
 
   if (duplicate) {
     return {
       success: false,
       message: "Data already exists for this date",
-      date: scraped.date,
+      date: reportDate,
     };
   }
   const fuelId = crypto.randomUUID();
   await db
     .prepare(
-      `INSERT INTO FuelType (id, name, description, date) VALUES (?, ?, ?, ?)`
+      `INSERT INTO FuelType (id, name, description, date, report_date) VALUES (?, ?, ?, ?, ?)`
     )
-    .bind(fuelId, fuelName, scraped.description, scraped.date)
+    .bind(fuelId, fuelName, scraped.description, scraped.date, reportDate)
     .run();
 
   for (const section of sections) {

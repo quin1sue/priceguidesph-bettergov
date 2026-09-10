@@ -17,6 +17,8 @@ export type MainJson = {
   name: string;
   description: string;
   date: string;
+  reportDate?: string;
+  sourceDate?: string;
   category: string;
   commodities: Commodity[];
 };

@@ -1,9 +1,11 @@
 import { revalidateCache } from "../utils";
 
-export async function fetchKerosene() {
+export async function fetchKerosene(date?: string) {
 try {
+     const query = new URLSearchParams({ category: "Kerosene" });
+     if (date) query.set("date", date);
      const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Kerosene`,{
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?${query.toString()}`,{
             next: revalidateCache
           }
         );
@@ -26,10 +28,12 @@ try {
 }      
     }
 
-    export async function fetchLPG() {
+    export async function fetchLPG(date?: string) {
                try {
+        const query = new URLSearchParams({ category: "LPG" });
+        if (date) query.set("date", date);
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=LPG`, {
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?${query.toString()}`, {
             next: revalidateCache
           }
         );
@@ -52,10 +56,12 @@ try {
         }
        }
     }
-export async function fetchDiesel() {
+export async function fetchDiesel(date?: string) {
        try {
+        const query = new URLSearchParams({ category: "Diesel" });
+        if (date) query.set("date", date);
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Diesel`, {
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?${query.toString()}`, {
             next: revalidateCache
           }
         );
@@ -78,9 +84,12 @@ export async function fetchDiesel() {
        }
     }
 
-export async function fetchGasoline() {
-        try { const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?category=Gasoline`
+export async function fetchGasoline(date?: string) {
+        try {
+          const query = new URLSearchParams({ category: "Gasoline" });
+          if (date) query.set("date", date);
+          const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/fuel-prices?${query.toString()}`
         );
         if (!res.ok) {
 

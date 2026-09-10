@@ -7,9 +7,10 @@ export type ScrapedFuelData = {
 };
 
 export interface FuelType {
-      id: number;
+      id: string;
       name: string;
-      date: string; // e.g., "October 21, 2025"
+      date: string;
+      report_date: string | null;
       [key: string]: any;
     }
 

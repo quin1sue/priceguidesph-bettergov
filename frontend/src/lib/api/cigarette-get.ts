@@ -1,10 +1,13 @@
 
-export const fetchCigarette = async () => {
+export const fetchCigarette = async (date?: string) => {
     try {
+        const query = new URLSearchParams({ category: "cigarette" });
+        if (date) query.set("date", date);
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?category=cigarette`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/market?${query.toString()}`,
           {
             method: "GET",
+            next: { revalidate: 3600 },
             headers: { "Content-Type": "application/json" },
           }
         );

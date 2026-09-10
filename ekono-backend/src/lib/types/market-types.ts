@@ -9,7 +9,8 @@ export type MarketCommodity = {
 };
 
 export type PriceGroup = {
-  id: number;
+  id: string;
   category: string;
   date: string;
-}
+  report_date: string | null;
+};

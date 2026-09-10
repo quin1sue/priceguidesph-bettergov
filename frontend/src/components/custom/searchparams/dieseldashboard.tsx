@@ -9,6 +9,7 @@ import {
 import { FuelTypePrice } from "@/functions/diesel";
 import { DataDetails, PageHeader } from "../shared/page-header";
 import { EmptyState, ErrorState } from "../shared/data-state";
+import { DateFilter } from "../shared/date-filter";
 
 type FuelListType = { initialData: FuelTypePrice };
 
@@ -41,6 +42,10 @@ export default function FuelDataTable({ initialData }: FuelListType) {
         This is the data date supplied by the source. Price units and
         definitions appear in each section below.
       </DataDetails>
+      <DateFilter dates={initialData.dateData} currentDate={initialData.date} />
+      <aside className="text-sm leading-6 text-slate-600">
+        Source report: {initialData.sourceDate}
+      </aside>
 
       {initialData.description ? (
         <p className="text-sm leading-6 text-slate-600">

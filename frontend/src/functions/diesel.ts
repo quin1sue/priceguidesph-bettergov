@@ -18,5 +18,8 @@ export type FuelTypePrice = {
   success: boolean;
   description: string;
   date: string;
+  reportDate: string;
+  sourceDate: string;
+  dateData: string[];
   sections: PetrolSection[];
 };
