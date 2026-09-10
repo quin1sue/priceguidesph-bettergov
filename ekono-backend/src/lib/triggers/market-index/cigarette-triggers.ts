@@ -8,7 +8,7 @@ export async function insertCigaretteData(db: D1Database) {
   if (!response.ok) throw new Error("Failed to fetch DA page");
   const html = await response.text();
   const $ = cheerio.load(html);
-  const element = $("#tablepress-113 .row-striping tr td a");
+  const element = $("#tablepress-233 .row-striping tr td a");
   const latestElement = element.first();
   const pdfDate = latestElement.text().trim();
   const latestHref = latestElement.attr("href") as string;
@@ -37,7 +37,7 @@ export async function insertCigaretteData(db: D1Database) {
     const commodityId = crypto.randomUUID();
     await db
       .prepare(
-        `INSERT INTO PriceCommodity (id, group_id, commodity) VALUES (?, ?, ?)`
+        `INSERT INTO PriceCommodity (id, group_id, commodity) VALUES (?, ?, ?)`,
       )
       .bind(commodityId, groupId, commodity.commodity)
       .run();
@@ -47,7 +47,7 @@ export async function insertCigaretteData(db: D1Database) {
       if (isNaN(price)) continue;
       await db
         .prepare(
-          `INSERT INTO PriceItem (id, commodity_id, specification, price) VALUES (?, ?, ?, ?)`
+          `INSERT INTO PriceItem (id, commodity_id, specification, price) VALUES (?, ?, ?, ?)`,
         )
         .bind(crypto.randomUUID(), commodityId, item.specification, item.price)
         .run();

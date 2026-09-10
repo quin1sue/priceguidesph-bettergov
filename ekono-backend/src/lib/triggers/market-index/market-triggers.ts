@@ -9,11 +9,10 @@ export async function insertMarketData(db: D1Database) {
   if (!response.ok) throw new Error("Failed to fetch DA page");
   const html = await response.text();
   const $ = cheerio.load(html);
-  const element = $("#tablepress-112 .row-striping tr td a");
+  const element = $("#tablepress-231 .row-striping tr td a");
   const latestElement = element.first();
   const pdfDate = latestElement.text().trim();
-  const latestHref =
-    "https://www.da.gov.ph/wp-content/uploads/2026/05/May-24-2026-DPI-AFC.pdf";
+  const latestHref = latestElement.attr("href") as string;
   //checks duplicates
   const existing = await db
     .prepare(`SELECT id FROM PriceGroup WHERE date = ? AND category = ?`)
