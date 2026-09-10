@@ -9,26 +9,26 @@ importers:
   .:
     dependencies:
       '@cloudflare/workers-types':
-        specifier: ^4.20260524.1
+        specifier: ^4.20260702.1
         version: 4.20260702.1
       cheerio:
         specifier: ^1.2.0
         version: 1.2.0
       hono:
-        specifier: ^4.12.22
+        specifier: ^4.13.7
         version: 4.13.7
       papaparse:
-        specifier: ^5.5.3
+        specifier: ^5.7.0
         version: 5.7.0
       pdfjs-serverless:
-        specifier: ^1.2.3
+        specifier: ^1.3.1
         version: 1.3.1
     devDependencies:
       '@types/papaparse':
         specifier: ^5.5.2
         version: 5.5.2
       wrangler:
-        specifier: ^4.94.0
+        specifier: ^4.130.0
         version: 4.130.0(@cloudflare/workers-types@4.20260702.1)
 
 packages:
