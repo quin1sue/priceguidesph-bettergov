@@ -18,13 +18,5 @@
   "devDependencies": {
     "@types/papaparse": "^5.5.2",
     "wrangler": "^4.130.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "puppeteer",
-      "sharp",
-      "workerd"
-    ]
   }
 }
