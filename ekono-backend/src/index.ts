@@ -312,9 +312,14 @@ app.get("/bn-prices/dates", async (c) => {
   try {
     const db = c.env.MY_DB;
     const dates = await db
-      .prepare(`SELECT DISTINCT report_period FROM MonthlyBnPrice ORDER BY report_period DESC`)
+      .prepare(
+        `SELECT DISTINCT report_period FROM MonthlyBnPrice ORDER BY report_period DESC`,
+      )
       .all<{ report_period: string }>();
-    return c.json({ success: true, dates: dates.results.map((r) => r.report_period) }, 200);
+    return c.json(
+      { success: true, dates: dates.results.map((r) => r.report_period) },
+      200,
+    );
   } catch (error) {
     console.error("Failed to fetch BN dates: ", error);
     return c.json({ error: "Failed to fetch BN dates" }, 500);
@@ -326,76 +331,103 @@ app.get("/bn-prices", async (c) => {
     const db = c.env.MY_DB;
     const url = new URL(c.req.url);
     const dateParam = url.searchParams.get("date");
-    
+
     if (dateParam && !isIsoDate(dateParam)) {
       return c.json({ error: "date must use YYYY-MM-DD" }, 400);
     }
-    
+
     let reportPeriod = dateParam;
-    
+
     if (!reportPeriod) {
-      const latest = await db.prepare(`SELECT report_period FROM MonthlyBnPrice ORDER BY report_period DESC LIMIT 1`).first<{ report_period: string }>();
+      const latest = await db
+        .prepare(
+          `SELECT report_period FROM MonthlyBnPrice ORDER BY report_period DESC LIMIT 1`,
+        )
+        .first<{ report_period: string }>();
       if (!latest) {
         return c.json({ message: "No BN data found" }, 404);
       }
       reportPeriod = latest.report_period;
     }
-    
-    const exists = await db.prepare(`SELECT report_period, previous_period, three_months_ago_period, source FROM MonthlyBnPrice WHERE report_period = ? LIMIT 1`)
+
+    const exists = await db
+      .prepare(
+        `SELECT report_period, previous_period, three_months_ago_period, source FROM MonthlyBnPrice WHERE report_period = ? LIMIT 1`,
+      )
       .bind(reportPeriod)
-      .first<{ report_period: string, previous_period: string | null, three_months_ago_period: string | null, source: string }>();
-      
+      .first<{
+        report_period: string;
+        previous_period: string | null;
+        three_months_ago_period: string | null;
+        source: string;
+      }>();
+
     if (!exists) {
       return c.json({ message: "No BN data found for this report date" }, 404);
     }
-    
-    const records = await db.prepare(`
+
+    const records = await db
+      .prepare(
+        `
       SELECT 
         id, product_category, commodity, brand_name, specification, srp, current_price, previous_month_price, month_change_percent, month_change_php, three_months_ago_price, three_month_change_percent, three_month_change_php
       FROM MonthlyBnPrice 
       WHERE report_period = ?
       ORDER BY product_category ASC, commodity ASC, brand_name ASC
-    `).bind(reportPeriod).all();
-    
+    `,
+      )
+      .bind(reportPeriod)
+      .all();
+
     const categoriesMap = new Map();
-    
+
     for (const row of records.results) {
-       const catName = row.product_category as string;
-       if (!categoriesMap.has(catName)) {
-         categoriesMap.set(catName, { category: catName, commodities: new Map() });
-       }
-       
-       const cat = categoriesMap.get(catName);
-       const commName = row.commodity as string;
-       
-       if (!cat.commodities.has(commName)) {
-         cat.commodities.set(commName, { commodity: commName, items: [] });
-       }
-       
-       cat.commodities.get(commName).items.push(row);
+      const catName = row.product_category as string;
+      if (!categoriesMap.has(catName)) {
+        categoriesMap.set(catName, {
+          category: catName,
+          commodities: new Map(),
+        });
+      }
+
+      const cat = categoriesMap.get(catName);
+      const commName = row.commodity as string;
+
+      if (!cat.commodities.has(commName)) {
+        cat.commodities.set(commName, { commodity: commName, items: [] });
+      }
+
+      cat.commodities.get(commName).items.push(row);
     }
-    
+
     const categories = Array.from(categoriesMap.values()).map((c: any) => ({
       category: c.category,
-      commodities: Array.from(c.commodities.values())
+      commodities: Array.from(c.commodities.values()),
     }));
-    
-    const datesResult = await db.prepare(`SELECT DISTINCT report_period FROM MonthlyBnPrice ORDER BY report_period DESC`).all<{ report_period: string }>();
+
+    const datesResult = await db
+      .prepare(
+        `SELECT DISTINCT report_period FROM MonthlyBnPrice ORDER BY report_period DESC`,
+      )
+      .all<{ report_period: string }>();
     const dateData = datesResult.results.map((r) => r.report_period);
 
-    return c.json({
-      success: true,
-      name: "Basic Necessities",
-      description: "Department of Trade and Industry monitored prevailing prices for Basic Necessities (BN) in the National Capital Region.",
-      date: exists.report_period,
-      reportDate: exists.report_period,
-      previousPeriod: exists.previous_period,
-      threeMonthsAgoPeriod: exists.three_months_ago_period,
-      source: exists.source,
-      dateData,
-      categories
-    }, 200);
-
+    return c.json(
+      {
+        success: true,
+        name: "Basic Necessities",
+        description:
+          "Department of Trade and Industry monitored prevailing prices for Basic Necessities (BN) in the National Capital Region.",
+        date: exists.report_period,
+        reportDate: exists.report_period,
+        previousPeriod: exists.previous_period,
+        threeMonthsAgoPeriod: exists.three_months_ago_period,
+        source: exists.source,
+        dateData,
+        categories,
+      },
+      200,
+    );
   } catch (error) {
     console.error("Failed to fetch BN prices: ", error);
     return c.json({ error: "Failed to fetch BN prices" }, 500);
@@ -407,9 +439,14 @@ app.get("/construction-prices/dates", async (c) => {
   try {
     const db = c.env.MY_DB;
     const dates = await db
-      .prepare(`SELECT DISTINCT report_period FROM MonthlyConstructionPrice ORDER BY report_period DESC`)
+      .prepare(
+        `SELECT DISTINCT report_period FROM MonthlyConstructionPrice ORDER BY report_period DESC`,
+      )
       .all<{ report_period: string }>();
-    return c.json({ success: true, dates: dates.results.map((r) => r.report_period) }, 200);
+    return c.json(
+      { success: true, dates: dates.results.map((r) => r.report_period) },
+      200,
+    );
   } catch (error) {
     console.error("Failed to fetch construction dates: ", error);
     return c.json({ error: "Failed to fetch construction dates" }, 500);
@@ -438,9 +475,12 @@ app.get("/construction-prices", async (c) => {
 
     if (!reportPeriod) {
       const latest = await db
-        .prepare(`SELECT report_period FROM MonthlyConstructionPrice ORDER BY report_period DESC LIMIT 1`)
+        .prepare(
+          `SELECT report_period FROM MonthlyConstructionPrice ORDER BY report_period DESC LIMIT 1`,
+        )
         .first<{ report_period: string }>();
-      if (!latest) return c.json({ message: "No construction data found" }, 404);
+      if (!latest)
+        return c.json({ message: "No construction data found" }, 404);
       reportPeriod = latest.report_period;
     }
 
@@ -450,9 +490,18 @@ app.get("/construction-prices", async (c) => {
          FROM MonthlyConstructionPrice WHERE report_period = ? LIMIT 1`,
       )
       .bind(reportPeriod)
-      .first<{ report_period: string; previous_period: string | null; three_months_ago_period: string | null; source: string }>();
+      .first<{
+        report_period: string;
+        previous_period: string | null;
+        three_months_ago_period: string | null;
+        source: string;
+      }>();
 
-    if (!meta) return c.json({ message: "No construction data found for this report date" }, 404);
+    if (!meta)
+      return c.json(
+        { message: "No construction data found for this report date" },
+        404,
+      );
 
     // Build dynamic WHERE clause for SQL-side filtering
     const conditions: string[] = ["report_period = ?"];
@@ -471,7 +520,9 @@ app.get("/construction-prices", async (c) => {
       binds.push(brandParam);
     }
     if (searchParam) {
-      conditions.push("(product_category LIKE ? OR commodity LIKE ? OR brand_name LIKE ? OR size LIKE ?)");
+      conditions.push(
+        "(product_category LIKE ? OR commodity LIKE ? OR brand_name LIKE ? OR size LIKE ?)",
+      );
       const like = `%${searchParam}%`;
       binds.push(like, like, like, like);
     }
@@ -479,7 +530,9 @@ app.get("/construction-prices", async (c) => {
     const where = conditions.join(" AND ");
 
     const countResult = await db
-      .prepare(`SELECT count(*) as n FROM MonthlyConstructionPrice WHERE ${where}`)
+      .prepare(
+        `SELECT count(*) as n FROM MonthlyConstructionPrice WHERE ${where}`,
+      )
       .bind(...binds)
       .first<{ n: number }>();
     const totalRows = countResult?.n ?? 0;
@@ -498,12 +551,21 @@ app.get("/construction-prices", async (c) => {
       .all();
 
     // Group: category → commodity → items
-    const categoriesMap = new Map<string, { category: string; commodities: Map<string, { commodity: string; items: unknown[] }> }>();
+    const categoriesMap = new Map<
+      string,
+      {
+        category: string;
+        commodities: Map<string, { commodity: string; items: unknown[] }>;
+      }
+    >();
 
     for (const row of records.results) {
       const catName = row.product_category as string;
       if (!categoriesMap.has(catName)) {
-        categoriesMap.set(catName, { category: catName, commodities: new Map() });
+        categoriesMap.set(catName, {
+          category: catName,
+          commodities: new Map(),
+        });
       }
       const cat = categoriesMap.get(catName)!;
       const commName = row.commodity as string;
@@ -519,7 +581,9 @@ app.get("/construction-prices", async (c) => {
     }));
 
     const datesResult = await db
-      .prepare(`SELECT DISTINCT report_period FROM MonthlyConstructionPrice ORDER BY report_period DESC`)
+      .prepare(
+        `SELECT DISTINCT report_period FROM MonthlyConstructionPrice ORDER BY report_period DESC`,
+      )
       .all<{ report_period: string }>();
     const dateData = datesResult.results.map((r) => r.report_period);
 
@@ -535,7 +599,12 @@ app.get("/construction-prices", async (c) => {
         threeMonthsAgoPeriod: meta.three_months_ago_period,
         source: meta.source,
         dateData,
-        pagination: { page: pageParam, limit, total: totalRows, pages: Math.ceil(totalRows / limit) },
+        pagination: {
+          page: pageParam,
+          limit,
+          total: totalRows,
+          pages: Math.ceil(totalRows / limit),
+        },
         categories,
       },
       200,
@@ -545,7 +614,6 @@ app.get("/construction-prices", async (c) => {
     return c.json({ error: "Failed to fetch construction prices" }, 500);
   }
 });
-
 
 // cron trigger scheduling and rate limiting
 export default {
@@ -575,12 +643,10 @@ export default {
         break;
 
       case "0 6-8 * * *":
-      case "0 6,7,8 * * *":
         ctx.waitUntil(runJob("Market Cron", () => insertMarketData(env.MY_DB)));
         break;
 
       case "30 7-9 * * *":
-      case "30 7,8,9 * * *":
         ctx.waitUntil(
           runJob("Cigarette Cron", () => insertCigaretteData(env.MY_DB)),
         );
